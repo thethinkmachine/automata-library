@@ -87,8 +87,8 @@
   "schema": 1,
   "app": "dev",
   "meta": {
-    "title": "binary increment",
-    "blurb": "The textbook Deterministic Turing Machine example.",
+    "title": "Binary increment",
+    "blurb": "Adds one to a binary number, most significant bit first. Run to the right end, then turn every trailing 1 into 0 until a 0 (or the blank before the number) takes the carry. 1011 becomes 1100; 111 grows into 1000.",
     "library": {
       "author": {
         "login": "thethinkmachine"
@@ -99,6 +99,35 @@
         "tm"
       ],
       "difficulty": "intro"
-    }
+    },
+    "inputs": [
+      {
+        "w": "0",
+        "expect": "accept",
+        "label": "0 + 1",
+        "tape": "1"
+      },
+      {
+        "w": "1011",
+        "expect": "accept",
+        "label": "11 + 1",
+        "tape": "1100"
+      },
+      {
+        "w": "111",
+        "expect": "accept",
+        "label": "7 + 1",
+        "tape": "1000"
+      },
+      {
+        "w": "1001",
+        "expect": "accept",
+        "label": "9 + 1",
+        "tape": "1010"
+      }
+    ]
+  },
+  "config": {
+    "twoWayTape": true
   }
 }

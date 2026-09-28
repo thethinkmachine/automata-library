@@ -51,8 +51,8 @@
   "schema": 1,
   "app": "dev",
   "meta": {
-    "title": "nondeterministic rewriter",
-    "blurb": "The textbook Finite State Transducer example.",
+    "title": "Nondeterministic rewriter",
+    "blurb": "Every a may become 0 or 1, and every b becomes X. A transducer need not be a function: this one gives 2ᵏ outputs for a word with k a’s, and the simulator lists them all. A relation between words, drawn with one state.",
     "library": {
       "author": {
         "login": "thethinkmachine"
@@ -63,6 +63,28 @@
         "fst"
       ],
       "difficulty": "intro"
-    }
+    },
+    "inputs": [
+      {
+        "w": "b",
+        "out": "X"
+      },
+      {
+        "w": "a",
+        "out": "0 | 1"
+      },
+      {
+        "w": "ab",
+        "out": "0X | 1X"
+      },
+      {
+        "w": "bab",
+        "out": "X0X | X1X"
+      },
+      {
+        "w": "aa",
+        "out": "00 | 01 | 10 | 11"
+      }
+    ]
   }
 }

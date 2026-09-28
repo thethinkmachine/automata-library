@@ -9,6 +9,15 @@
     "transducers/mealy/report-each-bit",
     "transducers/fst/binary-gray-code",
     "transducers/pdt/reverse-the-input",
-    "transducers/twodft/copy-twice-w-ww"
+    "transducers/twodft/copy-twice-w-ww",
+    "transducers/mealy/rising-edge-detector",
+    "transducers/moore/rising-edge-detector",
+    "transducers/mealy/twos-complement-negation",
+    "transducers/mealy/divide-by-3-msb-first",
+    "transducers/moore/remainder-mod-3-display",
+    "transducers/fst/squeeze-repeated-letters",
+    "transducers/fst/increment-lsb-first",
+    "transducers/fst/halve-a-unary-number",
+    "transducers/twodft/palindromize-w-to-w-wr"
   ]
 }

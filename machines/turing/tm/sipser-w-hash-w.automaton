@@ -1,0 +1,327 @@
+{
+  "format": "automata-studio/workspace",
+  "schema": 1,
+  "app": "dev",
+  "machine": "TM",
+  "config": {
+    "twoWayTape": true,
+    "sym": {
+      "eps": "ε",
+      "any": "Σ",
+      "blank": "⊔",
+      "leftMarker": "⊢",
+      "rightMarker": "⊣",
+      "stackBottom": "Z",
+      "lambda": "λ"
+    }
+  },
+  "sigma": [
+    "0",
+    "1",
+    "#"
+  ],
+  "stackAlpha": [
+    "0",
+    "1",
+    "#",
+    "x",
+    "⊔"
+  ],
+  "outputAlpha": [],
+  "tapeCount": 1,
+  "states": [
+    {
+      "id": "s1",
+      "name": "q1",
+      "x": 0,
+      "y": 0
+    },
+    {
+      "id": "s2",
+      "name": "q2",
+      "x": 179,
+      "y": 95
+    },
+    {
+      "id": "s3",
+      "name": "q3",
+      "x": 179,
+      "y": 0
+    },
+    {
+      "id": "s4",
+      "name": "q4",
+      "x": 358,
+      "y": 95
+    },
+    {
+      "id": "s5",
+      "name": "q5",
+      "x": 358,
+      "y": 0
+    },
+    {
+      "id": "s6",
+      "name": "q6",
+      "x": 537,
+      "y": 0
+    },
+    {
+      "id": "s7",
+      "name": "q7",
+      "x": 716,
+      "y": 0
+    },
+    {
+      "id": "s8",
+      "name": "q8",
+      "x": 179,
+      "y": -95
+    },
+    {
+      "id": "s9",
+      "name": "accept",
+      "x": 358,
+      "y": -95
+    }
+  ],
+  "transitions": [
+    {
+      "id": "t1",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "0",
+      "write": "x",
+      "dir": "R"
+    },
+    {
+      "id": "t2",
+      "from": "s1",
+      "to": "s3",
+      "symbol": "1",
+      "write": "x",
+      "dir": "R"
+    },
+    {
+      "id": "t3",
+      "from": "s1",
+      "to": "s8",
+      "symbol": "#",
+      "write": "#",
+      "dir": "R"
+    },
+    {
+      "id": "t4",
+      "from": "s2",
+      "to": "s2",
+      "symbol": "0",
+      "write": "0",
+      "dir": "R"
+    },
+    {
+      "id": "t5",
+      "from": "s2",
+      "to": "s2",
+      "symbol": "1",
+      "write": "1",
+      "dir": "R"
+    },
+    {
+      "id": "t6",
+      "from": "s2",
+      "to": "s4",
+      "symbol": "#",
+      "write": "#",
+      "dir": "R"
+    },
+    {
+      "id": "t7",
+      "from": "s3",
+      "to": "s3",
+      "symbol": "0",
+      "write": "0",
+      "dir": "R"
+    },
+    {
+      "id": "t8",
+      "from": "s3",
+      "to": "s3",
+      "symbol": "1",
+      "write": "1",
+      "dir": "R"
+    },
+    {
+      "id": "t9",
+      "from": "s3",
+      "to": "s5",
+      "symbol": "#",
+      "write": "#",
+      "dir": "R"
+    },
+    {
+      "id": "t10",
+      "from": "s4",
+      "to": "s4",
+      "symbol": "x",
+      "write": "x",
+      "dir": "R"
+    },
+    {
+      "id": "t11",
+      "from": "s4",
+      "to": "s6",
+      "symbol": "0",
+      "write": "x",
+      "dir": "L"
+    },
+    {
+      "id": "t12",
+      "from": "s5",
+      "to": "s5",
+      "symbol": "x",
+      "write": "x",
+      "dir": "R"
+    },
+    {
+      "id": "t13",
+      "from": "s5",
+      "to": "s6",
+      "symbol": "1",
+      "write": "x",
+      "dir": "L"
+    },
+    {
+      "id": "t14",
+      "from": "s6",
+      "to": "s6",
+      "symbol": "0",
+      "write": "0",
+      "dir": "L"
+    },
+    {
+      "id": "t15",
+      "from": "s6",
+      "to": "s6",
+      "symbol": "1",
+      "write": "1",
+      "dir": "L"
+    },
+    {
+      "id": "t16",
+      "from": "s6",
+      "to": "s6",
+      "symbol": "x",
+      "write": "x",
+      "dir": "L"
+    },
+    {
+      "id": "t17",
+      "from": "s6",
+      "to": "s7",
+      "symbol": "#",
+      "write": "#",
+      "dir": "L"
+    },
+    {
+      "id": "t18",
+      "from": "s7",
+      "to": "s7",
+      "symbol": "0",
+      "write": "0",
+      "dir": "L"
+    },
+    {
+      "id": "t19",
+      "from": "s7",
+      "to": "s7",
+      "symbol": "1",
+      "write": "1",
+      "dir": "L"
+    },
+    {
+      "id": "t20",
+      "from": "s7",
+      "to": "s1",
+      "symbol": "x",
+      "write": "x",
+      "dir": "R"
+    },
+    {
+      "id": "t21",
+      "from": "s8",
+      "to": "s8",
+      "symbol": "x",
+      "write": "x",
+      "dir": "R"
+    },
+    {
+      "id": "t22",
+      "from": "s8",
+      "to": "s9",
+      "symbol": "⊔",
+      "write": "⊔",
+      "dir": "R"
+    }
+  ],
+  "startId": "s1",
+  "accepts": [
+    "s9"
+  ],
+  "notes": [],
+  "dividers": [],
+  "blocks": [],
+  "meta": {
+    "title": "Sipser’s M₁: w#w",
+    "blurb": "Zig-zags across the # crossing off matching symbols: remember the first unmarked symbol in the state, find its partner on the other side, cross both off, come back. The machine from Sipser’s Example 3.9, state for state.",
+    "inputs": [
+      {
+        "w": "#",
+        "expect": "accept",
+        "label": "ε#ε"
+      },
+      {
+        "w": "0#0",
+        "expect": "accept"
+      },
+      {
+        "w": "101#101",
+        "expect": "accept"
+      },
+      {
+        "w": "0110#0110",
+        "expect": "accept"
+      },
+      {
+        "w": "01#10",
+        "expect": "reject"
+      },
+      {
+        "w": "1#11",
+        "expect": "reject"
+      },
+      {
+        "w": "10#1",
+        "expect": "reject"
+      },
+      {
+        "w": "0#0#0",
+        "expect": "reject"
+      }
+    ],
+    "library": {
+      "author": {
+        "login": "thethinkmachine"
+      },
+      "license": "CC-BY-4.0",
+      "tags": [
+        "sipser",
+        "copy-language",
+        "textbook",
+        "not-context-free"
+      ],
+      "difficulty": "intro",
+      "chapter": "Sipser, Introduction to the Theory of Computation, Example 3.9",
+      "readme": "Sipser's informal description of M₁ — \"zig-zag across the tape to corresponding positions on either side of the # symbol to check whether these positions contain the same symbol\" — and the formal state diagram behind it, rebuilt here with his numbering.\n\n- **q2** and **q3** carry the symbol just crossed off (0 or 1) to the right side.\n- **q4** and **q5** skip what has already been matched there.\n- **q6** and **q7** walk back to the leftmost unmatched symbol.\n- **q8** is the final check that nothing on the right is left over.\n\nThe run takes O(n²) steps, one round trip per symbol. **B = {w#w}** is not context-free, so no pushdown automaton could do this; a queue automaton can, and in linear time — compare **Perfect copy: w#w**."
+    }
+  }
+}

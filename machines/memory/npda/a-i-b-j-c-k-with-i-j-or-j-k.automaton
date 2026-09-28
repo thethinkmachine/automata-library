@@ -1,0 +1,267 @@
+{
+  "format": "automata-studio/workspace",
+  "schema": 1,
+  "app": "dev",
+  "machine": "NPDA",
+  "config": {
+    "pdaParadigm": "explicit",
+    "sym": {
+      "eps": "ε",
+      "any": "Σ",
+      "blank": "⊔",
+      "leftMarker": "⊢",
+      "rightMarker": "⊣",
+      "stackBottom": "Z",
+      "lambda": "λ"
+    }
+  },
+  "sigma": [
+    "a",
+    "b",
+    "c"
+  ],
+  "stackAlpha": [
+    "A",
+    "B",
+    "Z"
+  ],
+  "outputAlpha": [],
+  "tapeCount": 1,
+  "states": [
+    {
+      "id": "s1",
+      "name": "guess",
+      "x": 0,
+      "y": 0
+    },
+    {
+      "id": "s2",
+      "name": "i: count a",
+      "x": 179,
+      "y": 48
+    },
+    {
+      "id": "s3",
+      "name": "i: match b",
+      "x": 358,
+      "y": 48
+    },
+    {
+      "id": "s4",
+      "name": "i: skip c",
+      "x": 537,
+      "y": 48
+    },
+    {
+      "id": "s5",
+      "name": "k: skip a",
+      "x": 179,
+      "y": -47
+    },
+    {
+      "id": "s6",
+      "name": "k: count b",
+      "x": 358,
+      "y": -47
+    },
+    {
+      "id": "s7",
+      "name": "k: match c",
+      "x": 537,
+      "y": -47
+    },
+    {
+      "id": "s8",
+      "name": "k: done",
+      "x": 716,
+      "y": 0
+    }
+  ],
+  "transitions": [
+    {
+      "id": "t1",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "ε",
+      "pop": "Z",
+      "push": "Z"
+    },
+    {
+      "id": "t2",
+      "from": "s1",
+      "to": "s5",
+      "symbol": "ε",
+      "pop": "Z",
+      "push": "Z"
+    },
+    {
+      "id": "t3",
+      "from": "s2",
+      "to": "s2",
+      "symbol": "a",
+      "pop": "Z",
+      "push": "AZ"
+    },
+    {
+      "id": "t4",
+      "from": "s2",
+      "to": "s2",
+      "symbol": "a",
+      "pop": "A",
+      "push": "AA"
+    },
+    {
+      "id": "t5",
+      "from": "s2",
+      "to": "s3",
+      "symbol": "ε",
+      "pop": "ε",
+      "push": "ε"
+    },
+    {
+      "id": "t6",
+      "from": "s3",
+      "to": "s3",
+      "symbol": "b",
+      "pop": "A",
+      "push": "ε"
+    },
+    {
+      "id": "t7",
+      "from": "s3",
+      "to": "s4",
+      "symbol": "ε",
+      "pop": "Z",
+      "push": "Z"
+    },
+    {
+      "id": "t8",
+      "from": "s4",
+      "to": "s4",
+      "symbol": "c",
+      "pop": "ε",
+      "push": "ε"
+    },
+    {
+      "id": "t9",
+      "from": "s5",
+      "to": "s5",
+      "symbol": "a",
+      "pop": "ε",
+      "push": "ε"
+    },
+    {
+      "id": "t10",
+      "from": "s5",
+      "to": "s6",
+      "symbol": "ε",
+      "pop": "ε",
+      "push": "ε"
+    },
+    {
+      "id": "t11",
+      "from": "s6",
+      "to": "s6",
+      "symbol": "b",
+      "pop": "Z",
+      "push": "BZ"
+    },
+    {
+      "id": "t12",
+      "from": "s6",
+      "to": "s6",
+      "symbol": "b",
+      "pop": "B",
+      "push": "BB"
+    },
+    {
+      "id": "t13",
+      "from": "s6",
+      "to": "s7",
+      "symbol": "ε",
+      "pop": "ε",
+      "push": "ε"
+    },
+    {
+      "id": "t14",
+      "from": "s7",
+      "to": "s7",
+      "symbol": "c",
+      "pop": "B",
+      "push": "ε"
+    },
+    {
+      "id": "t15",
+      "from": "s7",
+      "to": "s8",
+      "symbol": "ε",
+      "pop": "Z",
+      "push": "Z"
+    }
+  ],
+  "startId": "s1",
+  "accepts": [
+    "s4",
+    "s8"
+  ],
+  "notes": [],
+  "dividers": [],
+  "blocks": [],
+  "meta": {
+    "title": "aⁱbʲcᵏ where i = j or j = k",
+    "blurb": "The first move is a guess: check that the a’s match the b’s, or that the b’s match the c’s. The textbook inherently ambiguous language — every grammar for it has two parse trees for aⁿbⁿcⁿ, and no deterministic PDA recognises it.",
+    "inputs": [
+      {
+        "w": "",
+        "expect": "accept",
+        "label": "ε"
+      },
+      {
+        "w": "abcc",
+        "expect": "accept",
+        "label": "i = j"
+      },
+      {
+        "w": "cc",
+        "expect": "accept",
+        "label": "i = j = 0"
+      },
+      {
+        "w": "abbcc",
+        "expect": "accept",
+        "label": "j = k"
+      },
+      {
+        "w": "aabbcc",
+        "expect": "accept",
+        "label": "both"
+      },
+      {
+        "w": "abbc",
+        "expect": "reject"
+      },
+      {
+        "w": "aabbbc",
+        "expect": "reject"
+      },
+      {
+        "w": "acb",
+        "expect": "reject"
+      }
+    ],
+    "library": {
+      "author": {
+        "login": "thethinkmachine"
+      },
+      "license": "CC-BY-4.0",
+      "tags": [
+        "ambiguity",
+        "nondeterminism",
+        "textbook"
+      ],
+      "difficulty": "intermediate",
+      "chapter": "Sipser, Introduction to the Theory of Computation, §2.1",
+      "readme": "Two machines behind one guess. The upper branch pushes an A per a and pops one per b, then ignores the c's. The lower branch ignores the a's, pushes a B per b and pops one per c. A word is accepted when either branch reaches its accepting state with the input used up.\n\nWords of the form **aⁿbⁿcⁿ** are accepted by **both** branches, and that is the point. Any context-free grammar for this language must, for all large enough n, give those words two different parse trees — the language is *inherently ambiguous*, the classic example of it. A single stack cannot check both equalities at once; that would be aⁿbⁿcⁿ, which is not context-free."
+    }
+  }
+}

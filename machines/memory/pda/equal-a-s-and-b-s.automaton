@@ -1,0 +1,182 @@
+{
+  "format": "automata-studio/workspace",
+  "schema": 1,
+  "app": "dev",
+  "machine": "DPDA",
+  "config": {
+    "pdaParadigm": "explicit",
+    "sym": {
+      "eps": "ε",
+      "any": "Σ",
+      "blank": "⊔",
+      "leftMarker": "⊢",
+      "rightMarker": "⊣",
+      "stackBottom": "Z",
+      "lambda": "λ"
+    }
+  },
+  "sigma": [
+    "a",
+    "b"
+  ],
+  "stackAlpha": [
+    "A",
+    "B",
+    "Z"
+  ],
+  "outputAlpha": [],
+  "tapeCount": 1,
+  "states": [
+    {
+      "id": "s1",
+      "name": "balanced",
+      "x": 0,
+      "y": 0
+    },
+    {
+      "id": "s2",
+      "name": "ahead",
+      "x": 179,
+      "y": 0
+    },
+    {
+      "id": "s3",
+      "name": "check",
+      "x": 358,
+      "y": 0
+    }
+  ],
+  "transitions": [
+    {
+      "id": "t1",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "a",
+      "pop": "Z",
+      "push": "AZ"
+    },
+    {
+      "id": "t2",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "b",
+      "pop": "Z",
+      "push": "BZ"
+    },
+    {
+      "id": "t3",
+      "from": "s2",
+      "to": "s2",
+      "symbol": "a",
+      "pop": "A",
+      "push": "AA"
+    },
+    {
+      "id": "t4",
+      "from": "s2",
+      "to": "s2",
+      "symbol": "b",
+      "pop": "B",
+      "push": "BB"
+    },
+    {
+      "id": "t5",
+      "from": "s2",
+      "to": "s3",
+      "symbol": "a",
+      "pop": "B",
+      "push": "ε"
+    },
+    {
+      "id": "t6",
+      "from": "s2",
+      "to": "s3",
+      "symbol": "b",
+      "pop": "A",
+      "push": "ε"
+    },
+    {
+      "id": "t7",
+      "from": "s3",
+      "to": "s1",
+      "symbol": "ε",
+      "pop": "Z",
+      "push": "Z"
+    },
+    {
+      "id": "t8",
+      "from": "s3",
+      "to": "s2",
+      "symbol": "ε",
+      "pop": "A",
+      "push": "A"
+    },
+    {
+      "id": "t9",
+      "from": "s3",
+      "to": "s2",
+      "symbol": "ε",
+      "pop": "B",
+      "push": "B"
+    }
+  ],
+  "startId": "s1",
+  "accepts": [
+    "s1"
+  ],
+  "notes": [],
+  "dividers": [],
+  "blocks": [],
+  "meta": {
+    "title": "Equal numbers of a’s and b’s, in any order",
+    "blurb": "The stack holds the surplus: A’s while a is ahead, B’s while b is. A letter that matches the surplus grows it, the other cancels one. Deterministic, and accepted by final state whenever the surplus is zero.",
+    "inputs": [
+      {
+        "w": "",
+        "expect": "accept",
+        "label": "ε"
+      },
+      {
+        "w": "ab",
+        "expect": "accept"
+      },
+      {
+        "w": "ba",
+        "expect": "accept"
+      },
+      {
+        "w": "aabbba",
+        "expect": "accept"
+      },
+      {
+        "w": "bbabaa",
+        "expect": "accept"
+      },
+      {
+        "w": "a",
+        "expect": "reject"
+      },
+      {
+        "w": "aab",
+        "expect": "reject"
+      },
+      {
+        "w": "babbb",
+        "expect": "reject"
+      }
+    ],
+    "library": {
+      "author": {
+        "login": "thethinkmachine"
+      },
+      "license": "CC-BY-4.0",
+      "tags": [
+        "counting",
+        "deterministic-cfl",
+        "textbook"
+      ],
+      "difficulty": "intermediate",
+      "readme": "The difference #a − #b is an integer that can go negative, and a stack can only hold a count that is at least zero. The trick is to store the **sign** in the stack symbol: a stack of A's means a is ahead by that many, a stack of B's means b is.\n\nThe \"check\" state is the only subtle part. After a cancelling letter, the machine needs to know whether the surplus just reached zero, and a deterministic PDA cannot both read a letter and test for Z in the same move. So it pops, then looks at what surfaced with an ε-move — which is allowed because no other move leaves *check*.\n\nCompare **#a − #b divisible by 3** among the DFAs: counting modulo a number is finite memory, counting exactly is not."
+    }
+  }
+}

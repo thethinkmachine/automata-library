@@ -1,0 +1,209 @@
+{
+  "format": "automata-studio/workspace",
+  "schema": 1,
+  "app": "dev",
+  "machine": "DPDA",
+  "config": {
+    "pdaParadigm": "explicit",
+    "sym": {
+      "eps": "ε",
+      "any": "Σ",
+      "blank": "⊔",
+      "leftMarker": "⊢",
+      "rightMarker": "⊣",
+      "stackBottom": "Z",
+      "lambda": "λ"
+    }
+  },
+  "sigma": [
+    "a",
+    "b",
+    "c"
+  ],
+  "stackAlpha": [
+    "A",
+    "B",
+    "Z"
+  ],
+  "outputAlpha": [],
+  "tapeCount": 1,
+  "states": [
+    {
+      "id": "s1",
+      "name": "push",
+      "x": 0,
+      "y": 0
+    },
+    {
+      "id": "s2",
+      "name": "match",
+      "x": 179,
+      "y": 0
+    },
+    {
+      "id": "s3",
+      "name": "accept",
+      "x": 358,
+      "y": 0
+    }
+  ],
+  "transitions": [
+    {
+      "id": "t1",
+      "from": "s1",
+      "to": "s1",
+      "symbol": "a",
+      "pop": "Z",
+      "push": "AZ"
+    },
+    {
+      "id": "t2",
+      "from": "s1",
+      "to": "s1",
+      "symbol": "b",
+      "pop": "Z",
+      "push": "BZ"
+    },
+    {
+      "id": "t3",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "c",
+      "pop": "Z",
+      "push": "Z"
+    },
+    {
+      "id": "t4",
+      "from": "s1",
+      "to": "s1",
+      "symbol": "a",
+      "pop": "A",
+      "push": "AA"
+    },
+    {
+      "id": "t5",
+      "from": "s1",
+      "to": "s1",
+      "symbol": "b",
+      "pop": "A",
+      "push": "BA"
+    },
+    {
+      "id": "t6",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "c",
+      "pop": "A",
+      "push": "A"
+    },
+    {
+      "id": "t7",
+      "from": "s1",
+      "to": "s1",
+      "symbol": "a",
+      "pop": "B",
+      "push": "AB"
+    },
+    {
+      "id": "t8",
+      "from": "s1",
+      "to": "s1",
+      "symbol": "b",
+      "pop": "B",
+      "push": "BB"
+    },
+    {
+      "id": "t9",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "c",
+      "pop": "B",
+      "push": "B"
+    },
+    {
+      "id": "t10",
+      "from": "s2",
+      "to": "s2",
+      "symbol": "a",
+      "pop": "A",
+      "push": "ε"
+    },
+    {
+      "id": "t11",
+      "from": "s2",
+      "to": "s2",
+      "symbol": "b",
+      "pop": "B",
+      "push": "ε"
+    },
+    {
+      "id": "t12",
+      "from": "s2",
+      "to": "s3",
+      "symbol": "ε",
+      "pop": "Z",
+      "push": "Z"
+    }
+  ],
+  "startId": "s1",
+  "accepts": [
+    "s3"
+  ],
+  "notes": [],
+  "dividers": [],
+  "blocks": [],
+  "meta": {
+    "title": "wcwᴿ — palindromes with a centre marker",
+    "blurb": "A word, the marker c, then the word backwards. Because c announces the middle, no guessing is needed and a deterministic PDA suffices: push until c, then pop and compare. Remove the marker and determinism is lost — see “Palindromes: guess the middle”.",
+    "inputs": [
+      {
+        "w": "c",
+        "expect": "accept"
+      },
+      {
+        "w": "aca",
+        "expect": "accept"
+      },
+      {
+        "w": "abcba",
+        "expect": "accept"
+      },
+      {
+        "w": "abbcbba",
+        "expect": "accept"
+      },
+      {
+        "w": "",
+        "expect": "reject"
+      },
+      {
+        "w": "ab",
+        "expect": "reject"
+      },
+      {
+        "w": "abcab",
+        "expect": "reject",
+        "label": "copied, not mirrored"
+      },
+      {
+        "w": "acca",
+        "expect": "reject",
+        "label": "two markers"
+      }
+    ],
+    "library": {
+      "author": {
+        "login": "thethinkmachine"
+      },
+      "license": "CC-BY-4.0",
+      "tags": [
+        "palindromes",
+        "deterministic-cfl",
+        "textbook"
+      ],
+      "difficulty": "intro",
+      "chapter": "Hopcroft, Motwani & Ullman, §6.4",
+      "readme": "The deterministic context-free languages are the ones a PDA can parse without ever guessing, and **wcwᴿ** is the textbook member. Everything before the c is pushed; after it, each symbol must match the top of the stack.\n\nIts unmarked cousin **wwᴿ** (even palindromes) is context-free but *not* deterministic: a machine reading left to right cannot know where the middle is until it is too late. That gap — a language a nondeterministic PDA recognises and no deterministic one does — is one of the places where the pushdown world differs from the finite one, where determinism costs nothing."
+    }
+  }
+}

@@ -11,6 +11,8 @@
   "featured": [
     "busy-beavers",
     "regular-languages",
+    "turing-classics",
+    "nondeterminism",
     "omega-zoo"
   ]
 }

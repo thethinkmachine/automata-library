@@ -1,0 +1,153 @@
+{
+  "format": "automata-studio/workspace",
+  "schema": 1,
+  "app": "dev",
+  "machine": "NFA",
+  "config": {
+    "sym": {
+      "eps": "ε",
+      "any": "Σ",
+      "blank": "⊔",
+      "leftMarker": "⊢",
+      "rightMarker": "⊣",
+      "stackBottom": "Z",
+      "lambda": "λ"
+    }
+  },
+  "sigma": [
+    "0",
+    "1"
+  ],
+  "stackAlpha": [],
+  "outputAlpha": [],
+  "tapeCount": 1,
+  "states": [
+    {
+      "id": "s1",
+      "name": "anywhere",
+      "x": 0,
+      "y": 0
+    },
+    {
+      "id": "s2",
+      "name": "guessed",
+      "x": 179,
+      "y": 0
+    },
+    {
+      "id": "s3",
+      "name": "one more",
+      "x": 358,
+      "y": 0
+    },
+    {
+      "id": "s4",
+      "name": "end",
+      "x": 537,
+      "y": 0
+    }
+  ],
+  "transitions": [
+    {
+      "id": "t1",
+      "from": "s1",
+      "to": "s1",
+      "symbol": "0"
+    },
+    {
+      "id": "t2",
+      "from": "s1",
+      "to": "s1",
+      "symbol": "1"
+    },
+    {
+      "id": "t3",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "1"
+    },
+    {
+      "id": "t4",
+      "from": "s2",
+      "to": "s3",
+      "symbol": "0"
+    },
+    {
+      "id": "t5",
+      "from": "s2",
+      "to": "s3",
+      "symbol": "1"
+    },
+    {
+      "id": "t6",
+      "from": "s3",
+      "to": "s4",
+      "symbol": "0"
+    },
+    {
+      "id": "t7",
+      "from": "s3",
+      "to": "s4",
+      "symbol": "1"
+    }
+  ],
+  "startId": "s1",
+  "accepts": [
+    "s4"
+  ],
+  "notes": [],
+  "dividers": [],
+  "blocks": [],
+  "meta": {
+    "title": "Third symbol from the end is 1 (the NFA)",
+    "blurb": "Four states: skip ahead, guess that this 1 is the third-from-last symbol, then check that exactly two symbols follow. The DFA for the same language needs eight — nondeterminism can be exponentially more succinct.",
+    "inputs": [
+      {
+        "w": "100",
+        "expect": "accept"
+      },
+      {
+        "w": "0110",
+        "expect": "accept"
+      },
+      {
+        "w": "11111",
+        "expect": "accept"
+      },
+      {
+        "w": "0101",
+        "expect": "accept"
+      },
+      {
+        "w": "",
+        "expect": "reject"
+      },
+      {
+        "w": "11",
+        "expect": "reject"
+      },
+      {
+        "w": "011",
+        "expect": "reject"
+      },
+      {
+        "w": "10001",
+        "expect": "reject"
+      }
+    ],
+    "library": {
+      "author": {
+        "login": "thethinkmachine"
+      },
+      "license": "CC-BY-4.0",
+      "tags": [
+        "guessing",
+        "subset-construction",
+        "nfa-vs-dfa"
+      ],
+      "difficulty": "intro",
+      "chapter": "Hopcroft, Motwani & Ullman, §2.3.6",
+      "readme": "The machine never knows where the end of the word is, so it guesses. On every 1 it may stay in \"anywhere\" or bet that this 1 is the one; a wrong bet simply dies (there is no move out of \"end\"). The word is accepted if *some* bet was right.\n\nRun the subset construction on it (Algorithms ▸ NFA → DFA) and you get exactly the eight-state machine in **Third symbol from the end is 1 (the DFA)** — every subset that can arise is one of the eight possible memories of the last three symbols."
+    }
+  }
+}

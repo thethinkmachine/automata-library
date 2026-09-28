@@ -59,8 +59,8 @@
   "schema": 1,
   "app": "dev",
   "meta": {
-    "title": "traffic light",
-    "blurb": "The textbook Moore Machine example.",
+    "title": "Traffic light",
+    "blurb": "Red, green, yellow, red: a three-state cycle driven by a timer tick, with the light on each state. The Moore output starts before the first tick, which is why one tick shows two colours.",
     "library": {
       "author": {
         "login": "thethinkmachine"
@@ -71,6 +71,25 @@
         "moore"
       ],
       "difficulty": "intro"
-    }
+    },
+    "inputs": [
+      {
+        "w": "",
+        "out": "RED",
+        "label": "before any tick"
+      },
+      {
+        "w": "tick",
+        "out": "RED GREEN"
+      },
+      {
+        "w": "tick tick tick",
+        "out": "RED GREEN YELLOW RED"
+      },
+      {
+        "w": "tick tick tick tick",
+        "out": "RED GREEN YELLOW RED GREEN"
+      }
+    ]
   }
 }

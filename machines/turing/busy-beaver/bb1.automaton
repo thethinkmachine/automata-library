@@ -1,0 +1,75 @@
+{
+  "format": "automata-studio/workspace",
+  "schema": 1,
+  "app": "dev",
+  "machine": "ITM",
+  "config": {
+    "twoWayTape": true,
+    "sym": {
+      "eps": "ε",
+      "any": "Σ",
+      "blank": "⊔",
+      "leftMarker": "⊢",
+      "rightMarker": "⊣",
+      "stackBottom": "Z",
+      "lambda": "λ"
+    }
+  },
+  "sigma": [
+    "1"
+  ],
+  "stackAlpha": [
+    "1",
+    "⊔"
+  ],
+  "outputAlpha": [],
+  "tapeCount": 1,
+  "states": [
+    {
+      "id": "s1",
+      "name": "A",
+      "x": 0,
+      "y": 0
+    },
+    {
+      "id": "s2",
+      "name": "halt",
+      "x": 179,
+      "y": 0
+    }
+  ],
+  "transitions": [
+    {
+      "id": "t1",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "⊔",
+      "write": "1",
+      "dir": "R"
+    }
+  ],
+  "startId": "s1",
+  "accepts": [
+    "s2"
+  ],
+  "notes": [],
+  "dividers": [],
+  "blocks": [],
+  "meta": {
+    "title": "BB(1) champion",
+    "blurb": "Write a 1 and halt: one step, one 1. A one-state machine can only halt on its very first step — any other first move runs forever on blanks — so BB(1) = 1, the first value of a function no computer can compute.",
+    "library": {
+      "author": {
+        "login": "thethinkmachine"
+      },
+      "license": "CC-BY-4.0",
+      "tags": [
+        "standard-format",
+        "busy-beaver",
+        "champion"
+      ],
+      "chapter": "Radó 1962, “On non-computable functions”",
+      "readme": "Standard format: 1RZ---"
+    }
+  }
+}

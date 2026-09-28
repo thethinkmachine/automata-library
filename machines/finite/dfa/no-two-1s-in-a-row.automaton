@@ -1,0 +1,142 @@
+{
+  "format": "automata-studio/workspace",
+  "schema": 1,
+  "app": "dev",
+  "machine": "DFA",
+  "config": {
+    "sym": {
+      "eps": "ε",
+      "any": "Σ",
+      "blank": "⊔",
+      "leftMarker": "⊢",
+      "rightMarker": "⊣",
+      "stackBottom": "Z",
+      "lambda": "λ"
+    }
+  },
+  "sigma": [
+    "0",
+    "1"
+  ],
+  "stackAlpha": [],
+  "outputAlpha": [],
+  "tapeCount": 1,
+  "states": [
+    {
+      "id": "s1",
+      "name": "ok",
+      "x": 0,
+      "y": 0
+    },
+    {
+      "id": "s2",
+      "name": "just read 1",
+      "x": 179,
+      "y": 0
+    },
+    {
+      "id": "s3",
+      "name": "dead",
+      "x": 358,
+      "y": 0
+    }
+  ],
+  "transitions": [
+    {
+      "id": "t1",
+      "from": "s1",
+      "to": "s1",
+      "symbol": "0"
+    },
+    {
+      "id": "t2",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "1"
+    },
+    {
+      "id": "t3",
+      "from": "s2",
+      "to": "s1",
+      "symbol": "0"
+    },
+    {
+      "id": "t4",
+      "from": "s2",
+      "to": "s3",
+      "symbol": "1"
+    },
+    {
+      "id": "t5",
+      "from": "s3",
+      "to": "s3",
+      "symbol": "0"
+    },
+    {
+      "id": "t6",
+      "from": "s3",
+      "to": "s3",
+      "symbol": "1"
+    }
+  ],
+  "startId": "s1",
+  "accepts": [
+    "s1",
+    "s2"
+  ],
+  "notes": [],
+  "dividers": [],
+  "blocks": [],
+  "meta": {
+    "title": "No two 1s in a row",
+    "blurb": "Binary strings with no two adjacent 1s. Only the last symbol matters, so two live states and a trap are all it takes — and the number of accepted words of length n is the Fibonacci number F(n+2).",
+    "inputs": [
+      {
+        "w": "",
+        "expect": "accept",
+        "label": "ε"
+      },
+      {
+        "w": "0",
+        "expect": "accept"
+      },
+      {
+        "w": "1",
+        "expect": "accept"
+      },
+      {
+        "w": "1010",
+        "expect": "accept"
+      },
+      {
+        "w": "10010",
+        "expect": "accept"
+      },
+      {
+        "w": "11",
+        "expect": "reject"
+      },
+      {
+        "w": "0110",
+        "expect": "reject"
+      },
+      {
+        "w": "101011",
+        "expect": "reject"
+      }
+    ],
+    "library": {
+      "author": {
+        "login": "thethinkmachine"
+      },
+      "license": "CC-BY-4.0",
+      "tags": [
+        "fibonacci",
+        "forbidden-pattern",
+        "textbook"
+      ],
+      "difficulty": "intro",
+      "readme": "The language of binary strings that never contain **11**. The machine only has to remember whether the last symbol was a 1: a 0 always resets it, and a second 1 falls into the trap.\n\nCount the accepted words by length — 1, 2, 3, 5, 8, 13, … — and the Fibonacci numbers appear. A word of length n either ends in 0 (any good word of length n−1 followed by 0) or in 01 (any good word of length n−2 followed by 01), which is exactly the recurrence F(n) = F(n−1) + F(n−2).\n\nThe same strings are the *Zeckendorf representations*: every positive integer is a sum of non-consecutive Fibonacci numbers in exactly one way."
+    }
+  }
+}

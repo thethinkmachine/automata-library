@@ -60,8 +60,8 @@
   "schema": 1,
   "app": "dev",
   "meta": {
-    "title": "scan to first b",
-    "blurb": "The textbook Linear Bounded Automaton example.",
+    "title": "Scan to the first b",
+    "blurb": "An LBA that reads right from the ⊢ endmarker and accepts at the first b. If it reaches ⊣ first there is no move, and the word is rejected — the endmarkers are what make a linear bounded automaton’s tape finite.",
     "library": {
       "author": {
         "login": "thethinkmachine"
@@ -72,6 +72,36 @@
         "lba"
       ],
       "difficulty": "intro"
-    }
+    },
+    "inputs": [
+      {
+        "w": "b",
+        "expect": "accept"
+      },
+      {
+        "w": "ab",
+        "expect": "accept"
+      },
+      {
+        "w": "aaab",
+        "expect": "accept"
+      },
+      {
+        "w": "abaa",
+        "expect": "accept"
+      },
+      {
+        "w": "",
+        "expect": "reject"
+      },
+      {
+        "w": "a",
+        "expect": "reject"
+      },
+      {
+        "w": "aaa",
+        "expect": "reject"
+      }
+    ]
   }
 }

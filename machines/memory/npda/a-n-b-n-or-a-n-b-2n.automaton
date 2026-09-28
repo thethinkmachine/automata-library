@@ -1,0 +1,223 @@
+{
+  "format": "automata-studio/workspace",
+  "schema": 1,
+  "app": "dev",
+  "machine": "NPDA",
+  "config": {
+    "pdaParadigm": "explicit",
+    "sym": {
+      "eps": "ε",
+      "any": "Σ",
+      "blank": "⊔",
+      "leftMarker": "⊢",
+      "rightMarker": "⊣",
+      "stackBottom": "Z",
+      "lambda": "λ"
+    }
+  },
+  "sigma": [
+    "a",
+    "b"
+  ],
+  "stackAlpha": [
+    "A",
+    "Z"
+  ],
+  "outputAlpha": [],
+  "tapeCount": 1,
+  "states": [
+    {
+      "id": "s1",
+      "name": "guess",
+      "x": 0,
+      "y": 0
+    },
+    {
+      "id": "s2",
+      "name": "push A",
+      "x": 179,
+      "y": 48
+    },
+    {
+      "id": "s3",
+      "name": "pop for bⁿ",
+      "x": 358,
+      "y": 48
+    },
+    {
+      "id": "s4",
+      "name": "push AA",
+      "x": 179,
+      "y": -47
+    },
+    {
+      "id": "s5",
+      "name": "pop for b²ⁿ",
+      "x": 358,
+      "y": -47
+    },
+    {
+      "id": "s6",
+      "name": "accept",
+      "x": 537,
+      "y": 0
+    }
+  ],
+  "transitions": [
+    {
+      "id": "t1",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "ε",
+      "pop": "Z",
+      "push": "Z"
+    },
+    {
+      "id": "t2",
+      "from": "s1",
+      "to": "s4",
+      "symbol": "ε",
+      "pop": "Z",
+      "push": "Z"
+    },
+    {
+      "id": "t3",
+      "from": "s2",
+      "to": "s2",
+      "symbol": "a",
+      "pop": "Z",
+      "push": "AZ"
+    },
+    {
+      "id": "t4",
+      "from": "s2",
+      "to": "s2",
+      "symbol": "a",
+      "pop": "A",
+      "push": "AA"
+    },
+    {
+      "id": "t5",
+      "from": "s2",
+      "to": "s3",
+      "symbol": "ε",
+      "pop": "ε",
+      "push": "ε"
+    },
+    {
+      "id": "t6",
+      "from": "s3",
+      "to": "s3",
+      "symbol": "b",
+      "pop": "A",
+      "push": "ε"
+    },
+    {
+      "id": "t7",
+      "from": "s3",
+      "to": "s6",
+      "symbol": "ε",
+      "pop": "Z",
+      "push": "Z"
+    },
+    {
+      "id": "t8",
+      "from": "s4",
+      "to": "s4",
+      "symbol": "a",
+      "pop": "Z",
+      "push": "AAZ"
+    },
+    {
+      "id": "t9",
+      "from": "s4",
+      "to": "s4",
+      "symbol": "a",
+      "pop": "A",
+      "push": "AAA"
+    },
+    {
+      "id": "t10",
+      "from": "s4",
+      "to": "s5",
+      "symbol": "ε",
+      "pop": "ε",
+      "push": "ε"
+    },
+    {
+      "id": "t11",
+      "from": "s5",
+      "to": "s5",
+      "symbol": "b",
+      "pop": "A",
+      "push": "ε"
+    },
+    {
+      "id": "t12",
+      "from": "s5",
+      "to": "s6",
+      "symbol": "ε",
+      "pop": "Z",
+      "push": "Z"
+    }
+  ],
+  "startId": "s1",
+  "accepts": [
+    "s6"
+  ],
+  "notes": [],
+  "dividers": [],
+  "blocks": [],
+  "meta": {
+    "title": "aⁿbⁿ ∪ aⁿb²ⁿ — context-free, not deterministic",
+    "blurb": "Each half is a deterministic language, and their union is not. Reading the a’s, a machine must already know whether to count them once or twice — so it guesses, one branch per answer.",
+    "inputs": [
+      {
+        "w": "",
+        "expect": "accept",
+        "label": "ε"
+      },
+      {
+        "w": "ab",
+        "expect": "accept"
+      },
+      {
+        "w": "abb",
+        "expect": "accept"
+      },
+      {
+        "w": "aabb",
+        "expect": "accept"
+      },
+      {
+        "w": "aabbbb",
+        "expect": "accept"
+      },
+      {
+        "w": "abbb",
+        "expect": "reject"
+      },
+      {
+        "w": "aabbb",
+        "expect": "reject"
+      },
+      {
+        "w": "ba",
+        "expect": "reject"
+      }
+    ],
+    "library": {
+      "author": {
+        "login": "thethinkmachine"
+      },
+      "license": "CC-BY-4.0",
+      "tags": [
+        "nondeterminism",
+        "deterministic-cfl",
+        "closure"
+      ],
+      "difficulty": "intermediate",
+      "readme": "The deterministic context-free languages are not closed under union, and this is the standard witness. **aⁿbⁿ** and **aⁿb²ⁿ** each have a DPDA — see **aⁿb²ⁿ** in this library — but a deterministic machine reading the a's has to decide how much to push per a before it has seen a single b, and whichever choice it makes, some word proves it wrong.\n\n(The proof: a DPDA is in one definite configuration after reading aⁿbⁿ, whatever follows. Run it that far, then keep running it on n more b's relabelled as c's, accepting when it would accept — and you have a PDA for aⁿbⁿcⁿ, which does not exist.)\n\nWith a guess at the start, it is two machines glued together, sharing their accepting state."
+    }
+  }
+}

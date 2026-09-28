@@ -138,8 +138,8 @@
   "schema": 1,
   "app": "dev",
   "meta": {
-    "title": "mirrored string w·wʳ",
-    "blurb": "The textbook Nondeterministic Pushdown Automaton example.",
+    "title": "Mirrored string w·wᴿ",
+    "blurb": "Even-length palindromes. Push the first half, guess the middle with an ε-move, and pop the second half against it. The guess is the whole point: no deterministic PDA can find the middle of an unmarked palindrome.",
     "library": {
       "author": {
         "login": "thethinkmachine"
@@ -150,6 +150,42 @@
         "npda"
       ],
       "difficulty": "intro"
-    }
+    },
+    "inputs": [
+      {
+        "w": "",
+        "expect": "accept",
+        "label": "ε"
+      },
+      {
+        "w": "aa",
+        "expect": "accept"
+      },
+      {
+        "w": "abba",
+        "expect": "accept"
+      },
+      {
+        "w": "baab",
+        "expect": "accept"
+      },
+      {
+        "w": "abbbba",
+        "expect": "accept"
+      },
+      {
+        "w": "a",
+        "expect": "reject"
+      },
+      {
+        "w": "ab",
+        "expect": "reject"
+      },
+      {
+        "w": "aba",
+        "expect": "reject",
+        "label": "odd length"
+      }
+    ]
   }
 }

@@ -1,0 +1,142 @@
+{
+  "format": "automata-studio/workspace",
+  "schema": 1,
+  "app": "dev",
+  "machine": "Mealy",
+  "config": {
+    "transducerAccepts": false,
+    "sym": {
+      "eps": "ε",
+      "any": "Σ",
+      "blank": "⊔",
+      "leftMarker": "⊢",
+      "rightMarker": "⊣",
+      "stackBottom": "Z",
+      "lambda": "λ"
+    }
+  },
+  "sigma": [
+    "0",
+    "1"
+  ],
+  "stackAlpha": [],
+  "outputAlpha": [
+    "0",
+    "1"
+  ],
+  "tapeCount": 1,
+  "states": [
+    {
+      "id": "s1",
+      "name": "r0",
+      "x": 0,
+      "y": 0
+    },
+    {
+      "id": "s2",
+      "name": "r1",
+      "x": 179,
+      "y": 0
+    },
+    {
+      "id": "s3",
+      "name": "r2",
+      "x": 358,
+      "y": 0
+    }
+  ],
+  "transitions": [
+    {
+      "id": "t1",
+      "from": "s1",
+      "to": "s1",
+      "symbol": "0",
+      "output": "0"
+    },
+    {
+      "id": "t2",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "1",
+      "output": "0"
+    },
+    {
+      "id": "t3",
+      "from": "s2",
+      "to": "s3",
+      "symbol": "0",
+      "output": "0"
+    },
+    {
+      "id": "t4",
+      "from": "s2",
+      "to": "s1",
+      "symbol": "1",
+      "output": "1"
+    },
+    {
+      "id": "t5",
+      "from": "s3",
+      "to": "s2",
+      "symbol": "0",
+      "output": "1"
+    },
+    {
+      "id": "t6",
+      "from": "s3",
+      "to": "s3",
+      "symbol": "1",
+      "output": "1"
+    }
+  ],
+  "startId": "s1",
+  "accepts": [],
+  "notes": [],
+  "dividers": [],
+  "blocks": [],
+  "meta": {
+    "title": "Long division by 3",
+    "blurb": "Reads a binary number most-significant bit first and writes its quotient by 3, one bit per bit read. The states are the remainder — exactly the divisibility-by-3 DFA — and each edge also says whether 3 went into the partial value.",
+    "inputs": [
+      {
+        "w": "11",
+        "out": "01",
+        "label": "3 ÷ 3 = 1"
+      },
+      {
+        "w": "110",
+        "out": "010",
+        "label": "6 ÷ 3 = 2"
+      },
+      {
+        "w": "1111",
+        "out": "0101",
+        "label": "15 ÷ 3 = 5"
+      },
+      {
+        "w": "1010",
+        "out": "0011",
+        "label": "10 ÷ 3 = 3 r 1"
+      },
+      {
+        "w": "100101",
+        "out": "001100",
+        "label": "37 ÷ 3 = 12 r 1"
+      }
+    ],
+    "library": {
+      "author": {
+        "login": "thethinkmachine"
+      },
+      "license": "CC-BY-4.0",
+      "tags": [
+        "binary",
+        "arithmetic",
+        "division",
+        "remainder"
+      ],
+      "difficulty": "intermediate",
+      "readme": "School long division, in base 2. With remainder *r* so far, reading bit *b* makes the partial value 2*r* + *b*; the next quotient bit is ⌊(2*r* + *b*)/3⌋ and the new remainder is (2*r* + *b*) mod 3. Since 2*r* + *b* ≤ 5, each quotient bit is 0 or 1.\n\nThe output has as many bits as the input, leading zeros included: **1111** (15) gives **0101** (5), and **1010** (10) gives **0011** (3) with the machine left in r1 — the remainder. Compare **Binary divisibility by 3**, which is this machine with the outputs erased and r0 made accepting."
+    }
+  }
+}

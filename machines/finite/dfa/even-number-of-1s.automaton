@@ -52,8 +52,8 @@
   "schema": 1,
   "app": "dev",
   "meta": {
-    "title": "even number of 1s",
-    "blurb": "The textbook Deterministic Finite Automaton example.",
+    "title": "Even number of 1s",
+    "blurb": "Two states and one bit of memory: the parity of the 1s read so far. Every 1 flips it, every 0 leaves it alone. The smallest DFA that has to remember anything, and the first one most courses draw.",
     "library": {
       "author": {
         "login": "thethinkmachine"
@@ -64,6 +64,41 @@
         "dfa"
       ],
       "difficulty": "intro"
-    }
+    },
+    "inputs": [
+      {
+        "w": "",
+        "expect": "accept",
+        "label": "ε"
+      },
+      {
+        "w": "0",
+        "expect": "accept"
+      },
+      {
+        "w": "11",
+        "expect": "accept"
+      },
+      {
+        "w": "1010",
+        "expect": "accept"
+      },
+      {
+        "w": "0110",
+        "expect": "accept"
+      },
+      {
+        "w": "1",
+        "expect": "reject"
+      },
+      {
+        "w": "10",
+        "expect": "reject"
+      },
+      {
+        "w": "111",
+        "expect": "reject"
+      }
+    ]
   }
 }

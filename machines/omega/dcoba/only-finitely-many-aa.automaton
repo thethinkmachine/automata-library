@@ -1,0 +1,138 @@
+{
+  "format": "automata-studio/workspace",
+  "schema": 1,
+  "app": "dev",
+  "machine": "DcoBA",
+  "config": {
+    "sym": {
+      "eps": "ε",
+      "any": "Σ",
+      "blank": "⊔",
+      "leftMarker": "⊢",
+      "rightMarker": "⊣",
+      "stackBottom": "Z",
+      "lambda": "λ"
+    }
+  },
+  "sigma": [
+    "a",
+    "b"
+  ],
+  "stackAlpha": [],
+  "outputAlpha": [],
+  "tapeCount": 1,
+  "states": [
+    {
+      "id": "s1",
+      "name": "last was b",
+      "x": 0,
+      "y": 0
+    },
+    {
+      "id": "s2",
+      "name": "last was a",
+      "x": 179,
+      "y": 0
+    },
+    {
+      "id": "s3",
+      "name": "aa",
+      "x": 358,
+      "y": 0
+    }
+  ],
+  "transitions": [
+    {
+      "id": "t1",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "a"
+    },
+    {
+      "id": "t2",
+      "from": "s1",
+      "to": "s1",
+      "symbol": "b"
+    },
+    {
+      "id": "t3",
+      "from": "s2",
+      "to": "s3",
+      "symbol": "a"
+    },
+    {
+      "id": "t4",
+      "from": "s2",
+      "to": "s1",
+      "symbol": "b"
+    },
+    {
+      "id": "t5",
+      "from": "s3",
+      "to": "s3",
+      "symbol": "a"
+    },
+    {
+      "id": "t6",
+      "from": "s3",
+      "to": "s1",
+      "symbol": "b"
+    }
+  ],
+  "startId": "s1",
+  "accepts": [
+    "s3"
+  ],
+  "notes": [],
+  "dividers": [],
+  "blocks": [],
+  "meta": {
+    "title": "Only finitely many aa’s",
+    "blurb": "FG ¬(a ∧ X a): from some point on, never two a’s in a row. Under co-Büchi the ringed state is the bad event, and a run accepts when it happens only finitely often. A DBA cannot recognise this language; a DcoBA does it in three states.",
+    "inputs": [
+      {
+        "w": "(b)",
+        "expect": "accept"
+      },
+      {
+        "w": "(ab)",
+        "expect": "accept"
+      },
+      {
+        "w": "aaaa(ab)",
+        "expect": "accept",
+        "label": "aa only at the start"
+      },
+      {
+        "w": "(abb)",
+        "expect": "accept"
+      },
+      {
+        "w": "(a)",
+        "expect": "reject"
+      },
+      {
+        "w": "(aab)",
+        "expect": "reject"
+      },
+      {
+        "w": "b(aba)",
+        "expect": "reject",
+        "label": "wraps round: …a|a…"
+      }
+    ],
+    "library": {
+      "author": {
+        "login": "thethinkmachine"
+      },
+      "license": "CC-BY-4.0",
+      "tags": [
+        "ltl",
+        "co-buchi",
+        "persistence"
+      ],
+      "difficulty": "intermediate",
+      "readme": "The state **aa** is entered every time the word has just shown two a's in a row. Co-Büchi acceptance reads the ring as \"must eventually stop\": the run accepts when inf(r) ∩ F = ∅.\n\nThis is the eventual version of **Never two a's in a row** (a safety property, in the DBA and DWA entries): a word may start with **aaaa**, as long as the pattern dies out. Languages of the form FG φ — *persistence* properties — are exactly where co-Büchi is natural and deterministic Büchi fails; compare **Eventually always b**."
+    }
+  }
+}

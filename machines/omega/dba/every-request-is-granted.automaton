@@ -1,0 +1,133 @@
+{
+  "format": "automata-studio/workspace",
+  "schema": 1,
+  "app": "dev",
+  "machine": "DBA",
+  "config": {
+    "sym": {
+      "eps": "ε",
+      "any": "Σ",
+      "blank": "⊔",
+      "leftMarker": "⊢",
+      "rightMarker": "⊣",
+      "stackBottom": "Z",
+      "lambda": "λ"
+    }
+  },
+  "sigma": [
+    "r",
+    "g",
+    "n"
+  ],
+  "stackAlpha": [],
+  "outputAlpha": [],
+  "tapeCount": 1,
+  "states": [
+    {
+      "id": "s1",
+      "name": "idle",
+      "x": 0,
+      "y": 0
+    },
+    {
+      "id": "s2",
+      "name": "pending",
+      "x": 179,
+      "y": 0
+    }
+  ],
+  "transitions": [
+    {
+      "id": "t1",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "r"
+    },
+    {
+      "id": "t2",
+      "from": "s1",
+      "to": "s1",
+      "symbol": "g"
+    },
+    {
+      "id": "t3",
+      "from": "s1",
+      "to": "s1",
+      "symbol": "n"
+    },
+    {
+      "id": "t4",
+      "from": "s2",
+      "to": "s1",
+      "symbol": "g"
+    },
+    {
+      "id": "t5",
+      "from": "s2",
+      "to": "s2",
+      "symbol": "r"
+    },
+    {
+      "id": "t6",
+      "from": "s2",
+      "to": "s2",
+      "symbol": "n"
+    }
+  ],
+  "startId": "s1",
+  "accepts": [
+    "s1"
+  ],
+  "notes": [],
+  "dividers": [],
+  "blocks": [],
+  "meta": {
+    "title": "Every request is eventually granted",
+    "blurb": "G(r → F g), the response property of model checking. Letters are r (request), g (grant) and n (nothing). A run is stuck in “pending” forever exactly when some request is never answered — so “idle” must recur.",
+    "inputs": [
+      {
+        "w": "(n)",
+        "expect": "accept",
+        "label": "nothing ever asked"
+      },
+      {
+        "w": "(rg)",
+        "expect": "accept"
+      },
+      {
+        "w": "r(nng)",
+        "expect": "accept"
+      },
+      {
+        "w": "rrg(n)",
+        "expect": "accept"
+      },
+      {
+        "w": "r(n)",
+        "expect": "reject",
+        "label": "waits forever"
+      },
+      {
+        "w": "(rn)",
+        "expect": "reject"
+      },
+      {
+        "w": "g(r)",
+        "expect": "reject"
+      }
+    ],
+    "library": {
+      "author": {
+        "login": "thethinkmachine"
+      },
+      "license": "CC-BY-4.0",
+      "tags": [
+        "ltl",
+        "model-checking",
+        "liveness"
+      ],
+      "difficulty": "intro",
+      "readme": "A **liveness** property: something good eventually happens. No finite prefix can violate it — however long a request has been waiting, a grant might still come — which is why it needs an ω-automaton rather than a finite one, and why a finite test run can never refute it.\n\nTwo states suffice. \"pending\" means an unanswered request exists; several requests before a grant are served by that one grant, which matches the LTL reading. The word is accepted when \"idle\" is visited infinitely often. Model checkers such as SPIN check a system against a property like this by building the product of the system with an automaton for the property's *negation* and searching for an accepting lasso."
+    }
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "title": "Sequential circuits",
+  "blurb": "The state machines of digital design: edge detectors in both the Moore and the Mealy style, a serial adder, two’s-complement negation, division by three, a combination lock and a traffic light — each one a circuit with a clock and a few flip-flops.",
+  "curator": "thethinkmachine",
+  "entries": [
+    "transducers/mealy/rising-edge-detector",
+    "transducers/moore/rising-edge-detector",
+    "transducers/mealy/serial-binary-adder",
+    "transducers/mealy/twos-complement-negation",
+    "transducers/mealy/divide-by-3-msb-first",
+    "transducers/moore/remainder-mod-3-display",
+    "transducers/fst/increment-lsb-first",
+    "transducers/fst/binary-gray-code",
+    "transducers/moore/combination-lock-1101",
+    "transducers/moore/traffic-light"
+  ]
+}

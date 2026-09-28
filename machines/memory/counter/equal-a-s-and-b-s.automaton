@@ -1,0 +1,172 @@
+{
+  "format": "automata-studio/workspace",
+  "schema": 1,
+  "app": "dev",
+  "machine": "Counter",
+  "config": {
+    "pdaParadigm": "explicit",
+    "sym": {
+      "eps": "ε",
+      "any": "Σ",
+      "blank": "⊔",
+      "leftMarker": "⊢",
+      "rightMarker": "⊣",
+      "stackBottom": "Z",
+      "lambda": "λ"
+    }
+  },
+  "sigma": [
+    "a",
+    "b"
+  ],
+  "stackAlpha": [
+    "1",
+    "Z"
+  ],
+  "outputAlpha": [],
+  "tapeCount": 1,
+  "states": [
+    {
+      "id": "s1",
+      "name": "even",
+      "x": 0,
+      "y": 0
+    },
+    {
+      "id": "s2",
+      "name": "a ahead",
+      "x": 179,
+      "y": 48
+    },
+    {
+      "id": "s3",
+      "name": "b ahead",
+      "x": 179,
+      "y": -47
+    }
+  ],
+  "transitions": [
+    {
+      "id": "t1",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "a",
+      "pop": "Z",
+      "push": "1Z"
+    },
+    {
+      "id": "t2",
+      "from": "s1",
+      "to": "s3",
+      "symbol": "b",
+      "pop": "Z",
+      "push": "1Z"
+    },
+    {
+      "id": "t3",
+      "from": "s2",
+      "to": "s2",
+      "symbol": "a",
+      "pop": "1",
+      "push": "11"
+    },
+    {
+      "id": "t4",
+      "from": "s2",
+      "to": "s2",
+      "symbol": "b",
+      "pop": "1",
+      "push": "ε"
+    },
+    {
+      "id": "t5",
+      "from": "s2",
+      "to": "s1",
+      "symbol": "ε",
+      "pop": "Z",
+      "push": "Z"
+    },
+    {
+      "id": "t6",
+      "from": "s3",
+      "to": "s3",
+      "symbol": "b",
+      "pop": "1",
+      "push": "11"
+    },
+    {
+      "id": "t7",
+      "from": "s3",
+      "to": "s3",
+      "symbol": "a",
+      "pop": "1",
+      "push": "ε"
+    },
+    {
+      "id": "t8",
+      "from": "s3",
+      "to": "s1",
+      "symbol": "ε",
+      "pop": "Z",
+      "push": "Z"
+    }
+  ],
+  "startId": "s1",
+  "accepts": [
+    "s1"
+  ],
+  "notes": [],
+  "dividers": [],
+  "blocks": [],
+  "meta": {
+    "title": "Equal a’s and b’s",
+    "blurb": "The counter holds the size of the lead and the state holds who has it. Counts can only be non-negative, so the sign moves into the control: “a ahead”, “b ahead”, or even.",
+    "inputs": [
+      {
+        "w": "",
+        "expect": "accept",
+        "label": "ε"
+      },
+      {
+        "w": "ab",
+        "expect": "accept"
+      },
+      {
+        "w": "baab",
+        "expect": "accept"
+      },
+      {
+        "w": "abbbaa",
+        "expect": "accept"
+      },
+      {
+        "w": "a",
+        "expect": "reject"
+      },
+      {
+        "w": "abb",
+        "expect": "reject"
+      },
+      {
+        "w": "bbba",
+        "expect": "reject"
+      },
+      {
+        "w": "aaabb",
+        "expect": "reject"
+      }
+    ],
+    "library": {
+      "author": {
+        "login": "thethinkmachine"
+      },
+      "license": "CC-BY-4.0",
+      "tags": [
+        "counting",
+        "sign"
+      ],
+      "difficulty": "intro",
+      "readme": "The same language as **Equal numbers of a’s and b’s, in any order** among the PDAs, drawn with a weaker store. The PDA put the sign in the stack symbol; a counter has only one symbol, so the sign lives in the state instead, and the counter is the absolute value of #a − #b.\n\nEvery time the counter touches zero the machine passes through *even* — the only accepting state — and may cross over to the other side."
+    }
+  }
+}

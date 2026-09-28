@@ -1,0 +1,16 @@
+{
+  "title": "Temporal logic as automata",
+  "blurb": "LTL properties a model checker verifies, each drawn as the ω-automaton it compiles to: safety, liveness, response, fairness and persistence, with the acceptance condition that says each one most simply.",
+  "curator": "thethinkmachine",
+  "entries": [
+    "omega/dba/every-request-is-granted",
+    "omega/dba/never-two-a-s-in-a-row",
+    "omega/dba/classic-infinitely-often-a",
+    "omega/dba/infinitely-many-a-and-infinitely-many-b",
+    "omega/dpa/if-infinitely-many-a-then-infinitely-many-b",
+    "omega/dcoba/eventually-always-b",
+    "omega/dcoba/only-finitely-many-aa",
+    "omega/buchi/eventually-constant",
+    "omega/npa/infinitely-often-a-or-eventually-always-c"
+  ]
+}

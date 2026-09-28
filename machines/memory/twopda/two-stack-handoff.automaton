@@ -78,8 +78,8 @@
   "schema": 1,
   "app": "dev",
   "meta": {
-    "title": "two-stack handoff",
-    "blurb": "The textbook Two-Stack Pushdown Automaton example.",
+    "title": "Two-stack handoff",
+    "blurb": "Three moves that pass one token between two stacks: a pushes A on stack 1, b trades it for a B on stack 2, and an ε-move pops the B. Both stacks end on their bottom markers. It accepts exactly ab.",
     "library": {
       "author": {
         "login": "thethinkmachine"
@@ -90,6 +90,28 @@
         "2pda"
       ],
       "difficulty": "intro"
-    }
+    },
+    "inputs": [
+      {
+        "w": "ab",
+        "expect": "accept"
+      },
+      {
+        "w": "",
+        "expect": "reject"
+      },
+      {
+        "w": "a",
+        "expect": "reject"
+      },
+      {
+        "w": "aab",
+        "expect": "reject"
+      },
+      {
+        "w": "abb",
+        "expect": "reject"
+      }
+    ]
   }
 }

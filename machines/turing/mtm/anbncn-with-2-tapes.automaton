@@ -175,7 +175,7 @@
   "app": "dev",
   "meta": {
     "title": "aⁿbⁿcⁿ with 2 tapes",
-    "blurb": "The textbook Multi-Tape Turing Machine example.",
+    "blurb": "Copy the a’s to tape 2, then walk tape 2 back over them for the b’s and forward again for the c’s. One pass over the input, linear time — against the one-tape machine’s back-and-forth. Here n ≥ 1.",
     "library": {
       "author": {
         "login": "thethinkmachine"
@@ -186,6 +186,39 @@
         "mtm"
       ],
       "difficulty": "intro"
-    }
+    },
+    "inputs": [
+      {
+        "w": "abc",
+        "expect": "accept"
+      },
+      {
+        "w": "aabbcc",
+        "expect": "accept"
+      },
+      {
+        "w": "aaabbbccc",
+        "expect": "accept"
+      },
+      {
+        "w": "",
+        "expect": "reject"
+      },
+      {
+        "w": "aabbc",
+        "expect": "reject"
+      },
+      {
+        "w": "abcc",
+        "expect": "reject"
+      },
+      {
+        "w": "abcabc",
+        "expect": "reject"
+      }
+    ]
+  },
+  "config": {
+    "twoWayTape": true
   }
 }

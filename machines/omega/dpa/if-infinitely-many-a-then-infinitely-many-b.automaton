@@ -1,0 +1,159 @@
+{
+  "format": "automata-studio/workspace",
+  "schema": 1,
+  "app": "dev",
+  "machine": "DPA",
+  "config": {
+    "sym": {
+      "eps": "ε",
+      "any": "Σ",
+      "blank": "⊔",
+      "leftMarker": "⊢",
+      "rightMarker": "⊣",
+      "stackBottom": "Z",
+      "lambda": "λ"
+    }
+  },
+  "sigma": [
+    "a",
+    "b",
+    "c"
+  ],
+  "stackAlpha": [],
+  "outputAlpha": [],
+  "tapeCount": 1,
+  "states": [
+    {
+      "id": "s1",
+      "name": "last was b",
+      "x": 179,
+      "y": 48,
+      "priority": 0
+    },
+    {
+      "id": "s2",
+      "name": "last was a",
+      "x": 179,
+      "y": -47,
+      "priority": 1
+    },
+    {
+      "id": "s3",
+      "name": "last was c",
+      "x": 0,
+      "y": 0,
+      "priority": 2
+    }
+  ],
+  "transitions": [
+    {
+      "id": "t1",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "a"
+    },
+    {
+      "id": "t2",
+      "from": "s1",
+      "to": "s1",
+      "symbol": "b"
+    },
+    {
+      "id": "t3",
+      "from": "s1",
+      "to": "s3",
+      "symbol": "c"
+    },
+    {
+      "id": "t4",
+      "from": "s2",
+      "to": "s2",
+      "symbol": "a"
+    },
+    {
+      "id": "t5",
+      "from": "s2",
+      "to": "s1",
+      "symbol": "b"
+    },
+    {
+      "id": "t6",
+      "from": "s2",
+      "to": "s3",
+      "symbol": "c"
+    },
+    {
+      "id": "t7",
+      "from": "s3",
+      "to": "s2",
+      "symbol": "a"
+    },
+    {
+      "id": "t8",
+      "from": "s3",
+      "to": "s1",
+      "symbol": "b"
+    },
+    {
+      "id": "t9",
+      "from": "s3",
+      "to": "s3",
+      "symbol": "c"
+    }
+  ],
+  "startId": "s3",
+  "accepts": [],
+  "notes": [],
+  "dividers": [],
+  "blocks": [],
+  "meta": {
+    "title": "If infinitely many a’s, then infinitely many b’s",
+    "blurb": "GF a → GF b, a Streett condition, as three priorities. The least priority seen infinitely often decides: 0 (a b recurs) accepts, 1 (a’s recur but no b) rejects, 2 (only c’s in the end) accepts. The machine only remembers the last letter.",
+    "inputs": [
+      {
+        "w": "(ab)",
+        "expect": "accept"
+      },
+      {
+        "w": "(c)",
+        "expect": "accept",
+        "label": "no a at all"
+      },
+      {
+        "w": "aaa(c)",
+        "expect": "accept",
+        "label": "finitely many a"
+      },
+      {
+        "w": "(aacb)",
+        "expect": "accept"
+      },
+      {
+        "w": "(a)",
+        "expect": "reject"
+      },
+      {
+        "w": "(ac)",
+        "expect": "reject"
+      },
+      {
+        "w": "b(a)",
+        "expect": "reject"
+      }
+    ],
+    "library": {
+      "author": {
+        "login": "thethinkmachine"
+      },
+      "license": "CC-BY-4.0",
+      "tags": [
+        "ltl",
+        "streett",
+        "fairness",
+        "parity"
+      ],
+      "difficulty": "intermediate",
+      "readme": "The implication GF a → GF b is the shape of **strong fairness**: if a process is enabled infinitely often (a), it is scheduled infinitely often (b). It is naturally a *Streett* pair, and a parity condition can say it with three colours:\n\n| priority | state | what recurring it means |\n| --- | --- | --- |\n| 0 | last was b | b recurs — accept, whatever else happens |\n| 1 | last was a | a recurs without b — reject |\n| 2 | last was c | neither a nor b recurs — accept vacuously |\n\nLower numbers win because the least priority seen infinitely often is the one that counts. Every ω-regular language has a deterministic parity automaton, and three priorities are the fewest this one allows: it is neither deterministic Büchi nor deterministic co-Büchi, the two conditions that two priorities can express."
+    }
+  }
+}

@@ -39,7 +39,7 @@
     },
     {
       "id": "t2",
-      "from": "s1",
+      "from": "s2",
       "to": "s3",
       "symbol": "ε"
     },
@@ -60,8 +60,8 @@
   "schema": 1,
   "app": "dev",
   "meta": {
-    "title": "a* then b*",
-    "blurb": "The textbook Finite Automaton with ε-Transitions example.",
+    "title": "a* then b* — joined by ε",
+    "blurb": "Some a’s followed by some b’s. Each block is one looping state, and an ε-move lets the machine pass from the a’s to the b’s without reading anything. Every state accepts, so the question is only whether the order is ever broken.",
     "library": {
       "author": {
         "login": "thethinkmachine"
@@ -72,6 +72,37 @@
         "nfa"
       ],
       "difficulty": "intro"
-    }
+    },
+    "inputs": [
+      {
+        "w": "",
+        "expect": "accept",
+        "label": "ε"
+      },
+      {
+        "w": "aaa",
+        "expect": "accept"
+      },
+      {
+        "w": "bb",
+        "expect": "accept"
+      },
+      {
+        "w": "aabbb",
+        "expect": "accept"
+      },
+      {
+        "w": "ba",
+        "expect": "reject"
+      },
+      {
+        "w": "aba",
+        "expect": "reject"
+      },
+      {
+        "w": "abab",
+        "expect": "reject"
+      }
+    ]
   }
 }

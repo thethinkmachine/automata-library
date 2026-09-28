@@ -61,8 +61,8 @@
   "schema": 1,
   "app": "dev",
   "meta": {
-    "title": "report each bit",
-    "blurb": "The textbook Mealy Machine example.",
+    "title": "Report each bit",
+    "blurb": "The smallest Mealy machine worth drawing: every input bit produces an output word naming it. The outputs sit on the edges, so both states answer each bit the same way — the state records the last bit and nothing depends on it.",
     "library": {
       "author": {
         "login": "thethinkmachine"
@@ -73,6 +73,20 @@
         "mealy"
       ],
       "difficulty": "intro"
-    }
+    },
+    "inputs": [
+      {
+        "w": "0",
+        "out": "seen0"
+      },
+      {
+        "w": "01",
+        "out": "seen0 seen1"
+      },
+      {
+        "w": "110",
+        "out": "seen1 seen1 seen0"
+      }
+    ]
   }
 }

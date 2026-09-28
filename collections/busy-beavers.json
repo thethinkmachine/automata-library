@@ -3,6 +3,7 @@
   "blurb": "The champions: for each size, the halting machine that runs longest from a blank tape. Every step count here was checked by running the machine to its halt.",
   "curator": "thethinkmachine",
   "entries": [
+    "turing/busy-beaver/bb1",
     "turing/busy-beaver/bb2",
     "turing/busy-beaver/bb3-steps",
     "turing/busy-beaver/bb3-ones",

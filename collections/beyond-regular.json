@@ -12,6 +12,18 @@
     "memory/epda/anbncndn-four-counts-one-stack-of-stacks",
     "turing/lba/powers-of-two-by-halving",
     "turing/tm/binary-addition-a-b",
-    "turing/mtm/palindromes-in-linear-time"
+    "turing/mtm/palindromes-in-linear-time",
+    "memory/pda/a-n-b-2n",
+    "memory/pda/w-c-w-reversed",
+    "memory/pda/equal-a-s-and-b-s",
+    "memory/pda/unary-addition-a-i-b-j-c-i-plus-j",
+    "memory/npda/a-i-b-j-c-k-with-i-j-or-j-k",
+    "memory/npda/a-n-b-n-or-a-n-b-2n",
+    "memory/npda/a-n-b-m-with-n-m-2n",
+    "memory/counter/balanced-parentheses",
+    "memory/counter/equal-a-s-and-b-s",
+    "memory/queue/a-n-b-n-c-n-with-a-queue",
+    "memory/twopda/ww-guess-the-middle",
+    "turing/lba/multiplication-a-i-b-j-c-ij"
   ]
 }

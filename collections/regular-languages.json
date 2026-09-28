@@ -1,6 +1,6 @@
 {
   "title": "Regular languages, start to finish",
-  "blurb": "DFAs, NFAs, ε-NFAs and two-way automata — the finite-memory machines, from the textbook classics to the showcase examples.",
+  "blurb": "DFAs, NFAs, ε-NFAs and two-way automata — the finite-memory machines, from parity and substring search to tennis scores, Thompson’s construction and the subset construction’s blow-up.",
   "curator": "thethinkmachine",
   "entries": [
     "finite/dfa/even-number-of-1s",
@@ -11,6 +11,22 @@
     "finite/enfa/float-regex-compiled",
     "finite/twdfa/two-passes-one-head",
     "finite/twnfa/deja-vu-the-last-letter-is-a-rerun",
-    "finite/dfa/binary-divisibility-by-3"
+    "finite/dfa/binary-divisibility-by-3",
+    "finite/dfa/no-two-1s-in-a-row",
+    "finite/dfa/contains-101",
+    "finite/dfa/even-a-s-and-even-b-s",
+    "finite/dfa/first-letter-equals-last-letter",
+    "finite/dfa/decimal-numbers-divisible-by-3",
+    "finite/dfa/as-minus-bs-divisible-by-3",
+    "finite/dfa/vending-machine-exactly-25-cents",
+    "finite/dfa/tennis-scoring",
+    "finite/dfa/third-symbol-from-the-end-is-1",
+    "finite/nfa/third-symbol-from-the-end-is-1",
+    "finite/nfa/contains-aa-or-bb",
+    "finite/nfa/some-letter-appears-twice",
+    "finite/enfa/thompson-construction-a-or-b-star-abb",
+    "finite/enfa/unary-multiples-of-2-or-3",
+    "finite/enfa/a-star-b-star-c-star",
+    "finite/twdfa/fourth-symbol-from-the-end-is-a"
   ]
 }

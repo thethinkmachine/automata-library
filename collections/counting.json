@@ -1,0 +1,21 @@
+{
+  "title": "How machines count",
+  "blurb": "Finite memory counts modulo a number; a counter counts without bound but only knows zero; a stack counts in any ratio; a queue or a tape can multiply. The same question — are there as many of these as those? — asked of every store.",
+  "curator": "thethinkmachine",
+  "entries": [
+    "finite/dfa/even-number-of-1s",
+    "finite/dfa/as-minus-bs-divisible-by-3",
+    "finite/dfa/vending-machine-exactly-25-cents",
+    "memory/counter/anbn",
+    "memory/counter/equal-a-s-and-b-s",
+    "memory/counter/balanced-parentheses",
+    "memory/counter/bank-account-never-overdrawn",
+    "memory/pda/equal-a-s-and-b-s",
+    "memory/pda/a-n-b-2n",
+    "memory/pda/unary-addition-a-i-b-j-c-i-plus-j",
+    "memory/npda/a-n-b-m-with-n-m-2n",
+    "memory/queue/a-n-b-n-c-n-with-a-queue",
+    "memory/twopda/anbncn-beyond-one-stack",
+    "turing/lba/multiplication-a-i-b-j-c-ij"
+  ]
+}

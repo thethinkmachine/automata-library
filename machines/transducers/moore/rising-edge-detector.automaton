@@ -1,0 +1,135 @@
+{
+  "format": "automata-studio/workspace",
+  "schema": 1,
+  "app": "dev",
+  "machine": "Moore",
+  "config": {
+    "transducerAccepts": false,
+    "sym": {
+      "eps": "ε",
+      "any": "Σ",
+      "blank": "⊔",
+      "leftMarker": "⊢",
+      "rightMarker": "⊣",
+      "stackBottom": "Z",
+      "lambda": "λ"
+    }
+  },
+  "sigma": [
+    "0",
+    "1"
+  ],
+  "stackAlpha": [],
+  "outputAlpha": [
+    "0",
+    "1"
+  ],
+  "tapeCount": 1,
+  "states": [
+    {
+      "id": "s1",
+      "name": "low",
+      "x": 0,
+      "y": 0,
+      "output": "0"
+    },
+    {
+      "id": "s2",
+      "name": "edge",
+      "x": 179,
+      "y": 0,
+      "output": "1"
+    },
+    {
+      "id": "s3",
+      "name": "high",
+      "x": 358,
+      "y": 0,
+      "output": "0"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "t1",
+      "from": "s1",
+      "to": "s1",
+      "symbol": "0"
+    },
+    {
+      "id": "t2",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "1"
+    },
+    {
+      "id": "t3",
+      "from": "s2",
+      "to": "s3",
+      "symbol": "1"
+    },
+    {
+      "id": "t4",
+      "from": "s2",
+      "to": "s1",
+      "symbol": "0"
+    },
+    {
+      "id": "t5",
+      "from": "s3",
+      "to": "s3",
+      "symbol": "1"
+    },
+    {
+      "id": "t6",
+      "from": "s3",
+      "to": "s1",
+      "symbol": "0"
+    }
+  ],
+  "startId": "s1",
+  "accepts": [],
+  "notes": [],
+  "dividers": [],
+  "blocks": [],
+  "meta": {
+    "title": "Rising-edge detector (Moore)",
+    "blurb": "The same pulse as the Mealy detector, from a machine whose outputs live on its states. It needs a third state, “edge”, that exists only to say 1 — and, as always with Moore, an extra output for the start state.",
+    "inputs": [
+      {
+        "w": "0110",
+        "out": "00100"
+      },
+      {
+        "w": "1010",
+        "out": "01010"
+      },
+      {
+        "w": "0111001",
+        "out": "00100001"
+      },
+      {
+        "w": "1111",
+        "out": "01000"
+      },
+      {
+        "w": "",
+        "out": "0",
+        "label": "nothing read"
+      }
+    ],
+    "library": {
+      "author": {
+        "login": "thethinkmachine"
+      },
+      "license": "CC-BY-4.0",
+      "tags": [
+        "hardware",
+        "edge-detector",
+        "moore-vs-mealy",
+        "sequential-circuit"
+      ],
+      "difficulty": "intro",
+      "readme": "A Moore machine's output is a function of its state alone, so \"the input just went from 0 to 1\" has to be a *place* the machine can be. That is the **edge** state: entered on a 1 from **low**, left on the very next input.\n\nThe output string is one symbol longer than the input, because the start state speaks before anything is read: **0110** gives **00100**. Drop that first symbol and it is exactly the Mealy machine's output. In hardware terms the Moore output is glitch-free and registered, which is why designers accept the extra state."
+    }
+  }
+}

@@ -102,8 +102,8 @@
   "schema": 1,
   "app": "dev",
   "meta": {
-    "title": "last-letter scan",
-    "blurb": "The textbook Two-Way Deterministic Finite Automaton example.",
+    "title": "Last-letter scan",
+    "blurb": "Does the word end in a? Scan right, remembering only the last letter, and decide at the right endmarker. A two-way automaton that never moves left — which is to say, an ordinary DFA with endmarkers.",
     "library": {
       "author": {
         "login": "thethinkmachine"
@@ -114,6 +114,36 @@
         "2dfa"
       ],
       "difficulty": "intro"
-    }
+    },
+    "inputs": [
+      {
+        "w": "a",
+        "expect": "accept"
+      },
+      {
+        "w": "ba",
+        "expect": "accept"
+      },
+      {
+        "w": "abba",
+        "expect": "accept"
+      },
+      {
+        "w": "",
+        "expect": "reject"
+      },
+      {
+        "w": "b",
+        "expect": "reject"
+      },
+      {
+        "w": "ab",
+        "expect": "reject"
+      },
+      {
+        "w": "aab",
+        "expect": "reject"
+      }
+    ]
   }
 }

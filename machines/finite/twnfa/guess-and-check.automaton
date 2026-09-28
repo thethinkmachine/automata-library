@@ -89,8 +89,8 @@
   "schema": 1,
   "app": "dev",
   "meta": {
-    "title": "guess and check",
-    "blurb": "The textbook Two-Way Nondeterministic Finite Automaton example.",
+    "title": "Guess an a, then check",
+    "blurb": "Accepts every word containing an a. The head moves right and, at some a, guesses “this is the one”; the guess is confirmed by reaching the right endmarker in found_a. Nondeterminism and two-way movement, in their smallest form.",
     "library": {
       "author": {
         "login": "thethinkmachine"
@@ -101,6 +101,36 @@
         "2nfa"
       ],
       "difficulty": "intro"
-    }
+    },
+    "inputs": [
+      {
+        "w": "a",
+        "expect": "accept"
+      },
+      {
+        "w": "ba",
+        "expect": "accept"
+      },
+      {
+        "w": "bbab",
+        "expect": "accept"
+      },
+      {
+        "w": "aaa",
+        "expect": "accept"
+      },
+      {
+        "w": "",
+        "expect": "reject"
+      },
+      {
+        "w": "b",
+        "expect": "reject"
+      },
+      {
+        "w": "bbbb",
+        "expect": "reject"
+      }
+    ]
   }
 }

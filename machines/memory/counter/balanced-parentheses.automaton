@@ -1,0 +1,135 @@
+{
+  "format": "automata-studio/workspace",
+  "schema": 1,
+  "app": "dev",
+  "machine": "Counter",
+  "config": {
+    "pdaParadigm": "explicit",
+    "sym": {
+      "eps": "ε",
+      "any": "Σ",
+      "blank": "⊔",
+      "leftMarker": "⊢",
+      "rightMarker": "⊣",
+      "stackBottom": "Z",
+      "lambda": "λ"
+    }
+  },
+  "sigma": [
+    "(",
+    ")"
+  ],
+  "stackAlpha": [
+    "1",
+    "Z"
+  ],
+  "outputAlpha": [],
+  "tapeCount": 1,
+  "states": [
+    {
+      "id": "s1",
+      "name": "balanced",
+      "x": 0,
+      "y": 0
+    },
+    {
+      "id": "s2",
+      "name": "open",
+      "x": 179,
+      "y": 0
+    }
+  ],
+  "transitions": [
+    {
+      "id": "t1",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "(",
+      "pop": "Z",
+      "push": "1Z"
+    },
+    {
+      "id": "t2",
+      "from": "s2",
+      "to": "s2",
+      "symbol": "(",
+      "pop": "1",
+      "push": "11"
+    },
+    {
+      "id": "t3",
+      "from": "s2",
+      "to": "s2",
+      "symbol": ")",
+      "pop": "1",
+      "push": "ε"
+    },
+    {
+      "id": "t4",
+      "from": "s2",
+      "to": "s1",
+      "symbol": "ε",
+      "pop": "Z",
+      "push": "Z"
+    }
+  ],
+  "startId": "s1",
+  "accepts": [
+    "s1"
+  ],
+  "notes": [],
+  "dividers": [],
+  "blocks": [],
+  "meta": {
+    "title": "Balanced parentheses with one counter",
+    "blurb": "With only one kind of bracket, a stack is more than you need: the one fact worth keeping is how many are open. A counter that never goes below zero and ends at zero is exactly a balanced string — the Dyck language on one pair.",
+    "inputs": [
+      {
+        "w": "",
+        "expect": "accept",
+        "label": "ε"
+      },
+      {
+        "w": "()",
+        "expect": "accept"
+      },
+      {
+        "w": "(())",
+        "expect": "accept"
+      },
+      {
+        "w": "()(())",
+        "expect": "accept"
+      },
+      {
+        "w": "(",
+        "expect": "reject"
+      },
+      {
+        "w": ")(",
+        "expect": "reject"
+      },
+      {
+        "w": "())",
+        "expect": "reject"
+      },
+      {
+        "w": "(()",
+        "expect": "reject"
+      }
+    ],
+    "library": {
+      "author": {
+        "login": "thethinkmachine"
+      },
+      "license": "CC-BY-4.0",
+      "tags": [
+        "dyck-language",
+        "brackets",
+        "counting"
+      ],
+      "difficulty": "intro",
+      "readme": "A one-counter automaton is a pushdown automaton whose stack alphabet is a single symbol above the bottom marker — so the stack is just a number, and the only question it can answer is \"is it zero?\".\n\nFor one kind of bracket that is enough: **(** increments, **)** decrements, and a **)** with the counter at zero has no move, which rejects the word. For two kinds — **( [ ] )** against **( [ ) ]** — the order of what is open matters, and a counter cannot remember order. See **Bracket matcher** among the PDAs for the version that needs a real stack."
+    }
+  }
+}

@@ -1,0 +1,262 @@
+{
+  "format": "automata-studio/workspace",
+  "schema": 1,
+  "app": "dev",
+  "machine": "TM",
+  "config": {
+    "twoWayTape": true,
+    "sym": {
+      "eps": "ε",
+      "any": "Σ",
+      "blank": "⊔",
+      "leftMarker": "⊢",
+      "rightMarker": "⊣",
+      "stackBottom": "Z",
+      "lambda": "λ"
+    }
+  },
+  "sigma": [
+    "a",
+    "b"
+  ],
+  "stackAlpha": [
+    "a",
+    "b",
+    "⊔"
+  ],
+  "outputAlpha": [],
+  "tapeCount": 1,
+  "states": [
+    {
+      "id": "s1",
+      "name": "read first",
+      "x": 0,
+      "y": 0
+    },
+    {
+      "id": "s2",
+      "name": "carry a",
+      "x": 179,
+      "y": 0
+    },
+    {
+      "id": "s3",
+      "name": "carry b",
+      "x": 179,
+      "y": -95
+    },
+    {
+      "id": "s4",
+      "name": "last is a?",
+      "x": 358,
+      "y": 48
+    },
+    {
+      "id": "s5",
+      "name": "last is b?",
+      "x": 358,
+      "y": -47
+    },
+    {
+      "id": "s6",
+      "name": "back",
+      "x": 537,
+      "y": 0
+    },
+    {
+      "id": "s7",
+      "name": "accept",
+      "x": 179,
+      "y": 95
+    }
+  ],
+  "transitions": [
+    {
+      "id": "t1",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "a",
+      "write": "⊔",
+      "dir": "R"
+    },
+    {
+      "id": "t2",
+      "from": "s1",
+      "to": "s3",
+      "symbol": "b",
+      "write": "⊔",
+      "dir": "R"
+    },
+    {
+      "id": "t3",
+      "from": "s1",
+      "to": "s7",
+      "symbol": "⊔",
+      "write": "⊔",
+      "dir": "S"
+    },
+    {
+      "id": "t4",
+      "from": "s2",
+      "to": "s2",
+      "symbol": "a",
+      "write": "a",
+      "dir": "R"
+    },
+    {
+      "id": "t5",
+      "from": "s2",
+      "to": "s2",
+      "symbol": "b",
+      "write": "b",
+      "dir": "R"
+    },
+    {
+      "id": "t6",
+      "from": "s2",
+      "to": "s4",
+      "symbol": "⊔",
+      "write": "⊔",
+      "dir": "L"
+    },
+    {
+      "id": "t7",
+      "from": "s3",
+      "to": "s3",
+      "symbol": "a",
+      "write": "a",
+      "dir": "R"
+    },
+    {
+      "id": "t8",
+      "from": "s3",
+      "to": "s3",
+      "symbol": "b",
+      "write": "b",
+      "dir": "R"
+    },
+    {
+      "id": "t9",
+      "from": "s3",
+      "to": "s5",
+      "symbol": "⊔",
+      "write": "⊔",
+      "dir": "L"
+    },
+    {
+      "id": "t10",
+      "from": "s4",
+      "to": "s6",
+      "symbol": "a",
+      "write": "⊔",
+      "dir": "L"
+    },
+    {
+      "id": "t11",
+      "from": "s4",
+      "to": "s7",
+      "symbol": "⊔",
+      "write": "⊔",
+      "dir": "S"
+    },
+    {
+      "id": "t12",
+      "from": "s5",
+      "to": "s6",
+      "symbol": "b",
+      "write": "⊔",
+      "dir": "L"
+    },
+    {
+      "id": "t13",
+      "from": "s5",
+      "to": "s7",
+      "symbol": "⊔",
+      "write": "⊔",
+      "dir": "S"
+    },
+    {
+      "id": "t14",
+      "from": "s6",
+      "to": "s6",
+      "symbol": "a",
+      "write": "a",
+      "dir": "L"
+    },
+    {
+      "id": "t15",
+      "from": "s6",
+      "to": "s6",
+      "symbol": "b",
+      "write": "b",
+      "dir": "L"
+    },
+    {
+      "id": "t16",
+      "from": "s6",
+      "to": "s1",
+      "symbol": "⊔",
+      "write": "⊔",
+      "dir": "R"
+    }
+  ],
+  "startId": "s1",
+  "accepts": [
+    "s7"
+  ],
+  "notes": [],
+  "dividers": [],
+  "blocks": [],
+  "meta": {
+    "title": "Palindromes on one tape, in quadratic time",
+    "blurb": "Erase the first letter, carry it in the state to the far end, and check the last letter against it. Repeat until nothing is left. Simple, and provably as fast as one tape allows: every one-tape machine for palindromes needs order n² steps.",
+    "inputs": [
+      {
+        "w": "",
+        "expect": "accept",
+        "label": "ε"
+      },
+      {
+        "w": "a",
+        "expect": "accept"
+      },
+      {
+        "w": "abba",
+        "expect": "accept"
+      },
+      {
+        "w": "abaaba",
+        "expect": "accept"
+      },
+      {
+        "w": "babab",
+        "expect": "accept"
+      },
+      {
+        "w": "ab",
+        "expect": "reject"
+      },
+      {
+        "w": "abab",
+        "expect": "reject"
+      },
+      {
+        "w": "aabba",
+        "expect": "reject"
+      }
+    ],
+    "library": {
+      "author": {
+        "login": "thethinkmachine"
+      },
+      "license": "CC-BY-4.0",
+      "tags": [
+        "palindromes",
+        "time-complexity",
+        "decider"
+      ],
+      "difficulty": "intro",
+      "readme": "The machine eats the word from both ends. **carry a** and **carry b** remember the letter it erased at the front; at the back, the last letter must match, or there is no move and the word is rejected. The tape shrinks by two cells a round, and when a round finds nothing left to compare (or a single middle letter), the word is a palindrome.\n\nEach round crosses the whole remaining word twice, so the run is about n²/2 steps. That is not laziness: a *crossing-sequence* argument (Hennie, 1965) shows that every one-tape Turing machine recognising palindromes takes Ω(n²) steps on some inputs. With a second tape the bound drops to linear — see **Palindromes in linear time** among the multi-tape machines."
+    }
+  }
+}

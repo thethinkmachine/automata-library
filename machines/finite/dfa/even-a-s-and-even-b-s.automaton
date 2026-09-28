@@ -1,0 +1,159 @@
+{
+  "format": "automata-studio/workspace",
+  "schema": 1,
+  "app": "dev",
+  "machine": "DFA",
+  "config": {
+    "sym": {
+      "eps": "ε",
+      "any": "Σ",
+      "blank": "⊔",
+      "leftMarker": "⊢",
+      "rightMarker": "⊣",
+      "stackBottom": "Z",
+      "lambda": "λ"
+    }
+  },
+  "sigma": [
+    "a",
+    "b"
+  ],
+  "stackAlpha": [],
+  "outputAlpha": [],
+  "tapeCount": 1,
+  "states": [
+    {
+      "id": "s1",
+      "name": "even a, even b",
+      "x": 0,
+      "y": 0
+    },
+    {
+      "id": "s2",
+      "name": "odd a, even b",
+      "x": 179,
+      "y": -47
+    },
+    {
+      "id": "s3",
+      "name": "even a, odd b",
+      "x": 179,
+      "y": 48
+    },
+    {
+      "id": "s4",
+      "name": "odd a, odd b",
+      "x": 358,
+      "y": 0
+    }
+  ],
+  "transitions": [
+    {
+      "id": "t1",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "a"
+    },
+    {
+      "id": "t2",
+      "from": "s2",
+      "to": "s1",
+      "symbol": "a"
+    },
+    {
+      "id": "t3",
+      "from": "s3",
+      "to": "s4",
+      "symbol": "a"
+    },
+    {
+      "id": "t4",
+      "from": "s4",
+      "to": "s3",
+      "symbol": "a"
+    },
+    {
+      "id": "t5",
+      "from": "s1",
+      "to": "s3",
+      "symbol": "b"
+    },
+    {
+      "id": "t6",
+      "from": "s3",
+      "to": "s1",
+      "symbol": "b"
+    },
+    {
+      "id": "t7",
+      "from": "s2",
+      "to": "s4",
+      "symbol": "b"
+    },
+    {
+      "id": "t8",
+      "from": "s4",
+      "to": "s2",
+      "symbol": "b"
+    }
+  ],
+  "startId": "s1",
+  "accepts": [
+    "s1"
+  ],
+  "notes": [],
+  "dividers": [],
+  "blocks": [],
+  "meta": {
+    "title": "Even number of a’s and even number of b’s",
+    "blurb": "Two parity checks run side by side: the four states are the pairs (parity of a, parity of b). The product construction, drawn as a square — a reads horizontally, b vertically.",
+    "inputs": [
+      {
+        "w": "",
+        "expect": "accept",
+        "label": "ε"
+      },
+      {
+        "w": "aa",
+        "expect": "accept"
+      },
+      {
+        "w": "abab",
+        "expect": "accept"
+      },
+      {
+        "w": "aabbabba",
+        "expect": "accept"
+      },
+      {
+        "w": "a",
+        "expect": "reject"
+      },
+      {
+        "w": "ab",
+        "expect": "reject"
+      },
+      {
+        "w": "aab",
+        "expect": "reject"
+      },
+      {
+        "w": "bbbaa",
+        "expect": "reject"
+      }
+    ],
+    "library": {
+      "author": {
+        "login": "thethinkmachine"
+      },
+      "license": "CC-BY-4.0",
+      "tags": [
+        "parity",
+        "product-construction",
+        "textbook"
+      ],
+      "difficulty": "intro",
+      "readme": "Each of \"even number of a's\" and \"even number of b's\" needs a two-state DFA. Running both at once needs a state for every *pair* of their states — 2 × 2 = 4. This is the **product construction**, the proof that regular languages are closed under intersection.\n\nChange which corners accept and the same four states recognise any Boolean combination of the two conditions: union (three corners), symmetric difference (the two off-diagonal corners), and so on."
+    }
+  }
+}

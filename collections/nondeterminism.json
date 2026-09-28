@@ -1,0 +1,21 @@
+{
+  "title": "What guessing buys",
+  "blurb": "Pairs and near-pairs that show the price of determinism: where an NFA is exponentially smaller than any DFA, where a PDA must guess and a DPDA cannot, and where a Büchi automaton needs its guess and a co-Büchi one does not.",
+  "curator": "thethinkmachine",
+  "entries": [
+    "finite/nfa/third-symbol-from-the-end-is-1",
+    "finite/dfa/third-symbol-from-the-end-is-1",
+    "finite/nfa/guess-the-penultimate-1",
+    "finite/nfa/some-letter-appears-twice",
+    "finite/twdfa/fourth-symbol-from-the-end-is-a",
+    "finite/enfa/unary-multiples-of-2-or-3",
+    "memory/pda/w-c-w-reversed",
+    "memory/npda/palindromes-guess-the-middle",
+    "memory/npda/a-n-b-n-or-a-n-b-2n",
+    "memory/npda/a-i-b-j-c-k-with-i-j-or-j-k",
+    "memory/twopda/ww-guess-the-middle",
+    "omega/buchi/classic-eventually-always-b",
+    "omega/dcoba/eventually-always-b",
+    "omega/buchi/eventually-constant"
+  ]
+}

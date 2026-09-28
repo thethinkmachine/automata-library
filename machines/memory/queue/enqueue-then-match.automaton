@@ -57,8 +57,8 @@
   "schema": 1,
   "app": "dev",
   "meta": {
-    "title": "enqueue then match",
-    "blurb": "The textbook Queue Automaton example.",
+    "title": "First in, first out",
+    "blurb": "A two-move demonstration of queue order. The a enqueues A at the back; the b dequeues from the front, where the bottom marker Z still sits because it arrived first. A stack would have found A on top. It accepts exactly one word: ab.",
     "library": {
       "author": {
         "login": "thethinkmachine"
@@ -69,6 +69,28 @@
         "qa"
       ],
       "difficulty": "intro"
-    }
+    },
+    "inputs": [
+      {
+        "w": "ab",
+        "expect": "accept"
+      },
+      {
+        "w": "",
+        "expect": "reject"
+      },
+      {
+        "w": "a",
+        "expect": "reject"
+      },
+      {
+        "w": "aab",
+        "expect": "reject"
+      },
+      {
+        "w": "abb",
+        "expect": "reject"
+      }
+    ]
   }
 }

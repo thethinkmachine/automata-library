@@ -1,0 +1,104 @@
+{
+  "format": "automata-studio/workspace",
+  "schema": 1,
+  "app": "dev",
+  "machine": "FST",
+  "config": {
+    "sym": {
+      "eps": "ε",
+      "any": "Σ",
+      "blank": "⊔",
+      "leftMarker": "⊢",
+      "rightMarker": "⊣",
+      "stackBottom": "Z",
+      "lambda": "λ"
+    }
+  },
+  "sigma": [
+    "1"
+  ],
+  "stackAlpha": [],
+  "outputAlpha": [
+    "1"
+  ],
+  "tapeCount": 1,
+  "states": [
+    {
+      "id": "s1",
+      "name": "even so far",
+      "x": 0,
+      "y": 0
+    },
+    {
+      "id": "s2",
+      "name": "odd so far",
+      "x": 179,
+      "y": 0
+    }
+  ],
+  "transitions": [
+    {
+      "id": "t1",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "1",
+      "output": ""
+    },
+    {
+      "id": "t2",
+      "from": "s2",
+      "to": "s1",
+      "symbol": "1",
+      "output": "1"
+    }
+  ],
+  "startId": "s1",
+  "accepts": [],
+  "notes": [],
+  "dividers": [],
+  "blocks": [],
+  "meta": {
+    "title": "Halve a unary number",
+    "blurb": "1ⁿ ↦ 1^⌊n/2⌋. Every second 1 is written and the others are dropped, so the state is the parity of what has been read. Two states, and one of its edges writes nothing.",
+    "inputs": [
+      {
+        "w": "11",
+        "out": "1",
+        "label": "2 ↦ 1"
+      },
+      {
+        "w": "111",
+        "out": "1",
+        "label": "3 ↦ 1"
+      },
+      {
+        "w": "111111",
+        "out": "111",
+        "label": "6 ↦ 3"
+      },
+      {
+        "w": "1111111",
+        "out": "111",
+        "label": "7 ↦ 3"
+      },
+      {
+        "w": "1",
+        "out": "",
+        "label": "1 ↦ 0"
+      }
+    ],
+    "library": {
+      "author": {
+        "login": "thethinkmachine"
+      },
+      "license": "CC-BY-4.0",
+      "tags": [
+        "unary",
+        "arithmetic",
+        "epsilon-output"
+      ],
+      "difficulty": "intro",
+      "readme": "Division by a constant is a finite-state operation in unary: to divide by *k*, write one 1 for every *k* read. The states count modulo *k*, and all but one edge of the cycle writes nothing.\n\nThe remainder is the state the machine ends in — here, **odd so far** means n was odd and the half was rounded down."
+    }
+  }
+}

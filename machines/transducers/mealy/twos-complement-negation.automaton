@@ -1,0 +1,122 @@
+{
+  "format": "automata-studio/workspace",
+  "schema": 1,
+  "app": "dev",
+  "machine": "Mealy",
+  "config": {
+    "transducerAccepts": false,
+    "sym": {
+      "eps": "ε",
+      "any": "Σ",
+      "blank": "⊔",
+      "leftMarker": "⊢",
+      "rightMarker": "⊣",
+      "stackBottom": "Z",
+      "lambda": "λ"
+    }
+  },
+  "sigma": [
+    "0",
+    "1"
+  ],
+  "stackAlpha": [],
+  "outputAlpha": [
+    "0",
+    "1"
+  ],
+  "tapeCount": 1,
+  "states": [
+    {
+      "id": "s1",
+      "name": "copy",
+      "x": 0,
+      "y": 0
+    },
+    {
+      "id": "s2",
+      "name": "invert",
+      "x": 179,
+      "y": 0
+    }
+  ],
+  "transitions": [
+    {
+      "id": "t1",
+      "from": "s1",
+      "to": "s1",
+      "symbol": "0",
+      "output": "0"
+    },
+    {
+      "id": "t2",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "1",
+      "output": "1"
+    },
+    {
+      "id": "t3",
+      "from": "s2",
+      "to": "s2",
+      "symbol": "0",
+      "output": "1"
+    },
+    {
+      "id": "t4",
+      "from": "s2",
+      "to": "s2",
+      "symbol": "1",
+      "output": "0"
+    }
+  ],
+  "startId": "s1",
+  "accepts": [],
+  "notes": [],
+  "dividers": [],
+  "blocks": [],
+  "meta": {
+    "title": "Two’s-complement negation, streamed",
+    "blurb": "Negates a binary number fed least-significant bit first: copy everything up to and including the first 1, then flip every bit after it. The trick every programmer learns as “invert and add one”, done in one pass with two states.",
+    "inputs": [
+      {
+        "w": "1000",
+        "out": "1111",
+        "label": "1 ↦ −1"
+      },
+      {
+        "w": "0100",
+        "out": "0111",
+        "label": "2 ↦ −2"
+      },
+      {
+        "w": "0110",
+        "out": "0101",
+        "label": "6 ↦ −6"
+      },
+      {
+        "w": "0000",
+        "out": "0000",
+        "label": "0 ↦ 0"
+      },
+      {
+        "w": "1111",
+        "out": "1000",
+        "label": "−1 ↦ 1"
+      }
+    ],
+    "library": {
+      "author": {
+        "login": "thethinkmachine"
+      },
+      "license": "CC-BY-4.0",
+      "tags": [
+        "binary",
+        "arithmetic",
+        "hardware",
+        "twos-complement"
+      ],
+      "difficulty": "intro",
+      "readme": "In an n-bit register, −x is 2ⁿ − x. The textbook recipe is \"invert all bits, then add 1\", and the carry from that +1 ripples up through the trailing 1s of the inverted number — the trailing 0s of x — and stops at the first 1 of x. So the low bits up to and including the first 1 come out unchanged, and every bit above them is inverted.\n\nInput and output are LSB first: **0110** is 6, and the output **0101** is 10 = 16 − 6. Zero is its own negation."
+    }
+  }
+}

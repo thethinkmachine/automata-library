@@ -1,0 +1,201 @@
+{
+  "format": "automata-studio/workspace",
+  "schema": 1,
+  "app": "dev",
+  "machine": "TM",
+  "config": {
+    "twoWayTape": true,
+    "sym": {
+      "eps": "ε",
+      "any": "Σ",
+      "blank": "⊔",
+      "leftMarker": "⊢",
+      "rightMarker": "⊣",
+      "stackBottom": "Z",
+      "lambda": "λ"
+    }
+  },
+  "sigma": [
+    "a",
+    "b"
+  ],
+  "stackAlpha": [
+    "a",
+    "b",
+    "⊔"
+  ],
+  "outputAlpha": [],
+  "tapeCount": 1,
+  "states": [
+    {
+      "id": "s1",
+      "name": "look for ba",
+      "x": 0,
+      "y": 0
+    },
+    {
+      "id": "s2",
+      "name": "after b",
+      "x": 179,
+      "y": -47
+    },
+    {
+      "id": "s3",
+      "name": "swap",
+      "x": 358,
+      "y": 0
+    },
+    {
+      "id": "s4",
+      "name": "rewind",
+      "x": 537,
+      "y": 0
+    },
+    {
+      "id": "s5",
+      "name": "sorted",
+      "x": 179,
+      "y": 48
+    }
+  ],
+  "transitions": [
+    {
+      "id": "t1",
+      "from": "s1",
+      "to": "s1",
+      "symbol": "a",
+      "write": "a",
+      "dir": "R"
+    },
+    {
+      "id": "t2",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "b",
+      "write": "b",
+      "dir": "R"
+    },
+    {
+      "id": "t3",
+      "from": "s1",
+      "to": "s5",
+      "symbol": "⊔",
+      "write": "⊔",
+      "dir": "S"
+    },
+    {
+      "id": "t4",
+      "from": "s2",
+      "to": "s2",
+      "symbol": "b",
+      "write": "b",
+      "dir": "R"
+    },
+    {
+      "id": "t5",
+      "from": "s2",
+      "to": "s3",
+      "symbol": "a",
+      "write": "b",
+      "dir": "L"
+    },
+    {
+      "id": "t6",
+      "from": "s2",
+      "to": "s5",
+      "symbol": "⊔",
+      "write": "⊔",
+      "dir": "S"
+    },
+    {
+      "id": "t7",
+      "from": "s3",
+      "to": "s4",
+      "symbol": "b",
+      "write": "a",
+      "dir": "L"
+    },
+    {
+      "id": "t8",
+      "from": "s4",
+      "to": "s4",
+      "symbol": "a",
+      "write": "a",
+      "dir": "L"
+    },
+    {
+      "id": "t9",
+      "from": "s4",
+      "to": "s4",
+      "symbol": "b",
+      "write": "b",
+      "dir": "L"
+    },
+    {
+      "id": "t10",
+      "from": "s4",
+      "to": "s1",
+      "symbol": "⊔",
+      "write": "⊔",
+      "dir": "R"
+    }
+  ],
+  "startId": "s1",
+  "accepts": [
+    "s5"
+  ],
+  "notes": [],
+  "dividers": [],
+  "blocks": [],
+  "meta": {
+    "title": "Sort the letters: every a before every b",
+    "blurb": "Find the first “ba”, turn it into “ab”, go back to the start, and repeat — until a scan reaches the end without finding one. Bubble sort, one swap per trip, with nothing but a head and five states.",
+    "inputs": [
+      {
+        "w": "ba",
+        "expect": "accept",
+        "tape": "ab"
+      },
+      {
+        "w": "bba",
+        "expect": "accept",
+        "tape": "abb"
+      },
+      {
+        "w": "babab",
+        "expect": "accept",
+        "tape": "aabbb"
+      },
+      {
+        "w": "bbbaaa",
+        "expect": "accept",
+        "tape": "aaabbb"
+      },
+      {
+        "w": "aabb",
+        "expect": "accept",
+        "label": "already sorted",
+        "tape": "aabb"
+      },
+      {
+        "w": "",
+        "expect": "accept",
+        "label": "ε",
+        "tape": ""
+      }
+    ],
+    "library": {
+      "author": {
+        "login": "thethinkmachine"
+      },
+      "license": "CC-BY-4.0",
+      "tags": [
+        "sorting",
+        "function",
+        "time-complexity"
+      ],
+      "difficulty": "intro",
+      "readme": "The machine never counts anything. It only knows one local rule — **ba → ab** — and applies it until it no longer applies. Every swap moves one a one cell to the left, so the number of swaps is the number of *inversions* (pairs b…a in the wrong order), and each is followed by a walk back to the start: O(n²) swaps, O(n³) steps in the worst case.\n\nIt always accepts. The answer is the tape: **babab** halts with **aabbb** on it. The card's examples list what each input leaves behind."
+    }
+  }
+}

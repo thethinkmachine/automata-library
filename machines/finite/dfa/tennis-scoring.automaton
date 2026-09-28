@@ -1,0 +1,400 @@
+{
+  "format": "automata-studio/workspace",
+  "schema": 1,
+  "app": "dev",
+  "machine": "DFA",
+  "config": {
+    "sym": {
+      "eps": "ε",
+      "any": "Σ",
+      "blank": "⊔",
+      "leftMarker": "⊢",
+      "rightMarker": "⊣",
+      "stackBottom": "Z",
+      "lambda": "λ"
+    }
+  },
+  "sigma": [
+    "s",
+    "r"
+  ],
+  "stackAlpha": [],
+  "outputAlpha": [],
+  "tapeCount": 1,
+  "states": [
+    {
+      "id": "s1",
+      "name": "0–0",
+      "x": 120,
+      "y": 100
+    },
+    {
+      "id": "s2",
+      "name": "15–0",
+      "x": 290,
+      "y": 100
+    },
+    {
+      "id": "s3",
+      "name": "0–15",
+      "x": 120,
+      "y": 250
+    },
+    {
+      "id": "s4",
+      "name": "30–0",
+      "x": 460,
+      "y": 100
+    },
+    {
+      "id": "s5",
+      "name": "15–15",
+      "x": 290,
+      "y": 250
+    },
+    {
+      "id": "s6",
+      "name": "0–30",
+      "x": 120,
+      "y": 400
+    },
+    {
+      "id": "s7",
+      "name": "40–0",
+      "x": 630,
+      "y": 100
+    },
+    {
+      "id": "s8",
+      "name": "30–15",
+      "x": 460,
+      "y": 250
+    },
+    {
+      "id": "s9",
+      "name": "15–30",
+      "x": 290,
+      "y": 400
+    },
+    {
+      "id": "s10",
+      "name": "0–40",
+      "x": 120,
+      "y": 550
+    },
+    {
+      "id": "s11",
+      "name": "40–15",
+      "x": 630,
+      "y": 250
+    },
+    {
+      "id": "s12",
+      "name": "15–40",
+      "x": 290,
+      "y": 550
+    },
+    {
+      "id": "s13",
+      "name": "deuce",
+      "x": 460,
+      "y": 400
+    },
+    {
+      "id": "s14",
+      "name": "adv. server",
+      "x": 630,
+      "y": 400
+    },
+    {
+      "id": "s15",
+      "name": "adv. receiver",
+      "x": 460,
+      "y": 550
+    },
+    {
+      "id": "s16",
+      "name": "game",
+      "x": 834,
+      "y": 325
+    },
+    {
+      "id": "s17",
+      "name": "over",
+      "x": 375,
+      "y": 730
+    }
+  ],
+  "transitions": [
+    {
+      "id": "t1",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "s"
+    },
+    {
+      "id": "t2",
+      "from": "s1",
+      "to": "s3",
+      "symbol": "r"
+    },
+    {
+      "id": "t3",
+      "from": "s2",
+      "to": "s4",
+      "symbol": "s"
+    },
+    {
+      "id": "t4",
+      "from": "s2",
+      "to": "s5",
+      "symbol": "r"
+    },
+    {
+      "id": "t5",
+      "from": "s3",
+      "to": "s5",
+      "symbol": "s"
+    },
+    {
+      "id": "t6",
+      "from": "s3",
+      "to": "s6",
+      "symbol": "r"
+    },
+    {
+      "id": "t7",
+      "from": "s4",
+      "to": "s7",
+      "symbol": "s"
+    },
+    {
+      "id": "t8",
+      "from": "s4",
+      "to": "s8",
+      "symbol": "r"
+    },
+    {
+      "id": "t9",
+      "from": "s5",
+      "to": "s8",
+      "symbol": "s"
+    },
+    {
+      "id": "t10",
+      "from": "s5",
+      "to": "s9",
+      "symbol": "r"
+    },
+    {
+      "id": "t11",
+      "from": "s6",
+      "to": "s9",
+      "symbol": "s"
+    },
+    {
+      "id": "t12",
+      "from": "s6",
+      "to": "s10",
+      "symbol": "r"
+    },
+    {
+      "id": "t13",
+      "from": "s7",
+      "to": "s16",
+      "symbol": "s"
+    },
+    {
+      "id": "t14",
+      "from": "s7",
+      "to": "s11",
+      "symbol": "r"
+    },
+    {
+      "id": "t15",
+      "from": "s8",
+      "to": "s11",
+      "symbol": "s"
+    },
+    {
+      "id": "t16",
+      "from": "s8",
+      "to": "s13",
+      "symbol": "r"
+    },
+    {
+      "id": "t17",
+      "from": "s9",
+      "to": "s13",
+      "symbol": "s"
+    },
+    {
+      "id": "t18",
+      "from": "s9",
+      "to": "s12",
+      "symbol": "r"
+    },
+    {
+      "id": "t19",
+      "from": "s10",
+      "to": "s12",
+      "symbol": "s"
+    },
+    {
+      "id": "t20",
+      "from": "s10",
+      "to": "s17",
+      "symbol": "r"
+    },
+    {
+      "id": "t21",
+      "from": "s11",
+      "to": "s16",
+      "symbol": "s"
+    },
+    {
+      "id": "t22",
+      "from": "s11",
+      "to": "s14",
+      "symbol": "r"
+    },
+    {
+      "id": "t23",
+      "from": "s12",
+      "to": "s15",
+      "symbol": "s"
+    },
+    {
+      "id": "t24",
+      "from": "s12",
+      "to": "s17",
+      "symbol": "r"
+    },
+    {
+      "id": "t25",
+      "from": "s13",
+      "to": "s14",
+      "symbol": "s"
+    },
+    {
+      "id": "t26",
+      "from": "s13",
+      "to": "s15",
+      "symbol": "r"
+    },
+    {
+      "id": "t27",
+      "from": "s14",
+      "to": "s16",
+      "symbol": "s"
+    },
+    {
+      "id": "t28",
+      "from": "s14",
+      "to": "s13",
+      "symbol": "r"
+    },
+    {
+      "id": "t29",
+      "from": "s15",
+      "to": "s13",
+      "symbol": "s"
+    },
+    {
+      "id": "t30",
+      "from": "s15",
+      "to": "s17",
+      "symbol": "r"
+    },
+    {
+      "id": "t31",
+      "from": "s16",
+      "to": "s17",
+      "symbol": "s"
+    },
+    {
+      "id": "t32",
+      "from": "s16",
+      "to": "s17",
+      "symbol": "r"
+    },
+    {
+      "id": "t33",
+      "from": "s17",
+      "to": "s17",
+      "symbol": "s"
+    },
+    {
+      "id": "t34",
+      "from": "s17",
+      "to": "s17",
+      "symbol": "r"
+    }
+  ],
+  "startId": "s1",
+  "accepts": [
+    "s16"
+  ],
+  "notes": [],
+  "dividers": [],
+  "blocks": [],
+  "meta": {
+    "title": "Tennis: does the server win the game?",
+    "blurb": "Each symbol is a point, won by the server (s) or the receiver (r). Accepts exactly when the last point wins the game for the server. 30–all is deuce in disguise, so the minimal machine merges them — 17 states in all.",
+    "inputs": [
+      {
+        "w": "ssss",
+        "expect": "accept",
+        "label": "love game"
+      },
+      {
+        "w": "srsrss",
+        "expect": "accept",
+        "label": "40–30, then game"
+      },
+      {
+        "w": "sssrrrss",
+        "expect": "accept",
+        "label": "from deuce"
+      },
+      {
+        "w": "rrrsssss",
+        "expect": "accept",
+        "label": "back from 0–40"
+      },
+      {
+        "w": "rrrr",
+        "expect": "reject",
+        "label": "receiver wins"
+      },
+      {
+        "w": "sss",
+        "expect": "reject",
+        "label": "still 40–0"
+      },
+      {
+        "w": "sssss",
+        "expect": "reject",
+        "label": "point after the game"
+      },
+      {
+        "w": "sssrrrsr",
+        "expect": "reject",
+        "label": "back to deuce"
+      }
+    ],
+    "library": {
+      "author": {
+        "login": "thethinkmachine"
+      },
+      "license": "CC-BY-4.0",
+      "tags": [
+        "games",
+        "real-world",
+        "minimisation"
+      ],
+      "difficulty": "intermediate",
+      "readme": "The states are the scores. Most are the familiar ones, but three are missing on purpose:\n\n- **30–30** behaves exactly like **deuce**: in both, the server must win two points before the receiver does. So they are one state.\n- **40–30** is **advantage server**, and **30–40** is **advantage receiver**, for the same reason.\n\nThis is minimisation done by hand — two states are equivalent when no future sequence of points can tell them apart — and the library's own check agrees: the drawing earns the *Minimal* badge.\n\nA word is accepted when the server's winning point is its **last** symbol. Points after the game has been decided, and every game the receiver wins, fall into \"over\"."
+    }
+  }
+}

@@ -1,0 +1,117 @@
+{
+  "format": "automata-studio/workspace",
+  "schema": 1,
+  "app": "dev",
+  "machine": "Mealy",
+  "config": {
+    "transducerAccepts": false,
+    "sym": {
+      "eps": "ε",
+      "any": "Σ",
+      "blank": "⊔",
+      "leftMarker": "⊢",
+      "rightMarker": "⊣",
+      "stackBottom": "Z",
+      "lambda": "λ"
+    }
+  },
+  "sigma": [
+    "0",
+    "1"
+  ],
+  "stackAlpha": [],
+  "outputAlpha": [
+    "0",
+    "1"
+  ],
+  "tapeCount": 1,
+  "states": [
+    {
+      "id": "s1",
+      "name": "was low",
+      "x": 0,
+      "y": 0
+    },
+    {
+      "id": "s2",
+      "name": "was high",
+      "x": 179,
+      "y": 0
+    }
+  ],
+  "transitions": [
+    {
+      "id": "t1",
+      "from": "s1",
+      "to": "s1",
+      "symbol": "0",
+      "output": "0"
+    },
+    {
+      "id": "t2",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "1",
+      "output": "1"
+    },
+    {
+      "id": "t3",
+      "from": "s2",
+      "to": "s2",
+      "symbol": "1",
+      "output": "0"
+    },
+    {
+      "id": "t4",
+      "from": "s2",
+      "to": "s1",
+      "symbol": "0",
+      "output": "0"
+    }
+  ],
+  "startId": "s1",
+  "accepts": [],
+  "notes": [],
+  "dividers": [],
+  "blocks": [],
+  "meta": {
+    "title": "Rising-edge detector (Mealy)",
+    "blurb": "Outputs 1 on exactly the clock ticks where the input goes from 0 to 1. A Mealy machine can react on the edge itself, so two states do it — the output depends on the state and the input together.",
+    "inputs": [
+      {
+        "w": "0110",
+        "out": "0100"
+      },
+      {
+        "w": "1010",
+        "out": "1010"
+      },
+      {
+        "w": "0111001",
+        "out": "0100001"
+      },
+      {
+        "w": "1111",
+        "out": "1000"
+      },
+      {
+        "w": "0000",
+        "out": "0000"
+      }
+    ],
+    "library": {
+      "author": {
+        "login": "thethinkmachine"
+      },
+      "license": "CC-BY-4.0",
+      "tags": [
+        "hardware",
+        "edge-detector",
+        "moore-vs-mealy",
+        "sequential-circuit"
+      ],
+      "difficulty": "intro",
+      "readme": "A staple of digital design courses, and the cleanest way to see the difference between the two kinds of state machine. Here the output sits on the **edges**: \"was low, reads 1\" is the only transition that outputs 1.\n\nThe Moore version — **Rising-edge detector (Moore)** — has to put the output on a *state*, so it needs a third state that means \"an edge just happened\", and its output appears one tick later. Same signal in, same pulses out, one state more.\n\nThe input is assumed to start low."
+    }
+  }
+}

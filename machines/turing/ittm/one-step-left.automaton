@@ -58,8 +58,8 @@
   "schema": 1,
   "app": "dev",
   "meta": {
-    "title": "one step left",
-    "blurb": "The textbook Two-Way Infinite Turing Machine example.",
+    "title": "One step left",
+    "blurb": "Whatever it reads, it moves one cell left and accepts — onto a cell that a one-way tape does not have. The smallest machine that needs the two-way infinite tape. It accepts every word, in one step.",
     "library": {
       "author": {
         "login": "thethinkmachine"
@@ -70,6 +70,25 @@
         "itm"
       ],
       "difficulty": "intro"
-    }
+    },
+    "inputs": [
+      {
+        "w": "",
+        "expect": "accept",
+        "label": "ε"
+      },
+      {
+        "w": "a",
+        "expect": "accept"
+      },
+      {
+        "w": "ab",
+        "expect": "accept"
+      },
+      {
+        "w": "bba",
+        "expect": "accept"
+      }
+    ]
   }
 }

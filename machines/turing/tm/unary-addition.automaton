@@ -1,0 +1,162 @@
+{
+  "format": "automata-studio/workspace",
+  "schema": 1,
+  "app": "dev",
+  "machine": "TM",
+  "config": {
+    "twoWayTape": true,
+    "sym": {
+      "eps": "ε",
+      "any": "Σ",
+      "blank": "⊔",
+      "leftMarker": "⊢",
+      "rightMarker": "⊣",
+      "stackBottom": "Z",
+      "lambda": "λ"
+    }
+  },
+  "sigma": [
+    "1",
+    "+"
+  ],
+  "stackAlpha": [
+    "1",
+    "+",
+    "⊔"
+  ],
+  "outputAlpha": [],
+  "tapeCount": 1,
+  "states": [
+    {
+      "id": "s1",
+      "name": "first number",
+      "x": 0,
+      "y": 0
+    },
+    {
+      "id": "s2",
+      "name": "second number",
+      "x": 179,
+      "y": 0
+    },
+    {
+      "id": "s3",
+      "name": "erase one",
+      "x": 358,
+      "y": 0
+    },
+    {
+      "id": "s4",
+      "name": "done",
+      "x": 537,
+      "y": 0
+    }
+  ],
+  "transitions": [
+    {
+      "id": "t1",
+      "from": "s1",
+      "to": "s1",
+      "symbol": "1",
+      "write": "1",
+      "dir": "R"
+    },
+    {
+      "id": "t2",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "+",
+      "write": "1",
+      "dir": "R"
+    },
+    {
+      "id": "t3",
+      "from": "s2",
+      "to": "s2",
+      "symbol": "1",
+      "write": "1",
+      "dir": "R"
+    },
+    {
+      "id": "t4",
+      "from": "s2",
+      "to": "s3",
+      "symbol": "⊔",
+      "write": "⊔",
+      "dir": "L"
+    },
+    {
+      "id": "t5",
+      "from": "s3",
+      "to": "s4",
+      "symbol": "1",
+      "write": "⊔",
+      "dir": "S"
+    }
+  ],
+  "startId": "s1",
+  "accepts": [
+    "s4"
+  ],
+  "notes": [],
+  "dividers": [],
+  "blocks": [],
+  "meta": {
+    "title": "Unary addition: 1ᵐ+1ⁿ ↦ 1ᵐ⁺ⁿ",
+    "blurb": "The first function most courses compute with a Turing machine. Numbers are strings of 1s; to add, overwrite the + with a 1, run to the end, and erase one 1 to make up for it. Three working states, one pass.",
+    "inputs": [
+      {
+        "w": "1+1",
+        "expect": "accept",
+        "label": "1 + 1",
+        "tape": "11"
+      },
+      {
+        "w": "111+11",
+        "expect": "accept",
+        "label": "3 + 2",
+        "tape": "11111"
+      },
+      {
+        "w": "+11",
+        "expect": "accept",
+        "label": "0 + 2",
+        "tape": "11"
+      },
+      {
+        "w": "+",
+        "expect": "accept",
+        "label": "0 + 0",
+        "tape": ""
+      },
+      {
+        "w": "11",
+        "expect": "reject",
+        "label": "no +"
+      },
+      {
+        "w": "1+1+1",
+        "expect": "reject",
+        "label": "two +"
+      },
+      {
+        "w": "",
+        "expect": "reject"
+      }
+    ],
+    "library": {
+      "author": {
+        "login": "thethinkmachine"
+      },
+      "license": "CC-BY-4.0",
+      "tags": [
+        "arithmetic",
+        "unary",
+        "function",
+        "textbook"
+      ],
+      "difficulty": "intro",
+      "readme": "A Turing machine *computes* a function by leaving its answer on the tape when it halts. In unary, the number *n* is written as *n* 1s, and addition is almost free: **111+11** becomes **111111** by filling in the gap — one 1 too many — and then erasing a 1 from the far end.\n\nRun it and watch the tape rather than the verdict: the card's examples list what each input leaves behind. An input that is not of the form 1\\*+1\\* is rejected — the machine gets stuck with no move."
+    }
+  }
+}

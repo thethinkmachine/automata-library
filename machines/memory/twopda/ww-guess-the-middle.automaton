@@ -1,0 +1,207 @@
+{
+  "format": "automata-studio/workspace",
+  "schema": 1,
+  "app": "dev",
+  "machine": "2PDA",
+  "config": {
+    "pdaParadigm": "explicit",
+    "sym": {
+      "eps": "ε",
+      "any": "Σ",
+      "blank": "⊔",
+      "leftMarker": "⊢",
+      "rightMarker": "⊣",
+      "stackBottom": "Z",
+      "lambda": "λ"
+    }
+  },
+  "sigma": [
+    "a",
+    "b"
+  ],
+  "stackAlpha": [
+    "A",
+    "B",
+    "Z"
+  ],
+  "outputAlpha": [],
+  "tapeCount": 1,
+  "states": [
+    {
+      "id": "s1",
+      "name": "read w",
+      "x": 0,
+      "y": 0
+    },
+    {
+      "id": "s2",
+      "name": "pour",
+      "x": 179,
+      "y": 0
+    },
+    {
+      "id": "s3",
+      "name": "match copy",
+      "x": 358,
+      "y": 0
+    },
+    {
+      "id": "s4",
+      "name": "accept",
+      "x": 537,
+      "y": 0
+    }
+  ],
+  "transitions": [
+    {
+      "id": "t1",
+      "from": "s1",
+      "to": "s1",
+      "symbol": "a",
+      "pop": "ε",
+      "push": "A",
+      "pop2": "ε",
+      "push2": "ε"
+    },
+    {
+      "id": "t2",
+      "from": "s1",
+      "to": "s1",
+      "symbol": "b",
+      "pop": "ε",
+      "push": "B",
+      "pop2": "ε",
+      "push2": "ε"
+    },
+    {
+      "id": "t3",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "ε",
+      "pop": "ε",
+      "push": "ε",
+      "pop2": "ε",
+      "push2": "ε"
+    },
+    {
+      "id": "t4",
+      "from": "s2",
+      "to": "s2",
+      "symbol": "ε",
+      "pop": "A",
+      "push": "ε",
+      "pop2": "ε",
+      "push2": "A"
+    },
+    {
+      "id": "t5",
+      "from": "s2",
+      "to": "s2",
+      "symbol": "ε",
+      "pop": "B",
+      "push": "ε",
+      "pop2": "ε",
+      "push2": "B"
+    },
+    {
+      "id": "t6",
+      "from": "s2",
+      "to": "s3",
+      "symbol": "ε",
+      "pop": "Z",
+      "push": "Z",
+      "pop2": "ε",
+      "push2": "ε"
+    },
+    {
+      "id": "t7",
+      "from": "s3",
+      "to": "s3",
+      "symbol": "a",
+      "pop": "ε",
+      "push": "ε",
+      "pop2": "A",
+      "push2": "ε"
+    },
+    {
+      "id": "t8",
+      "from": "s3",
+      "to": "s3",
+      "symbol": "b",
+      "pop": "ε",
+      "push": "ε",
+      "pop2": "B",
+      "push2": "ε"
+    },
+    {
+      "id": "t9",
+      "from": "s3",
+      "to": "s4",
+      "symbol": "ε",
+      "pop": "ε",
+      "push": "ε",
+      "pop2": "Z",
+      "push2": "Z"
+    }
+  ],
+  "startId": "s1",
+  "accepts": [
+    "s4"
+  ],
+  "notes": [],
+  "dividers": [],
+  "blocks": [],
+  "meta": {
+    "title": "ww — guess the middle, pour, compare",
+    "blurb": "The copy language, with no separator. Push the first half on stack 1, guess where the middle is, pour stack 1 into stack 2 — which turns it right way up — and check the second half against it.",
+    "inputs": [
+      {
+        "w": "",
+        "expect": "accept",
+        "label": "ε"
+      },
+      {
+        "w": "aa",
+        "expect": "accept"
+      },
+      {
+        "w": "abab",
+        "expect": "accept"
+      },
+      {
+        "w": "abbabb",
+        "expect": "accept"
+      },
+      {
+        "w": "a",
+        "expect": "reject"
+      },
+      {
+        "w": "ab",
+        "expect": "reject"
+      },
+      {
+        "w": "abba",
+        "expect": "reject",
+        "label": "mirrored, not copied"
+      },
+      {
+        "w": "aabbab",
+        "expect": "reject"
+      }
+    ],
+    "library": {
+      "author": {
+        "login": "thethinkmachine"
+      },
+      "license": "CC-BY-4.0",
+      "tags": [
+        "copy-language",
+        "not-context-free",
+        "two-stacks"
+      ],
+      "difficulty": "intermediate",
+      "readme": "One stack reverses whatever it stores, which is why it can check **wwᴿ** and not **ww**. Two stacks can reverse twice. Pouring stack 1 into stack 2 with ε-moves leaves the *first* symbol of w on top, which is the order the copy arrives in.\n\nThe pour happens once, at a guessed moment: every position in the word is tried as the middle, and only the right one can empty stack 2 exactly as the input runs out.\n\nTwo stacks are enough to simulate a Turing machine's tape — one holds the cells to the left of the head, the other the cells to the right — so this machine is as powerful as a machine gets. Compare **Perfect copy: w#w** among the queue automata, which needs the separator but no guess."
+    }
+  }
+}

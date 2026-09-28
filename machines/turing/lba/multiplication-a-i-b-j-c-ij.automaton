@@ -1,0 +1,437 @@
+{
+  "format": "automata-studio/workspace",
+  "schema": 1,
+  "app": "dev",
+  "machine": "LBA",
+  "config": {
+    "sym": {
+      "eps": "ε",
+      "any": "Σ",
+      "blank": "⊔",
+      "leftMarker": "⊢",
+      "rightMarker": "⊣",
+      "stackBottom": "Z",
+      "lambda": "λ"
+    }
+  },
+  "sigma": [
+    "a",
+    "b",
+    "c"
+  ],
+  "stackAlpha": [
+    "⊢",
+    "a",
+    "b",
+    "c",
+    "A",
+    "B",
+    "C",
+    "⊔",
+    "⊣"
+  ],
+  "outputAlpha": [],
+  "tapeCount": 1,
+  "states": [
+    {
+      "id": "s1",
+      "name": "start",
+      "x": 0,
+      "y": 0
+    },
+    {
+      "id": "s2",
+      "name": "a+",
+      "x": 179,
+      "y": 0
+    },
+    {
+      "id": "s3",
+      "name": "a+ b+",
+      "x": 358,
+      "y": 0
+    },
+    {
+      "id": "s4",
+      "name": "a+ b+ c+",
+      "x": 537,
+      "y": 0
+    },
+    {
+      "id": "s5",
+      "name": "a+ b+ c+ …",
+      "x": 716,
+      "y": 0
+    },
+    {
+      "id": "s6",
+      "name": "rewind",
+      "x": 895,
+      "y": 0
+    },
+    {
+      "id": "s7",
+      "name": "next a",
+      "x": 1074,
+      "y": 0
+    },
+    {
+      "id": "s8",
+      "name": "find b",
+      "x": 1253,
+      "y": 48
+    },
+    {
+      "id": "s9",
+      "name": "find c",
+      "x": 1432,
+      "y": 0
+    },
+    {
+      "id": "s10",
+      "name": "back to b",
+      "x": 1611,
+      "y": 0
+    },
+    {
+      "id": "s11",
+      "name": "restore b",
+      "x": 1432,
+      "y": 95
+    },
+    {
+      "id": "s12",
+      "name": "all c crossed?",
+      "x": 1253,
+      "y": -47
+    },
+    {
+      "id": "s13",
+      "name": "accept",
+      "x": 1432,
+      "y": -95
+    }
+  ],
+  "transitions": [
+    {
+      "id": "t1",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "⊢",
+      "write": "⊢",
+      "dir": "R"
+    },
+    {
+      "id": "t2",
+      "from": "s2",
+      "to": "s3",
+      "symbol": "a",
+      "write": "a",
+      "dir": "R"
+    },
+    {
+      "id": "t3",
+      "from": "s3",
+      "to": "s3",
+      "symbol": "a",
+      "write": "a",
+      "dir": "R"
+    },
+    {
+      "id": "t4",
+      "from": "s3",
+      "to": "s4",
+      "symbol": "b",
+      "write": "b",
+      "dir": "R"
+    },
+    {
+      "id": "t5",
+      "from": "s4",
+      "to": "s4",
+      "symbol": "b",
+      "write": "b",
+      "dir": "R"
+    },
+    {
+      "id": "t6",
+      "from": "s4",
+      "to": "s5",
+      "symbol": "c",
+      "write": "c",
+      "dir": "R"
+    },
+    {
+      "id": "t7",
+      "from": "s5",
+      "to": "s5",
+      "symbol": "c",
+      "write": "c",
+      "dir": "R"
+    },
+    {
+      "id": "t8",
+      "from": "s5",
+      "to": "s6",
+      "symbol": "⊣",
+      "write": "⊣",
+      "dir": "L"
+    },
+    {
+      "id": "t9",
+      "from": "s6",
+      "to": "s6",
+      "symbol": "a",
+      "write": "a",
+      "dir": "L"
+    },
+    {
+      "id": "t10",
+      "from": "s6",
+      "to": "s6",
+      "symbol": "b",
+      "write": "b",
+      "dir": "L"
+    },
+    {
+      "id": "t11",
+      "from": "s6",
+      "to": "s6",
+      "symbol": "c",
+      "write": "c",
+      "dir": "L"
+    },
+    {
+      "id": "t12",
+      "from": "s6",
+      "to": "s7",
+      "symbol": "⊢",
+      "write": "⊢",
+      "dir": "R"
+    },
+    {
+      "id": "t13",
+      "from": "s7",
+      "to": "s7",
+      "symbol": "A",
+      "write": "A",
+      "dir": "R"
+    },
+    {
+      "id": "t14",
+      "from": "s7",
+      "to": "s8",
+      "symbol": "a",
+      "write": "A",
+      "dir": "R"
+    },
+    {
+      "id": "t15",
+      "from": "s7",
+      "to": "s12",
+      "symbol": "b",
+      "write": "b",
+      "dir": "R"
+    },
+    {
+      "id": "t16",
+      "from": "s8",
+      "to": "s8",
+      "symbol": "a",
+      "write": "a",
+      "dir": "R"
+    },
+    {
+      "id": "t17",
+      "from": "s8",
+      "to": "s8",
+      "symbol": "B",
+      "write": "B",
+      "dir": "R"
+    },
+    {
+      "id": "t18",
+      "from": "s8",
+      "to": "s9",
+      "symbol": "b",
+      "write": "B",
+      "dir": "R"
+    },
+    {
+      "id": "t19",
+      "from": "s8",
+      "to": "s11",
+      "symbol": "C",
+      "write": "C",
+      "dir": "L"
+    },
+    {
+      "id": "t20",
+      "from": "s9",
+      "to": "s9",
+      "symbol": "b",
+      "write": "b",
+      "dir": "R"
+    },
+    {
+      "id": "t21",
+      "from": "s9",
+      "to": "s9",
+      "symbol": "C",
+      "write": "C",
+      "dir": "R"
+    },
+    {
+      "id": "t22",
+      "from": "s9",
+      "to": "s10",
+      "symbol": "c",
+      "write": "C",
+      "dir": "L"
+    },
+    {
+      "id": "t23",
+      "from": "s10",
+      "to": "s10",
+      "symbol": "b",
+      "write": "b",
+      "dir": "L"
+    },
+    {
+      "id": "t24",
+      "from": "s10",
+      "to": "s10",
+      "symbol": "C",
+      "write": "C",
+      "dir": "L"
+    },
+    {
+      "id": "t25",
+      "from": "s10",
+      "to": "s8",
+      "symbol": "B",
+      "write": "B",
+      "dir": "R"
+    },
+    {
+      "id": "t26",
+      "from": "s11",
+      "to": "s11",
+      "symbol": "B",
+      "write": "b",
+      "dir": "L"
+    },
+    {
+      "id": "t27",
+      "from": "s11",
+      "to": "s11",
+      "symbol": "a",
+      "write": "a",
+      "dir": "L"
+    },
+    {
+      "id": "t28",
+      "from": "s11",
+      "to": "s7",
+      "symbol": "A",
+      "write": "A",
+      "dir": "R"
+    },
+    {
+      "id": "t29",
+      "from": "s12",
+      "to": "s12",
+      "symbol": "b",
+      "write": "b",
+      "dir": "R"
+    },
+    {
+      "id": "t30",
+      "from": "s12",
+      "to": "s12",
+      "symbol": "C",
+      "write": "C",
+      "dir": "R"
+    },
+    {
+      "id": "t31",
+      "from": "s12",
+      "to": "s13",
+      "symbol": "⊣",
+      "write": "⊣",
+      "dir": "S"
+    }
+  ],
+  "startId": "s1",
+  "accepts": [
+    "s13"
+  ],
+  "notes": [],
+  "dividers": [],
+  "blocks": [],
+  "meta": {
+    "title": "aⁱbʲcᵏ with i × j = k — multiplication checked in place",
+    "blurb": "Sipser’s M₃ as a linear bounded automaton. Check the shape, then for every a, cross off one c for every b. When the a’s run out, every c must be crossed off. Multiplication as repeated addition, never leaving the input’s cells.",
+    "inputs": [
+      {
+        "w": "abc",
+        "expect": "accept",
+        "label": "1 × 1 = 1"
+      },
+      {
+        "w": "abbcc",
+        "expect": "accept",
+        "label": "1 × 2 = 2"
+      },
+      {
+        "w": "aabcc",
+        "expect": "accept",
+        "label": "2 × 1 = 2"
+      },
+      {
+        "w": "aabbcccc",
+        "expect": "accept",
+        "label": "2 × 2 = 4"
+      },
+      {
+        "w": "aaabbcccccc",
+        "expect": "accept",
+        "label": "3 × 2 = 6"
+      },
+      {
+        "w": "abbc",
+        "expect": "reject",
+        "label": "1 × 2 ≠ 1"
+      },
+      {
+        "w": "aabbccc",
+        "expect": "reject",
+        "label": "2 × 2 ≠ 3"
+      },
+      {
+        "w": "bc",
+        "expect": "reject",
+        "label": "no a"
+      },
+      {
+        "w": "abcabc",
+        "expect": "reject"
+      }
+    ],
+    "library": {
+      "author": {
+        "login": "thethinkmachine"
+      },
+      "license": "CC-BY-4.0",
+      "tags": [
+        "sipser",
+        "arithmetic",
+        "context-sensitive",
+        "not-context-free"
+      ],
+      "difficulty": "intermediate",
+      "chapter": "Sipser, Introduction to the Theory of Computation, Example 3.11",
+      "readme": "Sipser gives M₃ as a four-stage description; this is it with every state drawn.\n\n1. **Shape.** The first four states check the input is a⁺b⁺c⁺ and nothing else.\n2. **Rewind** to the ⊢ endmarker.\n3. **One round per a.** *next a* crosses off an a (A). Then *find b* / *find c* / *back to b* pair each b with a c, marking them B and C. When no unmarked b remains (*find b* meets a C), *restore b* turns the B's back into b's for the next round.\n4. When *next a* finds no a left, *all c crossed?* checks the rest of the tape.\n\nAfter i rounds, i × j c's are crossed off; a round that runs out of c's gets stuck and rejects. Nothing is ever written outside the input, which is what makes it a **linear bounded automaton** — the machine model of the context-sensitive languages. The language is not context-free."
+    }
+  }
+}

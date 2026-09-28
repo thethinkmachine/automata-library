@@ -72,8 +72,8 @@
   "schema": 1,
   "app": "dev",
   "meta": {
-    "title": "guess the last 1",
-    "blurb": "The textbook Nondeterministic Turing Machine example.",
+    "title": "Guess the last 1",
+    "blurb": "Accepts binary strings ending in 1. The machine moves right and, on some 1, guesses that it is the last symbol; the guess is confirmed when the next cell is blank. The nondeterministic Turing machine in its smallest form.",
     "library": {
       "author": {
         "login": "thethinkmachine"
@@ -84,6 +84,36 @@
         "ndtm"
       ],
       "difficulty": "intro"
-    }
+    },
+    "inputs": [
+      {
+        "w": "1",
+        "expect": "accept"
+      },
+      {
+        "w": "01",
+        "expect": "accept"
+      },
+      {
+        "w": "1011",
+        "expect": "accept"
+      },
+      {
+        "w": "",
+        "expect": "reject"
+      },
+      {
+        "w": "0",
+        "expect": "reject"
+      },
+      {
+        "w": "10",
+        "expect": "reject"
+      },
+      {
+        "w": "0110",
+        "expect": "reject"
+      }
+    ]
   }
 }

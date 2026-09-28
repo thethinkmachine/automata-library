@@ -1,0 +1,176 @@
+{
+  "format": "automata-studio/workspace",
+  "schema": 1,
+  "app": "dev",
+  "machine": "DFA",
+  "config": {
+    "sym": {
+      "eps": "ε",
+      "any": "Σ",
+      "blank": "⊔",
+      "leftMarker": "⊢",
+      "rightMarker": "⊣",
+      "stackBottom": "Z",
+      "lambda": "λ"
+    }
+  },
+  "sigma": [
+    "a",
+    "b"
+  ],
+  "stackAlpha": [],
+  "outputAlpha": [],
+  "tapeCount": 1,
+  "states": [
+    {
+      "id": "s1",
+      "name": "start",
+      "x": 0,
+      "y": 0
+    },
+    {
+      "id": "s2",
+      "name": "a…a",
+      "x": 179,
+      "y": 48
+    },
+    {
+      "id": "s3",
+      "name": "a…b",
+      "x": 358,
+      "y": 48
+    },
+    {
+      "id": "s4",
+      "name": "b…b",
+      "x": 179,
+      "y": -47
+    },
+    {
+      "id": "s5",
+      "name": "b…a",
+      "x": 358,
+      "y": -47
+    }
+  ],
+  "transitions": [
+    {
+      "id": "t1",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "a"
+    },
+    {
+      "id": "t2",
+      "from": "s1",
+      "to": "s4",
+      "symbol": "b"
+    },
+    {
+      "id": "t3",
+      "from": "s2",
+      "to": "s2",
+      "symbol": "a"
+    },
+    {
+      "id": "t4",
+      "from": "s2",
+      "to": "s3",
+      "symbol": "b"
+    },
+    {
+      "id": "t5",
+      "from": "s3",
+      "to": "s2",
+      "symbol": "a"
+    },
+    {
+      "id": "t6",
+      "from": "s3",
+      "to": "s3",
+      "symbol": "b"
+    },
+    {
+      "id": "t7",
+      "from": "s4",
+      "to": "s4",
+      "symbol": "b"
+    },
+    {
+      "id": "t8",
+      "from": "s4",
+      "to": "s5",
+      "symbol": "a"
+    },
+    {
+      "id": "t9",
+      "from": "s5",
+      "to": "s4",
+      "symbol": "b"
+    },
+    {
+      "id": "t10",
+      "from": "s5",
+      "to": "s5",
+      "symbol": "a"
+    }
+  ],
+  "startId": "s1",
+  "accepts": [
+    "s2",
+    "s4"
+  ],
+  "notes": [],
+  "dividers": [],
+  "blocks": [],
+  "meta": {
+    "title": "First letter equals last letter",
+    "blurb": "Words that begin and end with the same letter. The first symbol is remembered forever by choosing a half of the machine; after that, each half only tracks the latest letter.",
+    "inputs": [
+      {
+        "w": "a",
+        "expect": "accept"
+      },
+      {
+        "w": "aba",
+        "expect": "accept"
+      },
+      {
+        "w": "bab",
+        "expect": "accept"
+      },
+      {
+        "w": "abbba",
+        "expect": "accept"
+      },
+      {
+        "w": "",
+        "expect": "reject"
+      },
+      {
+        "w": "ab",
+        "expect": "reject"
+      },
+      {
+        "w": "ba",
+        "expect": "reject"
+      },
+      {
+        "w": "aabab",
+        "expect": "reject"
+      }
+    ],
+    "library": {
+      "author": {
+        "login": "thethinkmachine"
+      },
+      "license": "CC-BY-4.0",
+      "tags": [
+        "memory",
+        "textbook"
+      ],
+      "difficulty": "intro",
+      "readme": "The first move splits the machine in two, and it never crosses back: everything reachable after an **a** remembers that the word began with a. Inside each half, the state is simply the most recent letter.\n\nA single letter is accepted (it is both first and last). The empty word has no first letter and is rejected."
+    }
+  }
+}

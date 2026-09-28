@@ -1,0 +1,155 @@
+{
+  "format": "automata-studio/workspace",
+  "schema": 1,
+  "app": "dev",
+  "machine": "DBA",
+  "config": {
+    "sym": {
+      "eps": "ε",
+      "any": "Σ",
+      "blank": "⊔",
+      "leftMarker": "⊢",
+      "rightMarker": "⊣",
+      "stackBottom": "Z",
+      "lambda": "λ"
+    }
+  },
+  "sigma": [
+    "a",
+    "b",
+    "c"
+  ],
+  "stackAlpha": [],
+  "outputAlpha": [],
+  "tapeCount": 1,
+  "states": [
+    {
+      "id": "s1",
+      "name": "wait for a",
+      "x": 0,
+      "y": 0
+    },
+    {
+      "id": "s2",
+      "name": "wait for b",
+      "x": 179,
+      "y": 0
+    },
+    {
+      "id": "s3",
+      "name": "saw both",
+      "x": 358,
+      "y": 0
+    }
+  ],
+  "transitions": [
+    {
+      "id": "t1",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "a"
+    },
+    {
+      "id": "t2",
+      "from": "s1",
+      "to": "s1",
+      "symbol": "b"
+    },
+    {
+      "id": "t3",
+      "from": "s1",
+      "to": "s1",
+      "symbol": "c"
+    },
+    {
+      "id": "t4",
+      "from": "s2",
+      "to": "s3",
+      "symbol": "b"
+    },
+    {
+      "id": "t5",
+      "from": "s2",
+      "to": "s2",
+      "symbol": "a"
+    },
+    {
+      "id": "t6",
+      "from": "s2",
+      "to": "s2",
+      "symbol": "c"
+    },
+    {
+      "id": "t7",
+      "from": "s3",
+      "to": "s2",
+      "symbol": "a"
+    },
+    {
+      "id": "t8",
+      "from": "s3",
+      "to": "s1",
+      "symbol": "b"
+    },
+    {
+      "id": "t9",
+      "from": "s3",
+      "to": "s1",
+      "symbol": "c"
+    }
+  ],
+  "startId": "s1",
+  "accepts": [
+    "s3"
+  ],
+  "notes": [],
+  "dividers": [],
+  "blocks": [],
+  "meta": {
+    "title": "Infinitely many a’s and infinitely many b’s",
+    "blurb": "GF a ∧ GF b — the fairness condition of a scheduler that must serve two processes forever. Wait for an a, then for a b; each time both have happened, pass through F and start the round again.",
+    "inputs": [
+      {
+        "w": "(ab)",
+        "expect": "accept"
+      },
+      {
+        "w": "c(acb)",
+        "expect": "accept"
+      },
+      {
+        "w": "aaa(ba)",
+        "expect": "accept"
+      },
+      {
+        "w": "b(aacbcc)",
+        "expect": "accept"
+      },
+      {
+        "w": "(a)",
+        "expect": "reject"
+      },
+      {
+        "w": "ab(c)",
+        "expect": "reject"
+      },
+      {
+        "w": "(bc)",
+        "expect": "reject"
+      }
+    ],
+    "library": {
+      "author": {
+        "login": "thethinkmachine"
+      },
+      "license": "CC-BY-4.0",
+      "tags": [
+        "ltl",
+        "fairness",
+        "intersection"
+      ],
+      "difficulty": "intermediate",
+      "readme": "Intersecting two Büchi conditions is not as simple as taking a product and requiring both F's: the two might each be visited infinitely often but never at the same time. The standard fix is a **round**: first wait for the first condition, then for the second, and only then count a visit to F. That is exactly this machine for GF a ∧ GF b.\n\nA word is accepted when its periodic part contains both an a and a b. **(ab)**, **c(acb)** and **aaa(ba)** are accepted; **(a)**, **ab(c)** and **(bc)** are not."
+    }
+  }
+}

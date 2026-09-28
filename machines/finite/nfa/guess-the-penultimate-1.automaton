@@ -18,14 +18,8 @@
       "name": "guess"
     },
     {
-      "id": "s3",
-      "x": 400,
-      "y": 200,
-      "name": "penult"
-    },
-    {
       "id": "s4",
-      "x": 550,
+      "x": 400,
       "y": 200,
       "name": "acc"
     }
@@ -56,24 +50,12 @@
     {
       "id": "t4",
       "from": "s2",
-      "to": "s3",
+      "to": "s4",
       "symbol": "0"
     },
     {
       "id": "t5",
       "from": "s2",
-      "to": "s3",
-      "symbol": "1"
-    },
-    {
-      "id": "t6",
-      "from": "s3",
-      "to": "s4",
-      "symbol": "0"
-    },
-    {
-      "id": "t7",
-      "from": "s3",
       "to": "s4",
       "symbol": "1"
     }
@@ -82,8 +64,8 @@
   "schema": 1,
   "app": "dev",
   "meta": {
-    "title": "guess the penultimate 1",
-    "blurb": "The textbook Nondeterministic Finite Automaton example.",
+    "title": "Guess the penultimate 1",
+    "blurb": "Accepts binary strings whose second-to-last symbol is 1. On every 1 the machine may bet that it is the penultimate symbol; the bet is right when exactly one symbol follows. Three states, where a DFA needs four.",
     "library": {
       "author": {
         "login": "thethinkmachine"
@@ -94,6 +76,40 @@
         "nfa"
       ],
       "difficulty": "intro"
-    }
+    },
+    "inputs": [
+      {
+        "w": "10",
+        "expect": "accept"
+      },
+      {
+        "w": "11",
+        "expect": "accept"
+      },
+      {
+        "w": "0110",
+        "expect": "accept"
+      },
+      {
+        "w": "1011",
+        "expect": "accept"
+      },
+      {
+        "w": "",
+        "expect": "reject"
+      },
+      {
+        "w": "1",
+        "expect": "reject"
+      },
+      {
+        "w": "01",
+        "expect": "reject"
+      },
+      {
+        "w": "1001",
+        "expect": "reject"
+      }
+    ]
   }
 }

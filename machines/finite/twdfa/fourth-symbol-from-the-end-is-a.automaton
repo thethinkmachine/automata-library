@@ -1,0 +1,205 @@
+{
+  "format": "automata-studio/workspace",
+  "schema": 1,
+  "app": "dev",
+  "machine": "2DFA",
+  "config": {
+    "sym": {
+      "eps": "ε",
+      "any": "Σ",
+      "blank": "⊔",
+      "leftMarker": "⊢",
+      "rightMarker": "⊣",
+      "stackBottom": "Z",
+      "lambda": "λ"
+    }
+  },
+  "sigma": [
+    "a",
+    "b"
+  ],
+  "stackAlpha": [],
+  "outputAlpha": [],
+  "tapeCount": 1,
+  "states": [
+    {
+      "id": "s1",
+      "name": "start",
+      "x": 0,
+      "y": 0
+    },
+    {
+      "id": "s2",
+      "name": "to the end",
+      "x": 179,
+      "y": 0
+    },
+    {
+      "id": "s3",
+      "name": "1st from end",
+      "x": 358,
+      "y": 0
+    },
+    {
+      "id": "s4",
+      "name": "2nd from end",
+      "x": 537,
+      "y": 0
+    },
+    {
+      "id": "s5",
+      "name": "3rd from end",
+      "x": 716,
+      "y": 0
+    },
+    {
+      "id": "s6",
+      "name": "4th from end",
+      "x": 895,
+      "y": 0
+    },
+    {
+      "id": "s7",
+      "name": "accept",
+      "x": 1074,
+      "y": 0
+    }
+  ],
+  "transitions": [
+    {
+      "id": "t1",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "⊢",
+      "dir": "R"
+    },
+    {
+      "id": "t2",
+      "from": "s2",
+      "to": "s2",
+      "symbol": "a",
+      "dir": "R"
+    },
+    {
+      "id": "t3",
+      "from": "s2",
+      "to": "s2",
+      "symbol": "b",
+      "dir": "R"
+    },
+    {
+      "id": "t4",
+      "from": "s2",
+      "to": "s3",
+      "symbol": "⊣",
+      "dir": "L"
+    },
+    {
+      "id": "t5",
+      "from": "s3",
+      "to": "s4",
+      "symbol": "a",
+      "dir": "L"
+    },
+    {
+      "id": "t6",
+      "from": "s3",
+      "to": "s4",
+      "symbol": "b",
+      "dir": "L"
+    },
+    {
+      "id": "t7",
+      "from": "s4",
+      "to": "s5",
+      "symbol": "a",
+      "dir": "L"
+    },
+    {
+      "id": "t8",
+      "from": "s4",
+      "to": "s5",
+      "symbol": "b",
+      "dir": "L"
+    },
+    {
+      "id": "t9",
+      "from": "s5",
+      "to": "s6",
+      "symbol": "a",
+      "dir": "L"
+    },
+    {
+      "id": "t10",
+      "from": "s5",
+      "to": "s6",
+      "symbol": "b",
+      "dir": "L"
+    },
+    {
+      "id": "t11",
+      "from": "s6",
+      "to": "s7",
+      "symbol": "a",
+      "dir": "S"
+    }
+  ],
+  "startId": "s1",
+  "accepts": [
+    "s7"
+  ],
+  "notes": [],
+  "dividers": [],
+  "blocks": [],
+  "meta": {
+    "title": "Fourth symbol from the end is a",
+    "blurb": "A one-way DFA for this language needs 16 states, one for every possible last four letters. A two-way head does it in seven: run to the right endmarker, step back four cells, and look.",
+    "inputs": [
+      {
+        "w": "abbb",
+        "expect": "accept"
+      },
+      {
+        "w": "aaaa",
+        "expect": "accept"
+      },
+      {
+        "w": "babab",
+        "expect": "accept"
+      },
+      {
+        "w": "bbabaa",
+        "expect": "accept"
+      },
+      {
+        "w": "",
+        "expect": "reject"
+      },
+      {
+        "w": "abb",
+        "expect": "reject"
+      },
+      {
+        "w": "baaa",
+        "expect": "reject"
+      },
+      {
+        "w": "abbbb",
+        "expect": "reject"
+      }
+    ],
+    "library": {
+      "author": {
+        "login": "thethinkmachine"
+      },
+      "license": "CC-BY-4.0",
+      "tags": [
+        "two-way",
+        "succinctness",
+        "endmarkers"
+      ],
+      "difficulty": "intro",
+      "readme": "Two-way finite automata recognise exactly the regular languages — the head can move back, but it cannot write, so there is nothing new it can remember. What it can buy is **size**.\n\nA one-way DFA for \"the *n*th symbol from the end is a\" must remember the last *n* symbols: 2ⁿ states. This machine walks to ⊣ and counts back *n* cells: *n* + 3 states. If the word is too short, the walk back reaches ⊢, where there is no move, and the word is rejected."
+    }
+  }
+}

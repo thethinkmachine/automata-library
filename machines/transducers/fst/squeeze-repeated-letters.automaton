@@ -1,0 +1,135 @@
+{
+  "format": "automata-studio/workspace",
+  "schema": 1,
+  "app": "dev",
+  "machine": "FST",
+  "config": {
+    "sym": {
+      "eps": "ε",
+      "any": "Σ",
+      "blank": "⊔",
+      "leftMarker": "⊢",
+      "rightMarker": "⊣",
+      "stackBottom": "Z",
+      "lambda": "λ"
+    }
+  },
+  "sigma": [
+    "a",
+    "b"
+  ],
+  "stackAlpha": [],
+  "outputAlpha": [
+    "a",
+    "b"
+  ],
+  "tapeCount": 1,
+  "states": [
+    {
+      "id": "s1",
+      "name": "start",
+      "x": 0,
+      "y": 0
+    },
+    {
+      "id": "s2",
+      "name": "after a",
+      "x": 179,
+      "y": -47
+    },
+    {
+      "id": "s3",
+      "name": "after b",
+      "x": 179,
+      "y": 48
+    }
+  ],
+  "transitions": [
+    {
+      "id": "t1",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "a",
+      "output": "a"
+    },
+    {
+      "id": "t2",
+      "from": "s1",
+      "to": "s3",
+      "symbol": "b",
+      "output": "b"
+    },
+    {
+      "id": "t3",
+      "from": "s2",
+      "to": "s2",
+      "symbol": "a",
+      "output": ""
+    },
+    {
+      "id": "t4",
+      "from": "s2",
+      "to": "s3",
+      "symbol": "b",
+      "output": "b"
+    },
+    {
+      "id": "t5",
+      "from": "s3",
+      "to": "s3",
+      "symbol": "b",
+      "output": ""
+    },
+    {
+      "id": "t6",
+      "from": "s3",
+      "to": "s2",
+      "symbol": "a",
+      "output": "a"
+    }
+  ],
+  "startId": "s1",
+  "accepts": [],
+  "notes": [],
+  "dividers": [],
+  "blocks": [],
+  "meta": {
+    "title": "Squeeze repeated letters (tr -s)",
+    "blurb": "Collapses every run of the same letter to one copy: aaabba ↦ aba. The state is the last letter written, and a repeat of it writes nothing at all — an edge whose output is the empty string.",
+    "inputs": [
+      {
+        "w": "aaabba",
+        "out": "aba"
+      },
+      {
+        "w": "abab",
+        "out": "abab"
+      },
+      {
+        "w": "bbbbb",
+        "out": "b"
+      },
+      {
+        "w": "aabbaabb",
+        "out": "abab"
+      },
+      {
+        "w": "",
+        "out": ""
+      }
+    ],
+    "library": {
+      "author": {
+        "login": "thethinkmachine"
+      },
+      "license": "CC-BY-4.0",
+      "tags": [
+        "text-processing",
+        "unix",
+        "epsilon-output"
+      ],
+      "difficulty": "intro",
+      "readme": "The Unix command `tr -s` (\"squeeze\") as a finite-state transducer. Unlike a Mealy machine, whose every step writes exactly one symbol, an FST's edges may write any string — including none. The two self-loops write nothing, which is how runs disappear.\n\nWhat is left is the \"shape\" of the word: the alternating skeleton **abab…** with the repetitions removed. The transducer is deterministic, so every input has exactly one output."
+    }
+  }
+}

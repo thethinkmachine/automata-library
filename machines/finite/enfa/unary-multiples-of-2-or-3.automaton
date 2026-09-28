@@ -1,0 +1,172 @@
+{
+  "format": "automata-studio/workspace",
+  "schema": 1,
+  "app": "dev",
+  "machine": "ε-NFA",
+  "config": {
+    "sym": {
+      "eps": "ε",
+      "any": "Σ",
+      "blank": "⊔",
+      "leftMarker": "⊢",
+      "rightMarker": "⊣",
+      "stackBottom": "Z",
+      "lambda": "λ"
+    }
+  },
+  "sigma": [
+    "a"
+  ],
+  "stackAlpha": [],
+  "outputAlpha": [],
+  "tapeCount": 1,
+  "states": [
+    {
+      "id": "s1",
+      "name": "start",
+      "x": 0,
+      "y": 0
+    },
+    {
+      "id": "s2",
+      "name": "2 | 0",
+      "x": 179,
+      "y": 48
+    },
+    {
+      "id": "s3",
+      "name": "2 | 1",
+      "x": 358,
+      "y": 48
+    },
+    {
+      "id": "s4",
+      "name": "3 | 0",
+      "x": 179,
+      "y": -47
+    },
+    {
+      "id": "s5",
+      "name": "3 | 1",
+      "x": 358,
+      "y": -47
+    },
+    {
+      "id": "s6",
+      "name": "3 | 2",
+      "x": 537,
+      "y": 0
+    }
+  ],
+  "transitions": [
+    {
+      "id": "t1",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "ε"
+    },
+    {
+      "id": "t2",
+      "from": "s1",
+      "to": "s4",
+      "symbol": "ε"
+    },
+    {
+      "id": "t3",
+      "from": "s2",
+      "to": "s3",
+      "symbol": "a"
+    },
+    {
+      "id": "t4",
+      "from": "s3",
+      "to": "s2",
+      "symbol": "a"
+    },
+    {
+      "id": "t5",
+      "from": "s4",
+      "to": "s5",
+      "symbol": "a"
+    },
+    {
+      "id": "t6",
+      "from": "s5",
+      "to": "s6",
+      "symbol": "a"
+    },
+    {
+      "id": "t7",
+      "from": "s6",
+      "to": "s4",
+      "symbol": "a"
+    }
+  ],
+  "startId": "s1",
+  "accepts": [
+    "s2",
+    "s4"
+  ],
+  "notes": [],
+  "dividers": [],
+  "blocks": [],
+  "meta": {
+    "title": "Lengths divisible by 2 or by 3",
+    "blurb": "aⁿ where 2 | n or 3 | n. Union by ε-moves: the start state jumps silently into a 2-cycle and a 3-cycle, and the word is accepted if either cycle ends at home. The DFA for the same language is a single 6-cycle.",
+    "inputs": [
+      {
+        "w": "",
+        "expect": "accept",
+        "label": "n = 0"
+      },
+      {
+        "w": "aa",
+        "expect": "accept",
+        "label": "2"
+      },
+      {
+        "w": "aaa",
+        "expect": "accept",
+        "label": "3"
+      },
+      {
+        "w": "aaaa",
+        "expect": "accept",
+        "label": "4"
+      },
+      {
+        "w": "aaaaaa",
+        "expect": "accept",
+        "label": "6"
+      },
+      {
+        "w": "a",
+        "expect": "reject",
+        "label": "1"
+      },
+      {
+        "w": "aaaaa",
+        "expect": "reject",
+        "label": "5"
+      },
+      {
+        "w": "aaaaaaa",
+        "expect": "reject",
+        "label": "7"
+      }
+    ],
+    "library": {
+      "author": {
+        "login": "thethinkmachine"
+      },
+      "license": "CC-BY-4.0",
+      "tags": [
+        "union",
+        "unary",
+        "epsilon-moves"
+      ],
+      "difficulty": "intro",
+      "readme": "The standard proof that regular languages are closed under union, drawn: put the two machines side by side and add a new start with an ε-move to each.\n\nDeterministically, the machine has to track *n* mod 2 and *n* mod 3 at once, which is *n* mod 6 by the Chinese remainder theorem — a cycle of six states, of which the remainders 0, 2, 3 and 4 accept. Unary languages like this one are where the size gap between NFAs and DFAs is governed by least common multiples."
+    }
+  }
+}

@@ -1,0 +1,260 @@
+{
+  "format": "automata-studio/workspace",
+  "schema": 1,
+  "app": "dev",
+  "machine": "DFA",
+  "config": {
+    "sym": {
+      "eps": "ε",
+      "any": "Σ",
+      "blank": "⊔",
+      "leftMarker": "⊢",
+      "rightMarker": "⊣",
+      "stackBottom": "Z",
+      "lambda": "λ"
+    }
+  },
+  "sigma": [
+    "n",
+    "d",
+    "q"
+  ],
+  "stackAlpha": [],
+  "outputAlpha": [],
+  "tapeCount": 1,
+  "states": [
+    {
+      "id": "s1",
+      "name": "0¢",
+      "x": 0,
+      "y": 0
+    },
+    {
+      "id": "s2",
+      "name": "5¢",
+      "x": 179,
+      "y": -95
+    },
+    {
+      "id": "s3",
+      "name": "10¢",
+      "x": 179,
+      "y": 0
+    },
+    {
+      "id": "s4",
+      "name": "15¢",
+      "x": 358,
+      "y": -95
+    },
+    {
+      "id": "s5",
+      "name": "20¢",
+      "x": 358,
+      "y": 0
+    },
+    {
+      "id": "s6",
+      "name": "25¢",
+      "x": 179,
+      "y": 95
+    },
+    {
+      "id": "s7",
+      "name": "overpaid",
+      "x": 358,
+      "y": 95
+    }
+  ],
+  "transitions": [
+    {
+      "id": "t1",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "n"
+    },
+    {
+      "id": "t2",
+      "from": "s1",
+      "to": "s3",
+      "symbol": "d"
+    },
+    {
+      "id": "t3",
+      "from": "s1",
+      "to": "s6",
+      "symbol": "q"
+    },
+    {
+      "id": "t4",
+      "from": "s2",
+      "to": "s3",
+      "symbol": "n"
+    },
+    {
+      "id": "t5",
+      "from": "s2",
+      "to": "s4",
+      "symbol": "d"
+    },
+    {
+      "id": "t6",
+      "from": "s2",
+      "to": "s7",
+      "symbol": "q"
+    },
+    {
+      "id": "t7",
+      "from": "s3",
+      "to": "s4",
+      "symbol": "n"
+    },
+    {
+      "id": "t8",
+      "from": "s3",
+      "to": "s5",
+      "symbol": "d"
+    },
+    {
+      "id": "t9",
+      "from": "s3",
+      "to": "s7",
+      "symbol": "q"
+    },
+    {
+      "id": "t10",
+      "from": "s4",
+      "to": "s5",
+      "symbol": "n"
+    },
+    {
+      "id": "t11",
+      "from": "s4",
+      "to": "s6",
+      "symbol": "d"
+    },
+    {
+      "id": "t12",
+      "from": "s4",
+      "to": "s7",
+      "symbol": "q"
+    },
+    {
+      "id": "t13",
+      "from": "s5",
+      "to": "s6",
+      "symbol": "n"
+    },
+    {
+      "id": "t14",
+      "from": "s5",
+      "to": "s7",
+      "symbol": "d"
+    },
+    {
+      "id": "t15",
+      "from": "s5",
+      "to": "s7",
+      "symbol": "q"
+    },
+    {
+      "id": "t16",
+      "from": "s6",
+      "to": "s7",
+      "symbol": "n"
+    },
+    {
+      "id": "t17",
+      "from": "s6",
+      "to": "s7",
+      "symbol": "d"
+    },
+    {
+      "id": "t18",
+      "from": "s6",
+      "to": "s7",
+      "symbol": "q"
+    },
+    {
+      "id": "t19",
+      "from": "s7",
+      "to": "s7",
+      "symbol": "n"
+    },
+    {
+      "id": "t20",
+      "from": "s7",
+      "to": "s7",
+      "symbol": "d"
+    },
+    {
+      "id": "t21",
+      "from": "s7",
+      "to": "s7",
+      "symbol": "q"
+    }
+  ],
+  "startId": "s1",
+  "accepts": [
+    "s6"
+  ],
+  "notes": [],
+  "dividers": [],
+  "blocks": [],
+  "meta": {
+    "title": "Vending machine: exactly 25¢",
+    "blurb": "Nickels (n), dimes (d) and quarters (q), accepted when they add up to exactly 25 cents. The states are the running total, so the machine is a picture of every way to make change — and a coin too many falls into “overpaid”.",
+    "inputs": [
+      {
+        "w": "q",
+        "expect": "accept",
+        "label": "a quarter"
+      },
+      {
+        "w": "ddn",
+        "expect": "accept"
+      },
+      {
+        "w": "dnd",
+        "expect": "accept"
+      },
+      {
+        "w": "nnnnn",
+        "expect": "accept"
+      },
+      {
+        "w": "",
+        "expect": "reject",
+        "label": "nothing paid"
+      },
+      {
+        "w": "dd",
+        "expect": "reject",
+        "label": "20¢"
+      },
+      {
+        "w": "qn",
+        "expect": "reject",
+        "label": "30¢"
+      },
+      {
+        "w": "ddd",
+        "expect": "reject",
+        "label": "30¢"
+      }
+    ],
+    "library": {
+      "author": {
+        "login": "thethinkmachine"
+      },
+      "license": "CC-BY-4.0",
+      "tags": [
+        "vending-machine",
+        "real-world",
+        "counting"
+      ],
+      "difficulty": "intro",
+      "readme": "A finite automaton can count, as long as it only needs to count to a fixed bound. Here the bound is 25¢: the state *is* the amount inserted so far, and any total past 25 is the same failure.\n\nEvery accepted word is a way of paying 25¢ in order — **q**, **ddn**, **dnd**, **ndd**, **nnnnn**, … There are nine of them — count the paths from 0¢ to 25¢ — and the machine recognises every one without listing any."
+    }
+  }
+}

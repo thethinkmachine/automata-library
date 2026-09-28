@@ -81,8 +81,8 @@
   "schema": 1,
   "app": "dev",
   "meta": {
-    "title": "aⁿbⁿ",
-    "blurb": "The textbook One-Counter Automaton example.",
+    "title": "aⁿbⁿ with one counter",
+    "blurb": "Count the a’s up and the b’s down, and accept when the counter is back at zero. aⁿbⁿ needs no more than a single number — the smallest store that takes a machine past the regular languages. Here n ≥ 1.",
     "library": {
       "author": {
         "login": "thethinkmachine"
@@ -93,6 +93,36 @@
         "counter"
       ],
       "difficulty": "intro"
-    }
+    },
+    "inputs": [
+      {
+        "w": "ab",
+        "expect": "accept"
+      },
+      {
+        "w": "aabb",
+        "expect": "accept"
+      },
+      {
+        "w": "aaabbb",
+        "expect": "accept"
+      },
+      {
+        "w": "",
+        "expect": "reject"
+      },
+      {
+        "w": "aab",
+        "expect": "reject"
+      },
+      {
+        "w": "abb",
+        "expect": "reject"
+      },
+      {
+        "w": "abab",
+        "expect": "reject"
+      }
+    ]
   }
 }

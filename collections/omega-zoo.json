@@ -12,6 +12,11 @@
     "omega/buchi/classic-eventually-always-b",
     "omega/ncoba/eventually-always-b-with-a-needless-guess",
     "omega/npa/infinitely-often-a-or-eventually-always-c",
-    "omega/nwa/never-two-a-s-with-a-needless-guess"
+    "omega/nwa/never-two-a-s-with-a-needless-guess",
+    "omega/dba/every-request-is-granted",
+    "omega/dba/infinitely-many-a-and-infinitely-many-b",
+    "omega/dcoba/only-finitely-many-aa",
+    "omega/dpa/if-infinitely-many-a-then-infinitely-many-b",
+    "omega/buchi/eventually-constant"
   ]
 }

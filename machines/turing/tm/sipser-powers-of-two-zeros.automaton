@@ -1,0 +1,232 @@
+{
+  "format": "automata-studio/workspace",
+  "schema": 1,
+  "app": "dev",
+  "machine": "TM",
+  "config": {
+    "twoWayTape": true,
+    "sym": {
+      "eps": "ε",
+      "any": "Σ",
+      "blank": "⊔",
+      "leftMarker": "⊢",
+      "rightMarker": "⊣",
+      "stackBottom": "Z",
+      "lambda": "λ"
+    }
+  },
+  "sigma": [
+    "0"
+  ],
+  "stackAlpha": [
+    "0",
+    "x",
+    "⊔"
+  ],
+  "outputAlpha": [],
+  "tapeCount": 1,
+  "states": [
+    {
+      "id": "s1",
+      "name": "q1",
+      "x": 0,
+      "y": 0
+    },
+    {
+      "id": "s2",
+      "name": "q2",
+      "x": 179,
+      "y": 0
+    },
+    {
+      "id": "s3",
+      "name": "q3",
+      "x": 358,
+      "y": -47
+    },
+    {
+      "id": "s4",
+      "name": "q4",
+      "x": 537,
+      "y": 48
+    },
+    {
+      "id": "s5",
+      "name": "q5",
+      "x": 537,
+      "y": -47
+    },
+    {
+      "id": "s6",
+      "name": "accept",
+      "x": 358,
+      "y": 48
+    }
+  ],
+  "transitions": [
+    {
+      "id": "t1",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "0",
+      "write": "⊔",
+      "dir": "R"
+    },
+    {
+      "id": "t2",
+      "from": "s2",
+      "to": "s2",
+      "symbol": "x",
+      "write": "x",
+      "dir": "R"
+    },
+    {
+      "id": "t3",
+      "from": "s2",
+      "to": "s6",
+      "symbol": "⊔",
+      "write": "⊔",
+      "dir": "R"
+    },
+    {
+      "id": "t4",
+      "from": "s2",
+      "to": "s3",
+      "symbol": "0",
+      "write": "x",
+      "dir": "R"
+    },
+    {
+      "id": "t5",
+      "from": "s3",
+      "to": "s3",
+      "symbol": "x",
+      "write": "x",
+      "dir": "R"
+    },
+    {
+      "id": "t6",
+      "from": "s3",
+      "to": "s4",
+      "symbol": "0",
+      "write": "0",
+      "dir": "R"
+    },
+    {
+      "id": "t7",
+      "from": "s3",
+      "to": "s5",
+      "symbol": "⊔",
+      "write": "⊔",
+      "dir": "L"
+    },
+    {
+      "id": "t8",
+      "from": "s4",
+      "to": "s4",
+      "symbol": "x",
+      "write": "x",
+      "dir": "R"
+    },
+    {
+      "id": "t9",
+      "from": "s4",
+      "to": "s3",
+      "symbol": "0",
+      "write": "x",
+      "dir": "R"
+    },
+    {
+      "id": "t10",
+      "from": "s5",
+      "to": "s5",
+      "symbol": "0",
+      "write": "0",
+      "dir": "L"
+    },
+    {
+      "id": "t11",
+      "from": "s5",
+      "to": "s5",
+      "symbol": "x",
+      "write": "x",
+      "dir": "L"
+    },
+    {
+      "id": "t12",
+      "from": "s5",
+      "to": "s2",
+      "symbol": "⊔",
+      "write": "⊔",
+      "dir": "R"
+    }
+  ],
+  "startId": "s1",
+  "accepts": [
+    "s6"
+  ],
+  "notes": [],
+  "dividers": [],
+  "blocks": [],
+  "meta": {
+    "title": "Sipser’s M₂: strings of 0s whose length is a power of 2",
+    "blurb": "Decides {0^(2ⁿ) | n ≥ 0} by halving: each sweep crosses off every other 0, and rejects if a sweep ever finds an odd number greater than one. The state names are Sipser’s, from Example 3.7.",
+    "inputs": [
+      {
+        "w": "0",
+        "expect": "accept",
+        "label": "2⁰"
+      },
+      {
+        "w": "00",
+        "expect": "accept",
+        "label": "2¹"
+      },
+      {
+        "w": "0000",
+        "expect": "accept",
+        "label": "2²"
+      },
+      {
+        "w": "00000000",
+        "expect": "accept",
+        "label": "2³"
+      },
+      {
+        "w": "",
+        "expect": "reject",
+        "label": "0 is not a power of 2"
+      },
+      {
+        "w": "000",
+        "expect": "reject",
+        "label": "3"
+      },
+      {
+        "w": "000000",
+        "expect": "reject",
+        "label": "6"
+      },
+      {
+        "w": "0000000",
+        "expect": "reject",
+        "label": "7"
+      }
+    ],
+    "library": {
+      "author": {
+        "login": "thethinkmachine"
+      },
+      "license": "CC-BY-4.0",
+      "tags": [
+        "sipser",
+        "decider",
+        "textbook",
+        "not-context-free"
+      ],
+      "difficulty": "intro",
+      "chapter": "Sipser, Introduction to the Theory of Computation, Example 3.7",
+      "readme": "Sipser's own description of M₂:\n\n1. Sweep left to right across the tape, crossing off every other 0.\n2. If in stage 1 the tape contained a single 0, *accept*.\n3. If in stage 1 the tape contained more than a single 0 and the number of 0s was odd, *reject*.\n4. Return the head to the left-hand end of the tape.\n5. Go to stage 1.\n\n**q3** and **q4** are the parity of the 0s seen in the current sweep; **q5** walks back. The very first 0 is overwritten with a blank rather than an x, which is how the machine finds the left end of the tape again. The rejecting state is left out: in this app a machine with no move rejects.\n\nCompare **Powers of two, by halving**, the same idea on a linear bounded automaton."
+    }
+  }
+}

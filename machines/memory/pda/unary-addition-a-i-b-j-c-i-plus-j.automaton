@@ -1,0 +1,190 @@
+{
+  "format": "automata-studio/workspace",
+  "schema": 1,
+  "app": "dev",
+  "machine": "DPDA",
+  "config": {
+    "pdaParadigm": "explicit",
+    "sym": {
+      "eps": "ε",
+      "any": "Σ",
+      "blank": "⊔",
+      "leftMarker": "⊢",
+      "rightMarker": "⊣",
+      "stackBottom": "Z",
+      "lambda": "λ"
+    }
+  },
+  "sigma": [
+    "a",
+    "b",
+    "c"
+  ],
+  "stackAlpha": [
+    "A",
+    "Z"
+  ],
+  "outputAlpha": [],
+  "tapeCount": 1,
+  "states": [
+    {
+      "id": "s1",
+      "name": "a’s",
+      "x": 0,
+      "y": 0
+    },
+    {
+      "id": "s2",
+      "name": "b’s",
+      "x": 179,
+      "y": -47
+    },
+    {
+      "id": "s3",
+      "name": "c’s",
+      "x": 179,
+      "y": 48
+    },
+    {
+      "id": "s4",
+      "name": "accept",
+      "x": 358,
+      "y": 0
+    }
+  ],
+  "transitions": [
+    {
+      "id": "t1",
+      "from": "s1",
+      "to": "s1",
+      "symbol": "a",
+      "pop": "Z",
+      "push": "AZ"
+    },
+    {
+      "id": "t2",
+      "from": "s1",
+      "to": "s1",
+      "symbol": "a",
+      "pop": "A",
+      "push": "AA"
+    },
+    {
+      "id": "t3",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "b",
+      "pop": "Z",
+      "push": "AZ"
+    },
+    {
+      "id": "t4",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "b",
+      "pop": "A",
+      "push": "AA"
+    },
+    {
+      "id": "t5",
+      "from": "s2",
+      "to": "s2",
+      "symbol": "b",
+      "pop": "A",
+      "push": "AA"
+    },
+    {
+      "id": "t6",
+      "from": "s1",
+      "to": "s3",
+      "symbol": "c",
+      "pop": "A",
+      "push": "ε"
+    },
+    {
+      "id": "t7",
+      "from": "s2",
+      "to": "s3",
+      "symbol": "c",
+      "pop": "A",
+      "push": "ε"
+    },
+    {
+      "id": "t8",
+      "from": "s3",
+      "to": "s3",
+      "symbol": "c",
+      "pop": "A",
+      "push": "ε"
+    },
+    {
+      "id": "t9",
+      "from": "s3",
+      "to": "s4",
+      "symbol": "ε",
+      "pop": "Z",
+      "push": "Z"
+    }
+  ],
+  "startId": "s1",
+  "accepts": [
+    "s4"
+  ],
+  "notes": [],
+  "dividers": [],
+  "blocks": [],
+  "meta": {
+    "title": "aⁱbʲcⁱ⁺ʲ — addition in unary",
+    "blurb": "The sum written out: i a’s plus j b’s equals the number of c’s. The a’s and b’s push the same symbol, so the stack holds i + j, and the c’s pay it off one at a time. Here i + j ≥ 1.",
+    "inputs": [
+      {
+        "w": "ac",
+        "expect": "accept"
+      },
+      {
+        "w": "bc",
+        "expect": "accept"
+      },
+      {
+        "w": "abcc",
+        "expect": "accept"
+      },
+      {
+        "w": "aaabbccccc",
+        "expect": "accept",
+        "label": "3 + 2 = 5"
+      },
+      {
+        "w": "",
+        "expect": "reject"
+      },
+      {
+        "w": "abc",
+        "expect": "reject",
+        "label": "1 + 1 ≠ 1"
+      },
+      {
+        "w": "aabcccc",
+        "expect": "reject",
+        "label": "2 + 1 ≠ 4"
+      },
+      {
+        "w": "bac",
+        "expect": "reject"
+      }
+    ],
+    "library": {
+      "author": {
+        "login": "thethinkmachine"
+      },
+      "license": "CC-BY-4.0",
+      "tags": [
+        "arithmetic",
+        "unary",
+        "counting"
+      ],
+      "difficulty": "intro",
+      "readme": "Read as arithmetic, **aaabbccccc** says 3 + 2 = 5. A PDA can check it because the two addends are pushed onto one pile and the answer is read off it — addition is the one operation a single stack does for free.\n\nMultiplication is not: the language aⁱbʲcⁱʲ is not context-free, and checking it needs a machine with more than one store. See **aⁿbⁿcⁿ with a queue** or the Turing machines."
+    }
+  }
+}

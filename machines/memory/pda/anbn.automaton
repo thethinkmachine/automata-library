@@ -82,7 +82,7 @@
   "app": "dev",
   "meta": {
     "title": "aⁿbⁿ",
-    "blurb": "The textbook Deterministic Pushdown Automaton example.",
+    "blurb": "The first language a finite automaton cannot recognise and a stack can. Push an A per a, pop one per b, and accept when the bottom marker Z surfaces with the input used up. Here n ≥ 1.",
     "library": {
       "author": {
         "login": "thethinkmachine"
@@ -93,6 +93,36 @@
         "dpda"
       ],
       "difficulty": "intro"
-    }
+    },
+    "inputs": [
+      {
+        "w": "ab",
+        "expect": "accept"
+      },
+      {
+        "w": "aabb",
+        "expect": "accept"
+      },
+      {
+        "w": "aaaabbbb",
+        "expect": "accept"
+      },
+      {
+        "w": "",
+        "expect": "reject"
+      },
+      {
+        "w": "aab",
+        "expect": "reject"
+      },
+      {
+        "w": "abb",
+        "expect": "reject"
+      },
+      {
+        "w": "ba",
+        "expect": "reject"
+      }
+    ]
   }
 }

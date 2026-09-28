@@ -1,0 +1,158 @@
+{
+  "format": "automata-studio/workspace",
+  "schema": 1,
+  "app": "dev",
+  "machine": "NFA",
+  "config": {
+    "sym": {
+      "eps": "ε",
+      "any": "Σ",
+      "blank": "⊔",
+      "leftMarker": "⊢",
+      "rightMarker": "⊣",
+      "stackBottom": "Z",
+      "lambda": "λ"
+    }
+  },
+  "sigma": [
+    "a",
+    "b"
+  ],
+  "stackAlpha": [],
+  "outputAlpha": [],
+  "tapeCount": 1,
+  "states": [
+    {
+      "id": "s1",
+      "name": "scan",
+      "x": 0,
+      "y": 0
+    },
+    {
+      "id": "s2",
+      "name": "one a",
+      "x": 179,
+      "y": 48
+    },
+    {
+      "id": "s3",
+      "name": "one b",
+      "x": 179,
+      "y": -47
+    },
+    {
+      "id": "s4",
+      "name": "found",
+      "x": 358,
+      "y": 0
+    }
+  ],
+  "transitions": [
+    {
+      "id": "t1",
+      "from": "s1",
+      "to": "s1",
+      "symbol": "a"
+    },
+    {
+      "id": "t2",
+      "from": "s1",
+      "to": "s1",
+      "symbol": "b"
+    },
+    {
+      "id": "t3",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "a"
+    },
+    {
+      "id": "t4",
+      "from": "s2",
+      "to": "s4",
+      "symbol": "a"
+    },
+    {
+      "id": "t5",
+      "from": "s1",
+      "to": "s3",
+      "symbol": "b"
+    },
+    {
+      "id": "t6",
+      "from": "s3",
+      "to": "s4",
+      "symbol": "b"
+    },
+    {
+      "id": "t7",
+      "from": "s4",
+      "to": "s4",
+      "symbol": "a"
+    },
+    {
+      "id": "t8",
+      "from": "s4",
+      "to": "s4",
+      "symbol": "b"
+    }
+  ],
+  "startId": "s1",
+  "accepts": [
+    "s4"
+  ],
+  "notes": [],
+  "dividers": [],
+  "blocks": [],
+  "meta": {
+    "title": "Contains aa or bb",
+    "blurb": "Accepts every word with a doubled letter somewhere. The machine guesses where the double starts and which letter it is; the words it rejects are exactly the alternating ones, abab… and baba….",
+    "inputs": [
+      {
+        "w": "aa",
+        "expect": "accept"
+      },
+      {
+        "w": "abb",
+        "expect": "accept"
+      },
+      {
+        "w": "babaa",
+        "expect": "accept"
+      },
+      {
+        "w": "abababba",
+        "expect": "accept"
+      },
+      {
+        "w": "",
+        "expect": "reject"
+      },
+      {
+        "w": "a",
+        "expect": "reject"
+      },
+      {
+        "w": "abab",
+        "expect": "reject"
+      },
+      {
+        "w": "babababa",
+        "expect": "reject"
+      }
+    ],
+    "library": {
+      "author": {
+        "login": "thethinkmachine"
+      },
+      "license": "CC-BY-4.0",
+      "tags": [
+        "guessing",
+        "substring",
+        "union"
+      ],
+      "difficulty": "intro",
+      "readme": "Two substring searches, for **aa** and for **bb**, share one \"scan\" state. At each letter the machine may keep scanning or commit to \"this is the first half of a double\".\n\nThe complement is easy to describe — words that alternate — which makes this a good one to run through the complement and minimisation algorithms: the minimal DFA has four states."
+    }
+  }
+}

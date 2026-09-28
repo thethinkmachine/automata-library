@@ -1,0 +1,292 @@
+{
+  "format": "automata-studio/workspace",
+  "schema": 1,
+  "app": "dev",
+  "machine": "DFA",
+  "config": {
+    "sym": {
+      "eps": "ε",
+      "any": "Σ",
+      "blank": "⊔",
+      "leftMarker": "⊢",
+      "rightMarker": "⊣",
+      "stackBottom": "Z",
+      "lambda": "λ"
+    }
+  },
+  "sigma": [
+    "0",
+    "1",
+    "2",
+    "3",
+    "4",
+    "5",
+    "6",
+    "7",
+    "8",
+    "9"
+  ],
+  "stackAlpha": [],
+  "outputAlpha": [],
+  "tapeCount": 1,
+  "states": [
+    {
+      "id": "s1",
+      "name": "r0",
+      "x": 0,
+      "y": 0
+    },
+    {
+      "id": "s2",
+      "name": "r1",
+      "x": 179,
+      "y": -47
+    },
+    {
+      "id": "s3",
+      "name": "r2",
+      "x": 179,
+      "y": 48
+    }
+  ],
+  "transitions": [
+    {
+      "id": "t1",
+      "from": "s1",
+      "to": "s1",
+      "symbol": "0"
+    },
+    {
+      "id": "t2",
+      "from": "s1",
+      "to": "s1",
+      "symbol": "3"
+    },
+    {
+      "id": "t3",
+      "from": "s1",
+      "to": "s1",
+      "symbol": "6"
+    },
+    {
+      "id": "t4",
+      "from": "s1",
+      "to": "s1",
+      "symbol": "9"
+    },
+    {
+      "id": "t5",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "1"
+    },
+    {
+      "id": "t6",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "4"
+    },
+    {
+      "id": "t7",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "7"
+    },
+    {
+      "id": "t8",
+      "from": "s1",
+      "to": "s3",
+      "symbol": "2"
+    },
+    {
+      "id": "t9",
+      "from": "s1",
+      "to": "s3",
+      "symbol": "5"
+    },
+    {
+      "id": "t10",
+      "from": "s1",
+      "to": "s3",
+      "symbol": "8"
+    },
+    {
+      "id": "t11",
+      "from": "s2",
+      "to": "s2",
+      "symbol": "0"
+    },
+    {
+      "id": "t12",
+      "from": "s2",
+      "to": "s2",
+      "symbol": "3"
+    },
+    {
+      "id": "t13",
+      "from": "s2",
+      "to": "s2",
+      "symbol": "6"
+    },
+    {
+      "id": "t14",
+      "from": "s2",
+      "to": "s2",
+      "symbol": "9"
+    },
+    {
+      "id": "t15",
+      "from": "s2",
+      "to": "s3",
+      "symbol": "1"
+    },
+    {
+      "id": "t16",
+      "from": "s2",
+      "to": "s3",
+      "symbol": "4"
+    },
+    {
+      "id": "t17",
+      "from": "s2",
+      "to": "s3",
+      "symbol": "7"
+    },
+    {
+      "id": "t18",
+      "from": "s2",
+      "to": "s1",
+      "symbol": "2"
+    },
+    {
+      "id": "t19",
+      "from": "s2",
+      "to": "s1",
+      "symbol": "5"
+    },
+    {
+      "id": "t20",
+      "from": "s2",
+      "to": "s1",
+      "symbol": "8"
+    },
+    {
+      "id": "t21",
+      "from": "s3",
+      "to": "s3",
+      "symbol": "0"
+    },
+    {
+      "id": "t22",
+      "from": "s3",
+      "to": "s3",
+      "symbol": "3"
+    },
+    {
+      "id": "t23",
+      "from": "s3",
+      "to": "s3",
+      "symbol": "6"
+    },
+    {
+      "id": "t24",
+      "from": "s3",
+      "to": "s3",
+      "symbol": "9"
+    },
+    {
+      "id": "t25",
+      "from": "s3",
+      "to": "s1",
+      "symbol": "1"
+    },
+    {
+      "id": "t26",
+      "from": "s3",
+      "to": "s1",
+      "symbol": "4"
+    },
+    {
+      "id": "t27",
+      "from": "s3",
+      "to": "s1",
+      "symbol": "7"
+    },
+    {
+      "id": "t28",
+      "from": "s3",
+      "to": "s2",
+      "symbol": "2"
+    },
+    {
+      "id": "t29",
+      "from": "s3",
+      "to": "s2",
+      "symbol": "5"
+    },
+    {
+      "id": "t30",
+      "from": "s3",
+      "to": "s2",
+      "symbol": "8"
+    }
+  ],
+  "startId": "s1",
+  "accepts": [
+    "s1"
+  ],
+  "notes": [],
+  "dividers": [],
+  "blocks": [],
+  "meta": {
+    "title": "Decimal numbers divisible by 3",
+    "blurb": "The schoolroom rule — a number is divisible by 3 when its digit sum is — as a three-state machine. Ten symbols, one state per remainder, and every digit sends remainder r to (10r + d) mod 3 = (r + d) mod 3.",
+    "inputs": [
+      {
+        "w": "0",
+        "expect": "accept"
+      },
+      {
+        "w": "12",
+        "expect": "accept"
+      },
+      {
+        "w": "369",
+        "expect": "accept"
+      },
+      {
+        "w": "1002",
+        "expect": "accept"
+      },
+      {
+        "w": "987654321",
+        "expect": "accept"
+      },
+      {
+        "w": "1",
+        "expect": "reject"
+      },
+      {
+        "w": "100",
+        "expect": "reject"
+      },
+      {
+        "w": "2024",
+        "expect": "reject"
+      }
+    ],
+    "library": {
+      "author": {
+        "login": "thethinkmachine"
+      },
+      "license": "CC-BY-4.0",
+      "tags": [
+        "divisibility",
+        "remainder",
+        "decimal"
+      ],
+      "difficulty": "intro",
+      "readme": "Reading a decimal number left to right, the value so far goes from *n* to 10*n* + *d*. Modulo 3, 10 ≡ 1, so the remainder goes from *r* to *r* + *d* — which is why adding up the digits works.\n\nDigits 0, 3, 6 and 9 never change the state; 1, 4 and 7 advance it by one; 2, 5 and 8 by two. The empty word is read as 0 and accepted. The same idea gives a *k*-state machine for divisibility by any *k* in any base: see **Binary divisibility by 3** and **by 5**."
+    }
+  }
+}

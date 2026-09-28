@@ -1,0 +1,138 @@
+{
+  "format": "automata-studio/workspace",
+  "schema": 1,
+  "app": "dev",
+  "machine": "NBA",
+  "config": {
+    "sym": {
+      "eps": "ε",
+      "any": "Σ",
+      "blank": "⊔",
+      "leftMarker": "⊢",
+      "rightMarker": "⊣",
+      "stackBottom": "Z",
+      "lambda": "λ"
+    }
+  },
+  "sigma": [
+    "a",
+    "b"
+  ],
+  "stackAlpha": [],
+  "outputAlpha": [],
+  "tapeCount": 1,
+  "states": [
+    {
+      "id": "s1",
+      "name": "anything",
+      "x": 0,
+      "y": 0
+    },
+    {
+      "id": "s2",
+      "name": "only a from now",
+      "x": 179,
+      "y": 48
+    },
+    {
+      "id": "s3",
+      "name": "only b from now",
+      "x": 179,
+      "y": -47
+    }
+  ],
+  "transitions": [
+    {
+      "id": "t1",
+      "from": "s1",
+      "to": "s1",
+      "symbol": "a"
+    },
+    {
+      "id": "t2",
+      "from": "s1",
+      "to": "s1",
+      "symbol": "b"
+    },
+    {
+      "id": "t3",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "a"
+    },
+    {
+      "id": "t4",
+      "from": "s2",
+      "to": "s2",
+      "symbol": "a"
+    },
+    {
+      "id": "t5",
+      "from": "s1",
+      "to": "s3",
+      "symbol": "b"
+    },
+    {
+      "id": "t6",
+      "from": "s3",
+      "to": "s3",
+      "symbol": "b"
+    }
+  ],
+  "startId": "s1",
+  "accepts": [
+    "s2",
+    "s3"
+  ],
+  "notes": [],
+  "dividers": [],
+  "blocks": [],
+  "meta": {
+    "title": "Eventually constant: FG a ∨ FG b",
+    "blurb": "Words that settle down: from some point on, all a’s or all b’s. The machine guesses the moment and the letter, and a wrong guess dies. The union of two languages no deterministic Büchi automaton recognises — so this one needs its nondeterminism too.",
+    "inputs": [
+      {
+        "w": "(a)",
+        "expect": "accept"
+      },
+      {
+        "w": "(b)",
+        "expect": "accept"
+      },
+      {
+        "w": "ab(b)",
+        "expect": "accept"
+      },
+      {
+        "w": "babab(aa)",
+        "expect": "accept"
+      },
+      {
+        "w": "(ab)",
+        "expect": "reject"
+      },
+      {
+        "w": "a(bba)",
+        "expect": "reject"
+      },
+      {
+        "w": "(aab)",
+        "expect": "reject"
+      }
+    ],
+    "library": {
+      "author": {
+        "login": "thethinkmachine"
+      },
+      "license": "CC-BY-4.0",
+      "tags": [
+        "ltl",
+        "nondeterminism",
+        "union",
+        "stability"
+      ],
+      "difficulty": "intro",
+      "readme": "Union is where nondeterministic Büchi automata are at their simplest: guess which disjunct will hold, then check it. Each branch is the classic automaton for FG a (or FG b) — see **Classic: eventually always b**.\n\nThe ultimately periodic words it accepts are exactly those whose period is one repeated letter: **(a)**, **ab(b)**, **abab(a)**. A word like **(ab)** alternates forever and never settles."
+    }
+  }
+}

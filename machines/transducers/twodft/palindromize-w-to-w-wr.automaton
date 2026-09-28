@@ -1,0 +1,163 @@
+{
+  "format": "automata-studio/workspace",
+  "schema": 1,
+  "app": "dev",
+  "machine": "2DFT",
+  "config": {
+    "sym": {
+      "eps": "ε",
+      "any": "Σ",
+      "blank": "⊔",
+      "leftMarker": "⊢",
+      "rightMarker": "⊣",
+      "stackBottom": "Z",
+      "lambda": "λ"
+    }
+  },
+  "sigma": [
+    "a",
+    "b"
+  ],
+  "stackAlpha": [],
+  "outputAlpha": [
+    "a",
+    "b"
+  ],
+  "tapeCount": 1,
+  "states": [
+    {
+      "id": "s1",
+      "name": "start",
+      "x": 0,
+      "y": 0
+    },
+    {
+      "id": "s2",
+      "name": "forwards",
+      "x": 179,
+      "y": 0
+    },
+    {
+      "id": "s3",
+      "name": "backwards",
+      "x": 358,
+      "y": 0
+    },
+    {
+      "id": "s4",
+      "name": "done",
+      "x": 537,
+      "y": 0
+    }
+  ],
+  "transitions": [
+    {
+      "id": "t1",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "⊢",
+      "dir": "R",
+      "output": ""
+    },
+    {
+      "id": "t2",
+      "from": "s2",
+      "to": "s2",
+      "symbol": "a",
+      "dir": "R",
+      "output": "a"
+    },
+    {
+      "id": "t3",
+      "from": "s2",
+      "to": "s2",
+      "symbol": "b",
+      "dir": "R",
+      "output": "b"
+    },
+    {
+      "id": "t4",
+      "from": "s2",
+      "to": "s3",
+      "symbol": "⊣",
+      "dir": "L",
+      "output": ""
+    },
+    {
+      "id": "t5",
+      "from": "s3",
+      "to": "s3",
+      "symbol": "a",
+      "dir": "L",
+      "output": "a"
+    },
+    {
+      "id": "t6",
+      "from": "s3",
+      "to": "s3",
+      "symbol": "b",
+      "dir": "L",
+      "output": "b"
+    },
+    {
+      "id": "t7",
+      "from": "s3",
+      "to": "s4",
+      "symbol": "⊢",
+      "dir": "S",
+      "output": ""
+    }
+  ],
+  "startId": "s1",
+  "accepts": [
+    "s4"
+  ],
+  "notes": [],
+  "dividers": [],
+  "blocks": [],
+  "meta": {
+    "title": "Palindromize: w ↦ wwᴿ",
+    "blurb": "Writes the word, then writes it again backwards, so every output is an even palindrome. One pass right, one pass left, printing as it goes — a function no one-way finite transducer can compute.",
+    "inputs": [
+      {
+        "w": "ab",
+        "expect": "accept",
+        "out": "abba"
+      },
+      {
+        "w": "aab",
+        "expect": "accept",
+        "out": "aabbaa"
+      },
+      {
+        "w": "b",
+        "expect": "accept",
+        "out": "bb"
+      },
+      {
+        "w": "abab",
+        "expect": "accept",
+        "out": "ababbaba"
+      },
+      {
+        "w": "",
+        "expect": "accept",
+        "out": "",
+        "label": "ε"
+      }
+    ],
+    "library": {
+      "author": {
+        "login": "thethinkmachine"
+      },
+      "license": "CC-BY-4.0",
+      "tags": [
+        "two-way",
+        "palindromes",
+        "reversal"
+      ],
+      "difficulty": "intro",
+      "readme": "A one-way transducer reads each symbol once and must write what it is going to write about it then, with finite memory — so it cannot produce wᴿ at the end of an unbounded w. A two-way head simply goes back for it.\n\nTwo-way deterministic transducers compute exactly the *regular functions*, a class closed under composition, and strictly larger than what one-way transducers compute: reversal, duplication (**Copy twice: w ↦ ww**) and this one are all in it."
+    }
+  }
+}

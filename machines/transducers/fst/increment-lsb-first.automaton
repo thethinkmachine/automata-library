@@ -1,0 +1,120 @@
+{
+  "format": "automata-studio/workspace",
+  "schema": 1,
+  "app": "dev",
+  "machine": "FST",
+  "config": {
+    "sym": {
+      "eps": "ε",
+      "any": "Σ",
+      "blank": "⊔",
+      "leftMarker": "⊢",
+      "rightMarker": "⊣",
+      "stackBottom": "Z",
+      "lambda": "λ"
+    }
+  },
+  "sigma": [
+    "0",
+    "1"
+  ],
+  "stackAlpha": [],
+  "outputAlpha": [
+    "0",
+    "1"
+  ],
+  "tapeCount": 1,
+  "states": [
+    {
+      "id": "s1",
+      "name": "carry",
+      "x": 0,
+      "y": 0
+    },
+    {
+      "id": "s2",
+      "name": "copy",
+      "x": 179,
+      "y": 0
+    }
+  ],
+  "transitions": [
+    {
+      "id": "t1",
+      "from": "s1",
+      "to": "s1",
+      "symbol": "1",
+      "output": "0"
+    },
+    {
+      "id": "t2",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "0",
+      "output": "1"
+    },
+    {
+      "id": "t3",
+      "from": "s2",
+      "to": "s2",
+      "symbol": "0",
+      "output": "0"
+    },
+    {
+      "id": "t4",
+      "from": "s2",
+      "to": "s2",
+      "symbol": "1",
+      "output": "1"
+    }
+  ],
+  "startId": "s1",
+  "accepts": [],
+  "notes": [],
+  "dividers": [],
+  "blocks": [],
+  "meta": {
+    "title": "Add one, least-significant bit first",
+    "blurb": "Binary increment in a register of fixed width, streamed from the low end. Trailing 1s become 0s while the carry lasts; the first 0 absorbs it; everything after is copied. 1111 + 1 overflows to 0000.",
+    "inputs": [
+      {
+        "w": "0000",
+        "out": "1000",
+        "label": "0 + 1 = 1"
+      },
+      {
+        "w": "1000",
+        "out": "0100",
+        "label": "1 + 1 = 2"
+      },
+      {
+        "w": "1101",
+        "out": "0011",
+        "label": "11 + 1 = 12"
+      },
+      {
+        "w": "1110",
+        "out": "0001",
+        "label": "7 + 1 = 8"
+      },
+      {
+        "w": "1111",
+        "out": "0000",
+        "label": "overflow"
+      }
+    ],
+    "library": {
+      "author": {
+        "login": "thethinkmachine"
+      },
+      "license": "CC-BY-4.0",
+      "tags": [
+        "binary",
+        "arithmetic",
+        "carry"
+      ],
+      "difficulty": "intro",
+      "readme": "Adding 1 is the smallest carry chain there is. Read from the least significant end, the carry is the only thing to remember: while it is set, a 1 becomes 0 and passes it on; a 0 becomes 1 and ends it.\n\nThe width is fixed by the input, so the last carry has nowhere to go — the transducer wraps around, as a real n-bit counter does. Compare **binary increment** among the Turing machines, which reads the other way round and makes room for the new digit."
+    }
+  }
+}

@@ -1,0 +1,234 @@
+{
+  "format": "automata-studio/workspace",
+  "schema": 1,
+  "app": "dev",
+  "machine": "DFA",
+  "config": {
+    "sym": {
+      "eps": "ε",
+      "any": "Σ",
+      "blank": "⊔",
+      "leftMarker": "⊢",
+      "rightMarker": "⊣",
+      "stackBottom": "Z",
+      "lambda": "λ"
+    }
+  },
+  "sigma": [
+    "0",
+    "1"
+  ],
+  "stackAlpha": [],
+  "outputAlpha": [],
+  "tapeCount": 1,
+  "states": [
+    {
+      "id": "s1",
+      "name": "000",
+      "x": 0,
+      "y": 0
+    },
+    {
+      "id": "s2",
+      "name": "001",
+      "x": 179,
+      "y": 0
+    },
+    {
+      "id": "s3",
+      "name": "010",
+      "x": 358,
+      "y": -47
+    },
+    {
+      "id": "s4",
+      "name": "011",
+      "x": 358,
+      "y": 48
+    },
+    {
+      "id": "s5",
+      "name": "100",
+      "x": 537,
+      "y": -47
+    },
+    {
+      "id": "s6",
+      "name": "101",
+      "x": 537,
+      "y": -142
+    },
+    {
+      "id": "s7",
+      "name": "110",
+      "x": 537,
+      "y": 143
+    },
+    {
+      "id": "s8",
+      "name": "111",
+      "x": 537,
+      "y": 48
+    }
+  ],
+  "transitions": [
+    {
+      "id": "t1",
+      "from": "s1",
+      "to": "s1",
+      "symbol": "0"
+    },
+    {
+      "id": "t2",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "1"
+    },
+    {
+      "id": "t3",
+      "from": "s2",
+      "to": "s3",
+      "symbol": "0"
+    },
+    {
+      "id": "t4",
+      "from": "s2",
+      "to": "s4",
+      "symbol": "1"
+    },
+    {
+      "id": "t5",
+      "from": "s3",
+      "to": "s5",
+      "symbol": "0"
+    },
+    {
+      "id": "t6",
+      "from": "s3",
+      "to": "s6",
+      "symbol": "1"
+    },
+    {
+      "id": "t7",
+      "from": "s4",
+      "to": "s7",
+      "symbol": "0"
+    },
+    {
+      "id": "t8",
+      "from": "s4",
+      "to": "s8",
+      "symbol": "1"
+    },
+    {
+      "id": "t9",
+      "from": "s5",
+      "to": "s1",
+      "symbol": "0"
+    },
+    {
+      "id": "t10",
+      "from": "s5",
+      "to": "s2",
+      "symbol": "1"
+    },
+    {
+      "id": "t11",
+      "from": "s6",
+      "to": "s3",
+      "symbol": "0"
+    },
+    {
+      "id": "t12",
+      "from": "s6",
+      "to": "s4",
+      "symbol": "1"
+    },
+    {
+      "id": "t13",
+      "from": "s7",
+      "to": "s5",
+      "symbol": "0"
+    },
+    {
+      "id": "t14",
+      "from": "s7",
+      "to": "s6",
+      "symbol": "1"
+    },
+    {
+      "id": "t15",
+      "from": "s8",
+      "to": "s7",
+      "symbol": "0"
+    },
+    {
+      "id": "t16",
+      "from": "s8",
+      "to": "s8",
+      "symbol": "1"
+    }
+  ],
+  "startId": "s1",
+  "accepts": [
+    "s5",
+    "s6",
+    "s7",
+    "s8"
+  ],
+  "notes": [],
+  "dividers": [],
+  "blocks": [],
+  "meta": {
+    "title": "Third symbol from the end is 1 (the DFA)",
+    "blurb": "The deterministic machine for a language an NFA says in four states. It must remember the last three symbols — all eight combinations — and no DFA with fewer states exists. The textbook case of the subset construction’s blow-up.",
+    "inputs": [
+      {
+        "w": "100",
+        "expect": "accept"
+      },
+      {
+        "w": "0110",
+        "expect": "accept"
+      },
+      {
+        "w": "11111",
+        "expect": "accept"
+      },
+      {
+        "w": "0101",
+        "expect": "accept"
+      },
+      {
+        "w": "",
+        "expect": "reject"
+      },
+      {
+        "w": "11",
+        "expect": "reject"
+      },
+      {
+        "w": "011",
+        "expect": "reject"
+      },
+      {
+        "w": "10001",
+        "expect": "reject"
+      }
+    ],
+    "library": {
+      "author": {
+        "login": "thethinkmachine"
+      },
+      "license": "CC-BY-4.0",
+      "tags": [
+        "subset-construction",
+        "blow-up",
+        "nfa-vs-dfa"
+      ],
+      "difficulty": "intermediate",
+      "chapter": "Hopcroft, Motwani & Ullman, §2.3.6",
+      "readme": "Each state is named by the last three symbols read (the start pretends the word was preceded by 000). Reading *b* in state *xyz* moves to *yzb*; the states whose name begins with 1 accept.\n\n**Why eight is the minimum.** Take two different three-bit strings; they differ in some position. Append enough symbols to push that position to third-from-last, and one string is accepted while the other is not. So any DFA must keep all eight apart. For \"*n*th from the end\" the same argument gives 2ⁿ states — while the nondeterministic machine needs only *n* + 1, because it simply *guesses* when the third-from-last symbol goes by.\n\nCompare this entry with **Third symbol from the end is 1 (the NFA)**: the library fingerprints both to the same language."
+    }
+  }
+}

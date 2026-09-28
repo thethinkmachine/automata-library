@@ -1,0 +1,232 @@
+{
+  "format": "automata-studio/workspace",
+  "schema": 1,
+  "app": "dev",
+  "machine": "ε-NFA",
+  "config": {
+    "sym": {
+      "eps": "ε",
+      "any": "Σ",
+      "blank": "⊔",
+      "leftMarker": "⊢",
+      "rightMarker": "⊣",
+      "stackBottom": "Z",
+      "lambda": "λ"
+    }
+  },
+  "sigma": [
+    "a",
+    "b"
+  ],
+  "stackAlpha": [],
+  "outputAlpha": [],
+  "tapeCount": 1,
+  "states": [
+    {
+      "id": "s1",
+      "name": "0",
+      "x": 0,
+      "y": 0
+    },
+    {
+      "id": "s2",
+      "name": "1",
+      "x": 179,
+      "y": -47
+    },
+    {
+      "id": "s3",
+      "name": "2",
+      "x": 358,
+      "y": 0
+    },
+    {
+      "id": "s4",
+      "name": "3",
+      "x": 537,
+      "y": 0
+    },
+    {
+      "id": "s5",
+      "name": "4",
+      "x": 358,
+      "y": -95
+    },
+    {
+      "id": "s6",
+      "name": "5",
+      "x": 537,
+      "y": -95
+    },
+    {
+      "id": "s7",
+      "name": "6",
+      "x": 716,
+      "y": -47
+    },
+    {
+      "id": "s8",
+      "name": "7",
+      "x": 179,
+      "y": 48
+    },
+    {
+      "id": "s9",
+      "name": "8",
+      "x": 358,
+      "y": 95
+    },
+    {
+      "id": "s10",
+      "name": "9",
+      "x": 537,
+      "y": 95
+    },
+    {
+      "id": "s11",
+      "name": "10",
+      "x": 716,
+      "y": 48
+    }
+  ],
+  "transitions": [
+    {
+      "id": "t1",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "ε"
+    },
+    {
+      "id": "t2",
+      "from": "s1",
+      "to": "s8",
+      "symbol": "ε"
+    },
+    {
+      "id": "t3",
+      "from": "s2",
+      "to": "s3",
+      "symbol": "ε"
+    },
+    {
+      "id": "t4",
+      "from": "s2",
+      "to": "s5",
+      "symbol": "ε"
+    },
+    {
+      "id": "t5",
+      "from": "s3",
+      "to": "s4",
+      "symbol": "a"
+    },
+    {
+      "id": "t6",
+      "from": "s5",
+      "to": "s6",
+      "symbol": "b"
+    },
+    {
+      "id": "t7",
+      "from": "s4",
+      "to": "s7",
+      "symbol": "ε"
+    },
+    {
+      "id": "t8",
+      "from": "s6",
+      "to": "s7",
+      "symbol": "ε"
+    },
+    {
+      "id": "t9",
+      "from": "s7",
+      "to": "s2",
+      "symbol": "ε"
+    },
+    {
+      "id": "t10",
+      "from": "s7",
+      "to": "s8",
+      "symbol": "ε"
+    },
+    {
+      "id": "t11",
+      "from": "s8",
+      "to": "s9",
+      "symbol": "a"
+    },
+    {
+      "id": "t12",
+      "from": "s9",
+      "to": "s10",
+      "symbol": "b"
+    },
+    {
+      "id": "t13",
+      "from": "s10",
+      "to": "s11",
+      "symbol": "b"
+    }
+  ],
+  "startId": "s1",
+  "accepts": [
+    "s11"
+  ],
+  "notes": [],
+  "dividers": [],
+  "blocks": [],
+  "meta": {
+    "title": "Thompson’s construction for (a|b)*abb",
+    "blurb": "The eleven-state ε-NFA the Dragon Book builds from the regular expression (a|b)*abb, numbered as in the book. Every piece of the regex is a small gadget glued in by ε-moves: two branches for |, a loop back for *, a chain for abb.",
+    "inputs": [
+      {
+        "w": "abb",
+        "expect": "accept"
+      },
+      {
+        "w": "aabb",
+        "expect": "accept"
+      },
+      {
+        "w": "babb",
+        "expect": "accept"
+      },
+      {
+        "w": "abababb",
+        "expect": "accept"
+      },
+      {
+        "w": "",
+        "expect": "reject"
+      },
+      {
+        "w": "ab",
+        "expect": "reject"
+      },
+      {
+        "w": "abba",
+        "expect": "reject"
+      },
+      {
+        "w": "bbbb",
+        "expect": "reject"
+      }
+    ],
+    "library": {
+      "author": {
+        "login": "thethinkmachine"
+      },
+      "license": "CC-BY-4.0",
+      "tags": [
+        "thompson",
+        "regex",
+        "compilers",
+        "dragon-book"
+      ],
+      "difficulty": "intermediate",
+      "chapter": "Aho, Lam, Sethi & Ullman, Compilers, §3.7.4",
+      "readme": "Thompson's construction turns a regular expression into an ε-NFA one operator at a time, and every gadget has exactly one entry and one exit:\n\n- **a | b** — states 1 to 6: ε into both branches, ε out of both.\n- **( … )\\*** — states 0 and 7 around it, with ε from 6 back to 1 (repeat) and ε from 0 to 7 (zero times).\n- **abb** — states 7 to 10, a straight chain.\n\nThe result has at most two states for every symbol and operator in the expression, which is why lexer generators start here. The next step in the book is the subset construction, which turns this into the four-state DFA for \"ends in abb\" — try Algorithms ▸ NFA → DFA and then minimise."
+    }
+  }
+}

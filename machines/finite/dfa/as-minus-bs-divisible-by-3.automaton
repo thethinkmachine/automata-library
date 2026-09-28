@@ -1,0 +1,140 @@
+{
+  "format": "automata-studio/workspace",
+  "schema": 1,
+  "app": "dev",
+  "machine": "DFA",
+  "config": {
+    "sym": {
+      "eps": "ε",
+      "any": "Σ",
+      "blank": "⊔",
+      "leftMarker": "⊢",
+      "rightMarker": "⊣",
+      "stackBottom": "Z",
+      "lambda": "λ"
+    }
+  },
+  "sigma": [
+    "a",
+    "b"
+  ],
+  "stackAlpha": [],
+  "outputAlpha": [],
+  "tapeCount": 1,
+  "states": [
+    {
+      "id": "s1",
+      "name": "0",
+      "x": 0,
+      "y": 0
+    },
+    {
+      "id": "s2",
+      "name": "+1",
+      "x": 179,
+      "y": -47
+    },
+    {
+      "id": "s3",
+      "name": "−1",
+      "x": 179,
+      "y": 48
+    }
+  ],
+  "transitions": [
+    {
+      "id": "t1",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "a"
+    },
+    {
+      "id": "t2",
+      "from": "s2",
+      "to": "s3",
+      "symbol": "a"
+    },
+    {
+      "id": "t3",
+      "from": "s3",
+      "to": "s1",
+      "symbol": "a"
+    },
+    {
+      "id": "t4",
+      "from": "s1",
+      "to": "s3",
+      "symbol": "b"
+    },
+    {
+      "id": "t5",
+      "from": "s3",
+      "to": "s2",
+      "symbol": "b"
+    },
+    {
+      "id": "t6",
+      "from": "s2",
+      "to": "s1",
+      "symbol": "b"
+    }
+  ],
+  "startId": "s1",
+  "accepts": [
+    "s1"
+  ],
+  "notes": [],
+  "dividers": [],
+  "blocks": [],
+  "meta": {
+    "title": "#a − #b divisible by 3",
+    "blurb": "A three-state cycle: a turns it one way, b the other. It accepts when the difference between the number of a’s and b’s is a multiple of 3 — a regular shadow of the non-regular “equal numbers of a and b”.",
+    "inputs": [
+      {
+        "w": "",
+        "expect": "accept",
+        "label": "ε"
+      },
+      {
+        "w": "ab",
+        "expect": "accept"
+      },
+      {
+        "w": "aaa",
+        "expect": "accept"
+      },
+      {
+        "w": "bbb",
+        "expect": "accept"
+      },
+      {
+        "w": "aabbabba",
+        "expect": "accept"
+      },
+      {
+        "w": "a",
+        "expect": "reject"
+      },
+      {
+        "w": "aab",
+        "expect": "reject"
+      },
+      {
+        "w": "bbbb",
+        "expect": "reject"
+      }
+    ],
+    "library": {
+      "author": {
+        "login": "thethinkmachine"
+      },
+      "license": "CC-BY-4.0",
+      "tags": [
+        "modular-counting",
+        "cyclic-group"
+      ],
+      "difficulty": "intro",
+      "readme": "The states are the integers modulo 3, and the machine is the cyclic group ℤ/3 acting on them: **a** adds one, **b** subtracts one. A word is accepted when the net count lands back on 0.\n\nThe exact version — *equal* numbers of a's and b's — needs an unbounded counter, and no DFA recognises it: see **Equal a’s and b’s** among the counter automata. Working modulo 3 is what makes the memory finite."
+    }
+  }
+}

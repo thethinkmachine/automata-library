@@ -1,0 +1,172 @@
+{
+  "format": "automata-studio/workspace",
+  "schema": 1,
+  "app": "dev",
+  "machine": "NPDA",
+  "config": {
+    "pdaParadigm": "explicit",
+    "sym": {
+      "eps": "ε",
+      "any": "Σ",
+      "blank": "⊔",
+      "leftMarker": "⊢",
+      "rightMarker": "⊣",
+      "stackBottom": "Z",
+      "lambda": "λ"
+    }
+  },
+  "sigma": [
+    "a",
+    "b"
+  ],
+  "stackAlpha": [
+    "A",
+    "Z"
+  ],
+  "outputAlpha": [],
+  "tapeCount": 1,
+  "states": [
+    {
+      "id": "s1",
+      "name": "push 1 or 2",
+      "x": 0,
+      "y": 0
+    },
+    {
+      "id": "s2",
+      "name": "pop 1",
+      "x": 179,
+      "y": -47
+    },
+    {
+      "id": "s3",
+      "name": "accept",
+      "x": 179,
+      "y": 48
+    }
+  ],
+  "transitions": [
+    {
+      "id": "t1",
+      "from": "s1",
+      "to": "s1",
+      "symbol": "a",
+      "pop": "Z",
+      "push": "AZ"
+    },
+    {
+      "id": "t2",
+      "from": "s1",
+      "to": "s1",
+      "symbol": "a",
+      "pop": "Z",
+      "push": "AAZ"
+    },
+    {
+      "id": "t3",
+      "from": "s1",
+      "to": "s1",
+      "symbol": "a",
+      "pop": "A",
+      "push": "AA"
+    },
+    {
+      "id": "t4",
+      "from": "s1",
+      "to": "s1",
+      "symbol": "a",
+      "pop": "A",
+      "push": "AAA"
+    },
+    {
+      "id": "t5",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "b",
+      "pop": "A",
+      "push": "ε"
+    },
+    {
+      "id": "t6",
+      "from": "s2",
+      "to": "s2",
+      "symbol": "b",
+      "pop": "A",
+      "push": "ε"
+    },
+    {
+      "id": "t7",
+      "from": "s1",
+      "to": "s3",
+      "symbol": "ε",
+      "pop": "Z",
+      "push": "Z"
+    },
+    {
+      "id": "t8",
+      "from": "s2",
+      "to": "s3",
+      "symbol": "ε",
+      "pop": "Z",
+      "push": "Z"
+    }
+  ],
+  "startId": "s1",
+  "accepts": [
+    "s3"
+  ],
+  "notes": [],
+  "dividers": [],
+  "blocks": [],
+  "meta": {
+    "title": "aⁿbᵐ with n ≤ m ≤ 2n",
+    "blurb": "Every a pushes either one symbol or two — the machine’s choice — and every b pops one. Some sequence of choices empties the stack exactly when the b’s number between n and 2n.",
+    "inputs": [
+      {
+        "w": "",
+        "expect": "accept",
+        "label": "ε"
+      },
+      {
+        "w": "ab",
+        "expect": "accept"
+      },
+      {
+        "w": "abb",
+        "expect": "accept"
+      },
+      {
+        "w": "aabbb",
+        "expect": "accept"
+      },
+      {
+        "w": "aaabbbbbb",
+        "expect": "accept"
+      },
+      {
+        "w": "abbb",
+        "expect": "reject"
+      },
+      {
+        "w": "aab",
+        "expect": "reject"
+      },
+      {
+        "w": "aaabb",
+        "expect": "reject"
+      }
+    ],
+    "library": {
+      "author": {
+        "login": "thethinkmachine"
+      },
+      "license": "CC-BY-4.0",
+      "tags": [
+        "nondeterminism",
+        "counting"
+      ],
+      "difficulty": "intermediate",
+      "readme": "Nondeterminism used to *search a range*. Pushing k doubles and n − k singles leaves n + k symbols on the stack, for any k from 0 to n; so the stack can be made to hold any count from n to 2n, and the b's can pay it off exactly when m is in that range.\n\nEach run makes one choice per a, so a word with n a's has 2ⁿ runs through the push state — but many of them reach the same stack height, and the simulator's search merges configurations it has seen before."
+    }
+  }
+}

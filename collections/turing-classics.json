@@ -1,0 +1,20 @@
+{
+  "title": "Turing machines from the textbook",
+  "blurb": "The machines a first course builds, state for state: Sipser’s M₁, M₂ and M₃, palindromes on one tape and on two, and the functions — addition, increment, sorting — that a head and a tape compute.",
+  "curator": "thethinkmachine",
+  "entries": [
+    "turing/tm/sipser-w-hash-w",
+    "turing/tm/sipser-powers-of-two-zeros",
+    "turing/lba/multiplication-a-i-b-j-c-ij",
+    "turing/tm/palindromes-one-tape",
+    "turing/mtm/palindromes-in-linear-time",
+    "turing/mtm/anbncn-with-2-tapes",
+    "turing/lba/powers-of-two-by-halving",
+    "turing/tm/unary-addition",
+    "turing/tm/binary-increment",
+    "turing/tm/binary-addition-a-b",
+    "turing/tm/sort-the-letters",
+    "turing/mtm/3-tape-adder-one-pass",
+    "turing/ndtm/is-n-composite-guess-a-factor"
+  ]
+}

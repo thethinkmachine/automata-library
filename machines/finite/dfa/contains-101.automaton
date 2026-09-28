@@ -1,0 +1,158 @@
+{
+  "format": "automata-studio/workspace",
+  "schema": 1,
+  "app": "dev",
+  "machine": "DFA",
+  "config": {
+    "sym": {
+      "eps": "ε",
+      "any": "Σ",
+      "blank": "⊔",
+      "leftMarker": "⊢",
+      "rightMarker": "⊣",
+      "stackBottom": "Z",
+      "lambda": "λ"
+    }
+  },
+  "sigma": [
+    "0",
+    "1"
+  ],
+  "stackAlpha": [],
+  "outputAlpha": [],
+  "tapeCount": 1,
+  "states": [
+    {
+      "id": "s1",
+      "name": "nothing",
+      "x": 0,
+      "y": 0
+    },
+    {
+      "id": "s2",
+      "name": "saw 1",
+      "x": 179,
+      "y": 0
+    },
+    {
+      "id": "s3",
+      "name": "saw 10",
+      "x": 358,
+      "y": 0
+    },
+    {
+      "id": "s4",
+      "name": "found 101",
+      "x": 537,
+      "y": 0
+    }
+  ],
+  "transitions": [
+    {
+      "id": "t1",
+      "from": "s1",
+      "to": "s1",
+      "symbol": "0"
+    },
+    {
+      "id": "t2",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "1"
+    },
+    {
+      "id": "t3",
+      "from": "s2",
+      "to": "s2",
+      "symbol": "1"
+    },
+    {
+      "id": "t4",
+      "from": "s2",
+      "to": "s3",
+      "symbol": "0"
+    },
+    {
+      "id": "t5",
+      "from": "s3",
+      "to": "s1",
+      "symbol": "0"
+    },
+    {
+      "id": "t6",
+      "from": "s3",
+      "to": "s4",
+      "symbol": "1"
+    },
+    {
+      "id": "t7",
+      "from": "s4",
+      "to": "s4",
+      "symbol": "0"
+    },
+    {
+      "id": "t8",
+      "from": "s4",
+      "to": "s4",
+      "symbol": "1"
+    }
+  ],
+  "startId": "s1",
+  "accepts": [
+    "s4"
+  ],
+  "notes": [],
+  "dividers": [],
+  "blocks": [],
+  "meta": {
+    "title": "Contains 101 (substring search)",
+    "blurb": "Accepts every binary string with 101 somewhere inside. Each state is the longest prefix of the pattern the input currently ends with — the same table the Knuth–Morris–Pratt algorithm builds.",
+    "inputs": [
+      {
+        "w": "101",
+        "expect": "accept"
+      },
+      {
+        "w": "0101",
+        "expect": "accept"
+      },
+      {
+        "w": "11011",
+        "expect": "accept"
+      },
+      {
+        "w": "100101",
+        "expect": "accept"
+      },
+      {
+        "w": "",
+        "expect": "reject"
+      },
+      {
+        "w": "100",
+        "expect": "reject"
+      },
+      {
+        "w": "1001",
+        "expect": "reject"
+      },
+      {
+        "w": "110011",
+        "expect": "reject"
+      }
+    ],
+    "library": {
+      "author": {
+        "login": "thethinkmachine"
+      },
+      "license": "CC-BY-4.0",
+      "tags": [
+        "substring",
+        "pattern-matching",
+        "kmp"
+      ],
+      "difficulty": "intro",
+      "readme": "A string-search automaton. State *k* means \"the last *k* symbols read are the first *k* symbols of 101\".\n\nThe interesting edges are the ones that go *back*. After **10**, a 0 leaves nothing useful, so the machine returns to the start. But after **1**, another 1 keeps it at \"saw 1\" rather than resetting — the new 1 is itself the start of a possible match. Those back edges are the *failure function* of Knuth–Morris–Pratt, drawn as a diagram.\n\nOnce the pattern has been seen, nothing can undo it: \"found 101\" loops on everything."
+    }
+  }
+}
