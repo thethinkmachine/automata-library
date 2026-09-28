@@ -1,0 +1,10 @@
+{
+  "title": "Three ways to never halt",
+  "blurb": "One machine per non-halting proof the library can make: an exact cycle, a cycle that drifts along the tape, and a halt that can never be reached.",
+  "curator": "thethinkmachine",
+  "entries": [
+    "turing/non-halting/two-cell-cycler",
+    "turing/non-halting/translated-cycler",
+    "turing/non-halting/unreachable-halt"
+  ]
+}

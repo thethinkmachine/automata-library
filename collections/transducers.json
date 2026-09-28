@@ -1,0 +1,14 @@
+{
+  "title": "Machines that write",
+  "blurb": "Moore and Mealy machines, finite-state and pushdown transducers, and a two-way transducer that copies its input.",
+  "curator": "thethinkmachine",
+  "entries": [
+    "transducers/moore/combination-lock-1101",
+    "transducers/moore/traffic-light",
+    "transducers/mealy/serial-binary-adder",
+    "transducers/mealy/report-each-bit",
+    "transducers/fst/binary-gray-code",
+    "transducers/pdt/reverse-the-input",
+    "transducers/twodft/copy-twice-w-ww"
+  ]
+}

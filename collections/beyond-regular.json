@@ -1,0 +1,17 @@
+{
+  "title": "Beyond regular",
+  "blurb": "Stacks, queues, counters and tapes: what each kind of memory buys.",
+  "curator": "thethinkmachine",
+  "entries": [
+    "memory/pda/anbn",
+    "memory/pda/bracket-matcher",
+    "memory/npda/palindromes-guess-the-middle",
+    "memory/counter/bank-account-never-overdrawn",
+    "memory/queue/perfect-copy-w-w",
+    "memory/twopda/anbncn-beyond-one-stack",
+    "memory/epda/anbncndn-four-counts-one-stack-of-stacks",
+    "turing/lba/powers-of-two-by-halving",
+    "turing/tm/binary-addition-a-b",
+    "turing/mtm/palindromes-in-linear-time"
+  ]
+}

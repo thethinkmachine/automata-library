@@ -1,0 +1,141 @@
+{
+  "format": "automata-studio/workspace",
+  "schema": 1,
+  "app": "dev",
+  "machine": "ITM",
+  "config": {
+    "twoWayTape": true,
+    "sym": {
+      "eps": "ε",
+      "any": "Σ",
+      "blank": "⊔",
+      "leftMarker": "⊢",
+      "rightMarker": "⊣",
+      "stackBottom": "Z",
+      "lambda": "λ"
+    }
+  },
+  "sigma": [
+    "1",
+    "2",
+    "3"
+  ],
+  "stackAlpha": [
+    "1",
+    "2",
+    "3",
+    "⊔"
+  ],
+  "outputAlpha": [],
+  "tapeCount": 1,
+  "states": [
+    {
+      "id": "s1",
+      "name": "A",
+      "x": 0,
+      "y": 0
+    },
+    {
+      "id": "s2",
+      "name": "B",
+      "x": 179,
+      "y": 0
+    },
+    {
+      "id": "s3",
+      "name": "halt",
+      "x": 358,
+      "y": 0
+    }
+  ],
+  "transitions": [
+    {
+      "id": "t1",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "⊔",
+      "write": "1",
+      "dir": "R"
+    },
+    {
+      "id": "t2",
+      "from": "s1",
+      "to": "s1",
+      "symbol": "1",
+      "write": "2",
+      "dir": "L"
+    },
+    {
+      "id": "t3",
+      "from": "s1",
+      "to": "s1",
+      "symbol": "2",
+      "write": "1",
+      "dir": "R"
+    },
+    {
+      "id": "t4",
+      "from": "s1",
+      "to": "s1",
+      "symbol": "3",
+      "write": "1",
+      "dir": "R"
+    },
+    {
+      "id": "t5",
+      "from": "s2",
+      "to": "s2",
+      "symbol": "⊔",
+      "write": "1",
+      "dir": "L"
+    },
+    {
+      "id": "t6",
+      "from": "s2",
+      "to": "s1",
+      "symbol": "1",
+      "write": "1",
+      "dir": "L"
+    },
+    {
+      "id": "t7",
+      "from": "s2",
+      "to": "s2",
+      "symbol": "2",
+      "write": "3",
+      "dir": "R"
+    },
+    {
+      "id": "t8",
+      "from": "s2",
+      "to": "s3",
+      "symbol": "3",
+      "write": "1",
+      "dir": "R"
+    }
+  ],
+  "startId": "s1",
+  "accepts": [
+    "s3"
+  ],
+  "notes": [],
+  "dividers": [],
+  "blocks": [],
+  "meta": {
+    "title": "BB(2,4) champion",
+    "blurb": "Two states, four symbols: 3,932,964 steps and 2,050 non-blank cells.",
+    "library": {
+      "author": {
+        "login": "thethinkmachine"
+      },
+      "license": "CC-BY-4.0",
+      "tags": [
+        "standard-format",
+        "busy-beaver",
+        "champion"
+      ],
+      "chapter": "Radó 1962, “On non-computable functions”",
+      "readme": "Standard format: 1RB2LA1RA1RA_1LB1LA3RB1RZ"
+    }
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "title": "Regular languages, start to finish",
+  "blurb": "DFAs, NFAs, ε-NFAs and two-way automata — the finite-memory machines, from the textbook classics to the showcase examples.",
+  "curator": "thethinkmachine",
+  "entries": [
+    "finite/dfa/even-number-of-1s",
+    "finite/dfa/binary-divisibility-by-5",
+    "finite/nfa/guess-the-penultimate-1",
+    "finite/nfa/keyword-search-cat-car-cab",
+    "finite/enfa/a-then-b",
+    "finite/enfa/float-regex-compiled",
+    "finite/twdfa/two-passes-one-head",
+    "finite/twnfa/deja-vu-the-last-letter-is-a-rerun",
+    "finite/dfa/binary-divisibility-by-3"
+  ]
+}
