@@ -1,0 +1,218 @@
+{
+  "format": "automata-studio/workspace",
+  "schema": 1,
+  "app": "2.9.0",
+  "machine": "ITM",
+  "config": {
+    "transducerAccepts": false,
+    "twoWayTape": false,
+    "pfaCutPoint": 0.5,
+    "detectLoops": true,
+    "maxPdaSteps": 2000,
+    "maxTapeCount": 8,
+    "maxTmSteps": 300000,
+    "pdaParadigm": "explicit",
+    "sym": {
+      "eps": "ε",
+      "any": "Σ",
+      "blank": "␣",
+      "leftMarker": "⊢",
+      "rightMarker": "⊣",
+      "stackBottom": "Z",
+      "lambda": "λ"
+    },
+    "statePrefix": "q"
+  },
+  "sigma": [
+    "1"
+  ],
+  "stackAlpha": [
+    "1",
+    "␣"
+  ],
+  "outputAlpha": [],
+  "tapeCount": 2,
+  "states": [
+    {
+      "id": "s1",
+      "x": 0,
+      "y": 0,
+      "name": "A"
+    },
+    {
+      "id": "s2",
+      "x": 179,
+      "y": 0,
+      "name": "B"
+    },
+    {
+      "id": "s3",
+      "x": 358,
+      "y": 48,
+      "name": "C"
+    },
+    {
+      "id": "s4",
+      "x": 537,
+      "y": 48,
+      "name": "D"
+    },
+    {
+      "id": "s5",
+      "x": 716,
+      "y": 0,
+      "name": "E"
+    },
+    {
+      "id": "s6",
+      "x": 537,
+      "y": -47,
+      "name": "F"
+    },
+    {
+      "id": "s7",
+      "x": 358,
+      "y": -47,
+      "name": "halt"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "t1",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "␣",
+      "write": "1",
+      "dir": "R"
+    },
+    {
+      "id": "t2",
+      "from": "s1",
+      "to": "s1",
+      "symbol": "1",
+      "write": "1",
+      "dir": "R"
+    },
+    {
+      "id": "t3",
+      "from": "s2",
+      "to": "s3",
+      "symbol": "␣",
+      "write": "1",
+      "dir": "R"
+    },
+    {
+      "id": "t4",
+      "from": "s2",
+      "to": "s7",
+      "symbol": "1",
+      "write": "1",
+      "dir": "R"
+    },
+    {
+      "id": "t5",
+      "from": "s3",
+      "to": "s4",
+      "symbol": "␣",
+      "write": "1",
+      "dir": "L",
+      "curve": 67
+    },
+    {
+      "id": "t6",
+      "from": "s3",
+      "to": "s6",
+      "symbol": "1",
+      "write": "␣",
+      "dir": "R"
+    },
+    {
+      "id": "t7",
+      "from": "s4",
+      "to": "s1",
+      "symbol": "␣",
+      "write": "1",
+      "dir": "R"
+    },
+    {
+      "id": "t8",
+      "from": "s4",
+      "to": "s5",
+      "symbol": "1",
+      "write": "␣",
+      "dir": "L",
+      "curve": 55
+    },
+    {
+      "id": "t9",
+      "from": "s5",
+      "to": "s4",
+      "symbol": "␣",
+      "write": "␣",
+      "dir": "L",
+      "curve": 30
+    },
+    {
+      "id": "t10",
+      "from": "s5",
+      "to": "s3",
+      "symbol": "1",
+      "write": "1",
+      "dir": "R"
+    },
+    {
+      "id": "t11",
+      "from": "s6",
+      "to": "s1",
+      "symbol": "␣",
+      "write": "1",
+      "dir": "R",
+      "curve": 126
+    },
+    {
+      "id": "t12",
+      "from": "s6",
+      "to": "s5",
+      "symbol": "1",
+      "write": "␣",
+      "dir": "R",
+      "curve": -35
+    }
+  ],
+  "startId": "s1",
+  "accepts": [
+    "s7"
+  ],
+  "notes": [],
+  "dividers": [],
+  "blocks": [],
+  "scope": [],
+  "grammar": {
+    "vars": [
+      "S"
+    ],
+    "start": "S",
+    "productions": []
+  },
+  "meta": {
+    "title": "BB(6) champion: runs longer than 2↑↑↑5 steps",
+    "blurb": "The 6-state, 2-symbol Turing machine behind the best known lower bound on BB(6), found by mxdys in June 2025. Started on a blank tape it halts, but only after more than 2↑↑↑5 steps, a number no simulation will ever reach.",
+    "library": {
+      "author": {
+        "login": "thethinkmachine",
+        "name": "Shreyan Chaubey"
+      },
+      "license": "CC-BY-4.0",
+      "tags": [
+        "busy-beaver",
+        "turing-machine",
+        "bbchallenge",
+        "halting-problem",
+        "record"
+      ],
+      "difficulty": "advanced",
+      "chapter": "https://scottaaronson.blog/?p=8972",
+      "readme": "The current BB(6) champion, 1RB1RA_1RC1RZ_1LD0RF_1RA0LE_0LD1RC_1RA0RE (standard text format; Z is the halt state), was discovered by mxdys in June 2025 as part of the bbchallenge collaboration. It proves the lower bound\n\n    BB(6) > 2 ↑↑↑ 5\n\nin Knuth's up-arrow notation: 2 pentated to 5, a tower of 2s whose height is itself a tower of 2s, nested five levels deep. It beat the previous record, also set by mxdys that May, of BB(6) > 2 ↑↑ 2 ↑↑ 2 ↑↑ 9.\n\nThe proof that it halts does not come from running it. Its behaviour was analysed by hand and checked with accelerated simulators, which show that it repeatedly applies an iterated function whose growth is pentation. Stepping through it here shows the first few thousand steps: the rule-following structure is visible early, the halt is not.\n\nWhy it is interesting: BB(5) = 47,176,870 was settled in 2024 and formally verified in Coq. BB(6) is where the problem stops being tractable, several 6-state machines are open problems equivalent to Collatz-like conjectures, so every new champion also tightens our picture of where provability runs out.\n\nMachine credit: mxdys (bbchallenge). Library entry and write-up: Shreyan Chaubey."
+    }
+  }
+}
