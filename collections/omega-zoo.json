@@ -4,10 +4,8 @@
   "curator": "thethinkmachine",
   "entries": [
     "omega/dba/never-two-a-s-in-a-row",
-    "omega/dba/classic-infinitely-often-a",
     "omega/dcoba/eventually-always-b",
     "omega/dpa/eventually-always-b-by-priority",
-    "omega/dwa/never-two-a-s-in-a-row",
     "omega/buchi/infinitely-often-a",
     "omega/buchi/classic-eventually-always-b",
     "omega/ncoba/eventually-always-b-with-a-needless-guess",
