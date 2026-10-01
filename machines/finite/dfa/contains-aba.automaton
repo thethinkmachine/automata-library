@@ -1,0 +1,150 @@
+{
+  "format": "automata-studio/workspace",
+  "schema": 1,
+  "app": "dev",
+  "machine": "DFA",
+  "config": {
+    "sym": {
+      "eps": "ε",
+      "any": "Σ",
+      "blank": "⊔",
+      "leftMarker": "⊢",
+      "rightMarker": "⊣",
+      "stackBottom": "Z",
+      "lambda": "λ"
+    }
+  },
+  "sigma": [
+    "a",
+    "b"
+  ],
+  "stackAlpha": [],
+  "outputAlpha": [],
+  "tapeCount": 1,
+  "states": [
+    {
+      "id": "s1",
+      "name": "ε",
+      "x": 120,
+      "y": 220
+    },
+    {
+      "id": "s2",
+      "name": "a",
+      "x": 320,
+      "y": 220
+    },
+    {
+      "id": "s3",
+      "name": "ab",
+      "x": 520,
+      "y": 220
+    },
+    {
+      "id": "s4",
+      "name": "aba",
+      "x": 720,
+      "y": 220
+    }
+  ],
+  "transitions": [
+    {
+      "id": "t1",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "a"
+    },
+    {
+      "id": "t2",
+      "from": "s1",
+      "to": "s1",
+      "symbol": "b"
+    },
+    {
+      "id": "t3",
+      "from": "s2",
+      "to": "s2",
+      "symbol": "a"
+    },
+    {
+      "id": "t4",
+      "from": "s2",
+      "to": "s3",
+      "symbol": "b"
+    },
+    {
+      "id": "t5",
+      "from": "s3",
+      "to": "s4",
+      "symbol": "a"
+    },
+    {
+      "id": "t6",
+      "from": "s3",
+      "to": "s1",
+      "symbol": "b"
+    },
+    {
+      "id": "t7",
+      "from": "s4",
+      "to": "s4",
+      "symbol": "a"
+    },
+    {
+      "id": "t8",
+      "from": "s4",
+      "to": "s4",
+      "symbol": "b"
+    }
+  ],
+  "startId": "s1",
+  "accepts": [
+    "s4"
+  ],
+  "notes": [],
+  "dividers": [],
+  "blocks": [],
+  "meta": {
+    "title": "Contains aba",
+    "blurb": "A substring search drawn as a DFA: each state is the longest prefix of aba the input currently ends in, and a mismatch falls back to the longest prefix that still fits — the Knuth–Morris–Pratt failure function, as states.",
+    "inputs": [
+      {
+        "w": "aba",
+        "expect": "accept"
+      },
+      {
+        "w": "babab",
+        "expect": "accept"
+      },
+      {
+        "w": "aabab",
+        "expect": "accept"
+      },
+      {
+        "w": "",
+        "expect": "reject"
+      },
+      {
+        "w": "abba",
+        "expect": "reject"
+      },
+      {
+        "w": "bbaab",
+        "expect": "reject",
+        "label": "ab never followed by a"
+      }
+    ],
+    "library": {
+      "author": {
+        "login": "thethinkmachine"
+      },
+      "license": "CC-BY-4.0",
+      "tags": [
+        "substring",
+        "pattern-matching",
+        "kmp"
+      ],
+      "difficulty": "intro"
+    }
+  }
+}

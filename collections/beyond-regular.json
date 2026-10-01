@@ -12,6 +12,10 @@
     "memory/epda/anbncndn-four-counts-one-stack-of-stacks",
     "turing/lba/powers-of-two-by-halving",
     "turing/tm/binary-addition-a-b",
-    "turing/mtm/palindromes-in-linear-time"
+    "turing/mtm/palindromes-in-linear-time",
+    "memory/pda/w-c-w-reversed",
+    "memory/npda/as-and-bs-in-equal-number",
+    "turing/tm/anbncn-by-crossing-off",
+    "turing/tm/palindromes-on-one-tape"
   ]
 }

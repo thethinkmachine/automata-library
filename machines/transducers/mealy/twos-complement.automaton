@@ -1,0 +1,115 @@
+{
+  "format": "automata-studio/workspace",
+  "schema": 1,
+  "app": "dev",
+  "machine": "Mealy",
+  "config": {
+    "sym": {
+      "eps": "ε",
+      "any": "Σ",
+      "blank": "⊔",
+      "leftMarker": "⊢",
+      "rightMarker": "⊣",
+      "stackBottom": "Z",
+      "lambda": "λ"
+    },
+    "transducerAccepts": false
+  },
+  "sigma": [
+    "0",
+    "1"
+  ],
+  "stackAlpha": [],
+  "outputAlpha": [
+    "0",
+    "1"
+  ],
+  "tapeCount": 1,
+  "states": [
+    {
+      "id": "s1",
+      "name": "copy",
+      "x": 220,
+      "y": 220
+    },
+    {
+      "id": "s2",
+      "name": "flip",
+      "x": 560,
+      "y": 220
+    }
+  ],
+  "transitions": [
+    {
+      "id": "t1",
+      "from": "s1",
+      "to": "s1",
+      "symbol": "0",
+      "output": "0"
+    },
+    {
+      "id": "t2",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "1",
+      "output": "1"
+    },
+    {
+      "id": "t3",
+      "from": "s2",
+      "to": "s2",
+      "symbol": "0",
+      "output": "1"
+    },
+    {
+      "id": "t4",
+      "from": "s2",
+      "to": "s2",
+      "symbol": "1",
+      "output": "0"
+    }
+  ],
+  "startId": "s1",
+  "accepts": [],
+  "notes": [],
+  "dividers": [],
+  "blocks": [],
+  "meta": {
+    "title": "Two’s complement, least significant bit first",
+    "blurb": "Negate a binary number as it streams in, low bit first: copy every bit up to and including the first 1, then flip the rest. Two states, because the only thing to remember is whether that 1 has gone by.",
+    "inputs": [
+      {
+        "w": "0110",
+        "out": "0101",
+        "label": "−6 = 1010 in four bits"
+      },
+      {
+        "w": "1000",
+        "out": "1111",
+        "label": "−1"
+      },
+      {
+        "w": "0001",
+        "out": "0001",
+        "label": "−8 = 8 in four bits"
+      },
+      {
+        "w": "0000",
+        "out": "0000",
+        "label": "−0"
+      }
+    ],
+    "library": {
+      "author": {
+        "login": "thethinkmachine"
+      },
+      "license": "CC-BY-4.0",
+      "tags": [
+        "arithmetic",
+        "binary",
+        "mealy"
+      ],
+      "difficulty": "intro"
+    }
+  }
+}

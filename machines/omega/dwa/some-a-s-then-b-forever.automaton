@@ -1,0 +1,134 @@
+{
+  "format": "automata-studio/workspace",
+  "schema": 1,
+  "app": "dev",
+  "machine": "DWA",
+  "config": {
+    "sym": {
+      "eps": "ε",
+      "any": "Σ",
+      "blank": "⊔",
+      "leftMarker": "⊢",
+      "rightMarker": "⊣",
+      "stackBottom": "Z",
+      "lambda": "λ"
+    }
+  },
+  "sigma": [
+    "a",
+    "b"
+  ],
+  "stackAlpha": [],
+  "outputAlpha": [],
+  "tapeCount": 1,
+  "states": [
+    {
+      "id": "s1",
+      "name": "a’s",
+      "x": 180,
+      "y": 220
+    },
+    {
+      "id": "s2",
+      "name": "b’s",
+      "x": 480,
+      "y": 220
+    },
+    {
+      "id": "s3",
+      "name": "dead",
+      "x": 330,
+      "y": 420
+    }
+  ],
+  "transitions": [
+    {
+      "id": "t1",
+      "from": "s1",
+      "to": "s1",
+      "symbol": "a"
+    },
+    {
+      "id": "t2",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "b"
+    },
+    {
+      "id": "t3",
+      "from": "s2",
+      "to": "s2",
+      "symbol": "b"
+    },
+    {
+      "id": "t4",
+      "from": "s2",
+      "to": "s3",
+      "symbol": "a"
+    },
+    {
+      "id": "t5",
+      "from": "s3",
+      "to": "s3",
+      "symbol": "a"
+    },
+    {
+      "id": "t6",
+      "from": "s3",
+      "to": "s3",
+      "symbol": "b"
+    }
+  ],
+  "startId": "s1",
+  "accepts": [
+    "s2"
+  ],
+  "notes": [],
+  "dividers": [],
+  "blocks": [],
+  "meta": {
+    "title": "Some a’s, then b forever",
+    "blurb": "The ω-language $a^*b^\\omega$. Every strongly connected component is a single state lying wholly inside F or wholly outside it, which is all a weak automaton asks — and the same drawing read as Büchi or co-Büchi accepts the same words.",
+    "inputs": [
+      {
+        "w": "(b)",
+        "expect": "accept"
+      },
+      {
+        "w": "aaa(b)",
+        "expect": "accept"
+      },
+      {
+        "w": "ab(bb)",
+        "expect": "accept"
+      },
+      {
+        "w": "(a)",
+        "expect": "reject"
+      },
+      {
+        "w": "(ab)",
+        "expect": "reject"
+      },
+      {
+        "w": "b(a)",
+        "expect": "reject"
+      },
+      {
+        "w": "ba(b)",
+        "expect": "reject"
+      }
+    ],
+    "library": {
+      "author": {
+        "login": "thethinkmachine"
+      },
+      "license": "CC-BY-4.0",
+      "tags": [
+        "weak",
+        "dwa"
+      ],
+      "difficulty": "intermediate"
+    }
+  }
+}

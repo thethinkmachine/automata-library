@@ -11,6 +11,10 @@
     "finite/enfa/float-regex-compiled",
     "finite/twdfa/two-passes-one-head",
     "finite/twnfa/deja-vu-the-last-letter-is-a-rerun",
-    "finite/dfa/binary-divisibility-by-3"
+    "finite/dfa/binary-divisibility-by-3",
+    "finite/dfa/contains-aba",
+    "finite/dfa/no-two-consecutive-1s",
+    "finite/dfa/even-as-and-even-bs",
+    "finite/nfa/ends-in-abb"
   ]
 }

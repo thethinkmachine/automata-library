@@ -10,6 +10,7 @@
     "omega/buchi/classic-eventually-always-b",
     "omega/ncoba/eventually-always-b-with-a-needless-guess",
     "omega/npa/infinitely-often-a-or-eventually-always-c",
-    "omega/nwa/never-two-a-s-with-a-needless-guess"
+    "omega/nwa/never-two-a-s-with-a-needless-guess",
+    "omega/dwa/some-a-s-then-b-forever"
   ]
 }

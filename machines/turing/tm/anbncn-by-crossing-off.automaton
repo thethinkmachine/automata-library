@@ -1,0 +1,270 @@
+{
+  "format": "automata-studio/workspace",
+  "schema": 1,
+  "app": "dev",
+  "machine": "TM",
+  "config": {
+    "sym": {
+      "eps": "ε",
+      "any": "Σ",
+      "blank": "⊔",
+      "leftMarker": "⊢",
+      "rightMarker": "⊣",
+      "stackBottom": "Z",
+      "lambda": "λ"
+    }
+  },
+  "sigma": [
+    "a",
+    "b",
+    "c"
+  ],
+  "stackAlpha": [
+    "a",
+    "b",
+    "c",
+    "X",
+    "Y",
+    "Z",
+    "⊔"
+  ],
+  "outputAlpha": [],
+  "tapeCount": 1,
+  "states": [
+    {
+      "id": "s1",
+      "name": "mark a",
+      "x": 150,
+      "y": 220
+    },
+    {
+      "id": "s2",
+      "name": "find b",
+      "x": 400,
+      "y": 120
+    },
+    {
+      "id": "s3",
+      "name": "find c",
+      "x": 650,
+      "y": 120
+    },
+    {
+      "id": "s4",
+      "name": "back",
+      "x": 650,
+      "y": 340
+    },
+    {
+      "id": "s5",
+      "name": "verify",
+      "x": 400,
+      "y": 340
+    },
+    {
+      "id": "s6",
+      "name": "acc",
+      "x": 150,
+      "y": 440
+    }
+  ],
+  "transitions": [
+    {
+      "id": "t1",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "a",
+      "write": "X",
+      "dir": "R"
+    },
+    {
+      "id": "t2",
+      "from": "s1",
+      "to": "s5",
+      "symbol": "Y",
+      "write": "Y",
+      "dir": "R"
+    },
+    {
+      "id": "t3",
+      "from": "s1",
+      "to": "s6",
+      "symbol": "⊔",
+      "write": "⊔",
+      "dir": "R"
+    },
+    {
+      "id": "t4",
+      "from": "s2",
+      "to": "s2",
+      "symbol": "a",
+      "write": "a",
+      "dir": "R"
+    },
+    {
+      "id": "t5",
+      "from": "s2",
+      "to": "s2",
+      "symbol": "Y",
+      "write": "Y",
+      "dir": "R"
+    },
+    {
+      "id": "t6",
+      "from": "s2",
+      "to": "s3",
+      "symbol": "b",
+      "write": "Y",
+      "dir": "R"
+    },
+    {
+      "id": "t7",
+      "from": "s3",
+      "to": "s3",
+      "symbol": "b",
+      "write": "b",
+      "dir": "R"
+    },
+    {
+      "id": "t8",
+      "from": "s3",
+      "to": "s3",
+      "symbol": "Z",
+      "write": "Z",
+      "dir": "R"
+    },
+    {
+      "id": "t9",
+      "from": "s3",
+      "to": "s4",
+      "symbol": "c",
+      "write": "Z",
+      "dir": "L"
+    },
+    {
+      "id": "t10",
+      "from": "s4",
+      "to": "s4",
+      "symbol": "a",
+      "write": "a",
+      "dir": "L"
+    },
+    {
+      "id": "t11",
+      "from": "s4",
+      "to": "s4",
+      "symbol": "b",
+      "write": "b",
+      "dir": "L"
+    },
+    {
+      "id": "t12",
+      "from": "s4",
+      "to": "s4",
+      "symbol": "Y",
+      "write": "Y",
+      "dir": "L"
+    },
+    {
+      "id": "t13",
+      "from": "s4",
+      "to": "s4",
+      "symbol": "Z",
+      "write": "Z",
+      "dir": "L"
+    },
+    {
+      "id": "t14",
+      "from": "s4",
+      "to": "s1",
+      "symbol": "X",
+      "write": "X",
+      "dir": "R"
+    },
+    {
+      "id": "t15",
+      "from": "s5",
+      "to": "s5",
+      "symbol": "Y",
+      "write": "Y",
+      "dir": "R"
+    },
+    {
+      "id": "t16",
+      "from": "s5",
+      "to": "s5",
+      "symbol": "Z",
+      "write": "Z",
+      "dir": "R"
+    },
+    {
+      "id": "t17",
+      "from": "s5",
+      "to": "s6",
+      "symbol": "⊔",
+      "write": "⊔",
+      "dir": "R"
+    }
+  ],
+  "startId": "s1",
+  "accepts": [
+    "s6"
+  ],
+  "notes": [],
+  "dividers": [],
+  "blocks": [],
+  "meta": {
+    "title": "aⁿbⁿcⁿ by crossing off",
+    "blurb": "The single-tape decider for the classic non-context-free language: each pass marks one a as X, one b as Y and one c as Z, then walks back to the last X. When no a is left, a final sweep checks that only Y’s and Z’s remain.",
+    "inputs": [
+      {
+        "w": "",
+        "expect": "accept"
+      },
+      {
+        "w": "abc",
+        "expect": "accept"
+      },
+      {
+        "w": "aabbcc",
+        "expect": "accept"
+      },
+      {
+        "w": "aaabbbccc",
+        "expect": "accept"
+      },
+      {
+        "w": "aabc",
+        "expect": "reject"
+      },
+      {
+        "w": "abbc",
+        "expect": "reject"
+      },
+      {
+        "w": "abcc",
+        "expect": "reject"
+      },
+      {
+        "w": "abcabc",
+        "expect": "reject"
+      },
+      {
+        "w": "acb",
+        "expect": "reject"
+      }
+    ],
+    "library": {
+      "author": {
+        "login": "thethinkmachine"
+      },
+      "license": "CC-BY-4.0",
+      "tags": [
+        "non-context-free",
+        "sipser",
+        "textbook"
+      ],
+      "difficulty": "intermediate"
+    }
+  }
+}

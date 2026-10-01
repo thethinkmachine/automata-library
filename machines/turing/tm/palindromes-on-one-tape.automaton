@@ -1,0 +1,263 @@
+{
+  "format": "automata-studio/workspace",
+  "schema": 1,
+  "app": "dev",
+  "machine": "TM",
+  "config": {
+    "sym": {
+      "eps": "ε",
+      "any": "Σ",
+      "blank": "⊔",
+      "leftMarker": "⊢",
+      "rightMarker": "⊣",
+      "stackBottom": "Z",
+      "lambda": "λ"
+    }
+  },
+  "sigma": [
+    "a",
+    "b"
+  ],
+  "stackAlpha": [
+    "a",
+    "b",
+    "⊔"
+  ],
+  "outputAlpha": [],
+  "tapeCount": 1,
+  "states": [
+    {
+      "id": "s1",
+      "name": "take",
+      "x": 150,
+      "y": 260
+    },
+    {
+      "id": "s2",
+      "name": "carry a",
+      "x": 420,
+      "y": 120
+    },
+    {
+      "id": "s3",
+      "name": "carry b",
+      "x": 420,
+      "y": 400
+    },
+    {
+      "id": "s4",
+      "name": "match a",
+      "x": 690,
+      "y": 120
+    },
+    {
+      "id": "s5",
+      "name": "match b",
+      "x": 690,
+      "y": 400
+    },
+    {
+      "id": "s6",
+      "name": "return",
+      "x": 960,
+      "y": 260
+    },
+    {
+      "id": "s7",
+      "name": "acc",
+      "x": 150,
+      "y": 480
+    }
+  ],
+  "transitions": [
+    {
+      "id": "t1",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "a",
+      "write": "⊔",
+      "dir": "R"
+    },
+    {
+      "id": "t2",
+      "from": "s1",
+      "to": "s3",
+      "symbol": "b",
+      "write": "⊔",
+      "dir": "R"
+    },
+    {
+      "id": "t3",
+      "from": "s1",
+      "to": "s7",
+      "symbol": "⊔",
+      "write": "⊔",
+      "dir": "R"
+    },
+    {
+      "id": "t4",
+      "from": "s2",
+      "to": "s2",
+      "symbol": "a",
+      "write": "a",
+      "dir": "R"
+    },
+    {
+      "id": "t5",
+      "from": "s2",
+      "to": "s2",
+      "symbol": "b",
+      "write": "b",
+      "dir": "R"
+    },
+    {
+      "id": "t6",
+      "from": "s2",
+      "to": "s4",
+      "symbol": "⊔",
+      "write": "⊔",
+      "dir": "L"
+    },
+    {
+      "id": "t7",
+      "from": "s3",
+      "to": "s3",
+      "symbol": "a",
+      "write": "a",
+      "dir": "R"
+    },
+    {
+      "id": "t8",
+      "from": "s3",
+      "to": "s3",
+      "symbol": "b",
+      "write": "b",
+      "dir": "R"
+    },
+    {
+      "id": "t9",
+      "from": "s3",
+      "to": "s5",
+      "symbol": "⊔",
+      "write": "⊔",
+      "dir": "L"
+    },
+    {
+      "id": "t10",
+      "from": "s4",
+      "to": "s6",
+      "symbol": "a",
+      "write": "⊔",
+      "dir": "L"
+    },
+    {
+      "id": "t11",
+      "from": "s4",
+      "to": "s7",
+      "symbol": "⊔",
+      "write": "⊔",
+      "dir": "R"
+    },
+    {
+      "id": "t12",
+      "from": "s5",
+      "to": "s6",
+      "symbol": "b",
+      "write": "⊔",
+      "dir": "L"
+    },
+    {
+      "id": "t13",
+      "from": "s5",
+      "to": "s7",
+      "symbol": "⊔",
+      "write": "⊔",
+      "dir": "R"
+    },
+    {
+      "id": "t14",
+      "from": "s6",
+      "to": "s6",
+      "symbol": "a",
+      "write": "a",
+      "dir": "L"
+    },
+    {
+      "id": "t15",
+      "from": "s6",
+      "to": "s6",
+      "symbol": "b",
+      "write": "b",
+      "dir": "L"
+    },
+    {
+      "id": "t16",
+      "from": "s6",
+      "to": "s1",
+      "symbol": "⊔",
+      "write": "⊔",
+      "dir": "R"
+    }
+  ],
+  "startId": "s1",
+  "accepts": [
+    "s7"
+  ],
+  "notes": [],
+  "dividers": [],
+  "blocks": [],
+  "meta": {
+    "title": "Palindromes on one tape",
+    "blurb": "Erase the first symbol, remember it in the state, run to the far end and check the last symbol against it; erase that too and come back. Quadratic time — set it beside the two-tape version, which does the same job in one pass.",
+    "inputs": [
+      {
+        "w": "",
+        "expect": "accept"
+      },
+      {
+        "w": "a",
+        "expect": "accept"
+      },
+      {
+        "w": "aba",
+        "expect": "accept"
+      },
+      {
+        "w": "abba",
+        "expect": "accept"
+      },
+      {
+        "w": "baabaab",
+        "expect": "accept"
+      },
+      {
+        "w": "ab",
+        "expect": "reject"
+      },
+      {
+        "w": "abb",
+        "expect": "reject"
+      },
+      {
+        "w": "abab",
+        "expect": "reject"
+      },
+      {
+        "w": "aabba",
+        "expect": "reject"
+      }
+    ],
+    "library": {
+      "author": {
+        "login": "thethinkmachine"
+      },
+      "license": "CC-BY-4.0",
+      "tags": [
+        "palindrome",
+        "single-tape",
+        "textbook"
+      ],
+      "difficulty": "intermediate"
+    }
+  }
+}

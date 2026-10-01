@@ -9,6 +9,8 @@
     "transducers/mealy/report-each-bit",
     "transducers/fst/binary-gray-code",
     "transducers/pdt/reverse-the-input",
-    "transducers/twodft/copy-twice-w-ww"
+    "transducers/twodft/copy-twice-w-ww",
+    "transducers/mealy/twos-complement",
+    "transducers/moore/binary-remainder-mod-3"
   ]
 }
