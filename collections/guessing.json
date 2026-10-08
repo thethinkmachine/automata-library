@@ -1,0 +1,19 @@
+{
+  "title": "Nondeterminism: the power to guess",
+  "blurb": "Machines that guess and then check: where the end is, which letter repeats, where the middle of a palindrome lies, which items add up to the target. Some guesses save exponentially many states, some add real power, and some only make a machine easier to write.",
+  "curator": "thethinkmachine",
+  "entries": [
+    "finite/nfa/the-third-symbol-from-the-end-is-a-1-by-guessing",
+    "finite/nfa/some-letter-occurs-twice",
+    "finite/nfa/contains-a-square-of-length-4",
+    "finite/nfa/lengths-that-are-multiples-of-3-or-of-5",
+    "memory/npda/palindromes-guess-the-middle",
+    "memory/npda/aibjck-with-i-j-or-j-k",
+    "memory/queue/is-v-a-rotation-of-w-w-v",
+    "transducers/fst/replace-the-last-letter-with-x",
+    "transducers/fst/thousands-separators",
+    "omega/buchi/classic-eventually-always-b",
+    "turing/ndtm/subset-sum-by-guessing",
+    "turing/ndtm/is-n-composite-guess-a-factor"
+  ]
+}

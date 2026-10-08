@@ -1,17 +1,21 @@
 {
   "title": "Beyond regular",
-  "blurb": "Stacks, queues, counters and tapes: what each kind of memory buys.",
+  "blurb": "Stacks, counters, queues and tapes: what each kind of memory buys. A stack counts and matches; a queue copies; two stacks are a Turing machine; a tape bounded by its input is exactly the context-sensitive languages.",
   "curator": "thethinkmachine",
   "entries": [
     "memory/pda/anbn",
-    "memory/pda/bracket-matcher",
+    "memory/pda/a-palindrome-with-its-middle-marked-wcwr",
     "memory/npda/palindromes-guess-the-middle",
-    "memory/counter/bank-account-never-overdrawn",
-    "memory/queue/perfect-copy-w-w",
-    "memory/twopda/anbncn-beyond-one-stack",
+    "memory/pda/bracket-matcher",
+    "memory/npda/anbn-or-anb2n",
+    "memory/npda/not-a-word-repeated-twice",
+    "memory/counter/a-valid-expression-in-reverse-polish-notation",
+    "memory/queue/anbncn-with-a-queue",
+    "memory/queue/three-copies-w-w-w",
+    "memory/twopda/two-stacks-make-a-queue-w-w",
     "memory/epda/anbncndn-four-counts-one-stack-of-stacks",
-    "turing/lba/powers-of-two-by-halving",
-    "turing/tm/binary-addition-a-b",
+    "turing/lba/anbncn-in-the-space-of-its-input",
+    "turing/tm/two-equal-halves-w-w",
     "turing/mtm/palindromes-in-linear-time"
   ]
 }
