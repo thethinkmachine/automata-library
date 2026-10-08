@@ -1,0 +1,205 @@
+{
+  "format": "automata-studio/workspace",
+  "schema": 1,
+  "app": "dev",
+  "machine": "2PDA",
+  "config": {
+    "sym": {
+      "eps": "ε",
+      "any": "Σ",
+      "blank": "⊔",
+      "leftMarker": "⊢",
+      "rightMarker": "⊣",
+      "stackBottom": "Z",
+      "lambda": "λ"
+    },
+    "pdaParadigm": "explicit"
+  },
+  "sigma": [
+    "a",
+    "b",
+    "#"
+  ],
+  "stackAlpha": [
+    "Z",
+    "A",
+    "B"
+  ],
+  "outputAlpha": [],
+  "tapeCount": 1,
+  "states": [
+    {
+      "id": "s1",
+      "x": 140,
+      "y": 160,
+      "name": "load"
+    },
+    {
+      "id": "s2",
+      "x": 319,
+      "y": 160,
+      "name": "pour"
+    },
+    {
+      "id": "s3",
+      "x": 498,
+      "y": 160,
+      "name": "match"
+    },
+    {
+      "id": "s4",
+      "x": 677,
+      "y": 160,
+      "name": "done"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "t1",
+      "from": "s1",
+      "to": "s1",
+      "symbol": "a",
+      "pop": "ε",
+      "push": "A",
+      "pop2": "ε",
+      "push2": "ε"
+    },
+    {
+      "id": "t2",
+      "from": "s1",
+      "to": "s1",
+      "symbol": "b",
+      "pop": "ε",
+      "push": "B",
+      "pop2": "ε",
+      "push2": "ε"
+    },
+    {
+      "id": "t3",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "#",
+      "pop": "ε",
+      "push": "ε",
+      "pop2": "ε",
+      "push2": "ε"
+    },
+    {
+      "id": "t4",
+      "from": "s2",
+      "to": "s2",
+      "symbol": "ε",
+      "pop": "A",
+      "push": "ε",
+      "pop2": "ε",
+      "push2": "A"
+    },
+    {
+      "id": "t5",
+      "from": "s2",
+      "to": "s2",
+      "symbol": "ε",
+      "pop": "B",
+      "push": "ε",
+      "pop2": "ε",
+      "push2": "B"
+    },
+    {
+      "id": "t6",
+      "from": "s2",
+      "to": "s3",
+      "symbol": "ε",
+      "pop": "Z",
+      "push": "Z",
+      "pop2": "ε",
+      "push2": "ε"
+    },
+    {
+      "id": "t7",
+      "from": "s3",
+      "to": "s3",
+      "symbol": "a",
+      "pop": "ε",
+      "push": "ε",
+      "pop2": "A",
+      "push2": "ε"
+    },
+    {
+      "id": "t8",
+      "from": "s3",
+      "to": "s3",
+      "symbol": "b",
+      "pop": "ε",
+      "push": "ε",
+      "pop2": "B",
+      "push2": "ε"
+    },
+    {
+      "id": "t9",
+      "from": "s3",
+      "to": "s4",
+      "symbol": "ε",
+      "pop": "ε",
+      "push": "ε",
+      "pop2": "Z",
+      "push2": "Z"
+    }
+  ],
+  "startId": "s1",
+  "accepts": [
+    "s4"
+  ],
+  "notes": [],
+  "dividers": [],
+  "blocks": [],
+  "meta": {
+    "title": "Two stacks make a queue: w#w",
+    "blurb": "One stack reverses, so two stacks reverse twice: push w on the first, pour it onto the second, and the second now holds w in reading order, ready to match the copy. The trick behind “two stacks are as strong as a Turing machine”.",
+    "inputs": [
+      {
+        "w": "#",
+        "expect": "accept"
+      },
+      {
+        "w": "ab#ab",
+        "expect": "accept"
+      },
+      {
+        "w": "baa#baa",
+        "expect": "accept"
+      },
+      {
+        "w": "babba#babba",
+        "expect": "accept"
+      },
+      {
+        "w": "a",
+        "expect": "reject"
+      },
+      {
+        "w": "bb#ab",
+        "expect": "reject"
+      },
+      {
+        "w": "aaa#baa",
+        "expect": "reject"
+      },
+      {
+        "w": "aabba#babba",
+        "expect": "reject"
+      }
+    ],
+    "library": {
+      "author": {
+        "login": "thethinkmachine"
+      },
+      "license": "CC-BY-4.0",
+      "tags": [
+        "two-stacks",
+        "copy-language",
+        "simulation"
+      ],
+      "difficulty": "intermediate"
+    }
+  }
+}

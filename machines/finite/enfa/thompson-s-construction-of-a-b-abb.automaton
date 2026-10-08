@@ -1,0 +1,229 @@
+{
+  "format": "automata-studio/workspace",
+  "schema": 1,
+  "app": "dev",
+  "machine": "ε-NFA",
+  "config": {
+    "sym": {
+      "eps": "ε",
+      "any": "Σ",
+      "blank": "⊔",
+      "leftMarker": "⊢",
+      "rightMarker": "⊣",
+      "stackBottom": "Z",
+      "lambda": "λ"
+    }
+  },
+  "sigma": [
+    "a",
+    "b"
+  ],
+  "stackAlpha": [],
+  "outputAlpha": [],
+  "tapeCount": 1,
+  "states": [
+    {
+      "id": "s1",
+      "x": 140,
+      "y": 244,
+      "name": "0"
+    },
+    {
+      "id": "s2",
+      "x": 260,
+      "y": 244,
+      "name": "1"
+    },
+    {
+      "id": "s3",
+      "x": 740,
+      "y": 244,
+      "name": "7"
+    },
+    {
+      "id": "s4",
+      "x": 380,
+      "y": 160,
+      "name": "2"
+    },
+    {
+      "id": "s5",
+      "x": 380,
+      "y": 328,
+      "name": "4"
+    },
+    {
+      "id": "s6",
+      "x": 500,
+      "y": 160,
+      "name": "3"
+    },
+    {
+      "id": "s7",
+      "x": 500,
+      "y": 328,
+      "name": "5"
+    },
+    {
+      "id": "s8",
+      "x": 620,
+      "y": 244,
+      "name": "6"
+    },
+    {
+      "id": "s9",
+      "x": 860,
+      "y": 244,
+      "name": "8"
+    },
+    {
+      "id": "s10",
+      "x": 980,
+      "y": 244,
+      "name": "9"
+    },
+    {
+      "id": "s11",
+      "x": 1100,
+      "y": 244,
+      "name": "10"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "t1",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "ε"
+    },
+    {
+      "id": "t2",
+      "from": "s1",
+      "to": "s3",
+      "symbol": "ε"
+    },
+    {
+      "id": "t3",
+      "from": "s2",
+      "to": "s4",
+      "symbol": "ε"
+    },
+    {
+      "id": "t4",
+      "from": "s2",
+      "to": "s5",
+      "symbol": "ε"
+    },
+    {
+      "id": "t5",
+      "from": "s4",
+      "to": "s6",
+      "symbol": "a"
+    },
+    {
+      "id": "t6",
+      "from": "s5",
+      "to": "s7",
+      "symbol": "b"
+    },
+    {
+      "id": "t7",
+      "from": "s6",
+      "to": "s8",
+      "symbol": "ε"
+    },
+    {
+      "id": "t8",
+      "from": "s7",
+      "to": "s8",
+      "symbol": "ε"
+    },
+    {
+      "id": "t9",
+      "from": "s8",
+      "to": "s2",
+      "symbol": "ε"
+    },
+    {
+      "id": "t10",
+      "from": "s8",
+      "to": "s3",
+      "symbol": "ε"
+    },
+    {
+      "id": "t11",
+      "from": "s3",
+      "to": "s9",
+      "symbol": "a"
+    },
+    {
+      "id": "t12",
+      "from": "s9",
+      "to": "s10",
+      "symbol": "b"
+    },
+    {
+      "id": "t13",
+      "from": "s10",
+      "to": "s11",
+      "symbol": "b"
+    }
+  ],
+  "startId": "s1",
+  "accepts": [
+    "s11"
+  ],
+  "notes": [],
+  "dividers": [],
+  "blocks": [],
+  "meta": {
+    "title": "Thompson’s construction of (a|b)*abb",
+    "blurb": "The ε-NFA that Thompson’s construction builds from the regular expression (a|b)*abb, state for state as in the dragon book: each operator contributes a small gadget, and ε-moves glue the gadgets together.",
+    "inputs": [
+      {
+        "w": "abb",
+        "expect": "accept"
+      },
+      {
+        "w": "baabb",
+        "expect": "accept"
+      },
+      {
+        "w": "aabb",
+        "expect": "accept"
+      },
+      {
+        "w": "aaaaaababb",
+        "expect": "accept"
+      },
+      {
+        "w": "bbb",
+        "expect": "reject"
+      },
+      {
+        "w": "babbb",
+        "expect": "reject"
+      },
+      {
+        "w": "abbb",
+        "expect": "reject"
+      },
+      {
+        "w": "aaaaaabbbb",
+        "expect": "reject"
+      }
+    ],
+    "library": {
+      "author": {
+        "login": "thethinkmachine"
+      },
+      "license": "CC-BY-4.0",
+      "tags": [
+        "thompson-construction",
+        "regular-expressions",
+        "compilers"
+      ],
+      "difficulty": "intermediate"
+    }
+  }
+}

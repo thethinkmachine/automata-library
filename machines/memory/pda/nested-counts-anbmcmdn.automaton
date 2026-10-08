@@ -17,11 +17,14 @@
   },
   "sigma": [
     "a",
-    "b"
+    "b",
+    "c",
+    "d"
   ],
   "stackAlpha": [
     "Z",
-    "X"
+    "A",
+    "B"
   ],
   "outputAlpha": [],
   "tapeCount": 1,
@@ -29,7 +32,7 @@
     {
       "id": "s1",
       "x": 140,
-      "y": 160,
+      "y": 208,
       "name": "start"
     },
     {
@@ -40,14 +43,26 @@
     },
     {
       "id": "s3",
-      "x": 498,
-      "y": 160,
+      "x": 319,
+      "y": 255,
       "name": "bs"
     },
     {
       "id": "s4",
-      "x": 677,
+      "x": 498,
       "y": 160,
+      "name": "ds"
+    },
+    {
+      "id": "s5",
+      "x": 498,
+      "y": 255,
+      "name": "cs"
+    },
+    {
+      "id": "s6",
+      "x": 677,
+      "y": 208,
       "name": "done"
     }
   ],
@@ -58,36 +73,92 @@
       "to": "s2",
       "symbol": "a",
       "pop": "Z",
-      "push": "XZ"
+      "push": "AZ"
     },
     {
       "id": "t2",
-      "from": "s2",
-      "to": "s2",
-      "symbol": "a",
-      "pop": "X",
-      "push": "XX"
+      "from": "s1",
+      "to": "s3",
+      "symbol": "b",
+      "pop": "Z",
+      "push": "BZ"
     },
     {
       "id": "t3",
       "from": "s2",
-      "to": "s3",
-      "symbol": "b",
-      "pop": "X",
-      "push": "ε"
+      "to": "s2",
+      "symbol": "a",
+      "pop": "A",
+      "push": "AA"
     },
     {
       "id": "t4",
-      "from": "s3",
+      "from": "s2",
       "to": "s3",
       "symbol": "b",
-      "pop": "X",
-      "push": "ε"
+      "pop": "A",
+      "push": "BA"
     },
     {
       "id": "t5",
-      "from": "s3",
+      "from": "s2",
       "to": "s4",
+      "symbol": "d",
+      "pop": "A",
+      "push": "ε"
+    },
+    {
+      "id": "t6",
+      "from": "s3",
+      "to": "s3",
+      "symbol": "b",
+      "pop": "B",
+      "push": "BB"
+    },
+    {
+      "id": "t7",
+      "from": "s3",
+      "to": "s5",
+      "symbol": "c",
+      "pop": "B",
+      "push": "ε"
+    },
+    {
+      "id": "t8",
+      "from": "s5",
+      "to": "s5",
+      "symbol": "c",
+      "pop": "B",
+      "push": "ε"
+    },
+    {
+      "id": "t9",
+      "from": "s5",
+      "to": "s4",
+      "symbol": "d",
+      "pop": "A",
+      "push": "ε"
+    },
+    {
+      "id": "t10",
+      "from": "s5",
+      "to": "s6",
+      "symbol": "ε",
+      "pop": "Z",
+      "push": "Z"
+    },
+    {
+      "id": "t11",
+      "from": "s4",
+      "to": "s4",
+      "symbol": "d",
+      "pop": "A",
+      "push": "ε"
+    },
+    {
+      "id": "t12",
+      "from": "s4",
+      "to": "s6",
       "symbol": "ε",
       "pop": "Z",
       "push": "Z"
@@ -96,29 +167,29 @@
   "startId": "s1",
   "accepts": [
     "s1",
-    "s4"
+    "s6"
   ],
   "notes": [],
   "dividers": [],
   "blocks": [],
   "meta": {
-    "title": "aⁿbⁿ",
-    "blurb": "The language that is not regular: no finite memory can count the a’s, and a stack can. Push one X per a, pop one per b, and accept when the bottom marker comes back into view exactly as the input runs out.",
+    "title": "Nested counts: aⁿbᵐcᵐdⁿ",
+    "blurb": "Two pairs of counts, one inside the other, like a function call inside a function call. The b’s are matched by the c’s on top of the stack while the a’s wait underneath for the d’s. Swap c and d and no stack can do it.",
     "inputs": [
       {
         "w": "",
         "expect": "accept"
       },
       {
-        "w": "aabb",
+        "w": "abcd",
         "expect": "accept"
       },
       {
-        "w": "ab",
+        "w": "aabbccdd",
         "expect": "accept"
       },
       {
-        "w": "aaaaaaabbbbbbb",
+        "w": "aabbbbbcccccdd",
         "expect": "accept"
       },
       {
@@ -126,15 +197,15 @@
         "expect": "reject"
       },
       {
-        "w": "babb",
+        "w": "bbcd",
         "expect": "reject"
       },
       {
-        "w": "bb",
+        "w": "babbccdd",
         "expect": "reject"
       },
       {
-        "w": "baaaaaabbbbbbb",
+        "w": "babbbbbcccccdd",
         "expect": "reject"
       }
     ],
@@ -144,11 +215,11 @@
       },
       "license": "CC-BY-4.0",
       "tags": [
-        "canonical",
+        "nesting",
         "counting",
-        "non-regular"
+        "stack-matching"
       ],
-      "difficulty": "intro"
+      "difficulty": "intermediate"
     }
   }
 }

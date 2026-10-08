@@ -7,7 +7,7 @@
 // words, then whatever `gen` and `extra` add — words a random sample would
 // almost never hit, like the members of aⁿbⁿ.
 
-import { analyze } from './engine.mjs';
+import { analyze, App } from './engine.mjs';
 import { KIND, symbolsOf } from './dsl.mjs';
 import { parseLtl, ltlHolds } from './ltl.mjs';
 
@@ -71,7 +71,13 @@ export function verify(spec, doc) {
   const errors = [];
   const results = [];   // { w (tokens), raw, verdict, output, want }
 
-  const decide = raw => decideRaw(target, raw);
+  // Checked with a generous step budget; the card's examples are then chosen
+  // among the words the app decides within its own (smaller) one, since that is
+  // the budget the library's analysis and the listing's Try-it run with.
+  const held = App.config.langStepBudget;
+  const big = spec.verifySteps ?? 100000;
+  const decide = raw => { App.config.langStepBudget = big; try { return decideRaw(target, raw); } finally { App.config.langStepBudget = held; } };
+  const quick = raw => decideRaw(target, raw).verdict !== 'unk';
 
   if (mode === 'omega') {
     const f = spec.ltl ? parseLtl(spec.ltl) : null;
@@ -101,7 +107,7 @@ export function verify(spec, doc) {
     const n = L + 1 + Math.floor(r() * (longest - L));
     add(Array.from({ length: n }, () => T.syms[Math.floor(r() * T.syms.length)]));
   }
-  for (const w of spec.extra || []) add(T.fromSpec(w), 'extra');
+  for (const w of [...(spec.extra || []), ...(spec.tests || [])]) add(T.fromSpec(w), 'extra');
   if (spec.gen) for (let n = 0; n <= (spec.genMax ?? 24); n++) {
     // a word, or a list of words; a word is a string (space-separated when the
     // symbols are longer than a character) or an array of symbols
@@ -128,8 +134,55 @@ export function verify(spec, doc) {
       if (!ok && errors.length < 6) errors.push(`"${raw}": expected ${want === null ? 'reject' : `→ ${want || '(nothing)'}`}, the machine gives ${got.verdict === 'err' ? got.error : `${got.verdict} → ${out || '(nothing)'}`}`);
     }
   }
-  const inputs = mode === 'acceptor' ? pickWords(spec, results, T, decide) : pickOutputs(spec, results, T);
+  // A Turing machine that computes something: the card can only say whether
+  // it accepts, so what it leaves on the tape is checked here, by a second,
+  // independent simulator.
+  if (spec.tape && !errors.length) {
+    for (const r of results) {
+      if (!r.want) continue;
+      const run = runTape(doc, r.w, spec.budgetSteps ?? 200000);
+      const want = String(spec.tape(T.toOracle(r.w)));
+      if (run.verdict !== 'acc') { errors.push(`"${r.raw}": the tape simulator says ${run.verdict}, the app says accept`); break; }
+      if (run.tape !== want) { errors.push(`"${r.raw}": leaves ${run.tape || '(blank)'} on the tape, expected ${want || '(blank)'}`); if (errors.length > 5) break; }
+    }
+  }
+  const fits = results.filter(r => quick(r.raw));
+  const inputs = mode === 'acceptor' ? pickWords(spec, fits, T, decide, quick) : pickOutputs(spec, fits, T);
   return { mode, errors, inputs, results };
+}
+
+/**
+ * A one-tape Turing machine run, written independently of the app's: the
+ * verdict and the tape's contents with the blanks at either end trimmed (an
+ * LBA's end markers are not part of what it leaves). A one-way tape stays put
+ * on a left move at cell 0, as the app's does.
+ */
+export function runTape(doc, word, budget) {
+  const sym = doc.config?.sym || {};
+  const blank = sym.blank || '⊔', any = sym.any || 'Σ';
+  const lba = doc.machine === 'LBA', twoWay = !!doc.config?.twoWayTape || doc.machine === 'ITM';
+  const cells = new Map();
+  const input = lba ? [sym.leftMarker || '⊢', ...word, sym.rightMarker || '⊣'] : word;
+  input.forEach((c, i) => cells.set(i, c));
+  let head = 0, state = doc.startId;
+  const accepts = new Set(doc.accepts);
+  const out = new Map();
+  for (const t of doc.transitions) { const k = t.from + '\u0001' + t.symbol; if (!out.has(k)) out.set(k, t); }
+  let verdict = 'unk';
+  for (let step = 0; step <= budget; step++) {
+    if (accepts.has(state)) { verdict = 'acc'; break; }
+    const c = cells.has(head) ? cells.get(head) : blank;
+    const t = out.get(state + '\u0001' + c) || out.get(state + '\u0001' + any);
+    if (!t) { verdict = 'rej'; break; }
+    if (t.write && t.write !== any) cells.set(head, t.write);
+    if (t.dir === 'R') head++;
+    else if (t.dir === 'L') { if (twoWay || head > 0) head--; }
+    state = t.to;
+  }
+  const keys = [...cells.keys()].filter(k => cells.get(k) !== blank && !(lba && (cells.get(k) === (sym.leftMarker || '⊢') || cells.get(k) === (sym.rightMarker || '⊣'))));
+  let tape = '';
+  if (keys.length) { const lo = Math.min(...keys), hi = Math.max(...keys); for (let i = lo; i <= hi; i++) { const c = cells.get(i); tape += c === undefined || c === blank ? '_' : c; } }
+  return { verdict, tape };
 }
 
 // ── choosing the card's examples ──────────────────────────────────
@@ -141,7 +194,7 @@ const labelOf = (spec, T, w) => (spec.label ? String(spec.label(T.toOracle(w)) ?
  * Accepted words of spread-out lengths, then for each a rejected word one edit
  * away from it — the near miss a reader learns most from. `tests` overrides.
  */
-function pickWords(spec, results, T, decide) {
+function pickWords(spec, results, T, decide, quick = () => true) {
   const row = (w, acc) => ({ w: T.raw(w), expect: acc ? 'accept' : 'reject', ...(spec.label ? { label: labelOf(spec, T, w) } : {}) });
   if (spec.tests) return spec.tests.map(x => { const w = T.fromSpec(x); return row(w, !!spec.lang(T.toOracle(w))); });
   const nAcc = spec.nAccept ?? 4, nRej = spec.nReject ?? 4;
@@ -175,7 +228,7 @@ function pickWords(spec, results, T, decide) {
     for (let i = 0; i < w.length; i++) for (const s of T.syms) if (s !== w[i]) cands.push([...w.slice(0, i), s, ...w.slice(i + 1)]);
     for (let i = 0; i < w.length; i++) cands.push([...w.slice(0, i), ...w.slice(i + 1)]);
     for (let i = 0; i <= w.length; i++) for (const s of T.syms) cands.push([...w.slice(0, i), s, ...w.slice(i)]);
-    const hit = cands.find(c => !seen.has(T.raw(c)) && (!spec.prefer || spec.prefer(T.toOracle(c))) && !verdictOf(c));
+    const hit = cands.find(c => !seen.has(T.raw(c)) && (!spec.prefer || spec.prefer(T.toOracle(c))) && !verdictOf(c) && quick(T.raw(c)));
     if (hit) { seen.add(T.raw(hit)); misses.push(hit); }
   }
   for (const r of diverse(rej.filter(prefer), nRej)) { if (misses.length >= nRej) break; if (!seen.has(r.raw)) { seen.add(r.raw); misses.push(r.w); } }

@@ -2,7 +2,7 @@
   "format": "automata-studio/workspace",
   "schema": 1,
   "app": "dev",
-  "machine": "DPDA",
+  "machine": "QA",
   "config": {
     "sym": {
       "eps": "ε",
@@ -17,11 +17,13 @@
   },
   "sigma": [
     "a",
-    "b"
+    "b",
+    "#"
   ],
   "stackAlpha": [
     "Z",
-    "X"
+    "A",
+    "B"
   ],
   "outputAlpha": [],
   "tapeCount": 1,
@@ -30,19 +32,19 @@
       "id": "s1",
       "x": 140,
       "y": 160,
-      "name": "start"
+      "name": "load"
     },
     {
       "id": "s2",
       "x": 319,
       "y": 160,
-      "name": "as"
+      "name": "copy"
     },
     {
       "id": "s3",
       "x": 498,
       "y": 160,
-      "name": "bs"
+      "name": "last"
     },
     {
       "id": "s4",
@@ -55,37 +57,69 @@
     {
       "id": "t1",
       "from": "s1",
-      "to": "s2",
+      "to": "s1",
       "symbol": "a",
-      "pop": "Z",
-      "push": "XZ"
+      "pop": "ε",
+      "push": "A"
     },
     {
       "id": "t2",
-      "from": "s2",
-      "to": "s2",
-      "symbol": "a",
-      "pop": "X",
-      "push": "XX"
+      "from": "s1",
+      "to": "s1",
+      "symbol": "b",
+      "pop": "ε",
+      "push": "B"
     },
     {
       "id": "t3",
-      "from": "s2",
-      "to": "s3",
-      "symbol": "b",
-      "pop": "X",
-      "push": "ε"
+      "from": "s1",
+      "to": "s2",
+      "symbol": "#",
+      "pop": "Z",
+      "push": "Z"
     },
     {
       "id": "t4",
-      "from": "s3",
-      "to": "s3",
-      "symbol": "b",
-      "pop": "X",
-      "push": "ε"
+      "from": "s2",
+      "to": "s2",
+      "symbol": "a",
+      "pop": "A",
+      "push": "A"
     },
     {
       "id": "t5",
+      "from": "s2",
+      "to": "s2",
+      "symbol": "b",
+      "pop": "B",
+      "push": "B"
+    },
+    {
+      "id": "t6",
+      "from": "s2",
+      "to": "s3",
+      "symbol": "#",
+      "pop": "Z",
+      "push": "Z"
+    },
+    {
+      "id": "t7",
+      "from": "s3",
+      "to": "s3",
+      "symbol": "a",
+      "pop": "A",
+      "push": "ε"
+    },
+    {
+      "id": "t8",
+      "from": "s3",
+      "to": "s3",
+      "symbol": "b",
+      "pop": "B",
+      "push": "ε"
+    },
+    {
+      "id": "t9",
       "from": "s3",
       "to": "s4",
       "symbol": "ε",
@@ -95,46 +129,45 @@
   ],
   "startId": "s1",
   "accepts": [
-    "s1",
     "s4"
   ],
   "notes": [],
   "dividers": [],
   "blocks": [],
   "meta": {
-    "title": "aⁿbⁿ",
-    "blurb": "The language that is not regular: no finite memory can count the a’s, and a stack can. Push one X per a, pop one per b, and accept when the bottom marker comes back into view exactly as the input runs out.",
+    "title": "Three copies: w#w#w",
+    "blurb": "A queue can check a copy without losing it: while matching the second w, each symbol taken from the front is sent straight to the back again, ready for the third. A stack would have to give up what it compares.",
     "inputs": [
       {
-        "w": "",
+        "w": "##",
         "expect": "accept"
       },
       {
-        "w": "aabb",
+        "w": "ab#ab#ab",
         "expect": "accept"
       },
       {
-        "w": "ab",
+        "w": "bba#bba#bba",
         "expect": "accept"
       },
       {
-        "w": "aaaaaaabbbbbbb",
+        "w": "abab#abab#abab",
         "expect": "accept"
       },
       {
-        "w": "a",
+        "w": "a#",
         "expect": "reject"
       },
       {
-        "w": "babb",
+        "w": "bb#ab#ab",
         "expect": "reject"
       },
       {
-        "w": "bb",
+        "w": "aba#bba#bba",
         "expect": "reject"
       },
       {
-        "w": "baaaaaabbbbbbb",
+        "w": "bbab#abab#abab",
         "expect": "reject"
       }
     ],
@@ -144,11 +177,11 @@
       },
       "license": "CC-BY-4.0",
       "tags": [
-        "canonical",
-        "counting",
-        "non-regular"
+        "queues",
+        "copy-language",
+        "beyond-context-free"
       ],
-      "difficulty": "intro"
+      "difficulty": "intermediate"
     }
   }
 }

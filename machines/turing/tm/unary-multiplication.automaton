@@ -1,0 +1,404 @@
+{
+  "format": "automata-studio/workspace",
+  "schema": 1,
+  "app": "dev",
+  "machine": "TM",
+  "config": {
+    "sym": {
+      "eps": "ε",
+      "any": "Σ",
+      "blank": "⊔",
+      "leftMarker": "⊢",
+      "rightMarker": "⊣",
+      "stackBottom": "Z",
+      "lambda": "λ"
+    }
+  },
+  "sigma": [
+    "1",
+    "*"
+  ],
+  "stackAlpha": [
+    "1",
+    "*",
+    "w",
+    " ",
+    "=",
+    ">",
+    "{",
+    "c",
+    "o",
+    "n",
+    "s",
+    "t",
+    "[",
+    "m",
+    ",",
+    "]",
+    ".",
+    "p",
+    "l",
+    "i",
+    "(",
+    "'",
+    ")",
+    "a",
+    "x",
+    "e",
+    "g",
+    "h",
+    ";",
+    "r",
+    "u",
+    "+",
+    "#",
+    "}",
+    "X",
+    "⊔",
+    "Y"
+  ],
+  "outputAlpha": [],
+  "tapeCount": 1,
+  "states": [
+    {
+      "id": "s1",
+      "x": 140,
+      "y": 208,
+      "name": "start"
+    },
+    {
+      "id": "s2",
+      "x": 319,
+      "y": 255,
+      "name": "toStar"
+    },
+    {
+      "id": "s3",
+      "x": 319,
+      "y": 160,
+      "name": "zero"
+    },
+    {
+      "id": "s4",
+      "x": 498,
+      "y": 160,
+      "name": "done"
+    },
+    {
+      "id": "s5",
+      "x": 498,
+      "y": 255,
+      "name": "pick"
+    },
+    {
+      "id": "s6",
+      "x": 677,
+      "y": 255,
+      "name": "toEnd"
+    },
+    {
+      "id": "s7",
+      "x": 677,
+      "y": 160,
+      "name": "restore"
+    },
+    {
+      "id": "s8",
+      "x": 856,
+      "y": 255,
+      "name": "toOut"
+    },
+    {
+      "id": "s9",
+      "x": 1035,
+      "y": 255,
+      "name": "back"
+    },
+    {
+      "id": "s10",
+      "x": 856,
+      "y": 160,
+      "name": "nextX"
+    },
+    {
+      "id": "s11",
+      "x": 1035,
+      "y": 160,
+      "name": "startNext"
+    },
+    {
+      "id": "s12",
+      "x": 1214,
+      "y": 208,
+      "name": "unmark"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "t1",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "1",
+      "write": "X",
+      "dir": "R"
+    },
+    {
+      "id": "t2",
+      "from": "s1",
+      "to": "s3",
+      "symbol": "*",
+      "write": "*",
+      "dir": "R"
+    },
+    {
+      "id": "t3",
+      "from": "s3",
+      "to": "s3",
+      "symbol": "1",
+      "write": "1",
+      "dir": "R"
+    },
+    {
+      "id": "t4",
+      "from": "s3",
+      "to": "s4",
+      "symbol": "⊔",
+      "write": "#",
+      "dir": "S"
+    },
+    {
+      "id": "t5",
+      "from": "s2",
+      "to": "s2",
+      "symbol": "1",
+      "write": "1",
+      "dir": "R"
+    },
+    {
+      "id": "t6",
+      "from": "s2",
+      "to": "s5",
+      "symbol": "*",
+      "write": "*",
+      "dir": "R"
+    },
+    {
+      "id": "t7",
+      "from": "s5",
+      "to": "s5",
+      "symbol": "Y",
+      "write": "Y",
+      "dir": "R"
+    },
+    {
+      "id": "t8",
+      "from": "s5",
+      "to": "s6",
+      "symbol": "1",
+      "write": "Y",
+      "dir": "R"
+    },
+    {
+      "id": "t9",
+      "from": "s5",
+      "to": "s7",
+      "symbol": "#",
+      "write": "#",
+      "dir": "L"
+    },
+    {
+      "id": "t10",
+      "from": "s5",
+      "to": "s7",
+      "symbol": "⊔",
+      "write": "#",
+      "dir": "L"
+    },
+    {
+      "id": "t11",
+      "from": "s6",
+      "to": "s6",
+      "symbol": "1",
+      "write": "1",
+      "dir": "R"
+    },
+    {
+      "id": "t12",
+      "from": "s6",
+      "to": "s8",
+      "symbol": "#",
+      "write": "#",
+      "dir": "R"
+    },
+    {
+      "id": "t13",
+      "from": "s6",
+      "to": "s8",
+      "symbol": "⊔",
+      "write": "#",
+      "dir": "R"
+    },
+    {
+      "id": "t14",
+      "from": "s8",
+      "to": "s8",
+      "symbol": "1",
+      "write": "1",
+      "dir": "R"
+    },
+    {
+      "id": "t15",
+      "from": "s8",
+      "to": "s9",
+      "symbol": "⊔",
+      "write": "1",
+      "dir": "L"
+    },
+    {
+      "id": "t16",
+      "from": "s9",
+      "to": "s9",
+      "symbol": "1",
+      "write": "1",
+      "dir": "L"
+    },
+    {
+      "id": "t17",
+      "from": "s9",
+      "to": "s9",
+      "symbol": "#",
+      "write": "#",
+      "dir": "L"
+    },
+    {
+      "id": "t18",
+      "from": "s9",
+      "to": "s5",
+      "symbol": "Y",
+      "write": "Y",
+      "dir": "R"
+    },
+    {
+      "id": "t19",
+      "from": "s7",
+      "to": "s7",
+      "symbol": "Y",
+      "write": "1",
+      "dir": "L"
+    },
+    {
+      "id": "t20",
+      "from": "s7",
+      "to": "s10",
+      "symbol": "*",
+      "write": "*",
+      "dir": "L"
+    },
+    {
+      "id": "t21",
+      "from": "s10",
+      "to": "s10",
+      "symbol": "1",
+      "write": "1",
+      "dir": "L"
+    },
+    {
+      "id": "t22",
+      "from": "s10",
+      "to": "s11",
+      "symbol": "X",
+      "write": "X",
+      "dir": "R"
+    },
+    {
+      "id": "t23",
+      "from": "s11",
+      "to": "s2",
+      "symbol": "1",
+      "write": "X",
+      "dir": "R"
+    },
+    {
+      "id": "t24",
+      "from": "s11",
+      "to": "s12",
+      "symbol": "*",
+      "write": "*",
+      "dir": "L"
+    },
+    {
+      "id": "t25",
+      "from": "s12",
+      "to": "s12",
+      "symbol": "X",
+      "write": "1",
+      "dir": "L"
+    },
+    {
+      "id": "t26",
+      "from": "s12",
+      "to": "s4",
+      "symbol": "1",
+      "write": "1",
+      "dir": "S"
+    }
+  ],
+  "startId": "s1",
+  "accepts": [
+    "s4"
+  ],
+  "notes": [],
+  "dividers": [],
+  "blocks": [],
+  "meta": {
+    "title": "Unary multiplication",
+    "blurb": "Input 1ᵐ*1ⁿ; output 1ᵐ*1ⁿ#1ᵐⁿ. For each 1 of the first number the machine copies the whole second number to the end of the tape, one 1 per trip, marking what it has used with X and Y and restoring them afterwards. Multiplication as repeated addition, at walking pace.",
+    "inputs": [
+      {
+        "w": "*",
+        "expect": "accept"
+      },
+      {
+        "w": "1*11",
+        "expect": "accept"
+      },
+      {
+        "w": "*1",
+        "expect": "accept"
+      },
+      {
+        "w": "111*11111",
+        "expect": "accept"
+      },
+      {
+        "w": "1",
+        "expect": "reject"
+      },
+      {
+        "w": "**11",
+        "expect": "reject"
+      },
+      {
+        "w": "11",
+        "expect": "reject"
+      },
+      {
+        "w": "*11*11111",
+        "expect": "reject"
+      }
+    ],
+    "library": {
+      "author": {
+        "login": "thethinkmachine"
+      },
+      "license": "CC-BY-4.0",
+      "tags": [
+        "arithmetic",
+        "unary",
+        "computing-a-function",
+        "markers"
+      ],
+      "difficulty": "intermediate"
+    }
+  }
+}

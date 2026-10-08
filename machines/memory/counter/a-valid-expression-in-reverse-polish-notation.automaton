@@ -2,7 +2,7 @@
   "format": "automata-studio/workspace",
   "schema": 1,
   "app": "dev",
-  "machine": "DPDA",
+  "machine": "Counter",
   "config": {
     "sym": {
       "eps": "ε",
@@ -16,12 +16,12 @@
     "pdaParadigm": "explicit"
   },
   "sigma": [
-    "a",
-    "b"
+    "n",
+    "o"
   ],
   "stackAlpha": [
     "Z",
-    "X"
+    "1"
   ],
   "outputAlpha": [],
   "tapeCount": 1,
@@ -29,25 +29,25 @@
     {
       "id": "s1",
       "x": 140,
-      "y": 160,
-      "name": "start"
+      "y": 208,
+      "name": "s"
     },
     {
       "id": "s2",
       "x": 319,
-      "y": 160,
-      "name": "as"
+      "y": 255,
+      "name": "need"
     },
     {
       "id": "s3",
-      "x": 498,
+      "x": 319,
       "y": 160,
-      "name": "bs"
+      "name": "last"
     },
     {
       "id": "s4",
-      "x": 677,
-      "y": 160,
+      "x": 498,
+      "y": 208,
       "name": "done"
     }
   ],
@@ -55,33 +55,33 @@
     {
       "id": "t1",
       "from": "s1",
-      "to": "s2",
-      "symbol": "a",
-      "pop": "Z",
-      "push": "XZ"
+      "to": "s1",
+      "symbol": "n",
+      "pop": "ε",
+      "push": "1"
     },
     {
       "id": "t2",
-      "from": "s2",
+      "from": "s1",
       "to": "s2",
-      "symbol": "a",
-      "pop": "X",
-      "push": "XX"
+      "symbol": "o",
+      "pop": "1",
+      "push": "ε"
     },
     {
       "id": "t3",
       "from": "s2",
-      "to": "s3",
-      "symbol": "b",
-      "pop": "X",
-      "push": "ε"
+      "to": "s1",
+      "symbol": "ε",
+      "pop": "1",
+      "push": "1"
     },
     {
       "id": "t4",
-      "from": "s3",
+      "from": "s1",
       "to": "s3",
-      "symbol": "b",
-      "pop": "X",
+      "symbol": "ε",
+      "pop": "1",
       "push": "ε"
     },
     {
@@ -95,46 +95,45 @@
   ],
   "startId": "s1",
   "accepts": [
-    "s1",
     "s4"
   ],
   "notes": [],
   "dividers": [],
   "blocks": [],
   "meta": {
-    "title": "aⁿbⁿ",
-    "blurb": "The language that is not regular: no finite memory can count the a’s, and a stack can. Push one X per a, pop one per b, and accept when the bottom marker comes back into view exactly as the input runs out.",
+    "title": "A valid expression in reverse Polish notation",
+    "blurb": "n pushes an operand; o, a binary operator, takes two and leaves one. The counter is the depth of the evaluation stack: an operator needs at least two, and a valid expression ends with exactly one. A calculator’s stack, reduced to its height.",
     "inputs": [
       {
-        "w": "",
+        "w": "n",
         "expect": "accept"
       },
       {
-        "w": "aabb",
+        "w": "nno",
         "expect": "accept"
       },
       {
-        "w": "ab",
+        "w": "nnono",
         "expect": "accept"
       },
       {
-        "w": "aaaaaaabbbbbbb",
+        "w": "nnnoo",
         "expect": "accept"
       },
       {
-        "w": "a",
+        "w": "nonn",
         "expect": "reject"
       },
       {
-        "w": "babb",
+        "w": "nn",
         "expect": "reject"
       },
       {
-        "w": "bb",
+        "w": "o",
         "expect": "reject"
       },
       {
-        "w": "baaaaaabbbbbbb",
+        "w": "nnooo",
         "expect": "reject"
       }
     ],
@@ -144,11 +143,11 @@
       },
       "license": "CC-BY-4.0",
       "tags": [
-        "canonical",
-        "counting",
-        "non-regular"
+        "rpn",
+        "expressions",
+        "stack-depth"
       ],
-      "difficulty": "intro"
+      "difficulty": "intermediate"
     }
   }
 }

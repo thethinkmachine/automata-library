@@ -1,0 +1,327 @@
+{
+  "format": "automata-studio/workspace",
+  "schema": 1,
+  "app": "dev",
+  "machine": "PDT",
+  "config": {
+    "sym": {
+      "eps": "ε",
+      "any": "Σ",
+      "blank": "⊔",
+      "leftMarker": "⊢",
+      "rightMarker": "⊣",
+      "stackBottom": "Z",
+      "lambda": "λ"
+    },
+    "pdaParadigm": "explicit",
+    "transducerAccepts": true
+  },
+  "sigma": [
+    "x",
+    "+",
+    "*",
+    "(",
+    ")"
+  ],
+  "stackAlpha": [
+    "Z",
+    "P",
+    "+",
+    "*"
+  ],
+  "outputAlpha": [
+    "x",
+    "+",
+    "*"
+  ],
+  "tapeCount": 1,
+  "states": [
+    {
+      "id": "s1",
+      "x": 140,
+      "y": 303,
+      "name": "operand"
+    },
+    {
+      "id": "s2",
+      "x": 319,
+      "y": 303,
+      "name": "after"
+    },
+    {
+      "id": "s3",
+      "x": 498,
+      "y": 445,
+      "name": "plus"
+    },
+    {
+      "id": "s4",
+      "x": 498,
+      "y": 350,
+      "name": "times"
+    },
+    {
+      "id": "s5",
+      "x": 498,
+      "y": 255,
+      "name": "close"
+    },
+    {
+      "id": "s6",
+      "x": 498,
+      "y": 160,
+      "name": "flush"
+    },
+    {
+      "id": "s7",
+      "x": 677,
+      "y": 303,
+      "name": "done"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "t1",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "x",
+      "pop": "ε",
+      "push": "ε",
+      "output": "x"
+    },
+    {
+      "id": "t2",
+      "from": "s1",
+      "to": "s1",
+      "symbol": "(",
+      "pop": "ε",
+      "push": "P",
+      "output": ""
+    },
+    {
+      "id": "t3",
+      "from": "s2",
+      "to": "s3",
+      "symbol": "+",
+      "pop": "ε",
+      "push": "ε",
+      "output": ""
+    },
+    {
+      "id": "t4",
+      "from": "s2",
+      "to": "s4",
+      "symbol": "*",
+      "pop": "ε",
+      "push": "ε",
+      "output": ""
+    },
+    {
+      "id": "t5",
+      "from": "s2",
+      "to": "s5",
+      "symbol": ")",
+      "pop": "ε",
+      "push": "ε",
+      "output": ""
+    },
+    {
+      "id": "t6",
+      "from": "s2",
+      "to": "s6",
+      "symbol": "ε",
+      "pop": "ε",
+      "push": "ε",
+      "output": ""
+    },
+    {
+      "id": "t7",
+      "from": "s3",
+      "to": "s3",
+      "symbol": "ε",
+      "pop": "+",
+      "push": "ε",
+      "output": "+"
+    },
+    {
+      "id": "t8",
+      "from": "s3",
+      "to": "s3",
+      "symbol": "ε",
+      "pop": "*",
+      "push": "ε",
+      "output": "*"
+    },
+    {
+      "id": "t9",
+      "from": "s3",
+      "to": "s1",
+      "symbol": "ε",
+      "pop": "P",
+      "push": "+P",
+      "output": ""
+    },
+    {
+      "id": "t10",
+      "from": "s3",
+      "to": "s1",
+      "symbol": "ε",
+      "pop": "Z",
+      "push": "+Z",
+      "output": ""
+    },
+    {
+      "id": "t11",
+      "from": "s4",
+      "to": "s4",
+      "symbol": "ε",
+      "pop": "*",
+      "push": "ε",
+      "output": "*"
+    },
+    {
+      "id": "t12",
+      "from": "s4",
+      "to": "s1",
+      "symbol": "ε",
+      "pop": "+",
+      "push": "*+",
+      "output": ""
+    },
+    {
+      "id": "t13",
+      "from": "s4",
+      "to": "s1",
+      "symbol": "ε",
+      "pop": "P",
+      "push": "*P",
+      "output": ""
+    },
+    {
+      "id": "t14",
+      "from": "s4",
+      "to": "s1",
+      "symbol": "ε",
+      "pop": "Z",
+      "push": "*Z",
+      "output": ""
+    },
+    {
+      "id": "t15",
+      "from": "s5",
+      "to": "s5",
+      "symbol": "ε",
+      "pop": "+",
+      "push": "ε",
+      "output": "+"
+    },
+    {
+      "id": "t16",
+      "from": "s5",
+      "to": "s5",
+      "symbol": "ε",
+      "pop": "*",
+      "push": "ε",
+      "output": "*"
+    },
+    {
+      "id": "t17",
+      "from": "s5",
+      "to": "s2",
+      "symbol": "ε",
+      "pop": "P",
+      "push": "ε",
+      "output": ""
+    },
+    {
+      "id": "t18",
+      "from": "s6",
+      "to": "s6",
+      "symbol": "ε",
+      "pop": "+",
+      "push": "ε",
+      "output": "+"
+    },
+    {
+      "id": "t19",
+      "from": "s6",
+      "to": "s6",
+      "symbol": "ε",
+      "pop": "*",
+      "push": "ε",
+      "output": "*"
+    },
+    {
+      "id": "t20",
+      "from": "s6",
+      "to": "s7",
+      "symbol": "ε",
+      "pop": "Z",
+      "push": "Z",
+      "output": ""
+    }
+  ],
+  "startId": "s1",
+  "accepts": [
+    "s7"
+  ],
+  "notes": [],
+  "dividers": [],
+  "blocks": [],
+  "meta": {
+    "title": "Infix to postfix: the shunting-yard algorithm",
+    "blurb": "Dijkstra’s shunting-yard algorithm as a pushdown transducer. Operands go straight to the output; operators wait on the stack until one of lower precedence, a closing parenthesis or the end of input sends them out. x+x*x becomes xxx*+, (x+x)*x becomes xx+x*.",
+    "inputs": [
+      {
+        "w": "x",
+        "out": "x",
+        "expect": "accept"
+      },
+      {
+        "w": "x+x",
+        "out": "xx+",
+        "expect": "accept"
+      },
+      {
+        "w": "x+x*x",
+        "out": "xxx*+",
+        "expect": "accept"
+      },
+      {
+        "w": "x*x+x",
+        "out": "xx*x+",
+        "expect": "accept"
+      },
+      {
+        "w": "(x+x)*x",
+        "out": "xx+x*",
+        "expect": "accept"
+      },
+      {
+        "w": "x*(x+x*x)",
+        "out": "xxxx*+*",
+        "expect": "accept"
+      },
+      {
+        "w": "x+",
+        "expect": "reject"
+      },
+      {
+        "w": "(x",
+        "expect": "reject"
+      }
+    ],
+    "library": {
+      "author": {
+        "login": "thethinkmachine"
+      },
+      "license": "CC-BY-4.0",
+      "tags": [
+        "compilers",
+        "shunting-yard",
+        "expressions"
+      ],
+      "difficulty": "advanced"
+    }
+  }
+}

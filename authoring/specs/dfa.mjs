@@ -141,6 +141,16 @@ const die = {
 const accepts = machine => w => { const q = runSteps(machine, typeof w === 'string' ? [...w] : w); return q !== null && machine.accept(q); };
 
 export default [
+  {
+    title: 'An even number of 1s',
+    blurb: 'The first DFA in most courses, and the reason it comes first: the machine’s whole memory is one bit — has it seen an even or an odd number of 1s — and the two states are exactly those two answers. A 0 changes nothing.',
+    tags: ['parity', 'counting', 'first-example'], level: 'intro',
+    sigma: '01', accept: 'even',
+    delta: `even 0 even; even 1 odd; odd 0 odd; odd 1 even`,
+    lang: w => count(w, '1') % 2 === 0,
+    badges: ['minimal']
+  },
+
   // ── reading numbers ─────────────────────────────────────────────
   {
     title: 'Ends in 01',

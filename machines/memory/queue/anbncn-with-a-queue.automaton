@@ -2,7 +2,7 @@
   "format": "automata-studio/workspace",
   "schema": 1,
   "app": "dev",
-  "machine": "DPDA",
+  "machine": "QA",
   "config": {
     "sym": {
       "eps": "ε",
@@ -13,15 +13,16 @@
       "stackBottom": "Z",
       "lambda": "λ"
     },
-    "pdaParadigm": "explicit"
+    "pdaParadigm": "empty"
   },
   "sigma": [
     "a",
-    "b"
+    "b",
+    "c"
   ],
   "stackAlpha": [
-    "Z",
-    "X"
+    "A",
+    "B"
   ],
   "outputAlpha": [],
   "tapeCount": 1,
@@ -30,95 +31,86 @@
       "id": "s1",
       "x": 140,
       "y": 160,
-      "name": "start"
+      "name": "as"
     },
     {
       "id": "s2",
       "x": 319,
       "y": 160,
-      "name": "as"
+      "name": "bs"
     },
     {
       "id": "s3",
       "x": 498,
       "y": 160,
-      "name": "bs"
-    },
-    {
-      "id": "s4",
-      "x": 677,
-      "y": 160,
-      "name": "done"
+      "name": "cs"
     }
   ],
   "transitions": [
     {
       "id": "t1",
       "from": "s1",
-      "to": "s2",
+      "to": "s1",
       "symbol": "a",
-      "pop": "Z",
-      "push": "XZ"
+      "pop": "ε",
+      "push": "A"
     },
     {
       "id": "t2",
-      "from": "s2",
+      "from": "s1",
       "to": "s2",
-      "symbol": "a",
-      "pop": "X",
-      "push": "XX"
+      "symbol": "b",
+      "pop": "A",
+      "push": "B"
     },
     {
       "id": "t3",
       "from": "s2",
-      "to": "s3",
+      "to": "s2",
       "symbol": "b",
-      "pop": "X",
-      "push": "ε"
+      "pop": "A",
+      "push": "B"
     },
     {
       "id": "t4",
-      "from": "s3",
+      "from": "s2",
       "to": "s3",
-      "symbol": "b",
-      "pop": "X",
+      "symbol": "c",
+      "pop": "B",
       "push": "ε"
     },
     {
       "id": "t5",
       "from": "s3",
-      "to": "s4",
-      "symbol": "ε",
-      "pop": "Z",
-      "push": "Z"
+      "to": "s3",
+      "symbol": "c",
+      "pop": "B",
+      "push": "ε"
     }
   ],
   "startId": "s1",
-  "accepts": [
-    "s1",
-    "s4"
-  ],
+  "accepts": [],
   "notes": [],
   "dividers": [],
   "blocks": [],
   "meta": {
-    "title": "aⁿbⁿ",
-    "blurb": "The language that is not regular: no finite memory can count the a’s, and a stack can. Push one X per a, pop one per b, and accept when the bottom marker comes back into view exactly as the input runs out.",
+    "title": "aⁿbⁿcⁿ with a queue",
+    "blurb": "Each a joins the queue as A. Each b takes an A from the front and sends a B to the back; each c takes a B. The queue processes the counts in the order they arrive, which is exactly what aⁿbⁿcⁿ needs and what a stack gets backwards.",
     "inputs": [
       {
         "w": "",
         "expect": "accept"
       },
       {
-        "w": "aabb",
+        "w": "abc",
         "expect": "accept"
       },
       {
-        "w": "ab",
+        "w": "aabbcc",
         "expect": "accept"
       },
       {
-        "w": "aaaaaaabbbbbbb",
+        "w": "aaaabbbbcccc",
         "expect": "accept"
       },
       {
@@ -126,15 +118,15 @@
         "expect": "reject"
       },
       {
-        "w": "babb",
+        "w": "bbc",
         "expect": "reject"
       },
       {
-        "w": "bb",
+        "w": "babbcc",
         "expect": "reject"
       },
       {
-        "w": "baaaaaabbbbbbb",
+        "w": "baaabbbbcccc",
         "expect": "reject"
       }
     ],
@@ -144,11 +136,11 @@
       },
       "license": "CC-BY-4.0",
       "tags": [
-        "canonical",
+        "queues",
         "counting",
-        "non-regular"
+        "beyond-context-free"
       ],
-      "difficulty": "intro"
+      "difficulty": "intermediate"
     }
   }
 }

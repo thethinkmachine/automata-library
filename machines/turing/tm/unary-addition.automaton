@@ -2,7 +2,7 @@
   "format": "automata-studio/workspace",
   "schema": 1,
   "app": "dev",
-  "machine": "DPDA",
+  "machine": "TM",
   "config": {
     "sym": {
       "eps": "ε",
@@ -12,16 +12,34 @@
       "rightMarker": "⊣",
       "stackBottom": "Z",
       "lambda": "λ"
-    },
-    "pdaParadigm": "explicit"
+    }
   },
   "sigma": [
-    "a",
-    "b"
+    "1",
+    "+"
   ],
   "stackAlpha": [
-    "Z",
-    "X"
+    "1",
+    "+",
+    "w",
+    " ",
+    "=",
+    ">",
+    "'",
+    ".",
+    "r",
+    "e",
+    "p",
+    "a",
+    "t",
+    "(",
+    "l",
+    "n",
+    "g",
+    "h",
+    "-",
+    ")",
+    "⊔"
   ],
   "outputAlpha": [],
   "tapeCount": 1,
@@ -30,19 +48,19 @@
       "id": "s1",
       "x": 140,
       "y": 160,
-      "name": "start"
+      "name": "scan"
     },
     {
       "id": "s2",
       "x": 319,
       "y": 160,
-      "name": "as"
+      "name": "right"
     },
     {
       "id": "s3",
       "x": 498,
       "y": 160,
-      "name": "bs"
+      "name": "erase"
     },
     {
       "id": "s4",
@@ -55,86 +73,85 @@
     {
       "id": "t1",
       "from": "s1",
-      "to": "s2",
-      "symbol": "a",
-      "pop": "Z",
-      "push": "XZ"
+      "to": "s1",
+      "symbol": "1",
+      "write": "1",
+      "dir": "R"
     },
     {
       "id": "t2",
-      "from": "s2",
+      "from": "s1",
       "to": "s2",
-      "symbol": "a",
-      "pop": "X",
-      "push": "XX"
+      "symbol": "+",
+      "write": "1",
+      "dir": "R"
     },
     {
       "id": "t3",
       "from": "s2",
-      "to": "s3",
-      "symbol": "b",
-      "pop": "X",
-      "push": "ε"
+      "to": "s2",
+      "symbol": "1",
+      "write": "1",
+      "dir": "R"
     },
     {
       "id": "t4",
-      "from": "s3",
+      "from": "s2",
       "to": "s3",
-      "symbol": "b",
-      "pop": "X",
-      "push": "ε"
+      "symbol": "⊔",
+      "write": "⊔",
+      "dir": "L"
     },
     {
       "id": "t5",
       "from": "s3",
       "to": "s4",
-      "symbol": "ε",
-      "pop": "Z",
-      "push": "Z"
+      "symbol": "1",
+      "write": "⊔",
+      "dir": "S"
     }
   ],
   "startId": "s1",
   "accepts": [
-    "s1",
     "s4"
   ],
   "notes": [],
   "dividers": [],
   "blocks": [],
   "meta": {
-    "title": "aⁿbⁿ",
-    "blurb": "The language that is not regular: no finite memory can count the a’s, and a stack can. Push one X per a, pop one per b, and accept when the bottom marker comes back into view exactly as the input runs out.",
+    "title": "Unary addition",
+    "blurb": "m ones, a plus sign, n ones: turn the + into a 1 and erase the last 1. The tape then holds m + n ones — addition in unary is a two-symbol edit, which is why the first machines in every course use it.",
     "inputs": [
       {
-        "w": "",
+        "w": "+",
         "expect": "accept"
       },
       {
-        "w": "aabb",
+        "w": "1+11",
         "expect": "accept"
       },
       {
-        "w": "ab",
+        "w": "+1",
         "expect": "accept"
       },
       {
-        "w": "aaaaaaabbbbbbb",
+        "w": "1111+111111",
         "expect": "accept"
       },
       {
-        "w": "a",
+        "w": "1",
         "expect": "reject"
       },
       {
-        "w": "babb",
+        "w": "++11",
         "expect": "reject"
       },
       {
-        "w": "bb",
+        "w": "11",
         "expect": "reject"
       },
       {
-        "w": "baaaaaabbbbbbb",
+        "w": "+111+111111",
         "expect": "reject"
       }
     ],
@@ -144,9 +161,9 @@
       },
       "license": "CC-BY-4.0",
       "tags": [
-        "canonical",
-        "counting",
-        "non-regular"
+        "arithmetic",
+        "unary",
+        "computing-a-function"
       ],
       "difficulty": "intro"
     }

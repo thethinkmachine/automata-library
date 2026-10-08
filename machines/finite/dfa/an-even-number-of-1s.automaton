@@ -2,7 +2,7 @@
   "format": "automata-studio/workspace",
   "schema": 1,
   "app": "dev",
-  "machine": "DPDA",
+  "machine": "DFA",
   "config": {
     "sym": {
       "eps": "ε",
@@ -12,17 +12,13 @@
       "rightMarker": "⊣",
       "stackBottom": "Z",
       "lambda": "λ"
-    },
-    "pdaParadigm": "explicit"
+    }
   },
   "sigma": [
-    "a",
-    "b"
+    "0",
+    "1"
   ],
-  "stackAlpha": [
-    "Z",
-    "X"
-  ],
+  "stackAlpha": [],
   "outputAlpha": [],
   "tapeCount": 1,
   "states": [
@@ -30,111 +26,82 @@
       "id": "s1",
       "x": 140,
       "y": 160,
-      "name": "start"
+      "name": "even"
     },
     {
       "id": "s2",
       "x": 319,
       "y": 160,
-      "name": "as"
-    },
-    {
-      "id": "s3",
-      "x": 498,
-      "y": 160,
-      "name": "bs"
-    },
-    {
-      "id": "s4",
-      "x": 677,
-      "y": 160,
-      "name": "done"
+      "name": "odd"
     }
   ],
   "transitions": [
     {
       "id": "t1",
       "from": "s1",
-      "to": "s2",
-      "symbol": "a",
-      "pop": "Z",
-      "push": "XZ"
+      "to": "s1",
+      "symbol": "0"
     },
     {
       "id": "t2",
-      "from": "s2",
+      "from": "s1",
       "to": "s2",
-      "symbol": "a",
-      "pop": "X",
-      "push": "XX"
+      "symbol": "1"
     },
     {
       "id": "t3",
       "from": "s2",
-      "to": "s3",
-      "symbol": "b",
-      "pop": "X",
-      "push": "ε"
+      "to": "s2",
+      "symbol": "0"
     },
     {
       "id": "t4",
-      "from": "s3",
-      "to": "s3",
-      "symbol": "b",
-      "pop": "X",
-      "push": "ε"
-    },
-    {
-      "id": "t5",
-      "from": "s3",
-      "to": "s4",
-      "symbol": "ε",
-      "pop": "Z",
-      "push": "Z"
+      "from": "s2",
+      "to": "s1",
+      "symbol": "1"
     }
   ],
   "startId": "s1",
   "accepts": [
-    "s1",
-    "s4"
+    "s1"
   ],
   "notes": [],
   "dividers": [],
   "blocks": [],
   "meta": {
-    "title": "aⁿbⁿ",
-    "blurb": "The language that is not regular: no finite memory can count the a’s, and a stack can. Push one X per a, pop one per b, and accept when the bottom marker comes back into view exactly as the input runs out.",
+    "title": "An even number of 1s",
+    "blurb": "The first DFA in most courses, and the reason it comes first: the machine’s whole memory is one bit — has it seen an even or an odd number of 1s — and the two states are exactly those two answers. A 0 changes nothing.",
     "inputs": [
       {
         "w": "",
         "expect": "accept"
       },
       {
-        "w": "aabb",
+        "w": "00110",
         "expect": "accept"
       },
       {
-        "w": "ab",
+        "w": "0",
         "expect": "accept"
       },
       {
-        "w": "aaaaaaabbbbbbb",
+        "w": "0000000110",
         "expect": "accept"
       },
       {
-        "w": "a",
+        "w": "1",
         "expect": "reject"
       },
       {
-        "w": "babb",
+        "w": "10110",
         "expect": "reject"
       },
       {
-        "w": "bb",
+        "w": "10",
         "expect": "reject"
       },
       {
-        "w": "baaaaaabbbbbbb",
+        "w": "1000000110",
         "expect": "reject"
       }
     ],
@@ -144,9 +111,9 @@
       },
       "license": "CC-BY-4.0",
       "tags": [
-        "canonical",
+        "parity",
         "counting",
-        "non-regular"
+        "first-example"
       ],
       "difficulty": "intro"
     }

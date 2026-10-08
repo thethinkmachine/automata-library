@@ -17,7 +17,8 @@
   },
   "sigma": [
     "a",
-    "b"
+    "b",
+    "c"
   ],
   "stackAlpha": [
     "Z",
@@ -29,7 +30,7 @@
     {
       "id": "s1",
       "x": 140,
-      "y": 160,
+      "y": 208,
       "name": "start"
     },
     {
@@ -40,14 +41,20 @@
     },
     {
       "id": "s3",
-      "x": 498,
-      "y": 160,
+      "x": 319,
+      "y": 255,
       "name": "bs"
     },
     {
       "id": "s4",
+      "x": 498,
+      "y": 208,
+      "name": "cs"
+    },
+    {
+      "id": "s5",
       "x": 677,
-      "y": 160,
+      "y": 208,
       "name": "done"
     }
   ],
@@ -62,6 +69,14 @@
     },
     {
       "id": "t2",
+      "from": "s1",
+      "to": "s3",
+      "symbol": "b",
+      "pop": "Z",
+      "push": "XZ"
+    },
+    {
+      "id": "t3",
       "from": "s2",
       "to": "s2",
       "symbol": "a",
@@ -69,25 +84,49 @@
       "push": "XX"
     },
     {
-      "id": "t3",
+      "id": "t4",
       "from": "s2",
       "to": "s3",
       "symbol": "b",
       "pop": "X",
-      "push": "ε"
+      "push": "XX"
     },
     {
-      "id": "t4",
-      "from": "s3",
-      "to": "s3",
-      "symbol": "b",
+      "id": "t5",
+      "from": "s2",
+      "to": "s4",
+      "symbol": "c",
       "pop": "X",
       "push": "ε"
     },
     {
-      "id": "t5",
+      "id": "t6",
+      "from": "s3",
+      "to": "s3",
+      "symbol": "b",
+      "pop": "X",
+      "push": "XX"
+    },
+    {
+      "id": "t7",
       "from": "s3",
       "to": "s4",
+      "symbol": "c",
+      "pop": "X",
+      "push": "ε"
+    },
+    {
+      "id": "t8",
+      "from": "s4",
+      "to": "s4",
+      "symbol": "c",
+      "pop": "X",
+      "push": "ε"
+    },
+    {
+      "id": "t9",
+      "from": "s4",
+      "to": "s5",
       "symbol": "ε",
       "pop": "Z",
       "push": "Z"
@@ -96,29 +135,29 @@
   "startId": "s1",
   "accepts": [
     "s1",
-    "s4"
+    "s5"
   ],
   "notes": [],
   "dividers": [],
   "blocks": [],
   "meta": {
-    "title": "aⁿbⁿ",
-    "blurb": "The language that is not regular: no finite memory can count the a’s, and a stack can. Push one X per a, pop one per b, and accept when the bottom marker comes back into view exactly as the input runs out.",
+    "title": "Unary addition: aⁱbʲcⁱ⁺ʲ",
+    "blurb": "Every a and every b pushes an X; every c pops one. The c’s balance exactly when there are as many of them as a’s and b’s together — addition, done by stacking.",
     "inputs": [
       {
         "w": "",
         "expect": "accept"
       },
       {
-        "w": "aabb",
+        "w": "abcc",
         "expect": "accept"
       },
       {
-        "w": "ab",
+        "w": "ac",
         "expect": "accept"
       },
       {
-        "w": "aaaaaaabbbbbbb",
+        "w": "aaabbbbccccccc",
         "expect": "accept"
       },
       {
@@ -126,15 +165,15 @@
         "expect": "reject"
       },
       {
-        "w": "babb",
+        "w": "cbcc",
         "expect": "reject"
       },
       {
-        "w": "bb",
+        "w": "cc",
         "expect": "reject"
       },
       {
-        "w": "baaaaaabbbbbbb",
+        "w": "baabbbbccccccc",
         "expect": "reject"
       }
     ],
@@ -144,9 +183,9 @@
       },
       "license": "CC-BY-4.0",
       "tags": [
-        "canonical",
-        "counting",
-        "non-regular"
+        "arithmetic",
+        "unary",
+        "counting"
       ],
       "difficulty": "intro"
     }

@@ -1,0 +1,185 @@
+{
+  "format": "automata-studio/workspace",
+  "schema": 1,
+  "app": "dev",
+  "machine": "NFA",
+  "config": {
+    "sym": {
+      "eps": "ε",
+      "any": "Σ",
+      "blank": "⊔",
+      "leftMarker": "⊢",
+      "rightMarker": "⊣",
+      "stackBottom": "Z",
+      "lambda": "λ"
+    }
+  },
+  "sigma": [
+    "a",
+    "b",
+    "c"
+  ],
+  "stackAlpha": [],
+  "outputAlpha": [],
+  "tapeCount": 1,
+  "states": [
+    {
+      "id": "s1",
+      "x": 140,
+      "y": 255,
+      "name": "start"
+    },
+    {
+      "id": "s2",
+      "x": 319,
+      "y": 350,
+      "name": "noA"
+    },
+    {
+      "id": "s3",
+      "x": 319,
+      "y": 255,
+      "name": "noB"
+    },
+    {
+      "id": "s4",
+      "x": 319,
+      "y": 160,
+      "name": "noC"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "t1",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "b"
+    },
+    {
+      "id": "t2",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "c"
+    },
+    {
+      "id": "t3",
+      "from": "s1",
+      "to": "s3",
+      "symbol": "a"
+    },
+    {
+      "id": "t4",
+      "from": "s1",
+      "to": "s3",
+      "symbol": "c"
+    },
+    {
+      "id": "t5",
+      "from": "s1",
+      "to": "s4",
+      "symbol": "a"
+    },
+    {
+      "id": "t6",
+      "from": "s1",
+      "to": "s4",
+      "symbol": "b"
+    },
+    {
+      "id": "t7",
+      "from": "s2",
+      "to": "s2",
+      "symbol": "b"
+    },
+    {
+      "id": "t8",
+      "from": "s2",
+      "to": "s2",
+      "symbol": "c"
+    },
+    {
+      "id": "t9",
+      "from": "s3",
+      "to": "s3",
+      "symbol": "a"
+    },
+    {
+      "id": "t10",
+      "from": "s3",
+      "to": "s3",
+      "symbol": "c"
+    },
+    {
+      "id": "t11",
+      "from": "s4",
+      "to": "s4",
+      "symbol": "a"
+    },
+    {
+      "id": "t12",
+      "from": "s4",
+      "to": "s4",
+      "symbol": "b"
+    }
+  ],
+  "startId": "s1",
+  "accepts": [
+    "s1",
+    "s2",
+    "s3",
+    "s4"
+  ],
+  "notes": [],
+  "dividers": [],
+  "blocks": [],
+  "meta": {
+    "title": "Some letter is missing",
+    "blurb": "Over a, b and c, accept the words that do not use all three letters. The NFA guesses which letter will be missing and never reads it; a DFA has to track which letters it has seen — eight subsets instead of four states.",
+    "inputs": [
+      {
+        "w": "",
+        "expect": "accept"
+      },
+      {
+        "w": "aabba",
+        "expect": "accept"
+      },
+      {
+        "w": "acca",
+        "expect": "accept"
+      },
+      {
+        "w": "aabbbabbaaa",
+        "expect": "accept"
+      },
+      {
+        "w": "cabba",
+        "expect": "reject"
+      },
+      {
+        "w": "bcca",
+        "expect": "reject"
+      },
+      {
+        "w": "cabbbabbaaa",
+        "expect": "reject"
+      },
+      {
+        "w": "abc",
+        "expect": "reject"
+      }
+    ],
+    "library": {
+      "author": {
+        "login": "thethinkmachine"
+      },
+      "license": "CC-BY-4.0",
+      "tags": [
+        "guessing",
+        "subset-construction",
+        "union"
+      ],
+      "difficulty": "intermediate"
+    }
+  }
+}

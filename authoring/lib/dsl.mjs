@@ -156,7 +156,7 @@ export function buildDoc(spec, { author = 'thethinkmachine' } = {}) {
   let stackAlpha = [], outputAlpha = [], tapeCount = 1;
   const chars = s => (s && s !== EPS) ? [...s] : [];
   if (kind === 'pda' || kind === 'pdt' || kind === 'twopda' || kind === 'raw') {
-    const set = new Set(type === 'QA' ? [] : [SYM.stackBottom]);
+    const set = new Set(spec.byEmptyStack ? [] : [SYM.stackBottom]);
     for (const t of transitions) for (const k of ['pop', 'push', 'pop2', 'push2', 'below', 'above']) {
       if (typeof t[k] === 'string') for (const c of chars(t[k].replace(/[|]/g, ''))) set.add(c);
     }

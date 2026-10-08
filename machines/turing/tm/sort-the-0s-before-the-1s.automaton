@@ -1,0 +1,220 @@
+{
+  "format": "automata-studio/workspace",
+  "schema": 1,
+  "app": "dev",
+  "machine": "TM",
+  "config": {
+    "sym": {
+      "eps": "ε",
+      "any": "Σ",
+      "blank": "⊔",
+      "leftMarker": "⊢",
+      "rightMarker": "⊣",
+      "stackBottom": "Z",
+      "lambda": "λ"
+    }
+  },
+  "sigma": [
+    "0",
+    "1"
+  ],
+  "stackAlpha": [
+    "0",
+    "1",
+    "w",
+    " ",
+    "=",
+    ">",
+    "[",
+    ".",
+    "]",
+    "s",
+    "o",
+    "r",
+    "t",
+    "(",
+    ")",
+    "j",
+    "i",
+    "n",
+    "'",
+    "⊔"
+  ],
+  "outputAlpha": [],
+  "tapeCount": 1,
+  "states": [
+    {
+      "id": "s1",
+      "x": 140,
+      "y": 208,
+      "name": "scan"
+    },
+    {
+      "id": "s2",
+      "x": 319,
+      "y": 160,
+      "name": "seen1"
+    },
+    {
+      "id": "s3",
+      "x": 319,
+      "y": 255,
+      "name": "done"
+    },
+    {
+      "id": "s4",
+      "x": 498,
+      "y": 208,
+      "name": "put0"
+    },
+    {
+      "id": "s5",
+      "x": 677,
+      "y": 208,
+      "name": "check"
+    },
+    {
+      "id": "s6",
+      "x": 856,
+      "y": 208,
+      "name": "fix"
+    },
+    {
+      "id": "s7",
+      "x": 1035,
+      "y": 208,
+      "name": "stepL"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "t1",
+      "from": "s1",
+      "to": "s1",
+      "symbol": "0",
+      "write": "0",
+      "dir": "R"
+    },
+    {
+      "id": "t2",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "1",
+      "write": "1",
+      "dir": "R"
+    },
+    {
+      "id": "t3",
+      "from": "s1",
+      "to": "s3",
+      "symbol": "⊔",
+      "write": "⊔",
+      "dir": "S"
+    },
+    {
+      "id": "t4",
+      "from": "s2",
+      "to": "s2",
+      "symbol": "1",
+      "write": "1",
+      "dir": "R"
+    },
+    {
+      "id": "t5",
+      "from": "s2",
+      "to": "s4",
+      "symbol": "0",
+      "write": "1",
+      "dir": "L"
+    },
+    {
+      "id": "t6",
+      "from": "s2",
+      "to": "s3",
+      "symbol": "⊔",
+      "write": "⊔",
+      "dir": "S"
+    },
+    {
+      "id": "t7",
+      "from": "s4",
+      "to": "s5",
+      "symbol": "1",
+      "write": "0",
+      "dir": "L"
+    },
+    {
+      "id": "t8",
+      "from": "s5",
+      "to": "s6",
+      "symbol": "1",
+      "write": "0",
+      "dir": "R"
+    },
+    {
+      "id": "t9",
+      "from": "s5",
+      "to": "s1",
+      "symbol": "0",
+      "write": "0",
+      "dir": "R"
+    },
+    {
+      "id": "t10",
+      "from": "s6",
+      "to": "s7",
+      "symbol": "0",
+      "write": "1",
+      "dir": "L"
+    },
+    {
+      "id": "t11",
+      "from": "s7",
+      "to": "s5",
+      "symbol": "0",
+      "write": "0",
+      "dir": "L"
+    }
+  ],
+  "startId": "s1",
+  "accepts": [
+    "s3"
+  ],
+  "notes": [],
+  "dividers": [],
+  "blocks": [],
+  "meta": {
+    "title": "Sort the 0s before the 1s",
+    "blurb": "Whenever a 0 follows a 1, the two swap, and the 0 keeps moving left while there is a 1 in front of it — insertion sort, one cell at a time. Each 0 walks past every 1 to its left, so the machine takes about as many steps as there are out-of-order pairs.",
+    "inputs": [
+      {
+        "w": "",
+        "expect": "accept"
+      },
+      {
+        "w": "00110",
+        "expect": "accept"
+      },
+      {
+        "w": "0",
+        "expect": "accept"
+      },
+      {
+        "w": "000000110",
+        "expect": "accept"
+      }
+    ],
+    "library": {
+      "author": {
+        "login": "thethinkmachine"
+      },
+      "license": "CC-BY-4.0",
+      "tags": [
+        "sorting",
+        "computing-a-function",
+        "insertion-sort"
+      ],
+      "difficulty": "intermediate"
+    }
+  }
+}

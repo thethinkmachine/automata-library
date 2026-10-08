@@ -1,0 +1,208 @@
+{
+  "format": "automata-studio/workspace",
+  "schema": 1,
+  "app": "dev",
+  "machine": "PDT",
+  "config": {
+    "sym": {
+      "eps": "ε",
+      "any": "Σ",
+      "blank": "⊔",
+      "leftMarker": "⊢",
+      "rightMarker": "⊣",
+      "stackBottom": "Z",
+      "lambda": "λ"
+    },
+    "pdaParadigm": "explicit",
+    "transducerAccepts": true
+  },
+  "sigma": [
+    "a",
+    "b",
+    "_"
+  ],
+  "stackAlpha": [
+    "Z",
+    "A",
+    "B"
+  ],
+  "outputAlpha": [
+    "a",
+    "b",
+    "_"
+  ],
+  "tapeCount": 1,
+  "states": [
+    {
+      "id": "s1",
+      "x": 140,
+      "y": 208,
+      "name": "read"
+    },
+    {
+      "id": "s2",
+      "x": 319,
+      "y": 255,
+      "name": "space"
+    },
+    {
+      "id": "s3",
+      "x": 319,
+      "y": 160,
+      "name": "end"
+    },
+    {
+      "id": "s4",
+      "x": 498,
+      "y": 208,
+      "name": "done"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "t1",
+      "from": "s1",
+      "to": "s1",
+      "symbol": "a",
+      "pop": "ε",
+      "push": "A",
+      "output": ""
+    },
+    {
+      "id": "t2",
+      "from": "s1",
+      "to": "s1",
+      "symbol": "b",
+      "pop": "ε",
+      "push": "B",
+      "output": ""
+    },
+    {
+      "id": "t3",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "_",
+      "pop": "ε",
+      "push": "ε",
+      "output": ""
+    },
+    {
+      "id": "t4",
+      "from": "s1",
+      "to": "s3",
+      "symbol": "ε",
+      "pop": "ε",
+      "push": "ε",
+      "output": ""
+    },
+    {
+      "id": "t5",
+      "from": "s2",
+      "to": "s2",
+      "symbol": "ε",
+      "pop": "A",
+      "push": "ε",
+      "output": "a"
+    },
+    {
+      "id": "t6",
+      "from": "s2",
+      "to": "s2",
+      "symbol": "ε",
+      "pop": "B",
+      "push": "ε",
+      "output": "b"
+    },
+    {
+      "id": "t7",
+      "from": "s2",
+      "to": "s1",
+      "symbol": "ε",
+      "pop": "Z",
+      "push": "Z",
+      "output": "_"
+    },
+    {
+      "id": "t8",
+      "from": "s3",
+      "to": "s3",
+      "symbol": "ε",
+      "pop": "A",
+      "push": "ε",
+      "output": "a"
+    },
+    {
+      "id": "t9",
+      "from": "s3",
+      "to": "s3",
+      "symbol": "ε",
+      "pop": "B",
+      "push": "ε",
+      "output": "b"
+    },
+    {
+      "id": "t10",
+      "from": "s3",
+      "to": "s4",
+      "symbol": "ε",
+      "pop": "Z",
+      "push": "Z",
+      "output": ""
+    }
+  ],
+  "startId": "s1",
+  "accepts": [
+    "s4"
+  ],
+  "notes": [],
+  "dividers": [],
+  "blocks": [],
+  "meta": {
+    "title": "Reverse every word",
+    "blurb": "Letters are pushed as they arrive; a space, written _, pops the word back out reversed and then prints the space. “ab_cde” becomes “ba_edc”: a stack reverses, and a separator says when.",
+    "inputs": [
+      {
+        "w": "_",
+        "out": "_",
+        "expect": "accept"
+      },
+      {
+        "w": "a",
+        "out": "a",
+        "expect": "accept"
+      },
+      {
+        "w": "__",
+        "out": "__",
+        "expect": "accept"
+      },
+      {
+        "w": "_a",
+        "out": "_a",
+        "expect": "accept"
+      },
+      {
+        "w": "___",
+        "out": "___",
+        "expect": "accept"
+      },
+      {
+        "w": "bbb_aa_b_abaa__a",
+        "out": "bbb_aa_b_aaba__a",
+        "expect": "accept"
+      }
+    ],
+    "library": {
+      "author": {
+        "login": "thethinkmachine"
+      },
+      "license": "CC-BY-4.0",
+      "tags": [
+        "reversal",
+        "text-processing",
+        "stack"
+      ],
+      "difficulty": "intro"
+    }
+  }
+}

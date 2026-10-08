@@ -2,7 +2,7 @@
   "format": "automata-studio/workspace",
   "schema": 1,
   "app": "dev",
-  "machine": "DPDA",
+  "machine": "NPDA",
   "config": {
     "sym": {
       "eps": "ε",
@@ -29,56 +29,50 @@
     {
       "id": "s1",
       "x": 140,
-      "y": 160,
-      "name": "start"
+      "y": 208,
+      "name": "as"
     },
     {
       "id": "s2",
       "x": 319,
-      "y": 160,
-      "name": "as"
+      "y": 255,
+      "name": "done"
     },
     {
       "id": "s3",
-      "x": 498,
+      "x": 319,
       "y": 160,
       "name": "bs"
-    },
-    {
-      "id": "s4",
-      "x": 677,
-      "y": 160,
-      "name": "done"
     }
   ],
   "transitions": [
     {
       "id": "t1",
       "from": "s1",
-      "to": "s2",
+      "to": "s1",
       "symbol": "a",
-      "pop": "Z",
-      "push": "XZ"
+      "pop": "ε",
+      "push": "X"
     },
     {
       "id": "t2",
-      "from": "s2",
-      "to": "s2",
+      "from": "s1",
+      "to": "s1",
       "symbol": "a",
-      "pop": "X",
+      "pop": "ε",
       "push": "XX"
     },
     {
       "id": "t3",
-      "from": "s2",
-      "to": "s3",
-      "symbol": "b",
-      "pop": "X",
-      "push": "ε"
+      "from": "s1",
+      "to": "s2",
+      "symbol": "ε",
+      "pop": "Z",
+      "push": "Z"
     },
     {
       "id": "t4",
-      "from": "s3",
+      "from": "s1",
       "to": "s3",
       "symbol": "b",
       "pop": "X",
@@ -87,7 +81,15 @@
     {
       "id": "t5",
       "from": "s3",
-      "to": "s4",
+      "to": "s3",
+      "symbol": "b",
+      "pop": "X",
+      "push": "ε"
+    },
+    {
+      "id": "t6",
+      "from": "s3",
+      "to": "s2",
       "symbol": "ε",
       "pop": "Z",
       "push": "Z"
@@ -95,15 +97,14 @@
   ],
   "startId": "s1",
   "accepts": [
-    "s1",
-    "s4"
+    "s2"
   ],
   "notes": [],
   "dividers": [],
   "blocks": [],
   "meta": {
-    "title": "aⁿbⁿ",
-    "blurb": "The language that is not regular: no finite memory can count the a’s, and a stack can. Push one X per a, pop one per b, and accept when the bottom marker comes back into view exactly as the input runs out.",
+    "title": "Between n and 2n b’s: aⁿbᵐ, n ≤ m ≤ 2n",
+    "blurb": "For each a the machine pushes one X or two — its guess about how many b’s that a will pay for. Some sequence of guesses balances exactly when m lies between n and 2n.",
     "inputs": [
       {
         "w": "",
@@ -118,7 +119,7 @@
         "expect": "accept"
       },
       {
-        "w": "aaaaaaabbbbbbb",
+        "w": "aaaaabbbbbbbbb",
         "expect": "accept"
       },
       {
@@ -134,7 +135,7 @@
         "expect": "reject"
       },
       {
-        "w": "baaaaaabbbbbbb",
+        "w": "baaaabbbbbbbbb",
         "expect": "reject"
       }
     ],
@@ -144,11 +145,11 @@
       },
       "license": "CC-BY-4.0",
       "tags": [
-        "canonical",
+        "guessing",
         "counting",
-        "non-regular"
+        "ranges"
       ],
-      "difficulty": "intro"
+      "difficulty": "intermediate"
     }
   }
 }

@@ -2,7 +2,7 @@
   "format": "automata-studio/workspace",
   "schema": 1,
   "app": "dev",
-  "machine": "DPDA",
+  "machine": "NFA",
   "config": {
     "sym": {
       "eps": "ε",
@@ -12,17 +12,13 @@
       "rightMarker": "⊣",
       "stackBottom": "Z",
       "lambda": "λ"
-    },
-    "pdaParadigm": "explicit"
+    }
   },
   "sigma": [
     "a",
     "b"
   ],
-  "stackAlpha": [
-    "Z",
-    "X"
-  ],
+  "stackAlpha": [],
   "outputAlpha": [],
   "tapeCount": 1,
   "states": [
@@ -30,25 +26,19 @@
       "id": "s1",
       "x": 140,
       "y": 160,
-      "name": "start"
+      "name": "q0"
     },
     {
       "id": "s2",
       "x": 319,
       "y": 160,
-      "name": "as"
+      "name": "q1"
     },
     {
       "id": "s3",
       "x": 498,
       "y": 160,
-      "name": "bs"
-    },
-    {
-      "id": "s4",
-      "x": 677,
-      "y": 160,
-      "name": "done"
+      "name": "q2"
     }
   ],
   "transitions": [
@@ -56,69 +46,52 @@
       "id": "t1",
       "from": "s1",
       "to": "s2",
-      "symbol": "a",
-      "pop": "Z",
-      "push": "XZ"
+      "symbol": "a"
     },
     {
       "id": "t2",
       "from": "s2",
-      "to": "s2",
-      "symbol": "a",
-      "pop": "X",
-      "push": "XX"
+      "to": "s1",
+      "symbol": "b"
     },
     {
       "id": "t3",
       "from": "s2",
       "to": "s3",
-      "symbol": "b",
-      "pop": "X",
-      "push": "ε"
+      "symbol": "b"
     },
     {
       "id": "t4",
       "from": "s3",
-      "to": "s3",
-      "symbol": "b",
-      "pop": "X",
-      "push": "ε"
-    },
-    {
-      "id": "t5",
-      "from": "s3",
-      "to": "s4",
-      "symbol": "ε",
-      "pop": "Z",
-      "push": "Z"
+      "to": "s1",
+      "symbol": "a"
     }
   ],
   "startId": "s1",
   "accepts": [
-    "s1",
-    "s4"
+    "s1"
   ],
   "notes": [],
   "dividers": [],
   "blocks": [],
   "meta": {
-    "title": "aⁿbⁿ",
-    "blurb": "The language that is not regular: no finite memory can count the a’s, and a stack can. Push one X per a, pop one per b, and accept when the bottom marker comes back into view exactly as the input runs out.",
+    "title": "(ab ∪ aba)*",
+    "blurb": "Three states, and one choice: after ab, is that the end of a block, or will an a finish an aba? The NFA keeps both possibilities alive. The textbook example where an NFA is easier to draw than to determinise.",
     "inputs": [
       {
         "w": "",
         "expect": "accept"
       },
       {
-        "w": "aabb",
+        "w": "aba",
         "expect": "accept"
       },
       {
-        "w": "ab",
+        "w": "abaab",
         "expect": "accept"
       },
       {
-        "w": "aaaaaaabbbbbbb",
+        "w": "abaabaabab",
         "expect": "accept"
       },
       {
@@ -126,15 +99,15 @@
         "expect": "reject"
       },
       {
-        "w": "babb",
+        "w": "bba",
         "expect": "reject"
       },
       {
-        "w": "bb",
+        "w": "bbaab",
         "expect": "reject"
       },
       {
-        "w": "baaaaaabbbbbbb",
+        "w": "bbaabaabab",
         "expect": "reject"
       }
     ],
@@ -144,9 +117,9 @@
       },
       "license": "CC-BY-4.0",
       "tags": [
-        "canonical",
-        "counting",
-        "non-regular"
+        "kleene-star",
+        "textbook",
+        "regular-expressions"
       ],
       "difficulty": "intro"
     }

@@ -1,0 +1,511 @@
+{
+  "format": "automata-studio/workspace",
+  "schema": 1,
+  "app": "dev",
+  "machine": "NDTM",
+  "config": {
+    "sym": {
+      "eps": "ε",
+      "any": "Σ",
+      "blank": "⊔",
+      "leftMarker": "⊢",
+      "rightMarker": "⊣",
+      "stackBottom": "Z",
+      "lambda": "λ"
+    }
+  },
+  "sigma": [
+    "1",
+    "#"
+  ],
+  "stackAlpha": [
+    "1",
+    "#",
+    "T",
+    "H",
+    "⊔",
+    "t",
+    "n",
+    "C",
+    "Y",
+    "x",
+    "X"
+  ],
+  "outputAlpha": [],
+  "tapeCount": 1,
+  "states": [
+    {
+      "id": "s1",
+      "x": 140,
+      "y": 255,
+      "name": "init"
+    },
+    {
+      "id": "s2",
+      "x": 319,
+      "y": 160,
+      "name": "conv"
+    },
+    {
+      "id": "s3",
+      "x": 319,
+      "y": 255,
+      "name": "item"
+    },
+    {
+      "id": "s4",
+      "x": 319,
+      "y": 350,
+      "name": "acc"
+    },
+    {
+      "id": "s5",
+      "x": 498,
+      "y": 160,
+      "name": "final"
+    },
+    {
+      "id": "s6",
+      "x": 498,
+      "y": 350,
+      "name": "skip"
+    },
+    {
+      "id": "s7",
+      "x": 498,
+      "y": 255,
+      "name": "take"
+    },
+    {
+      "id": "s8",
+      "x": 677,
+      "y": 255,
+      "name": "ret"
+    },
+    {
+      "id": "s9",
+      "x": 856,
+      "y": 255,
+      "name": "inC"
+    },
+    {
+      "id": "s10",
+      "x": 1035,
+      "y": 255,
+      "name": "done"
+    },
+    {
+      "id": "s11",
+      "x": 1214,
+      "y": 255,
+      "name": "next"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "t1",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "1",
+      "write": "T",
+      "dir": "R"
+    },
+    {
+      "id": "t2",
+      "from": "s1",
+      "to": "s3",
+      "symbol": "#",
+      "write": "H",
+      "dir": "R"
+    },
+    {
+      "id": "t3",
+      "from": "s1",
+      "to": "s4",
+      "symbol": "⊔",
+      "write": "⊔",
+      "dir": "S"
+    },
+    {
+      "id": "t4",
+      "from": "s2",
+      "to": "s2",
+      "symbol": "1",
+      "write": "t",
+      "dir": "R"
+    },
+    {
+      "id": "t5",
+      "from": "s2",
+      "to": "s3",
+      "symbol": "#",
+      "write": "#",
+      "dir": "R"
+    },
+    {
+      "id": "t6",
+      "from": "s2",
+      "to": "s5",
+      "symbol": "⊔",
+      "write": "⊔",
+      "dir": "L"
+    },
+    {
+      "id": "t7",
+      "from": "s3",
+      "to": "s6",
+      "symbol": "1",
+      "write": "n",
+      "dir": "R"
+    },
+    {
+      "id": "t8",
+      "from": "s3",
+      "to": "s7",
+      "symbol": "1",
+      "write": "C",
+      "dir": "L"
+    },
+    {
+      "id": "t9",
+      "from": "s3",
+      "to": "s3",
+      "symbol": "#",
+      "write": "#",
+      "dir": "R"
+    },
+    {
+      "id": "t10",
+      "from": "s3",
+      "to": "s5",
+      "symbol": "⊔",
+      "write": "⊔",
+      "dir": "L"
+    },
+    {
+      "id": "t11",
+      "from": "s6",
+      "to": "s6",
+      "symbol": "1",
+      "write": "n",
+      "dir": "R"
+    },
+    {
+      "id": "t12",
+      "from": "s6",
+      "to": "s3",
+      "symbol": "#",
+      "write": "#",
+      "dir": "R"
+    },
+    {
+      "id": "t13",
+      "from": "s6",
+      "to": "s5",
+      "symbol": "⊔",
+      "write": "⊔",
+      "dir": "L"
+    },
+    {
+      "id": "t14",
+      "from": "s7",
+      "to": "s7",
+      "symbol": "C",
+      "write": "C",
+      "dir": "L"
+    },
+    {
+      "id": "t15",
+      "from": "s7",
+      "to": "s7",
+      "symbol": "#",
+      "write": "#",
+      "dir": "L"
+    },
+    {
+      "id": "t16",
+      "from": "s7",
+      "to": "s7",
+      "symbol": "Y",
+      "write": "Y",
+      "dir": "L"
+    },
+    {
+      "id": "t17",
+      "from": "s7",
+      "to": "s7",
+      "symbol": "n",
+      "write": "n",
+      "dir": "L"
+    },
+    {
+      "id": "t18",
+      "from": "s7",
+      "to": "s7",
+      "symbol": "x",
+      "write": "x",
+      "dir": "L"
+    },
+    {
+      "id": "t19",
+      "from": "s7",
+      "to": "s8",
+      "symbol": "t",
+      "write": "x",
+      "dir": "R"
+    },
+    {
+      "id": "t20",
+      "from": "s7",
+      "to": "s8",
+      "symbol": "T",
+      "write": "X",
+      "dir": "R"
+    },
+    {
+      "id": "t21",
+      "from": "s8",
+      "to": "s8",
+      "symbol": "x",
+      "write": "x",
+      "dir": "R"
+    },
+    {
+      "id": "t22",
+      "from": "s8",
+      "to": "s8",
+      "symbol": "t",
+      "write": "t",
+      "dir": "R"
+    },
+    {
+      "id": "t23",
+      "from": "s8",
+      "to": "s8",
+      "symbol": "X",
+      "write": "X",
+      "dir": "R"
+    },
+    {
+      "id": "t24",
+      "from": "s8",
+      "to": "s8",
+      "symbol": "T",
+      "write": "T",
+      "dir": "R"
+    },
+    {
+      "id": "t25",
+      "from": "s8",
+      "to": "s8",
+      "symbol": "H",
+      "write": "H",
+      "dir": "R"
+    },
+    {
+      "id": "t26",
+      "from": "s8",
+      "to": "s8",
+      "symbol": "#",
+      "write": "#",
+      "dir": "R"
+    },
+    {
+      "id": "t27",
+      "from": "s8",
+      "to": "s8",
+      "symbol": "Y",
+      "write": "Y",
+      "dir": "R"
+    },
+    {
+      "id": "t28",
+      "from": "s8",
+      "to": "s8",
+      "symbol": "n",
+      "write": "n",
+      "dir": "R"
+    },
+    {
+      "id": "t29",
+      "from": "s8",
+      "to": "s9",
+      "symbol": "C",
+      "write": "C",
+      "dir": "R"
+    },
+    {
+      "id": "t30",
+      "from": "s9",
+      "to": "s9",
+      "symbol": "C",
+      "write": "C",
+      "dir": "R"
+    },
+    {
+      "id": "t31",
+      "from": "s9",
+      "to": "s7",
+      "symbol": "1",
+      "write": "C",
+      "dir": "L"
+    },
+    {
+      "id": "t32",
+      "from": "s9",
+      "to": "s10",
+      "symbol": "#",
+      "write": "#",
+      "dir": "L"
+    },
+    {
+      "id": "t33",
+      "from": "s9",
+      "to": "s10",
+      "symbol": "⊔",
+      "write": "⊔",
+      "dir": "L"
+    },
+    {
+      "id": "t34",
+      "from": "s10",
+      "to": "s10",
+      "symbol": "C",
+      "write": "Y",
+      "dir": "L"
+    },
+    {
+      "id": "t35",
+      "from": "s10",
+      "to": "s11",
+      "symbol": "#",
+      "write": "#",
+      "dir": "R"
+    },
+    {
+      "id": "t36",
+      "from": "s11",
+      "to": "s11",
+      "symbol": "Y",
+      "write": "Y",
+      "dir": "R"
+    },
+    {
+      "id": "t37",
+      "from": "s11",
+      "to": "s3",
+      "symbol": "#",
+      "write": "#",
+      "dir": "R"
+    },
+    {
+      "id": "t38",
+      "from": "s11",
+      "to": "s5",
+      "symbol": "⊔",
+      "write": "⊔",
+      "dir": "L"
+    },
+    {
+      "id": "t39",
+      "from": "s5",
+      "to": "s5",
+      "symbol": "Y",
+      "write": "Y",
+      "dir": "L"
+    },
+    {
+      "id": "t40",
+      "from": "s5",
+      "to": "s5",
+      "symbol": "n",
+      "write": "n",
+      "dir": "L"
+    },
+    {
+      "id": "t41",
+      "from": "s5",
+      "to": "s5",
+      "symbol": "#",
+      "write": "#",
+      "dir": "L"
+    },
+    {
+      "id": "t42",
+      "from": "s5",
+      "to": "s5",
+      "symbol": "x",
+      "write": "x",
+      "dir": "L"
+    },
+    {
+      "id": "t43",
+      "from": "s5",
+      "to": "s4",
+      "symbol": "X",
+      "write": "X",
+      "dir": "S"
+    },
+    {
+      "id": "t44",
+      "from": "s5",
+      "to": "s4",
+      "symbol": "H",
+      "write": "H",
+      "dir": "S"
+    }
+  ],
+  "startId": "s1",
+  "accepts": [
+    "s4"
+  ],
+  "notes": [],
+  "dividers": [],
+  "blocks": [],
+  "meta": {
+    "title": "Subset sum, by guessing",
+    "blurb": "Input: a target t and some items, all in unary, separated by # — 111#1#11 asks whether some of 1 and 2 add up to 3. At each item the machine guesses: skip it (marking its 1s n) or take it, crossing one 1 off the target for each of its 1s. Some branch empties the target exactly when a subset fits.",
+    "inputs": [
+      {
+        "w": "111#1#11",
+        "expect": "accept"
+      },
+      {
+        "w": "11#111#1#1",
+        "expect": "accept"
+      },
+      {
+        "w": "111#11#11",
+        "expect": "reject"
+      },
+      {
+        "w": "1#11",
+        "expect": "reject"
+      },
+      {
+        "w": "#1",
+        "expect": "accept"
+      },
+      {
+        "w": "1111#11#1#11",
+        "expect": "accept"
+      },
+      {
+        "w": "11111#11#11",
+        "expect": "reject"
+      }
+    ],
+    "library": {
+      "author": {
+        "login": "thethinkmachine"
+      },
+      "license": "CC-BY-4.0",
+      "tags": [
+        "np",
+        "guessing",
+        "subset-sum"
+      ],
+      "difficulty": "advanced"
+    }
+  }
+}

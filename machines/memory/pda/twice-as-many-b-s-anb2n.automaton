@@ -58,7 +58,7 @@
       "to": "s2",
       "symbol": "a",
       "pop": "Z",
-      "push": "XZ"
+      "push": "XXZ"
     },
     {
       "id": "t2",
@@ -66,7 +66,7 @@
       "to": "s2",
       "symbol": "a",
       "pop": "X",
-      "push": "XX"
+      "push": "XXX"
     },
     {
       "id": "t3",
@@ -102,23 +102,23 @@
   "dividers": [],
   "blocks": [],
   "meta": {
-    "title": "aⁿbⁿ",
-    "blurb": "The language that is not regular: no finite memory can count the a’s, and a stack can. Push one X per a, pop one per b, and accept when the bottom marker comes back into view exactly as the input runs out.",
+    "title": "Twice as many b’s: aⁿb²ⁿ",
+    "blurb": "Push two X’s for every a and pop one for every b. A change of exchange rate is all it takes — the same machine as aⁿbⁿ with a different push.",
     "inputs": [
       {
         "w": "",
         "expect": "accept"
       },
       {
-        "w": "aabb",
+        "w": "abb",
         "expect": "accept"
       },
       {
-        "w": "ab",
+        "w": "aabbbb",
         "expect": "accept"
       },
       {
-        "w": "aaaaaaabbbbbbb",
+        "w": "aaaabbbbbbbb",
         "expect": "accept"
       },
       {
@@ -126,15 +126,15 @@
         "expect": "reject"
       },
       {
-        "w": "babb",
+        "w": "bbb",
         "expect": "reject"
       },
       {
-        "w": "bb",
+        "w": "babbbb",
         "expect": "reject"
       },
       {
-        "w": "baaaaaabbbbbbb",
+        "w": "baaabbbbbbbb",
         "expect": "reject"
       }
     ],
@@ -144,8 +144,8 @@
       },
       "license": "CC-BY-4.0",
       "tags": [
-        "canonical",
         "counting",
+        "ratio",
         "non-regular"
       ],
       "difficulty": "intro"

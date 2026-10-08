@@ -17,11 +17,13 @@
   },
   "sigma": [
     "a",
-    "b"
+    "b",
+    "c"
   ],
   "stackAlpha": [
     "Z",
-    "X"
+    "A",
+    "B"
   ],
   "outputAlpha": [],
   "tapeCount": 1,
@@ -30,23 +32,17 @@
       "id": "s1",
       "x": 140,
       "y": 160,
-      "name": "start"
+      "name": "push"
     },
     {
       "id": "s2",
       "x": 319,
       "y": 160,
-      "name": "as"
+      "name": "match"
     },
     {
       "id": "s3",
       "x": 498,
-      "y": 160,
-      "name": "bs"
-    },
-    {
-      "id": "s4",
-      "x": 677,
       "y": 160,
       "name": "done"
     }
@@ -55,39 +51,47 @@
     {
       "id": "t1",
       "from": "s1",
-      "to": "s2",
+      "to": "s1",
       "symbol": "a",
-      "pop": "Z",
-      "push": "XZ"
+      "pop": "ε",
+      "push": "A"
     },
     {
       "id": "t2",
-      "from": "s2",
-      "to": "s2",
-      "symbol": "a",
-      "pop": "X",
-      "push": "XX"
+      "from": "s1",
+      "to": "s1",
+      "symbol": "b",
+      "pop": "ε",
+      "push": "B"
     },
     {
       "id": "t3",
-      "from": "s2",
-      "to": "s3",
-      "symbol": "b",
-      "pop": "X",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "c",
+      "pop": "ε",
       "push": "ε"
     },
     {
       "id": "t4",
-      "from": "s3",
-      "to": "s3",
-      "symbol": "b",
-      "pop": "X",
+      "from": "s2",
+      "to": "s2",
+      "symbol": "a",
+      "pop": "A",
       "push": "ε"
     },
     {
       "id": "t5",
-      "from": "s3",
-      "to": "s4",
+      "from": "s2",
+      "to": "s2",
+      "symbol": "b",
+      "pop": "B",
+      "push": "ε"
+    },
+    {
+      "id": "t6",
+      "from": "s2",
+      "to": "s3",
       "symbol": "ε",
       "pop": "Z",
       "push": "Z"
@@ -95,30 +99,29 @@
   ],
   "startId": "s1",
   "accepts": [
-    "s1",
-    "s4"
+    "s3"
   ],
   "notes": [],
   "dividers": [],
   "blocks": [],
   "meta": {
-    "title": "aⁿbⁿ",
-    "blurb": "The language that is not regular: no finite memory can count the a’s, and a stack can. Push one X per a, pop one per b, and accept when the bottom marker comes back into view exactly as the input runs out.",
+    "title": "A palindrome with its middle marked: wcwᴿ",
+    "blurb": "When the centre is marked, a palindrome is easy for a deterministic machine: push until the c, then match each symbol against the top of the stack. Remove the c and the machine has to guess — see the NPDA that does.",
     "inputs": [
       {
-        "w": "",
+        "w": "c",
         "expect": "accept"
       },
       {
-        "w": "aabb",
+        "w": "abcba",
         "expect": "accept"
       },
       {
-        "w": "ab",
+        "w": "aca",
         "expect": "accept"
       },
       {
-        "w": "aaaaaaabbbbbbb",
+        "w": "baabaacaabaab",
         "expect": "accept"
       },
       {
@@ -126,15 +129,15 @@
         "expect": "reject"
       },
       {
-        "w": "babb",
+        "w": "bbcba",
         "expect": "reject"
       },
       {
-        "w": "bb",
+        "w": "bca",
         "expect": "reject"
       },
       {
-        "w": "baaaaaabbbbbbb",
+        "w": "aaabaacaabaab",
         "expect": "reject"
       }
     ],
@@ -144,9 +147,9 @@
       },
       "license": "CC-BY-4.0",
       "tags": [
-        "canonical",
-        "counting",
-        "non-regular"
+        "palindromes",
+        "stack-matching",
+        "deterministic-cfl"
       ],
       "difficulty": "intro"
     }

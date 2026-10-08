@@ -2,7 +2,7 @@
   "format": "automata-studio/workspace",
   "schema": 1,
   "app": "dev",
-  "machine": "DPDA",
+  "machine": "NFA",
   "config": {
     "sym": {
       "eps": "ε",
@@ -12,17 +12,13 @@
       "rightMarker": "⊣",
       "stackBottom": "Z",
       "lambda": "λ"
-    },
-    "pdaParadigm": "explicit"
+    }
   },
   "sigma": [
     "a",
     "b"
   ],
-  "stackAlpha": [
-    "Z",
-    "X"
-  ],
+  "stackAlpha": [],
   "outputAlpha": [],
   "tapeCount": 1,
   "states": [
@@ -30,111 +26,136 @@
       "id": "s1",
       "x": 140,
       "y": 160,
-      "name": "start"
+      "name": "wait"
     },
     {
       "id": "s2",
-      "x": 319,
+      "x": 310,
       "y": 160,
-      "name": "as"
+      "name": "d0"
     },
     {
       "id": "s3",
-      "x": 498,
+      "x": 480,
       "y": 160,
-      "name": "bs"
+      "name": "d1"
     },
     {
       "id": "s4",
-      "x": 677,
+      "x": 650,
       "y": 160,
-      "name": "done"
+      "name": "d2"
+    },
+    {
+      "id": "s5",
+      "x": 820,
+      "y": 160,
+      "name": "found"
     }
   ],
   "transitions": [
     {
       "id": "t1",
       "from": "s1",
-      "to": "s2",
-      "symbol": "a",
-      "pop": "Z",
-      "push": "XZ"
+      "to": "s1",
+      "symbol": "a"
     },
     {
       "id": "t2",
-      "from": "s2",
-      "to": "s2",
-      "symbol": "a",
-      "pop": "X",
-      "push": "XX"
+      "from": "s1",
+      "to": "s1",
+      "symbol": "b"
     },
     {
       "id": "t3",
-      "from": "s2",
-      "to": "s3",
-      "symbol": "b",
-      "pop": "X",
-      "push": "ε"
+      "from": "s1",
+      "to": "s2",
+      "symbol": "a"
     },
     {
       "id": "t4",
-      "from": "s3",
+      "from": "s2",
       "to": "s3",
-      "symbol": "b",
-      "pop": "X",
-      "push": "ε"
+      "symbol": "a"
     },
     {
       "id": "t5",
+      "from": "s2",
+      "to": "s3",
+      "symbol": "b"
+    },
+    {
+      "id": "t6",
       "from": "s3",
       "to": "s4",
-      "symbol": "ε",
-      "pop": "Z",
-      "push": "Z"
+      "symbol": "a"
+    },
+    {
+      "id": "t7",
+      "from": "s3",
+      "to": "s4",
+      "symbol": "b"
+    },
+    {
+      "id": "t8",
+      "from": "s4",
+      "to": "s5",
+      "symbol": "a"
+    },
+    {
+      "id": "t9",
+      "from": "s5",
+      "to": "s5",
+      "symbol": "a"
+    },
+    {
+      "id": "t10",
+      "from": "s5",
+      "to": "s5",
+      "symbol": "b"
     }
   ],
   "startId": "s1",
   "accepts": [
-    "s1",
-    "s4"
+    "s5"
   ],
   "notes": [],
   "dividers": [],
   "blocks": [],
   "meta": {
-    "title": "aⁿbⁿ",
-    "blurb": "The language that is not regular: no finite memory can count the a’s, and a stack can. Push one X per a, pop one per b, and accept when the bottom marker comes back into view exactly as the input runs out.",
+    "title": "Two a’s exactly three apart",
+    "blurb": "Somewhere in the word, an a followed by any two symbols and then another a. The NFA waits, guesses the first a, and counts three; a DFA would have to remember the positions of the a’s among the last three symbols.",
     "inputs": [
       {
+        "w": "aaaa",
+        "expect": "accept"
+      },
+      {
+        "w": "aabba",
+        "expect": "accept"
+      },
+      {
+        "w": "aaaaaa",
+        "expect": "accept"
+      },
+      {
+        "w": "aaaaaaabba",
+        "expect": "accept"
+      },
+      {
+        "w": "baaa",
+        "expect": "reject"
+      },
+      {
+        "w": "abbba",
+        "expect": "reject"
+      },
+      {
         "w": "",
-        "expect": "accept"
-      },
-      {
-        "w": "aabb",
-        "expect": "accept"
-      },
-      {
-        "w": "ab",
-        "expect": "accept"
-      },
-      {
-        "w": "aaaaaaabbbbbbb",
-        "expect": "accept"
-      },
-      {
-        "w": "a",
         "expect": "reject"
       },
       {
-        "w": "babb",
-        "expect": "reject"
-      },
-      {
-        "w": "bb",
-        "expect": "reject"
-      },
-      {
-        "w": "baaaaaabbbbbbb",
+        "w": "baabb",
         "expect": "reject"
       }
     ],
@@ -144,9 +165,9 @@
       },
       "license": "CC-BY-4.0",
       "tags": [
-        "canonical",
-        "counting",
-        "non-regular"
+        "guessing",
+        "distance",
+        "pattern-matching"
       ],
       "difficulty": "intro"
     }

@@ -1,0 +1,322 @@
+{
+  "format": "automata-studio/workspace",
+  "schema": 1,
+  "app": "dev",
+  "machine": "TM",
+  "config": {
+    "sym": {
+      "eps": "ε",
+      "any": "Σ",
+      "blank": "⊔",
+      "leftMarker": "⊢",
+      "rightMarker": "⊣",
+      "stackBottom": "Z",
+      "lambda": "λ"
+    }
+  },
+  "sigma": [
+    "0",
+    "1",
+    "#"
+  ],
+  "stackAlpha": [
+    "0",
+    "1",
+    "#",
+    "x",
+    "⊔"
+  ],
+  "outputAlpha": [],
+  "tapeCount": 1,
+  "states": [
+    {
+      "id": "s1",
+      "x": 140,
+      "y": 255,
+      "name": "q1"
+    },
+    {
+      "id": "s2",
+      "x": 319,
+      "y": 350,
+      "name": "q2"
+    },
+    {
+      "id": "s3",
+      "x": 319,
+      "y": 255,
+      "name": "q3"
+    },
+    {
+      "id": "s4",
+      "x": 319,
+      "y": 160,
+      "name": "q8"
+    },
+    {
+      "id": "s5",
+      "x": 498,
+      "y": 350,
+      "name": "q4"
+    },
+    {
+      "id": "s6",
+      "x": 498,
+      "y": 255,
+      "name": "q5"
+    },
+    {
+      "id": "s7",
+      "x": 677,
+      "y": 255,
+      "name": "q6"
+    },
+    {
+      "id": "s8",
+      "x": 856,
+      "y": 255,
+      "name": "q7"
+    },
+    {
+      "id": "s9",
+      "x": 498,
+      "y": 160,
+      "name": "acc"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "t1",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "0",
+      "write": "x",
+      "dir": "R"
+    },
+    {
+      "id": "t2",
+      "from": "s1",
+      "to": "s3",
+      "symbol": "1",
+      "write": "x",
+      "dir": "R"
+    },
+    {
+      "id": "t3",
+      "from": "s1",
+      "to": "s4",
+      "symbol": "#",
+      "write": "#",
+      "dir": "R"
+    },
+    {
+      "id": "t4",
+      "from": "s2",
+      "to": "s2",
+      "symbol": "0",
+      "write": "0",
+      "dir": "R"
+    },
+    {
+      "id": "t5",
+      "from": "s2",
+      "to": "s2",
+      "symbol": "1",
+      "write": "1",
+      "dir": "R"
+    },
+    {
+      "id": "t6",
+      "from": "s2",
+      "to": "s5",
+      "symbol": "#",
+      "write": "#",
+      "dir": "R"
+    },
+    {
+      "id": "t7",
+      "from": "s3",
+      "to": "s3",
+      "symbol": "0",
+      "write": "0",
+      "dir": "R"
+    },
+    {
+      "id": "t8",
+      "from": "s3",
+      "to": "s3",
+      "symbol": "1",
+      "write": "1",
+      "dir": "R"
+    },
+    {
+      "id": "t9",
+      "from": "s3",
+      "to": "s6",
+      "symbol": "#",
+      "write": "#",
+      "dir": "R"
+    },
+    {
+      "id": "t10",
+      "from": "s5",
+      "to": "s5",
+      "symbol": "x",
+      "write": "x",
+      "dir": "R"
+    },
+    {
+      "id": "t11",
+      "from": "s5",
+      "to": "s7",
+      "symbol": "0",
+      "write": "x",
+      "dir": "L"
+    },
+    {
+      "id": "t12",
+      "from": "s6",
+      "to": "s6",
+      "symbol": "x",
+      "write": "x",
+      "dir": "R"
+    },
+    {
+      "id": "t13",
+      "from": "s6",
+      "to": "s7",
+      "symbol": "1",
+      "write": "x",
+      "dir": "L"
+    },
+    {
+      "id": "t14",
+      "from": "s7",
+      "to": "s7",
+      "symbol": "0",
+      "write": "0",
+      "dir": "L"
+    },
+    {
+      "id": "t15",
+      "from": "s7",
+      "to": "s7",
+      "symbol": "1",
+      "write": "1",
+      "dir": "L"
+    },
+    {
+      "id": "t16",
+      "from": "s7",
+      "to": "s7",
+      "symbol": "x",
+      "write": "x",
+      "dir": "L"
+    },
+    {
+      "id": "t17",
+      "from": "s7",
+      "to": "s8",
+      "symbol": "#",
+      "write": "#",
+      "dir": "L"
+    },
+    {
+      "id": "t18",
+      "from": "s8",
+      "to": "s8",
+      "symbol": "0",
+      "write": "0",
+      "dir": "L"
+    },
+    {
+      "id": "t19",
+      "from": "s8",
+      "to": "s8",
+      "symbol": "1",
+      "write": "1",
+      "dir": "L"
+    },
+    {
+      "id": "t20",
+      "from": "s8",
+      "to": "s1",
+      "symbol": "x",
+      "write": "x",
+      "dir": "R"
+    },
+    {
+      "id": "t21",
+      "from": "s4",
+      "to": "s4",
+      "symbol": "x",
+      "write": "x",
+      "dir": "R"
+    },
+    {
+      "id": "t22",
+      "from": "s4",
+      "to": "s9",
+      "symbol": "⊔",
+      "write": "⊔",
+      "dir": "R"
+    }
+  ],
+  "startId": "s1",
+  "accepts": [
+    "s9"
+  ],
+  "notes": [],
+  "dividers": [],
+  "blocks": [],
+  "meta": {
+    "title": "Two equal halves: w#w",
+    "blurb": "The first machine in Sipser’s chapter on Turing machines. Cross off the first symbol, remember it in the state, cross off its partner after the #, and come back; repeat until the left half is gone. Everything is checked with nothing but a pencil and a lot of walking.",
+    "inputs": [
+      {
+        "w": "#",
+        "expect": "accept"
+      },
+      {
+        "w": "01#01",
+        "expect": "accept"
+      },
+      {
+        "w": "110#110",
+        "expect": "accept"
+      },
+      {
+        "w": "10011#10011",
+        "expect": "accept"
+      },
+      {
+        "w": "0",
+        "expect": "reject"
+      },
+      {
+        "w": "11#01",
+        "expect": "reject"
+      },
+      {
+        "w": "010#110",
+        "expect": "reject"
+      },
+      {
+        "w": "00011#10011",
+        "expect": "reject"
+      }
+    ],
+    "library": {
+      "author": {
+        "login": "thethinkmachine"
+      },
+      "license": "CC-BY-4.0",
+      "tags": [
+        "copy-language",
+        "zigzag",
+        "sipser"
+      ],
+      "difficulty": "intro"
+    }
+  }
+}

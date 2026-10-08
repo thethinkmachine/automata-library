@@ -2,7 +2,7 @@
   "format": "automata-studio/workspace",
   "schema": 1,
   "app": "dev",
-  "machine": "DPDA",
+  "machine": "ε-NFA",
   "config": {
     "sym": {
       "eps": "ε",
@@ -12,17 +12,14 @@
       "rightMarker": "⊣",
       "stackBottom": "Z",
       "lambda": "λ"
-    },
-    "pdaParadigm": "explicit"
+    }
   },
   "sigma": [
     "a",
-    "b"
+    "b",
+    "c"
   ],
-  "stackAlpha": [
-    "Z",
-    "X"
-  ],
+  "stackAlpha": [],
   "outputAlpha": [],
   "tapeCount": 1,
   "states": [
@@ -30,111 +27,94 @@
       "id": "s1",
       "x": 140,
       "y": 160,
-      "name": "start"
+      "name": "As"
     },
     {
       "id": "s2",
-      "x": 319,
+      "x": 310,
       "y": 160,
-      "name": "as"
+      "name": "Bs"
     },
     {
       "id": "s3",
-      "x": 498,
+      "x": 480,
       "y": 160,
-      "name": "bs"
-    },
-    {
-      "id": "s4",
-      "x": 677,
-      "y": 160,
-      "name": "done"
+      "name": "Cs"
     }
   ],
   "transitions": [
     {
       "id": "t1",
       "from": "s1",
-      "to": "s2",
-      "symbol": "a",
-      "pop": "Z",
-      "push": "XZ"
+      "to": "s1",
+      "symbol": "a"
     },
     {
       "id": "t2",
-      "from": "s2",
+      "from": "s1",
       "to": "s2",
-      "symbol": "a",
-      "pop": "X",
-      "push": "XX"
+      "symbol": "ε"
     },
     {
       "id": "t3",
       "from": "s2",
-      "to": "s3",
-      "symbol": "b",
-      "pop": "X",
-      "push": "ε"
+      "to": "s2",
+      "symbol": "b"
     },
     {
       "id": "t4",
-      "from": "s3",
+      "from": "s2",
       "to": "s3",
-      "symbol": "b",
-      "pop": "X",
-      "push": "ε"
+      "symbol": "ε"
     },
     {
       "id": "t5",
       "from": "s3",
-      "to": "s4",
-      "symbol": "ε",
-      "pop": "Z",
-      "push": "Z"
+      "to": "s3",
+      "symbol": "c"
     }
   ],
   "startId": "s1",
   "accepts": [
-    "s1",
-    "s4"
+    "s3"
   ],
   "notes": [],
   "dividers": [],
   "blocks": [],
   "meta": {
-    "title": "aⁿbⁿ",
-    "blurb": "The language that is not regular: no finite memory can count the a’s, and a stack can. Push one X per a, pop one per b, and accept when the bottom marker comes back into view exactly as the input runs out.",
+    "title": "a’s, then b’s, then c’s",
+    "blurb": "a*b*c* as three loops chained by ε-moves. The ε-closure of the start state is all three states, so the empty word, a lone b and a lone c are all accepted without the machine ever reading an a.",
     "inputs": [
       {
         "w": "",
         "expect": "accept"
       },
       {
-        "w": "aabb",
+        "w": "abc",
         "expect": "accept"
       },
       {
-        "w": "ab",
+        "w": "aacc",
         "expect": "accept"
       },
       {
-        "w": "aaaaaaabbbbbbb",
+        "w": "ccccccc",
         "expect": "accept"
       },
       {
-        "w": "a",
+        "w": "cbc",
         "expect": "reject"
       },
       {
-        "w": "babb",
+        "w": "bacc",
         "expect": "reject"
       },
       {
-        "w": "bb",
+        "w": "caccccc",
         "expect": "reject"
       },
       {
-        "w": "baaaaaabbbbbbb",
+        "w": "ba",
         "expect": "reject"
       }
     ],
@@ -144,9 +124,9 @@
       },
       "license": "CC-BY-4.0",
       "tags": [
-        "canonical",
-        "counting",
-        "non-regular"
+        "concatenation",
+        "kleene-star",
+        "epsilon-closure"
       ],
       "difficulty": "intro"
     }

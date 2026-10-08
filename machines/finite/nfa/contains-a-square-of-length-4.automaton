@@ -1,0 +1,265 @@
+{
+  "format": "automata-studio/workspace",
+  "schema": 1,
+  "app": "dev",
+  "machine": "NFA",
+  "config": {
+    "sym": {
+      "eps": "ε",
+      "any": "Σ",
+      "blank": "⊔",
+      "leftMarker": "⊢",
+      "rightMarker": "⊣",
+      "stackBottom": "Z",
+      "lambda": "λ"
+    }
+  },
+  "sigma": [
+    "a",
+    "b"
+  ],
+  "stackAlpha": [],
+  "outputAlpha": [],
+  "tapeCount": 1,
+  "states": [
+    {
+      "id": "s1",
+      "x": 140,
+      "y": 303,
+      "name": "start"
+    },
+    {
+      "id": "s2",
+      "x": 319,
+      "y": 350,
+      "name": "a"
+    },
+    {
+      "id": "s3",
+      "x": 319,
+      "y": 255,
+      "name": "b"
+    },
+    {
+      "id": "s4",
+      "x": 498,
+      "y": 445,
+      "name": "aa"
+    },
+    {
+      "id": "s5",
+      "x": 498,
+      "y": 350,
+      "name": "ab"
+    },
+    {
+      "id": "s6",
+      "x": 498,
+      "y": 255,
+      "name": "ba"
+    },
+    {
+      "id": "s7",
+      "x": 498,
+      "y": 160,
+      "name": "bb"
+    },
+    {
+      "id": "s8",
+      "x": 677,
+      "y": 445,
+      "name": "aa_a"
+    },
+    {
+      "id": "s9",
+      "x": 677,
+      "y": 350,
+      "name": "ab_a"
+    },
+    {
+      "id": "s10",
+      "x": 677,
+      "y": 255,
+      "name": "ba_b"
+    },
+    {
+      "id": "s11",
+      "x": 677,
+      "y": 160,
+      "name": "bb_b"
+    },
+    {
+      "id": "s12",
+      "x": 856,
+      "y": 303,
+      "name": "found"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "t1",
+      "from": "s1",
+      "to": "s1",
+      "symbol": "a"
+    },
+    {
+      "id": "t2",
+      "from": "s1",
+      "to": "s1",
+      "symbol": "b"
+    },
+    {
+      "id": "t3",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "a"
+    },
+    {
+      "id": "t4",
+      "from": "s1",
+      "to": "s3",
+      "symbol": "b"
+    },
+    {
+      "id": "t5",
+      "from": "s2",
+      "to": "s4",
+      "symbol": "a"
+    },
+    {
+      "id": "t6",
+      "from": "s2",
+      "to": "s5",
+      "symbol": "b"
+    },
+    {
+      "id": "t7",
+      "from": "s3",
+      "to": "s6",
+      "symbol": "a"
+    },
+    {
+      "id": "t8",
+      "from": "s3",
+      "to": "s7",
+      "symbol": "b"
+    },
+    {
+      "id": "t9",
+      "from": "s4",
+      "to": "s8",
+      "symbol": "a"
+    },
+    {
+      "id": "t10",
+      "from": "s5",
+      "to": "s9",
+      "symbol": "a"
+    },
+    {
+      "id": "t11",
+      "from": "s6",
+      "to": "s10",
+      "symbol": "b"
+    },
+    {
+      "id": "t12",
+      "from": "s7",
+      "to": "s11",
+      "symbol": "b"
+    },
+    {
+      "id": "t13",
+      "from": "s8",
+      "to": "s12",
+      "symbol": "a"
+    },
+    {
+      "id": "t14",
+      "from": "s9",
+      "to": "s12",
+      "symbol": "b"
+    },
+    {
+      "id": "t15",
+      "from": "s10",
+      "to": "s12",
+      "symbol": "a"
+    },
+    {
+      "id": "t16",
+      "from": "s11",
+      "to": "s12",
+      "symbol": "b"
+    },
+    {
+      "id": "t17",
+      "from": "s12",
+      "to": "s12",
+      "symbol": "a"
+    },
+    {
+      "id": "t18",
+      "from": "s12",
+      "to": "s12",
+      "symbol": "b"
+    }
+  ],
+  "startId": "s1",
+  "accepts": [
+    "s12"
+  ],
+  "notes": [],
+  "dividers": [],
+  "blocks": [],
+  "meta": {
+    "title": "Contains a square of length 4",
+    "blurb": "Accept any word containing xx where x is two letters — abab, aaaa, baba, bbbb. The machine guesses where the square starts, remembers the two letters of x, and checks that they come again.",
+    "inputs": [
+      {
+        "w": "aaaa",
+        "expect": "accept"
+      },
+      {
+        "w": "ababb",
+        "expect": "accept"
+      },
+      {
+        "w": "aaaaaa",
+        "expect": "accept"
+      },
+      {
+        "w": "aaaaaaabba",
+        "expect": "accept"
+      },
+      {
+        "w": "baaa",
+        "expect": "reject"
+      },
+      {
+        "w": "bbabb",
+        "expect": "reject"
+      },
+      {
+        "w": "aabaaa",
+        "expect": "reject"
+      },
+      {
+        "w": "aaabaaabba",
+        "expect": "reject"
+      }
+    ],
+    "library": {
+      "author": {
+        "login": "thethinkmachine"
+      },
+      "license": "CC-BY-4.0",
+      "tags": [
+        "guessing",
+        "squares",
+        "combinatorics-on-words"
+      ],
+      "difficulty": "advanced"
+    }
+  }
+}

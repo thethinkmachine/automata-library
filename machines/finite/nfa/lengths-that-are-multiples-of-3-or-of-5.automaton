@@ -1,0 +1,200 @@
+{
+  "format": "automata-studio/workspace",
+  "schema": 1,
+  "app": "dev",
+  "machine": "NFA",
+  "config": {
+    "sym": {
+      "eps": "ε",
+      "any": "Σ",
+      "blank": "⊔",
+      "leftMarker": "⊢",
+      "rightMarker": "⊣",
+      "stackBottom": "Z",
+      "lambda": "λ"
+    }
+  },
+  "sigma": [
+    "a"
+  ],
+  "stackAlpha": [],
+  "outputAlpha": [],
+  "tapeCount": 1,
+  "states": [
+    {
+      "id": "s1",
+      "x": 140,
+      "y": 398,
+      "name": "start"
+    },
+    {
+      "id": "s2",
+      "x": 310,
+      "y": 228,
+      "name": "t1"
+    },
+    {
+      "id": "s3",
+      "x": 310,
+      "y": 568,
+      "name": "f1"
+    },
+    {
+      "id": "s4",
+      "x": 480,
+      "y": 160,
+      "name": "t2"
+    },
+    {
+      "id": "s5",
+      "x": 480,
+      "y": 296,
+      "name": "t0"
+    },
+    {
+      "id": "s6",
+      "x": 480,
+      "y": 500,
+      "name": "f2"
+    },
+    {
+      "id": "s7",
+      "x": 650,
+      "y": 568,
+      "name": "f3"
+    },
+    {
+      "id": "s8",
+      "x": 582,
+      "y": 704,
+      "name": "f4"
+    },
+    {
+      "id": "s9",
+      "x": 412,
+      "y": 704,
+      "name": "f0"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "t1",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "a"
+    },
+    {
+      "id": "t2",
+      "from": "s1",
+      "to": "s3",
+      "symbol": "a"
+    },
+    {
+      "id": "t3",
+      "from": "s2",
+      "to": "s4",
+      "symbol": "a"
+    },
+    {
+      "id": "t4",
+      "from": "s4",
+      "to": "s5",
+      "symbol": "a"
+    },
+    {
+      "id": "t5",
+      "from": "s5",
+      "to": "s2",
+      "symbol": "a"
+    },
+    {
+      "id": "t6",
+      "from": "s3",
+      "to": "s6",
+      "symbol": "a"
+    },
+    {
+      "id": "t7",
+      "from": "s6",
+      "to": "s7",
+      "symbol": "a"
+    },
+    {
+      "id": "t8",
+      "from": "s7",
+      "to": "s8",
+      "symbol": "a"
+    },
+    {
+      "id": "t9",
+      "from": "s8",
+      "to": "s9",
+      "symbol": "a"
+    },
+    {
+      "id": "t10",
+      "from": "s9",
+      "to": "s3",
+      "symbol": "a"
+    }
+  ],
+  "startId": "s1",
+  "accepts": [
+    "s1",
+    "s5",
+    "s9"
+  ],
+  "notes": [],
+  "dividers": [],
+  "blocks": [],
+  "meta": {
+    "title": "Lengths that are multiples of 3 or of 5",
+    "blurb": "Two cycles, three and five long, and a first step that chooses between them: nine states. A DFA cannot choose, so it runs both at once on a single cycle of lcm(3, 5) = 15. For unary languages that gap can be made exponential.",
+    "inputs": [
+      {
+        "w": "",
+        "expect": "accept"
+      },
+      {
+        "w": "aaa",
+        "expect": "accept"
+      },
+      {
+        "w": "aaaaa",
+        "expect": "accept"
+      },
+      {
+        "w": "aaaaaaaaaaaa",
+        "expect": "accept"
+      },
+      {
+        "w": "a",
+        "expect": "reject"
+      },
+      {
+        "w": "aa",
+        "expect": "reject"
+      },
+      {
+        "w": "aaaa",
+        "expect": "reject"
+      },
+      {
+        "w": "aaaaaaaaaaa",
+        "expect": "reject"
+      }
+    ],
+    "library": {
+      "author": {
+        "login": "thethinkmachine"
+      },
+      "license": "CC-BY-4.0",
+      "tags": [
+        "unary",
+        "union",
+        "state-blowup"
+      ],
+      "difficulty": "intermediate"
+    }
+  }
+}

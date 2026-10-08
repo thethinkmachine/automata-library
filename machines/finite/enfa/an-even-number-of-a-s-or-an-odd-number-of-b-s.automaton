@@ -2,7 +2,7 @@
   "format": "automata-studio/workspace",
   "schema": 1,
   "app": "dev",
-  "machine": "DPDA",
+  "machine": "ε-NFA",
   "config": {
     "sym": {
       "eps": "ε",
@@ -12,43 +12,45 @@
       "rightMarker": "⊣",
       "stackBottom": "Z",
       "lambda": "λ"
-    },
-    "pdaParadigm": "explicit"
+    }
   },
   "sigma": [
     "a",
     "b"
   ],
-  "stackAlpha": [
-    "Z",
-    "X"
-  ],
+  "stackAlpha": [],
   "outputAlpha": [],
   "tapeCount": 1,
   "states": [
     {
       "id": "s1",
       "x": 140,
-      "y": 160,
+      "y": 330,
       "name": "start"
     },
     {
       "id": "s2",
-      "x": 319,
+      "x": 310,
       "y": 160,
-      "name": "as"
+      "name": "evenA"
     },
     {
       "id": "s3",
-      "x": 498,
-      "y": 160,
-      "name": "bs"
+      "x": 310,
+      "y": 500,
+      "name": "evenB"
     },
     {
       "id": "s4",
-      "x": 677,
+      "x": 480,
       "y": 160,
-      "name": "done"
+      "name": "oddA"
+    },
+    {
+      "id": "s5",
+      "x": 480,
+      "y": 500,
+      "name": "oddB"
     }
   ],
   "transitions": [
@@ -56,69 +58,89 @@
       "id": "t1",
       "from": "s1",
       "to": "s2",
-      "symbol": "a",
-      "pop": "Z",
-      "push": "XZ"
+      "symbol": "ε"
     },
     {
       "id": "t2",
-      "from": "s2",
-      "to": "s2",
-      "symbol": "a",
-      "pop": "X",
-      "push": "XX"
+      "from": "s1",
+      "to": "s3",
+      "symbol": "ε"
     },
     {
       "id": "t3",
       "from": "s2",
-      "to": "s3",
-      "symbol": "b",
-      "pop": "X",
-      "push": "ε"
+      "to": "s4",
+      "symbol": "a"
     },
     {
       "id": "t4",
-      "from": "s3",
-      "to": "s3",
-      "symbol": "b",
-      "pop": "X",
-      "push": "ε"
+      "from": "s4",
+      "to": "s2",
+      "symbol": "a"
     },
     {
       "id": "t5",
-      "from": "s3",
+      "from": "s2",
+      "to": "s2",
+      "symbol": "b"
+    },
+    {
+      "id": "t6",
+      "from": "s4",
       "to": "s4",
-      "symbol": "ε",
-      "pop": "Z",
-      "push": "Z"
+      "symbol": "b"
+    },
+    {
+      "id": "t7",
+      "from": "s3",
+      "to": "s5",
+      "symbol": "b"
+    },
+    {
+      "id": "t8",
+      "from": "s5",
+      "to": "s3",
+      "symbol": "b"
+    },
+    {
+      "id": "t9",
+      "from": "s3",
+      "to": "s3",
+      "symbol": "a"
+    },
+    {
+      "id": "t10",
+      "from": "s5",
+      "to": "s5",
+      "symbol": "a"
     }
   ],
   "startId": "s1",
   "accepts": [
-    "s1",
-    "s4"
+    "s2",
+    "s5"
   ],
   "notes": [],
   "dividers": [],
   "blocks": [],
   "meta": {
-    "title": "aⁿbⁿ",
-    "blurb": "The language that is not regular: no finite memory can count the a’s, and a stack can. Push one X per a, pop one per b, and accept when the bottom marker comes back into view exactly as the input runs out.",
+    "title": "An even number of a’s, or an odd number of b’s",
+    "blurb": "Union by ε: the start state jumps silently into two separate machines, one counting a’s and one counting b’s, and the word is accepted if either ends in an accepting state. Each half ignores the other’s letter.",
     "inputs": [
       {
         "w": "",
         "expect": "accept"
       },
       {
-        "w": "aabb",
+        "w": "baabb",
         "expect": "accept"
       },
       {
-        "w": "ab",
+        "w": "b",
         "expect": "accept"
       },
       {
-        "w": "aaaaaaabbbbbbb",
+        "w": "aaaaaaabba",
         "expect": "accept"
       },
       {
@@ -126,15 +148,15 @@
         "expect": "reject"
       },
       {
-        "w": "babb",
+        "w": "aaabb",
         "expect": "reject"
       },
       {
-        "w": "bb",
+        "w": "aaaaaabba",
         "expect": "reject"
       },
       {
-        "w": "baaaaaabbbbbbb",
+        "w": "aabba",
         "expect": "reject"
       }
     ],
@@ -144,9 +166,9 @@
       },
       "license": "CC-BY-4.0",
       "tags": [
-        "canonical",
-        "counting",
-        "non-regular"
+        "union",
+        "parity",
+        "closure-properties"
       ],
       "difficulty": "intro"
     }

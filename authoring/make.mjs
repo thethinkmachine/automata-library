@@ -16,7 +16,7 @@ import { dirname, join, relative } from 'node:path';
 import { pathToFileURL } from 'node:url';
 import { LIBRARY_ROOT, folderFor, slugify, machineIdOf } from './lib/engine.mjs';
 import { buildDoc } from './lib/dsl.mjs';
-import { verify, signatureOf, analyzeDocument } from './lib/verify.mjs';
+import { verify, signatureOf, analyzeDocument, runTape } from './lib/verify.mjs';
 
 const args = process.argv.slice(2);
 const WRITE = args.includes('--write');
@@ -93,11 +93,14 @@ async function main() {
       res.warnings.push(...a.warnings);
       res.badges = (a.facts?.badges || []).map(b => (typeof b === 'string' ? b : b.id));
       if (!res.badges.includes('tested')) res.errors.push('does not earn the tested badge');
+      if (['NFA', 'ε-NFA'].includes(spec.type) && res.badges.includes('deterministic')) res.errors.push('this NFA never branches: it is a DFA, and belongs with them');
       for (const b of spec.badges || []) if (!res.badges.includes(b)) res.errors.push(`expected the ${b} badge`);
       const mid = machineIdOf(doc);
       if (byMid.has(mid)) res.errors.push(`the same machine as ${byMid.get(mid)}`);
       byMid.set(mid, path);
-      const sig = signatureOf(doc);
+      let sig = signatureOf(doc);
+      // a machine that computes is named by what it computes, not by what it accepts
+      if (spec.tape) sig += '|' + v.results.filter(r => r.want && r.w.length <= 6).map(r => runTape(doc, r.w, 100000).tape).join(',');
       const key = `${spec.type}#${sig}`;
       if (bySig.has(key)) res.errors.push(`the same language as ${bySig.get(key)}`);
       bySig.set(key, path);

@@ -1,0 +1,461 @@
+{
+  "format": "automata-studio/workspace",
+  "schema": 1,
+  "app": "dev",
+  "machine": "LBA",
+  "config": {
+    "sym": {
+      "eps": "ε",
+      "any": "Σ",
+      "blank": "⊔",
+      "leftMarker": "⊢",
+      "rightMarker": "⊣",
+      "stackBottom": "Z",
+      "lambda": "λ"
+    }
+  },
+  "sigma": [
+    "a",
+    "b"
+  ],
+  "stackAlpha": [
+    "a",
+    "b",
+    "⊢",
+    "A",
+    "B",
+    "P",
+    "Q",
+    "⊣",
+    "x",
+    "y",
+    "⊔"
+  ],
+  "outputAlpha": [],
+  "tapeCount": 1,
+  "states": [
+    {
+      "id": "s1",
+      "x": 140,
+      "y": 255,
+      "name": "m0"
+    },
+    {
+      "id": "s2",
+      "x": 319,
+      "y": 255,
+      "name": "mL"
+    },
+    {
+      "id": "s3",
+      "x": 498,
+      "y": 350,
+      "name": "toR"
+    },
+    {
+      "id": "s4",
+      "x": 498,
+      "y": 160,
+      "name": "rew"
+    },
+    {
+      "id": "s5",
+      "x": 498,
+      "y": 255,
+      "name": "acc"
+    },
+    {
+      "id": "s6",
+      "x": 677,
+      "y": 303,
+      "name": "atR"
+    },
+    {
+      "id": "s7",
+      "x": 856,
+      "y": 350,
+      "name": "back"
+    },
+    {
+      "id": "s8",
+      "x": 677,
+      "y": 208,
+      "name": "c0"
+    },
+    {
+      "id": "s9",
+      "x": 856,
+      "y": 255,
+      "name": "ga"
+    },
+    {
+      "id": "s10",
+      "x": 856,
+      "y": 160,
+      "name": "gb"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "t1",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "⊢",
+      "write": "⊢",
+      "dir": "R"
+    },
+    {
+      "id": "t2",
+      "from": "s2",
+      "to": "s2",
+      "symbol": "A",
+      "write": "A",
+      "dir": "R"
+    },
+    {
+      "id": "t3",
+      "from": "s2",
+      "to": "s2",
+      "symbol": "B",
+      "write": "B",
+      "dir": "R"
+    },
+    {
+      "id": "t4",
+      "from": "s2",
+      "to": "s3",
+      "symbol": "a",
+      "write": "A",
+      "dir": "R"
+    },
+    {
+      "id": "t5",
+      "from": "s2",
+      "to": "s3",
+      "symbol": "b",
+      "write": "B",
+      "dir": "R"
+    },
+    {
+      "id": "t6",
+      "from": "s2",
+      "to": "s4",
+      "symbol": "P",
+      "write": "P",
+      "dir": "L"
+    },
+    {
+      "id": "t7",
+      "from": "s2",
+      "to": "s4",
+      "symbol": "Q",
+      "write": "Q",
+      "dir": "L"
+    },
+    {
+      "id": "t8",
+      "from": "s2",
+      "to": "s5",
+      "symbol": "⊣",
+      "write": "⊣",
+      "dir": "S"
+    },
+    {
+      "id": "t9",
+      "from": "s3",
+      "to": "s3",
+      "symbol": "a",
+      "write": "a",
+      "dir": "R"
+    },
+    {
+      "id": "t10",
+      "from": "s3",
+      "to": "s3",
+      "symbol": "b",
+      "write": "b",
+      "dir": "R"
+    },
+    {
+      "id": "t11",
+      "from": "s3",
+      "to": "s6",
+      "symbol": "P",
+      "write": "P",
+      "dir": "L"
+    },
+    {
+      "id": "t12",
+      "from": "s3",
+      "to": "s6",
+      "symbol": "Q",
+      "write": "Q",
+      "dir": "L"
+    },
+    {
+      "id": "t13",
+      "from": "s3",
+      "to": "s6",
+      "symbol": "⊣",
+      "write": "⊣",
+      "dir": "L"
+    },
+    {
+      "id": "t14",
+      "from": "s6",
+      "to": "s7",
+      "symbol": "a",
+      "write": "P",
+      "dir": "L"
+    },
+    {
+      "id": "t15",
+      "from": "s6",
+      "to": "s7",
+      "symbol": "b",
+      "write": "Q",
+      "dir": "L"
+    },
+    {
+      "id": "t16",
+      "from": "s7",
+      "to": "s7",
+      "symbol": "a",
+      "write": "a",
+      "dir": "L"
+    },
+    {
+      "id": "t17",
+      "from": "s7",
+      "to": "s7",
+      "symbol": "b",
+      "write": "b",
+      "dir": "L"
+    },
+    {
+      "id": "t18",
+      "from": "s7",
+      "to": "s2",
+      "symbol": "A",
+      "write": "A",
+      "dir": "R"
+    },
+    {
+      "id": "t19",
+      "from": "s7",
+      "to": "s2",
+      "symbol": "B",
+      "write": "B",
+      "dir": "R"
+    },
+    {
+      "id": "t20",
+      "from": "s4",
+      "to": "s4",
+      "symbol": "P",
+      "write": "P",
+      "dir": "L"
+    },
+    {
+      "id": "t21",
+      "from": "s4",
+      "to": "s4",
+      "symbol": "Q",
+      "write": "Q",
+      "dir": "L"
+    },
+    {
+      "id": "t22",
+      "from": "s4",
+      "to": "s4",
+      "symbol": "A",
+      "write": "A",
+      "dir": "L"
+    },
+    {
+      "id": "t23",
+      "from": "s4",
+      "to": "s4",
+      "symbol": "B",
+      "write": "B",
+      "dir": "L"
+    },
+    {
+      "id": "t24",
+      "from": "s4",
+      "to": "s4",
+      "symbol": "x",
+      "write": "x",
+      "dir": "L"
+    },
+    {
+      "id": "t25",
+      "from": "s4",
+      "to": "s4",
+      "symbol": "y",
+      "write": "y",
+      "dir": "L"
+    },
+    {
+      "id": "t26",
+      "from": "s4",
+      "to": "s8",
+      "symbol": "⊢",
+      "write": "⊢",
+      "dir": "R"
+    },
+    {
+      "id": "t27",
+      "from": "s8",
+      "to": "s8",
+      "symbol": "x",
+      "write": "x",
+      "dir": "R"
+    },
+    {
+      "id": "t28",
+      "from": "s8",
+      "to": "s9",
+      "symbol": "A",
+      "write": "x",
+      "dir": "R"
+    },
+    {
+      "id": "t29",
+      "from": "s8",
+      "to": "s10",
+      "symbol": "B",
+      "write": "x",
+      "dir": "R"
+    },
+    {
+      "id": "t30",
+      "from": "s8",
+      "to": "s5",
+      "symbol": "y",
+      "write": "y",
+      "dir": "S"
+    },
+    {
+      "id": "t31",
+      "from": "s9",
+      "to": "s9",
+      "symbol": "A",
+      "write": "A",
+      "dir": "R"
+    },
+    {
+      "id": "t32",
+      "from": "s9",
+      "to": "s9",
+      "symbol": "B",
+      "write": "B",
+      "dir": "R"
+    },
+    {
+      "id": "t33",
+      "from": "s9",
+      "to": "s9",
+      "symbol": "y",
+      "write": "y",
+      "dir": "R"
+    },
+    {
+      "id": "t34",
+      "from": "s9",
+      "to": "s4",
+      "symbol": "P",
+      "write": "y",
+      "dir": "L"
+    },
+    {
+      "id": "t35",
+      "from": "s10",
+      "to": "s10",
+      "symbol": "A",
+      "write": "A",
+      "dir": "R"
+    },
+    {
+      "id": "t36",
+      "from": "s10",
+      "to": "s10",
+      "symbol": "B",
+      "write": "B",
+      "dir": "R"
+    },
+    {
+      "id": "t37",
+      "from": "s10",
+      "to": "s10",
+      "symbol": "y",
+      "write": "y",
+      "dir": "R"
+    },
+    {
+      "id": "t38",
+      "from": "s10",
+      "to": "s4",
+      "symbol": "Q",
+      "write": "y",
+      "dir": "L"
+    }
+  ],
+  "startId": "s1",
+  "accepts": [
+    "s5"
+  ],
+  "notes": [],
+  "dividers": [],
+  "blocks": [],
+  "meta": {
+    "title": "A word repeated twice: ww",
+    "blurb": "Without a separator the machine must find the middle itself: it capitalises letters alternately from the left and from the right until the two ends meet. Then it compares the halves letter by letter. An odd-length word is caught when the ends cross.",
+    "inputs": [
+      {
+        "w": "",
+        "expect": "accept"
+      },
+      {
+        "w": "abab",
+        "expect": "accept"
+      },
+      {
+        "w": "aa",
+        "expect": "accept"
+      },
+      {
+        "w": "aabbaabb",
+        "expect": "accept"
+      },
+      {
+        "w": "a",
+        "expect": "reject"
+      },
+      {
+        "w": "bbab",
+        "expect": "reject"
+      },
+      {
+        "w": "ba",
+        "expect": "reject"
+      },
+      {
+        "w": "babbaabb",
+        "expect": "reject"
+      }
+    ],
+    "library": {
+      "author": {
+        "login": "thethinkmachine"
+      },
+      "license": "CC-BY-4.0",
+      "tags": [
+        "copy-language",
+        "context-sensitive",
+        "finding-the-middle"
+      ],
+      "difficulty": "advanced"
+    }
+  }
+}

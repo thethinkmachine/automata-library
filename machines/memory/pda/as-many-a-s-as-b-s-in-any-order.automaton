@@ -21,7 +21,8 @@
   ],
   "stackAlpha": [
     "Z",
-    "X"
+    "A",
+    "B"
   ],
   "outputAlpha": [],
   "tapeCount": 1,
@@ -30,25 +31,19 @@
       "id": "s1",
       "x": 140,
       "y": 160,
-      "name": "start"
+      "name": "even"
     },
     {
       "id": "s2",
       "x": 319,
       "y": 160,
-      "name": "as"
+      "name": "ahead"
     },
     {
       "id": "s3",
       "x": 498,
       "y": 160,
-      "name": "bs"
-    },
-    {
-      "id": "s4",
-      "x": 677,
-      "y": 160,
-      "name": "done"
+      "name": "check"
     }
   ],
   "transitions": [
@@ -58,52 +53,83 @@
       "to": "s2",
       "symbol": "a",
       "pop": "Z",
-      "push": "XZ"
+      "push": "AZ"
     },
     {
       "id": "t2",
-      "from": "s2",
+      "from": "s1",
       "to": "s2",
-      "symbol": "a",
-      "pop": "X",
-      "push": "XX"
+      "symbol": "b",
+      "pop": "Z",
+      "push": "BZ"
     },
     {
       "id": "t3",
       "from": "s2",
-      "to": "s3",
-      "symbol": "b",
-      "pop": "X",
-      "push": "ε"
+      "to": "s2",
+      "symbol": "a",
+      "pop": "A",
+      "push": "AA"
     },
     {
       "id": "t4",
-      "from": "s3",
-      "to": "s3",
+      "from": "s2",
+      "to": "s2",
       "symbol": "b",
-      "pop": "X",
-      "push": "ε"
+      "pop": "B",
+      "push": "BB"
     },
     {
       "id": "t5",
+      "from": "s2",
+      "to": "s3",
+      "symbol": "a",
+      "pop": "B",
+      "push": "ε"
+    },
+    {
+      "id": "t6",
+      "from": "s2",
+      "to": "s3",
+      "symbol": "b",
+      "pop": "A",
+      "push": "ε"
+    },
+    {
+      "id": "t7",
       "from": "s3",
-      "to": "s4",
+      "to": "s1",
       "symbol": "ε",
       "pop": "Z",
       "push": "Z"
+    },
+    {
+      "id": "t8",
+      "from": "s3",
+      "to": "s2",
+      "symbol": "ε",
+      "pop": "A",
+      "push": "A"
+    },
+    {
+      "id": "t9",
+      "from": "s3",
+      "to": "s2",
+      "symbol": "ε",
+      "pop": "B",
+      "push": "B"
     }
   ],
   "startId": "s1",
   "accepts": [
-    "s1",
-    "s4"
+    "s1"
   ],
   "notes": [],
   "dividers": [],
   "blocks": [],
   "meta": {
-    "title": "aⁿbⁿ",
-    "blurb": "The language that is not regular: no finite memory can count the a’s, and a stack can. Push one X per a, pop one per b, and accept when the bottom marker comes back into view exactly as the input runs out.",
+    "title": "As many a’s as b’s, in any order",
+    "blurb": "The stack holds the surplus: A’s while a is ahead, B’s while b is. A letter either adds to the surplus or cancels one. After a cancellation the machine looks at the top to see whether it is back to even, which is the only accepting state.",
     "inputs": [
       {
         "w": "",
@@ -114,11 +140,11 @@
         "expect": "accept"
       },
       {
-        "w": "ab",
+        "w": "ba",
         "expect": "accept"
       },
       {
-        "w": "aaaaaaabbbbbbb",
+        "w": "baabbaabbaab",
         "expect": "accept"
       },
       {
@@ -130,11 +156,11 @@
         "expect": "reject"
       },
       {
-        "w": "bb",
+        "w": "aa",
         "expect": "reject"
       },
       {
-        "w": "baaaaaabbbbbbb",
+        "w": "aaabbaabbaab",
         "expect": "reject"
       }
     ],
@@ -144,11 +170,11 @@
       },
       "license": "CC-BY-4.0",
       "tags": [
-        "canonical",
         "counting",
-        "non-regular"
+        "balance",
+        "deterministic-cfl"
       ],
-      "difficulty": "intro"
+      "difficulty": "intermediate"
     }
   }
 }

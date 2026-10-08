@@ -1,0 +1,376 @@
+{
+  "format": "automata-studio/workspace",
+  "schema": 1,
+  "app": "dev",
+  "machine": "TM",
+  "config": {
+    "sym": {
+      "eps": "ε",
+      "any": "Σ",
+      "blank": "⊔",
+      "leftMarker": "⊢",
+      "rightMarker": "⊣",
+      "stackBottom": "Z",
+      "lambda": "λ"
+    }
+  },
+  "sigma": [
+    "a",
+    "b"
+  ],
+  "stackAlpha": [
+    "a",
+    "b",
+    "w",
+    " ",
+    "=",
+    ">",
+    "`",
+    "$",
+    "{",
+    "}",
+    "#",
+    "X",
+    "Y",
+    "⊔"
+  ],
+  "outputAlpha": [],
+  "tapeCount": 1,
+  "states": [
+    {
+      "id": "s1",
+      "x": 140,
+      "y": 303,
+      "name": "next"
+    },
+    {
+      "id": "s2",
+      "x": 319,
+      "y": 445,
+      "name": "carryA"
+    },
+    {
+      "id": "s3",
+      "x": 319,
+      "y": 255,
+      "name": "carryB"
+    },
+    {
+      "id": "s4",
+      "x": 319,
+      "y": 160,
+      "name": "unmark"
+    },
+    {
+      "id": "s5",
+      "x": 319,
+      "y": 350,
+      "name": "done"
+    },
+    {
+      "id": "s6",
+      "x": 498,
+      "y": 445,
+      "name": "pastA"
+    },
+    {
+      "id": "s7",
+      "x": 498,
+      "y": 350,
+      "name": "putA"
+    },
+    {
+      "id": "s8",
+      "x": 677,
+      "y": 303,
+      "name": "home"
+    },
+    {
+      "id": "s9",
+      "x": 498,
+      "y": 255,
+      "name": "pastB"
+    },
+    {
+      "id": "s10",
+      "x": 498,
+      "y": 160,
+      "name": "putB"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "t1",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "a",
+      "write": "X",
+      "dir": "R"
+    },
+    {
+      "id": "t2",
+      "from": "s1",
+      "to": "s3",
+      "symbol": "b",
+      "write": "Y",
+      "dir": "R"
+    },
+    {
+      "id": "t3",
+      "from": "s1",
+      "to": "s4",
+      "symbol": "#",
+      "write": "#",
+      "dir": "L"
+    },
+    {
+      "id": "t4",
+      "from": "s1",
+      "to": "s5",
+      "symbol": "⊔",
+      "write": "#",
+      "dir": "S"
+    },
+    {
+      "id": "t5",
+      "from": "s2",
+      "to": "s2",
+      "symbol": "a",
+      "write": "a",
+      "dir": "R"
+    },
+    {
+      "id": "t6",
+      "from": "s2",
+      "to": "s2",
+      "symbol": "b",
+      "write": "b",
+      "dir": "R"
+    },
+    {
+      "id": "t7",
+      "from": "s2",
+      "to": "s6",
+      "symbol": "#",
+      "write": "#",
+      "dir": "R"
+    },
+    {
+      "id": "t8",
+      "from": "s2",
+      "to": "s7",
+      "symbol": "⊔",
+      "write": "#",
+      "dir": "R"
+    },
+    {
+      "id": "t9",
+      "from": "s6",
+      "to": "s6",
+      "symbol": "a",
+      "write": "a",
+      "dir": "R"
+    },
+    {
+      "id": "t10",
+      "from": "s6",
+      "to": "s6",
+      "symbol": "b",
+      "write": "b",
+      "dir": "R"
+    },
+    {
+      "id": "t11",
+      "from": "s6",
+      "to": "s8",
+      "symbol": "⊔",
+      "write": "a",
+      "dir": "L"
+    },
+    {
+      "id": "t12",
+      "from": "s7",
+      "to": "s8",
+      "symbol": "⊔",
+      "write": "a",
+      "dir": "L"
+    },
+    {
+      "id": "t13",
+      "from": "s3",
+      "to": "s3",
+      "symbol": "a",
+      "write": "a",
+      "dir": "R"
+    },
+    {
+      "id": "t14",
+      "from": "s3",
+      "to": "s3",
+      "symbol": "b",
+      "write": "b",
+      "dir": "R"
+    },
+    {
+      "id": "t15",
+      "from": "s3",
+      "to": "s9",
+      "symbol": "#",
+      "write": "#",
+      "dir": "R"
+    },
+    {
+      "id": "t16",
+      "from": "s3",
+      "to": "s10",
+      "symbol": "⊔",
+      "write": "#",
+      "dir": "R"
+    },
+    {
+      "id": "t17",
+      "from": "s9",
+      "to": "s9",
+      "symbol": "a",
+      "write": "a",
+      "dir": "R"
+    },
+    {
+      "id": "t18",
+      "from": "s9",
+      "to": "s9",
+      "symbol": "b",
+      "write": "b",
+      "dir": "R"
+    },
+    {
+      "id": "t19",
+      "from": "s9",
+      "to": "s8",
+      "symbol": "⊔",
+      "write": "b",
+      "dir": "L"
+    },
+    {
+      "id": "t20",
+      "from": "s10",
+      "to": "s8",
+      "symbol": "⊔",
+      "write": "b",
+      "dir": "L"
+    },
+    {
+      "id": "t21",
+      "from": "s8",
+      "to": "s8",
+      "symbol": "a",
+      "write": "a",
+      "dir": "L"
+    },
+    {
+      "id": "t22",
+      "from": "s8",
+      "to": "s8",
+      "symbol": "b",
+      "write": "b",
+      "dir": "L"
+    },
+    {
+      "id": "t23",
+      "from": "s8",
+      "to": "s8",
+      "symbol": "#",
+      "write": "#",
+      "dir": "L"
+    },
+    {
+      "id": "t24",
+      "from": "s8",
+      "to": "s1",
+      "symbol": "X",
+      "write": "X",
+      "dir": "R"
+    },
+    {
+      "id": "t25",
+      "from": "s8",
+      "to": "s1",
+      "symbol": "Y",
+      "write": "Y",
+      "dir": "R"
+    },
+    {
+      "id": "t26",
+      "from": "s4",
+      "to": "s4",
+      "symbol": "X",
+      "write": "a",
+      "dir": "L"
+    },
+    {
+      "id": "t27",
+      "from": "s4",
+      "to": "s4",
+      "symbol": "Y",
+      "write": "b",
+      "dir": "L"
+    },
+    {
+      "id": "t28",
+      "from": "s4",
+      "to": "s5",
+      "symbol": "a",
+      "write": "a",
+      "dir": "S"
+    },
+    {
+      "id": "t29",
+      "from": "s4",
+      "to": "s5",
+      "symbol": "b",
+      "write": "b",
+      "dir": "S"
+    }
+  ],
+  "startId": "s1",
+  "accepts": [
+    "s5"
+  ],
+  "notes": [],
+  "dividers": [],
+  "blocks": [],
+  "meta": {
+    "title": "Copy a string: w ↦ w#w",
+    "blurb": "Each symbol of w is marked as copied (a becomes X, b becomes Y), carried to the end of the tape and written there; the separator is laid down by the first trip. At the end the marks are turned back into letters. Every copy costs a round trip, so the whole job takes time proportional to n².",
+    "inputs": [
+      {
+        "w": "",
+        "expect": "accept"
+      },
+      {
+        "w": "aabba",
+        "expect": "accept"
+      },
+      {
+        "w": "a",
+        "expect": "accept"
+      },
+      {
+        "w": "aaaaaabba",
+        "expect": "accept"
+      }
+    ],
+    "library": {
+      "author": {
+        "login": "thethinkmachine"
+      },
+      "license": "CC-BY-4.0",
+      "tags": [
+        "copying",
+        "computing-a-function",
+        "markers"
+      ],
+      "difficulty": "intermediate"
+    }
+  }
+}
