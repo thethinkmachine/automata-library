@@ -1,0 +1,163 @@
+{
+  "format": "automata-studio/workspace",
+  "schema": 1,
+  "app": "dev",
+  "machine": "DFA",
+  "config": {
+    "sym": {
+      "eps": "ε",
+      "any": "Σ",
+      "blank": "⊔",
+      "leftMarker": "⊢",
+      "rightMarker": "⊣",
+      "stackBottom": "Z",
+      "lambda": "λ"
+    }
+  },
+  "sigma": [
+    "/",
+    "*",
+    "x"
+  ],
+  "stackAlpha": [],
+  "outputAlpha": [],
+  "tapeCount": 1,
+  "states": [
+    {
+      "id": "s1",
+      "x": 140,
+      "y": 160,
+      "name": "start"
+    },
+    {
+      "id": "s2",
+      "x": 319,
+      "y": 160,
+      "name": "slash"
+    },
+    {
+      "id": "s3",
+      "x": 498,
+      "y": 160,
+      "name": "body"
+    },
+    {
+      "id": "s4",
+      "x": 677,
+      "y": 160,
+      "name": "star"
+    },
+    {
+      "id": "s5",
+      "x": 856,
+      "y": 160,
+      "name": "done"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "t1",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "/"
+    },
+    {
+      "id": "t2",
+      "from": "s2",
+      "to": "s3",
+      "symbol": "*"
+    },
+    {
+      "id": "t3",
+      "from": "s3",
+      "to": "s3",
+      "symbol": "x"
+    },
+    {
+      "id": "t4",
+      "from": "s3",
+      "to": "s3",
+      "symbol": "/"
+    },
+    {
+      "id": "t5",
+      "from": "s3",
+      "to": "s4",
+      "symbol": "*"
+    },
+    {
+      "id": "t6",
+      "from": "s4",
+      "to": "s4",
+      "symbol": "*"
+    },
+    {
+      "id": "t7",
+      "from": "s4",
+      "to": "s3",
+      "symbol": "x"
+    },
+    {
+      "id": "t8",
+      "from": "s4",
+      "to": "s5",
+      "symbol": "/"
+    }
+  ],
+  "startId": "s1",
+  "accepts": [
+    "s5"
+  ],
+  "notes": [],
+  "dividers": [],
+  "blocks": [],
+  "meta": {
+    "title": "A C comment, /* … */",
+    "blurb": "Exactly one block comment: x stands for any other character. The trap is */ inside the body — after a *, a / ends the comment, another * keeps the possibility open, anything else falls back to the body.",
+    "inputs": [
+      {
+        "w": "/**/",
+        "expect": "accept"
+      },
+      {
+        "w": "/*x*/",
+        "expect": "accept"
+      },
+      {
+        "w": "/*x**/",
+        "expect": "accept"
+      },
+      {
+        "w": "/*/x*/",
+        "expect": "accept"
+      },
+      {
+        "w": "/***x*/",
+        "expect": "accept"
+      },
+      {
+        "w": "/*x*/x",
+        "expect": "reject"
+      },
+      {
+        "w": "/*/",
+        "expect": "reject"
+      },
+      {
+        "w": "/*x*x",
+        "expect": "reject"
+      }
+    ],
+    "library": {
+      "author": {
+        "login": "thethinkmachine"
+      },
+      "license": "CC-BY-4.0",
+      "tags": [
+        "lexing",
+        "comments"
+      ],
+      "difficulty": "intermediate"
+    }
+  }
+}

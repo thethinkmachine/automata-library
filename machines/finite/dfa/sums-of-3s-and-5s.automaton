@@ -1,0 +1,196 @@
+{
+  "format": "automata-studio/workspace",
+  "schema": 1,
+  "app": "dev",
+  "machine": "DFA",
+  "config": {
+    "sym": {
+      "eps": "ε",
+      "any": "Σ",
+      "blank": "⊔",
+      "leftMarker": "⊢",
+      "rightMarker": "⊣",
+      "stackBottom": "Z",
+      "lambda": "λ"
+    }
+  },
+  "sigma": [
+    "a"
+  ],
+  "stackAlpha": [],
+  "outputAlpha": [],
+  "tapeCount": 1,
+  "states": [
+    {
+      "id": "s1",
+      "x": 140,
+      "y": 160,
+      "name": "n0"
+    },
+    {
+      "id": "s2",
+      "x": 319,
+      "y": 160,
+      "name": "n1"
+    },
+    {
+      "id": "s3",
+      "x": 498,
+      "y": 160,
+      "name": "n2"
+    },
+    {
+      "id": "s4",
+      "x": 677,
+      "y": 160,
+      "name": "n3"
+    },
+    {
+      "id": "s5",
+      "x": 856,
+      "y": 160,
+      "name": "n4"
+    },
+    {
+      "id": "s6",
+      "x": 1035,
+      "y": 160,
+      "name": "n5"
+    },
+    {
+      "id": "s7",
+      "x": 1214,
+      "y": 160,
+      "name": "n6"
+    },
+    {
+      "id": "s8",
+      "x": 1393,
+      "y": 160,
+      "name": "n7"
+    },
+    {
+      "id": "s9",
+      "x": 1572,
+      "y": 160,
+      "name": "n8+"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "t1",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "a"
+    },
+    {
+      "id": "t2",
+      "from": "s2",
+      "to": "s3",
+      "symbol": "a"
+    },
+    {
+      "id": "t3",
+      "from": "s3",
+      "to": "s4",
+      "symbol": "a"
+    },
+    {
+      "id": "t4",
+      "from": "s4",
+      "to": "s5",
+      "symbol": "a"
+    },
+    {
+      "id": "t5",
+      "from": "s5",
+      "to": "s6",
+      "symbol": "a"
+    },
+    {
+      "id": "t6",
+      "from": "s6",
+      "to": "s7",
+      "symbol": "a"
+    },
+    {
+      "id": "t7",
+      "from": "s7",
+      "to": "s8",
+      "symbol": "a"
+    },
+    {
+      "id": "t8",
+      "from": "s8",
+      "to": "s9",
+      "symbol": "a"
+    },
+    {
+      "id": "t9",
+      "from": "s9",
+      "to": "s9",
+      "symbol": "a"
+    }
+  ],
+  "startId": "s1",
+  "accepts": [
+    "s1",
+    "s4",
+    "s6",
+    "s7",
+    "s9"
+  ],
+  "notes": [],
+  "dividers": [],
+  "blocks": [],
+  "meta": {
+    "title": "Sums of 3s and 5s",
+    "blurb": "Which lengths can be made from steps of 3 and 5? Every one from 8 on, and 0, 3, 5 and 6 below it: 7 is the largest that cannot (the Frobenius number, 3·5 − 3 − 5). A unary machine is a path into a loop, and this one’s loop is a single state.",
+    "inputs": [
+      {
+        "w": "",
+        "expect": "accept"
+      },
+      {
+        "w": "aaa",
+        "expect": "accept"
+      },
+      {
+        "w": "aaaaa",
+        "expect": "accept"
+      },
+      {
+        "w": "aaaaaaaaaaaaaa",
+        "expect": "accept"
+      },
+      {
+        "w": "a",
+        "expect": "reject"
+      },
+      {
+        "w": "aa",
+        "expect": "reject"
+      },
+      {
+        "w": "aaaa",
+        "expect": "reject"
+      },
+      {
+        "w": "aaaaaaa",
+        "expect": "reject"
+      }
+    ],
+    "library": {
+      "author": {
+        "login": "thethinkmachine"
+      },
+      "license": "CC-BY-4.0",
+      "tags": [
+        "unary",
+        "frobenius",
+        "number-theory"
+      ],
+      "difficulty": "intermediate"
+    }
+  }
+}

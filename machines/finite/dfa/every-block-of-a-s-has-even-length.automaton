@@ -1,0 +1,114 @@
+{
+  "format": "automata-studio/workspace",
+  "schema": 1,
+  "app": "dev",
+  "machine": "DFA",
+  "config": {
+    "sym": {
+      "eps": "ε",
+      "any": "Σ",
+      "blank": "⊔",
+      "leftMarker": "⊢",
+      "rightMarker": "⊣",
+      "stackBottom": "Z",
+      "lambda": "λ"
+    }
+  },
+  "sigma": [
+    "a",
+    "b"
+  ],
+  "stackAlpha": [],
+  "outputAlpha": [],
+  "tapeCount": 1,
+  "states": [
+    {
+      "id": "s1",
+      "x": 140,
+      "y": 160,
+      "name": "even"
+    },
+    {
+      "id": "s2",
+      "x": 319,
+      "y": 160,
+      "name": "odd"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "t1",
+      "from": "s1",
+      "to": "s1",
+      "symbol": "b"
+    },
+    {
+      "id": "t2",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "a"
+    },
+    {
+      "id": "t3",
+      "from": "s2",
+      "to": "s1",
+      "symbol": "a"
+    }
+  ],
+  "startId": "s1",
+  "accepts": [
+    "s1"
+  ],
+  "notes": [],
+  "dividers": [],
+  "blocks": [],
+  "meta": {
+    "title": "Every block of a’s has even length",
+    "blurb": "Words built from b and aa. The machine is in the middle of a pair of a’s or not; a b in the middle of a pair has nowhere to go.",
+    "inputs": [
+      {
+        "w": "",
+        "expect": "accept"
+      },
+      {
+        "w": "baabb",
+        "expect": "accept"
+      },
+      {
+        "w": "b",
+        "expect": "accept"
+      },
+      {
+        "w": "aaaaaabbaa",
+        "expect": "accept"
+      },
+      {
+        "w": "a",
+        "expect": "reject"
+      },
+      {
+        "w": "aaabb",
+        "expect": "reject"
+      },
+      {
+        "w": "ab",
+        "expect": "reject"
+      },
+      {
+        "w": "baaaaabbaa",
+        "expect": "reject"
+      }
+    ],
+    "library": {
+      "author": {
+        "login": "thethinkmachine"
+      },
+      "license": "CC-BY-4.0",
+      "tags": [
+        "runs",
+        "partial-dfa"
+      ],
+      "difficulty": "intro"
+    }
+  }
+}

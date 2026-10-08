@@ -1,0 +1,417 @@
+{
+  "format": "automata-studio/workspace",
+  "schema": 1,
+  "app": "dev",
+  "machine": "DFA",
+  "config": {
+    "sym": {
+      "eps": "ε",
+      "any": "Σ",
+      "blank": "⊔",
+      "leftMarker": "⊢",
+      "rightMarker": "⊣",
+      "stackBottom": "Z",
+      "lambda": "λ"
+    }
+  },
+  "sigma": [
+    "0",
+    "1",
+    "2",
+    "3",
+    "4",
+    "5",
+    "6",
+    "7",
+    "8",
+    "9"
+  ],
+  "stackAlpha": [],
+  "outputAlpha": [],
+  "tapeCount": 1,
+  "states": [
+    {
+      "id": "s1",
+      "x": 140,
+      "y": 303,
+      "name": "start"
+    },
+    {
+      "id": "s2",
+      "x": 319,
+      "y": 445,
+      "name": "done"
+    },
+    {
+      "id": "s3",
+      "x": 319,
+      "y": 255,
+      "name": "one"
+    },
+    {
+      "id": "s4",
+      "x": 319,
+      "y": 160,
+      "name": "two"
+    },
+    {
+      "id": "s5",
+      "x": 319,
+      "y": 350,
+      "name": "any"
+    },
+    {
+      "id": "s6",
+      "x": 498,
+      "y": 303,
+      "name": "lim"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "t1",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "0"
+    },
+    {
+      "id": "t2",
+      "from": "s1",
+      "to": "s3",
+      "symbol": "1"
+    },
+    {
+      "id": "t3",
+      "from": "s1",
+      "to": "s4",
+      "symbol": "2"
+    },
+    {
+      "id": "t4",
+      "from": "s1",
+      "to": "s5",
+      "symbol": "3"
+    },
+    {
+      "id": "t5",
+      "from": "s1",
+      "to": "s5",
+      "symbol": "4"
+    },
+    {
+      "id": "t6",
+      "from": "s1",
+      "to": "s5",
+      "symbol": "5"
+    },
+    {
+      "id": "t7",
+      "from": "s1",
+      "to": "s5",
+      "symbol": "6"
+    },
+    {
+      "id": "t8",
+      "from": "s1",
+      "to": "s5",
+      "symbol": "7"
+    },
+    {
+      "id": "t9",
+      "from": "s1",
+      "to": "s5",
+      "symbol": "8"
+    },
+    {
+      "id": "t10",
+      "from": "s1",
+      "to": "s5",
+      "symbol": "9"
+    },
+    {
+      "id": "t11",
+      "from": "s3",
+      "to": "s5",
+      "symbol": "0"
+    },
+    {
+      "id": "t12",
+      "from": "s3",
+      "to": "s5",
+      "symbol": "1"
+    },
+    {
+      "id": "t13",
+      "from": "s3",
+      "to": "s5",
+      "symbol": "2"
+    },
+    {
+      "id": "t14",
+      "from": "s3",
+      "to": "s5",
+      "symbol": "3"
+    },
+    {
+      "id": "t15",
+      "from": "s3",
+      "to": "s5",
+      "symbol": "4"
+    },
+    {
+      "id": "t16",
+      "from": "s3",
+      "to": "s5",
+      "symbol": "5"
+    },
+    {
+      "id": "t17",
+      "from": "s3",
+      "to": "s5",
+      "symbol": "6"
+    },
+    {
+      "id": "t18",
+      "from": "s3",
+      "to": "s5",
+      "symbol": "7"
+    },
+    {
+      "id": "t19",
+      "from": "s3",
+      "to": "s5",
+      "symbol": "8"
+    },
+    {
+      "id": "t20",
+      "from": "s3",
+      "to": "s5",
+      "symbol": "9"
+    },
+    {
+      "id": "t21",
+      "from": "s4",
+      "to": "s5",
+      "symbol": "0"
+    },
+    {
+      "id": "t22",
+      "from": "s4",
+      "to": "s5",
+      "symbol": "1"
+    },
+    {
+      "id": "t23",
+      "from": "s4",
+      "to": "s5",
+      "symbol": "2"
+    },
+    {
+      "id": "t24",
+      "from": "s4",
+      "to": "s5",
+      "symbol": "3"
+    },
+    {
+      "id": "t25",
+      "from": "s4",
+      "to": "s5",
+      "symbol": "4"
+    },
+    {
+      "id": "t26",
+      "from": "s4",
+      "to": "s6",
+      "symbol": "5"
+    },
+    {
+      "id": "t27",
+      "from": "s4",
+      "to": "s2",
+      "symbol": "6"
+    },
+    {
+      "id": "t28",
+      "from": "s4",
+      "to": "s2",
+      "symbol": "7"
+    },
+    {
+      "id": "t29",
+      "from": "s4",
+      "to": "s2",
+      "symbol": "8"
+    },
+    {
+      "id": "t30",
+      "from": "s4",
+      "to": "s2",
+      "symbol": "9"
+    },
+    {
+      "id": "t31",
+      "from": "s5",
+      "to": "s2",
+      "symbol": "0"
+    },
+    {
+      "id": "t32",
+      "from": "s5",
+      "to": "s2",
+      "symbol": "1"
+    },
+    {
+      "id": "t33",
+      "from": "s5",
+      "to": "s2",
+      "symbol": "2"
+    },
+    {
+      "id": "t34",
+      "from": "s5",
+      "to": "s2",
+      "symbol": "3"
+    },
+    {
+      "id": "t35",
+      "from": "s5",
+      "to": "s2",
+      "symbol": "4"
+    },
+    {
+      "id": "t36",
+      "from": "s5",
+      "to": "s2",
+      "symbol": "5"
+    },
+    {
+      "id": "t37",
+      "from": "s5",
+      "to": "s2",
+      "symbol": "6"
+    },
+    {
+      "id": "t38",
+      "from": "s5",
+      "to": "s2",
+      "symbol": "7"
+    },
+    {
+      "id": "t39",
+      "from": "s5",
+      "to": "s2",
+      "symbol": "8"
+    },
+    {
+      "id": "t40",
+      "from": "s5",
+      "to": "s2",
+      "symbol": "9"
+    },
+    {
+      "id": "t41",
+      "from": "s6",
+      "to": "s2",
+      "symbol": "0"
+    },
+    {
+      "id": "t42",
+      "from": "s6",
+      "to": "s2",
+      "symbol": "1"
+    },
+    {
+      "id": "t43",
+      "from": "s6",
+      "to": "s2",
+      "symbol": "2"
+    },
+    {
+      "id": "t44",
+      "from": "s6",
+      "to": "s2",
+      "symbol": "3"
+    },
+    {
+      "id": "t45",
+      "from": "s6",
+      "to": "s2",
+      "symbol": "4"
+    },
+    {
+      "id": "t46",
+      "from": "s6",
+      "to": "s2",
+      "symbol": "5"
+    }
+  ],
+  "startId": "s1",
+  "accepts": [
+    "s3",
+    "s4",
+    "s5",
+    "s6",
+    "s2"
+  ],
+  "notes": [],
+  "dividers": [],
+  "blocks": [],
+  "meta": {
+    "title": "A byte in decimal: 0 to 255",
+    "blurb": "One part of an IPv4 address, with no leading zeros. The states are the few prefixes that constrain what follows: a 1 allows two more digits, a 2 depends on the next digit, and 25 allows only 0–5.",
+    "inputs": [
+      {
+        "w": "0",
+        "expect": "accept"
+      },
+      {
+        "w": "7",
+        "expect": "accept"
+      },
+      {
+        "w": "42",
+        "expect": "accept"
+      },
+      {
+        "w": "199",
+        "expect": "accept"
+      },
+      {
+        "w": "249",
+        "expect": "accept"
+      },
+      {
+        "w": "255",
+        "expect": "accept"
+      },
+      {
+        "w": "256",
+        "expect": "reject"
+      },
+      {
+        "w": "300",
+        "expect": "reject"
+      },
+      {
+        "w": "01",
+        "expect": "reject"
+      },
+      {
+        "w": "1000",
+        "expect": "reject"
+      }
+    ],
+    "library": {
+      "author": {
+        "login": "thethinkmachine"
+      },
+      "license": "CC-BY-4.0",
+      "tags": [
+        "validation",
+        "networking",
+        "format"
+      ],
+      "difficulty": "intermediate"
+    }
+  }
+}

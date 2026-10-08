@@ -1,0 +1,176 @@
+{
+  "format": "automata-studio/workspace",
+  "schema": 1,
+  "app": "dev",
+  "machine": "DFA",
+  "config": {
+    "sym": {
+      "eps": "ε",
+      "any": "Σ",
+      "blank": "⊔",
+      "leftMarker": "⊢",
+      "rightMarker": "⊣",
+      "stackBottom": "Z",
+      "lambda": "λ"
+    }
+  },
+  "sigma": [
+    "0",
+    "1"
+  ],
+  "stackAlpha": [],
+  "outputAlpha": [],
+  "tapeCount": 1,
+  "states": [
+    {
+      "id": "s1",
+      "x": 140,
+      "y": 160,
+      "name": "z0o0"
+    },
+    {
+      "id": "s2",
+      "x": 310,
+      "y": 160,
+      "name": "z1o0"
+    },
+    {
+      "id": "s3",
+      "x": 140,
+      "y": 330,
+      "name": "z0o1"
+    },
+    {
+      "id": "s4",
+      "x": 480,
+      "y": 160,
+      "name": "z2o0"
+    },
+    {
+      "id": "s5",
+      "x": 310,
+      "y": 330,
+      "name": "z1o1"
+    },
+    {
+      "id": "s6",
+      "x": 480,
+      "y": 330,
+      "name": "z2o1"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "t1",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "0"
+    },
+    {
+      "id": "t2",
+      "from": "s1",
+      "to": "s3",
+      "symbol": "1"
+    },
+    {
+      "id": "t3",
+      "from": "s2",
+      "to": "s4",
+      "symbol": "0"
+    },
+    {
+      "id": "t4",
+      "from": "s2",
+      "to": "s5",
+      "symbol": "1"
+    },
+    {
+      "id": "t5",
+      "from": "s3",
+      "to": "s5",
+      "symbol": "0"
+    },
+    {
+      "id": "t6",
+      "from": "s4",
+      "to": "s4",
+      "symbol": "0"
+    },
+    {
+      "id": "t7",
+      "from": "s4",
+      "to": "s6",
+      "symbol": "1"
+    },
+    {
+      "id": "t8",
+      "from": "s5",
+      "to": "s6",
+      "symbol": "0"
+    },
+    {
+      "id": "t9",
+      "from": "s6",
+      "to": "s6",
+      "symbol": "0"
+    }
+  ],
+  "startId": "s1",
+  "accepts": [
+    "s4",
+    "s6"
+  ],
+  "notes": [],
+  "dividers": [],
+  "blocks": [],
+  "meta": {
+    "title": "At least two 0s and at most one 1",
+    "blurb": "Two thresholds checked together. Past two 0s the zero count no longer matters, and a second 1 is fatal, so the machine is a 3 × 2 product with no state for \"two 1s\".",
+    "inputs": [
+      {
+        "w": "00",
+        "expect": "accept"
+      },
+      {
+        "w": "010",
+        "expect": "accept"
+      },
+      {
+        "w": "0000",
+        "expect": "accept"
+      },
+      {
+        "w": "0000000010",
+        "expect": "accept"
+      },
+      {
+        "w": "10",
+        "expect": "reject"
+      },
+      {
+        "w": "110",
+        "expect": "reject"
+      },
+      {
+        "w": "1000000010",
+        "expect": "reject"
+      },
+      {
+        "w": "",
+        "expect": "reject"
+      }
+    ],
+    "library": {
+      "author": {
+        "login": "thethinkmachine"
+      },
+      "license": "CC-BY-4.0",
+      "tags": [
+        "product-construction",
+        "counting",
+        "thresholds"
+      ],
+      "difficulty": "intro"
+    }
+  }
+}

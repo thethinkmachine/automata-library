@@ -1,0 +1,145 @@
+{
+  "format": "automata-studio/workspace",
+  "schema": 1,
+  "app": "dev",
+  "machine": "DFA",
+  "config": {
+    "sym": {
+      "eps": "ε",
+      "any": "Σ",
+      "blank": "⊔",
+      "leftMarker": "⊢",
+      "rightMarker": "⊣",
+      "stackBottom": "Z",
+      "lambda": "λ"
+    }
+  },
+  "sigma": [
+    "(",
+    ")"
+  ],
+  "stackAlpha": [],
+  "outputAlpha": [],
+  "tapeCount": 1,
+  "states": [
+    {
+      "id": "s1",
+      "x": 140,
+      "y": 160,
+      "name": "d0"
+    },
+    {
+      "id": "s2",
+      "x": 310,
+      "y": 160,
+      "name": "d1"
+    },
+    {
+      "id": "s3",
+      "x": 480,
+      "y": 160,
+      "name": "d2"
+    },
+    {
+      "id": "s4",
+      "x": 650,
+      "y": 160,
+      "name": "d3"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "t1",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "("
+    },
+    {
+      "id": "t2",
+      "from": "s2",
+      "to": "s3",
+      "symbol": "("
+    },
+    {
+      "id": "t3",
+      "from": "s3",
+      "to": "s4",
+      "symbol": "("
+    },
+    {
+      "id": "t4",
+      "from": "s4",
+      "to": "s3",
+      "symbol": ")"
+    },
+    {
+      "id": "t5",
+      "from": "s3",
+      "to": "s2",
+      "symbol": ")"
+    },
+    {
+      "id": "t6",
+      "from": "s2",
+      "to": "s1",
+      "symbol": ")"
+    }
+  ],
+  "startId": "s1",
+  "accepts": [
+    "s1"
+  ],
+  "notes": [],
+  "dividers": [],
+  "blocks": [],
+  "meta": {
+    "title": "Parentheses nested at most three deep",
+    "blurb": "Balanced parentheses need a stack in general. With the depth capped at three, the depth itself is the state: a bounded counter is a finite automaton.",
+    "inputs": [
+      {
+        "w": "",
+        "expect": "accept"
+      },
+      {
+        "w": "(())",
+        "expect": "accept"
+      },
+      {
+        "w": "(()())",
+        "expect": "accept"
+      },
+      {
+        "w": "((()()()))",
+        "expect": "accept"
+      },
+      {
+        "w": "(",
+        "expect": "reject"
+      },
+      {
+        "w": ")())",
+        "expect": "reject"
+      },
+      {
+        "w": ")()())",
+        "expect": "reject"
+      },
+      {
+        "w": ")(()()()))",
+        "expect": "reject"
+      }
+    ],
+    "library": {
+      "author": {
+        "login": "thethinkmachine"
+      },
+      "license": "CC-BY-4.0",
+      "tags": [
+        "parentheses",
+        "bounded-depth",
+        "partial-dfa"
+      ],
+      "difficulty": "intro"
+    }
+  }
+}

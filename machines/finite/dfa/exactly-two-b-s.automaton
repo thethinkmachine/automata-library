@@ -1,0 +1,132 @@
+{
+  "format": "automata-studio/workspace",
+  "schema": 1,
+  "app": "dev",
+  "machine": "DFA",
+  "config": {
+    "sym": {
+      "eps": "ε",
+      "any": "Σ",
+      "blank": "⊔",
+      "leftMarker": "⊢",
+      "rightMarker": "⊣",
+      "stackBottom": "Z",
+      "lambda": "λ"
+    }
+  },
+  "sigma": [
+    "a",
+    "b"
+  ],
+  "stackAlpha": [],
+  "outputAlpha": [],
+  "tapeCount": 1,
+  "states": [
+    {
+      "id": "s1",
+      "x": 140,
+      "y": 160,
+      "name": "none"
+    },
+    {
+      "id": "s2",
+      "x": 319,
+      "y": 160,
+      "name": "one"
+    },
+    {
+      "id": "s3",
+      "x": 498,
+      "y": 160,
+      "name": "two"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "t1",
+      "from": "s1",
+      "to": "s1",
+      "symbol": "a"
+    },
+    {
+      "id": "t2",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "b"
+    },
+    {
+      "id": "t3",
+      "from": "s2",
+      "to": "s2",
+      "symbol": "a"
+    },
+    {
+      "id": "t4",
+      "from": "s2",
+      "to": "s3",
+      "symbol": "b"
+    },
+    {
+      "id": "t5",
+      "from": "s3",
+      "to": "s3",
+      "symbol": "a"
+    }
+  ],
+  "startId": "s1",
+  "accepts": [
+    "s3"
+  ],
+  "notes": [],
+  "dividers": [],
+  "blocks": [],
+  "meta": {
+    "title": "Exactly two b’s",
+    "blurb": "Count the b’s and stop counting at two: any a leaves the count alone, and a third b has nowhere to go.",
+    "inputs": [
+      {
+        "w": "bb",
+        "expect": "accept"
+      },
+      {
+        "w": "baab",
+        "expect": "accept"
+      },
+      {
+        "w": "abb",
+        "expect": "accept"
+      },
+      {
+        "w": "aaaaaaabba",
+        "expect": "accept"
+      },
+      {
+        "w": "ab",
+        "expect": "reject"
+      },
+      {
+        "w": "aaab",
+        "expect": "reject"
+      },
+      {
+        "w": "bbb",
+        "expect": "reject"
+      },
+      {
+        "w": "baaaaaabba",
+        "expect": "reject"
+      }
+    ],
+    "library": {
+      "author": {
+        "login": "thethinkmachine"
+      },
+      "license": "CC-BY-4.0",
+      "tags": [
+        "counting",
+        "partial-dfa"
+      ],
+      "difficulty": "intro"
+    }
+  }
+}

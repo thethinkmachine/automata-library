@@ -1,0 +1,285 @@
+{
+  "format": "automata-studio/workspace",
+  "schema": 1,
+  "app": "dev",
+  "machine": "DFA",
+  "config": {
+    "sym": {
+      "eps": "ε",
+      "any": "Σ",
+      "blank": "⊔",
+      "leftMarker": "⊢",
+      "rightMarker": "⊣",
+      "stackBottom": "Z",
+      "lambda": "λ"
+    }
+  },
+  "sigma": [
+    "N",
+    "S",
+    "E",
+    "W"
+  ],
+  "stackAlpha": [],
+  "outputAlpha": [],
+  "tapeCount": 1,
+  "states": [
+    {
+      "id": "s1",
+      "x": 140,
+      "y": 160,
+      "name": "0,0"
+    },
+    {
+      "id": "s2",
+      "x": 140,
+      "y": 330,
+      "name": "0,1"
+    },
+    {
+      "id": "s3",
+      "x": 310,
+      "y": 160,
+      "name": "1,0"
+    },
+    {
+      "id": "s4",
+      "x": 140,
+      "y": 500,
+      "name": "0,2"
+    },
+    {
+      "id": "s5",
+      "x": 310,
+      "y": 330,
+      "name": "1,1"
+    },
+    {
+      "id": "s6",
+      "x": 480,
+      "y": 160,
+      "name": "2,0"
+    },
+    {
+      "id": "s7",
+      "x": 310,
+      "y": 500,
+      "name": "1,2"
+    },
+    {
+      "id": "s8",
+      "x": 480,
+      "y": 330,
+      "name": "2,1"
+    },
+    {
+      "id": "s9",
+      "x": 480,
+      "y": 500,
+      "name": "2,2"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "t1",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "S"
+    },
+    {
+      "id": "t2",
+      "from": "s1",
+      "to": "s3",
+      "symbol": "E"
+    },
+    {
+      "id": "t3",
+      "from": "s2",
+      "to": "s1",
+      "symbol": "N"
+    },
+    {
+      "id": "t4",
+      "from": "s2",
+      "to": "s4",
+      "symbol": "S"
+    },
+    {
+      "id": "t5",
+      "from": "s2",
+      "to": "s5",
+      "symbol": "E"
+    },
+    {
+      "id": "t6",
+      "from": "s3",
+      "to": "s5",
+      "symbol": "S"
+    },
+    {
+      "id": "t7",
+      "from": "s3",
+      "to": "s6",
+      "symbol": "E"
+    },
+    {
+      "id": "t8",
+      "from": "s3",
+      "to": "s1",
+      "symbol": "W"
+    },
+    {
+      "id": "t9",
+      "from": "s4",
+      "to": "s2",
+      "symbol": "N"
+    },
+    {
+      "id": "t10",
+      "from": "s4",
+      "to": "s7",
+      "symbol": "E"
+    },
+    {
+      "id": "t11",
+      "from": "s5",
+      "to": "s3",
+      "symbol": "N"
+    },
+    {
+      "id": "t12",
+      "from": "s5",
+      "to": "s7",
+      "symbol": "S"
+    },
+    {
+      "id": "t13",
+      "from": "s5",
+      "to": "s8",
+      "symbol": "E"
+    },
+    {
+      "id": "t14",
+      "from": "s5",
+      "to": "s2",
+      "symbol": "W"
+    },
+    {
+      "id": "t15",
+      "from": "s6",
+      "to": "s8",
+      "symbol": "S"
+    },
+    {
+      "id": "t16",
+      "from": "s6",
+      "to": "s3",
+      "symbol": "W"
+    },
+    {
+      "id": "t17",
+      "from": "s7",
+      "to": "s5",
+      "symbol": "N"
+    },
+    {
+      "id": "t18",
+      "from": "s7",
+      "to": "s9",
+      "symbol": "E"
+    },
+    {
+      "id": "t19",
+      "from": "s7",
+      "to": "s4",
+      "symbol": "W"
+    },
+    {
+      "id": "t20",
+      "from": "s8",
+      "to": "s6",
+      "symbol": "N"
+    },
+    {
+      "id": "t21",
+      "from": "s8",
+      "to": "s9",
+      "symbol": "S"
+    },
+    {
+      "id": "t22",
+      "from": "s8",
+      "to": "s5",
+      "symbol": "W"
+    },
+    {
+      "id": "t23",
+      "from": "s9",
+      "to": "s8",
+      "symbol": "N"
+    },
+    {
+      "id": "t24",
+      "from": "s9",
+      "to": "s7",
+      "symbol": "W"
+    }
+  ],
+  "startId": "s1",
+  "accepts": [
+    "s1"
+  ],
+  "notes": [],
+  "dividers": [],
+  "blocks": [],
+  "meta": {
+    "title": "A robot that comes home",
+    "blurb": "A robot in a 3 × 3 room starts in a corner and moves N, S, E or W; walking into a wall is not allowed. Accepted: the walks that end where they began. Every closed walk on this grid has even length, and the machine shows why — the squares are coloured like a chessboard.",
+    "inputs": [
+      {
+        "w": "",
+        "expect": "accept"
+      },
+      {
+        "w": "ESNW",
+        "expect": "accept"
+      },
+      {
+        "w": "SSEENNWW",
+        "expect": "accept"
+      },
+      {
+        "w": "ESESWENNWW",
+        "expect": "accept"
+      },
+      {
+        "w": "N",
+        "expect": "reject"
+      },
+      {
+        "w": "NSNW",
+        "expect": "reject"
+      },
+      {
+        "w": "NSEENNWW",
+        "expect": "reject"
+      },
+      {
+        "w": "NSESWENNWW",
+        "expect": "reject"
+      }
+    ],
+    "library": {
+      "author": {
+        "login": "thethinkmachine"
+      },
+      "license": "CC-BY-4.0",
+      "tags": [
+        "grids",
+        "walks",
+        "partial-dfa"
+      ],
+      "difficulty": "intro"
+    }
+  }
+}

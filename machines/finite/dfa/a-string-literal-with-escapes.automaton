@@ -1,0 +1,147 @@
+{
+  "format": "automata-studio/workspace",
+  "schema": 1,
+  "app": "dev",
+  "machine": "DFA",
+  "config": {
+    "sym": {
+      "eps": "ε",
+      "any": "Σ",
+      "blank": "⊔",
+      "leftMarker": "⊢",
+      "rightMarker": "⊣",
+      "stackBottom": "Z",
+      "lambda": "λ"
+    }
+  },
+  "sigma": [
+    "\"",
+    "\\",
+    "a"
+  ],
+  "stackAlpha": [],
+  "outputAlpha": [],
+  "tapeCount": 1,
+  "states": [
+    {
+      "id": "s1",
+      "x": 140,
+      "y": 208,
+      "name": "start"
+    },
+    {
+      "id": "s2",
+      "x": 319,
+      "y": 208,
+      "name": "in"
+    },
+    {
+      "id": "s3",
+      "x": 498,
+      "y": 255,
+      "name": "esc"
+    },
+    {
+      "id": "s4",
+      "x": 498,
+      "y": 160,
+      "name": "done"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "t1",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "\""
+    },
+    {
+      "id": "t2",
+      "from": "s2",
+      "to": "s2",
+      "symbol": "a"
+    },
+    {
+      "id": "t3",
+      "from": "s2",
+      "to": "s3",
+      "symbol": "\\"
+    },
+    {
+      "id": "t4",
+      "from": "s3",
+      "to": "s2",
+      "symbol": "\""
+    },
+    {
+      "id": "t5",
+      "from": "s3",
+      "to": "s2",
+      "symbol": "\\"
+    },
+    {
+      "id": "t6",
+      "from": "s3",
+      "to": "s2",
+      "symbol": "a"
+    },
+    {
+      "id": "t7",
+      "from": "s2",
+      "to": "s4",
+      "symbol": "\""
+    }
+  ],
+  "startId": "s1",
+  "accepts": [
+    "s4"
+  ],
+  "notes": [],
+  "dividers": [],
+  "blocks": [],
+  "meta": {
+    "title": "A string literal with escapes",
+    "blurb": "Between two quotes, a backslash escapes whatever comes next — including a quote or another backslash. a stands for any ordinary character.",
+    "inputs": [
+      {
+        "w": "\"\"",
+        "expect": "accept"
+      },
+      {
+        "w": "\"a\"",
+        "expect": "accept"
+      },
+      {
+        "w": "\"a\\\"a\"",
+        "expect": "accept"
+      },
+      {
+        "w": "\"\\\\\"",
+        "expect": "accept"
+      },
+      {
+        "w": "\"a\\\"",
+        "expect": "reject"
+      },
+      {
+        "w": "\"a\"a",
+        "expect": "reject"
+      },
+      {
+        "w": "\"\\a\\\\\"",
+        "expect": "accept"
+      }
+    ],
+    "library": {
+      "author": {
+        "login": "thethinkmachine"
+      },
+      "license": "CC-BY-4.0",
+      "tags": [
+        "lexing",
+        "escaping"
+      ],
+      "difficulty": "intro"
+    }
+  }
+}

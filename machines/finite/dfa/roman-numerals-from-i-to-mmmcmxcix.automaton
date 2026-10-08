@@ -1,0 +1,684 @@
+{
+  "format": "automata-studio/workspace",
+  "schema": 1,
+  "app": "dev",
+  "machine": "DFA",
+  "config": {
+    "sym": {
+      "eps": "ε",
+      "any": "Σ",
+      "blank": "⊔",
+      "leftMarker": "⊢",
+      "rightMarker": "⊣",
+      "stackBottom": "Z",
+      "lambda": "λ"
+    }
+  },
+  "sigma": [
+    "I",
+    "V",
+    "X",
+    "L",
+    "C",
+    "D",
+    "M"
+  ],
+  "stackAlpha": [],
+  "outputAlpha": [],
+  "tapeCount": 1,
+  "states": [
+    {
+      "id": "s1",
+      "x": 140,
+      "y": 340,
+      "name": "start"
+    },
+    {
+      "id": "s2",
+      "x": 1100,
+      "y": 160,
+      "name": "I"
+    },
+    {
+      "id": "s3",
+      "x": 1100,
+      "y": 520,
+      "name": "V"
+    },
+    {
+      "id": "s4",
+      "x": 740,
+      "y": 160,
+      "name": "X"
+    },
+    {
+      "id": "s5",
+      "x": 740,
+      "y": 520,
+      "name": "L"
+    },
+    {
+      "id": "s6",
+      "x": 380,
+      "y": 160,
+      "name": "C"
+    },
+    {
+      "id": "s7",
+      "x": 380,
+      "y": 520,
+      "name": "D"
+    },
+    {
+      "id": "s8",
+      "x": 260,
+      "y": 220,
+      "name": "M"
+    },
+    {
+      "id": "s9",
+      "x": 1220,
+      "y": 160,
+      "name": "II"
+    },
+    {
+      "id": "s10",
+      "x": 1340,
+      "y": 340,
+      "name": "I✓"
+    },
+    {
+      "id": "s11",
+      "x": 1220,
+      "y": 520,
+      "name": "VI"
+    },
+    {
+      "id": "s12",
+      "x": 860,
+      "y": 160,
+      "name": "XX"
+    },
+    {
+      "id": "s13",
+      "x": 980,
+      "y": 340,
+      "name": "X✓"
+    },
+    {
+      "id": "s14",
+      "x": 860,
+      "y": 520,
+      "name": "LX"
+    },
+    {
+      "id": "s15",
+      "x": 500,
+      "y": 160,
+      "name": "CC"
+    },
+    {
+      "id": "s16",
+      "x": 620,
+      "y": 340,
+      "name": "C✓"
+    },
+    {
+      "id": "s17",
+      "x": 500,
+      "y": 520,
+      "name": "DC"
+    },
+    {
+      "id": "s18",
+      "x": 260,
+      "y": 340,
+      "name": "MM"
+    },
+    {
+      "id": "s19",
+      "x": 260,
+      "y": 460,
+      "name": "MMM"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "t1",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "I"
+    },
+    {
+      "id": "t2",
+      "from": "s1",
+      "to": "s3",
+      "symbol": "V"
+    },
+    {
+      "id": "t3",
+      "from": "s1",
+      "to": "s4",
+      "symbol": "X"
+    },
+    {
+      "id": "t4",
+      "from": "s1",
+      "to": "s5",
+      "symbol": "L"
+    },
+    {
+      "id": "t5",
+      "from": "s1",
+      "to": "s6",
+      "symbol": "C"
+    },
+    {
+      "id": "t6",
+      "from": "s1",
+      "to": "s7",
+      "symbol": "D"
+    },
+    {
+      "id": "t7",
+      "from": "s1",
+      "to": "s8",
+      "symbol": "M"
+    },
+    {
+      "id": "t8",
+      "from": "s2",
+      "to": "s9",
+      "symbol": "I"
+    },
+    {
+      "id": "t9",
+      "from": "s2",
+      "to": "s10",
+      "symbol": "V"
+    },
+    {
+      "id": "t10",
+      "from": "s2",
+      "to": "s10",
+      "symbol": "X"
+    },
+    {
+      "id": "t11",
+      "from": "s3",
+      "to": "s11",
+      "symbol": "I"
+    },
+    {
+      "id": "t12",
+      "from": "s4",
+      "to": "s2",
+      "symbol": "I"
+    },
+    {
+      "id": "t13",
+      "from": "s4",
+      "to": "s3",
+      "symbol": "V"
+    },
+    {
+      "id": "t14",
+      "from": "s4",
+      "to": "s12",
+      "symbol": "X"
+    },
+    {
+      "id": "t15",
+      "from": "s4",
+      "to": "s13",
+      "symbol": "L"
+    },
+    {
+      "id": "t16",
+      "from": "s4",
+      "to": "s13",
+      "symbol": "C"
+    },
+    {
+      "id": "t17",
+      "from": "s5",
+      "to": "s2",
+      "symbol": "I"
+    },
+    {
+      "id": "t18",
+      "from": "s5",
+      "to": "s3",
+      "symbol": "V"
+    },
+    {
+      "id": "t19",
+      "from": "s5",
+      "to": "s14",
+      "symbol": "X"
+    },
+    {
+      "id": "t20",
+      "from": "s6",
+      "to": "s2",
+      "symbol": "I"
+    },
+    {
+      "id": "t21",
+      "from": "s6",
+      "to": "s3",
+      "symbol": "V"
+    },
+    {
+      "id": "t22",
+      "from": "s6",
+      "to": "s4",
+      "symbol": "X"
+    },
+    {
+      "id": "t23",
+      "from": "s6",
+      "to": "s5",
+      "symbol": "L"
+    },
+    {
+      "id": "t24",
+      "from": "s6",
+      "to": "s15",
+      "symbol": "C"
+    },
+    {
+      "id": "t25",
+      "from": "s6",
+      "to": "s16",
+      "symbol": "D"
+    },
+    {
+      "id": "t26",
+      "from": "s6",
+      "to": "s16",
+      "symbol": "M"
+    },
+    {
+      "id": "t27",
+      "from": "s7",
+      "to": "s2",
+      "symbol": "I"
+    },
+    {
+      "id": "t28",
+      "from": "s7",
+      "to": "s3",
+      "symbol": "V"
+    },
+    {
+      "id": "t29",
+      "from": "s7",
+      "to": "s4",
+      "symbol": "X"
+    },
+    {
+      "id": "t30",
+      "from": "s7",
+      "to": "s5",
+      "symbol": "L"
+    },
+    {
+      "id": "t31",
+      "from": "s7",
+      "to": "s17",
+      "symbol": "C"
+    },
+    {
+      "id": "t32",
+      "from": "s8",
+      "to": "s2",
+      "symbol": "I"
+    },
+    {
+      "id": "t33",
+      "from": "s8",
+      "to": "s3",
+      "symbol": "V"
+    },
+    {
+      "id": "t34",
+      "from": "s8",
+      "to": "s4",
+      "symbol": "X"
+    },
+    {
+      "id": "t35",
+      "from": "s8",
+      "to": "s5",
+      "symbol": "L"
+    },
+    {
+      "id": "t36",
+      "from": "s8",
+      "to": "s6",
+      "symbol": "C"
+    },
+    {
+      "id": "t37",
+      "from": "s8",
+      "to": "s7",
+      "symbol": "D"
+    },
+    {
+      "id": "t38",
+      "from": "s8",
+      "to": "s18",
+      "symbol": "M"
+    },
+    {
+      "id": "t39",
+      "from": "s9",
+      "to": "s10",
+      "symbol": "I"
+    },
+    {
+      "id": "t40",
+      "from": "s11",
+      "to": "s9",
+      "symbol": "I"
+    },
+    {
+      "id": "t41",
+      "from": "s12",
+      "to": "s2",
+      "symbol": "I"
+    },
+    {
+      "id": "t42",
+      "from": "s12",
+      "to": "s3",
+      "symbol": "V"
+    },
+    {
+      "id": "t43",
+      "from": "s12",
+      "to": "s13",
+      "symbol": "X"
+    },
+    {
+      "id": "t44",
+      "from": "s13",
+      "to": "s2",
+      "symbol": "I"
+    },
+    {
+      "id": "t45",
+      "from": "s13",
+      "to": "s3",
+      "symbol": "V"
+    },
+    {
+      "id": "t46",
+      "from": "s14",
+      "to": "s2",
+      "symbol": "I"
+    },
+    {
+      "id": "t47",
+      "from": "s14",
+      "to": "s3",
+      "symbol": "V"
+    },
+    {
+      "id": "t48",
+      "from": "s14",
+      "to": "s12",
+      "symbol": "X"
+    },
+    {
+      "id": "t49",
+      "from": "s15",
+      "to": "s2",
+      "symbol": "I"
+    },
+    {
+      "id": "t50",
+      "from": "s15",
+      "to": "s3",
+      "symbol": "V"
+    },
+    {
+      "id": "t51",
+      "from": "s15",
+      "to": "s4",
+      "symbol": "X"
+    },
+    {
+      "id": "t52",
+      "from": "s15",
+      "to": "s5",
+      "symbol": "L"
+    },
+    {
+      "id": "t53",
+      "from": "s15",
+      "to": "s16",
+      "symbol": "C"
+    },
+    {
+      "id": "t54",
+      "from": "s16",
+      "to": "s2",
+      "symbol": "I"
+    },
+    {
+      "id": "t55",
+      "from": "s16",
+      "to": "s3",
+      "symbol": "V"
+    },
+    {
+      "id": "t56",
+      "from": "s16",
+      "to": "s4",
+      "symbol": "X"
+    },
+    {
+      "id": "t57",
+      "from": "s16",
+      "to": "s5",
+      "symbol": "L"
+    },
+    {
+      "id": "t58",
+      "from": "s17",
+      "to": "s2",
+      "symbol": "I"
+    },
+    {
+      "id": "t59",
+      "from": "s17",
+      "to": "s3",
+      "symbol": "V"
+    },
+    {
+      "id": "t60",
+      "from": "s17",
+      "to": "s4",
+      "symbol": "X"
+    },
+    {
+      "id": "t61",
+      "from": "s17",
+      "to": "s5",
+      "symbol": "L"
+    },
+    {
+      "id": "t62",
+      "from": "s17",
+      "to": "s15",
+      "symbol": "C"
+    },
+    {
+      "id": "t63",
+      "from": "s18",
+      "to": "s2",
+      "symbol": "I"
+    },
+    {
+      "id": "t64",
+      "from": "s18",
+      "to": "s3",
+      "symbol": "V"
+    },
+    {
+      "id": "t65",
+      "from": "s18",
+      "to": "s4",
+      "symbol": "X"
+    },
+    {
+      "id": "t66",
+      "from": "s18",
+      "to": "s5",
+      "symbol": "L"
+    },
+    {
+      "id": "t67",
+      "from": "s18",
+      "to": "s6",
+      "symbol": "C"
+    },
+    {
+      "id": "t68",
+      "from": "s18",
+      "to": "s7",
+      "symbol": "D"
+    },
+    {
+      "id": "t69",
+      "from": "s18",
+      "to": "s19",
+      "symbol": "M"
+    },
+    {
+      "id": "t70",
+      "from": "s19",
+      "to": "s2",
+      "symbol": "I"
+    },
+    {
+      "id": "t71",
+      "from": "s19",
+      "to": "s3",
+      "symbol": "V"
+    },
+    {
+      "id": "t72",
+      "from": "s19",
+      "to": "s4",
+      "symbol": "X"
+    },
+    {
+      "id": "t73",
+      "from": "s19",
+      "to": "s5",
+      "symbol": "L"
+    },
+    {
+      "id": "t74",
+      "from": "s19",
+      "to": "s6",
+      "symbol": "C"
+    },
+    {
+      "id": "t75",
+      "from": "s19",
+      "to": "s7",
+      "symbol": "D"
+    }
+  ],
+  "startId": "s1",
+  "accepts": [
+    "s2",
+    "s3",
+    "s4",
+    "s5",
+    "s6",
+    "s7",
+    "s8",
+    "s9",
+    "s10",
+    "s11",
+    "s12",
+    "s13",
+    "s14",
+    "s15",
+    "s16",
+    "s17",
+    "s18",
+    "s19"
+  ],
+  "notes": [],
+  "dividers": [],
+  "blocks": [],
+  "meta": {
+    "title": "Roman numerals from I to MMMCMXCIX",
+    "blurb": "Every well-formed Roman numeral from 1 to 3999. Hundreds, tens and units each follow one pattern — I, II, III, IV, V … IX — so the minimal DFA is the same five-state gadget three times, after a short run of M’s. Each gadget has a “done” state: IV, IX and III all leave nothing more to say in that place.",
+    "inputs": [
+      {
+        "w": "IV",
+        "expect": "accept",
+        "label": "4"
+      },
+      {
+        "w": "XIX",
+        "expect": "accept",
+        "label": "19"
+      },
+      {
+        "w": "XLII",
+        "expect": "accept",
+        "label": "42"
+      },
+      {
+        "w": "MCMXCIV",
+        "expect": "accept",
+        "label": "1994"
+      },
+      {
+        "w": "MMMCMXCIX",
+        "expect": "accept",
+        "label": "3999"
+      },
+      {
+        "w": "IIII",
+        "expect": "reject",
+        "label": ""
+      },
+      {
+        "w": "IC",
+        "expect": "reject",
+        "label": ""
+      },
+      {
+        "w": "VX",
+        "expect": "reject",
+        "label": ""
+      },
+      {
+        "w": "MMMM",
+        "expect": "reject",
+        "label": ""
+      }
+    ],
+    "library": {
+      "author": {
+        "login": "thethinkmachine"
+      },
+      "license": "CC-BY-4.0",
+      "tags": [
+        "roman-numerals",
+        "validation",
+        "format"
+      ],
+      "difficulty": "advanced"
+    }
+  }
+}

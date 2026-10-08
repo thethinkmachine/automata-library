@@ -1,0 +1,305 @@
+{
+  "format": "automata-studio/workspace",
+  "schema": 1,
+  "app": "dev",
+  "machine": "DFA",
+  "config": {
+    "sym": {
+      "eps": "ε",
+      "any": "Σ",
+      "blank": "⊔",
+      "leftMarker": "⊢",
+      "rightMarker": "⊣",
+      "stackBottom": "Z",
+      "lambda": "λ"
+    }
+  },
+  "sigma": [
+    "A",
+    "C",
+    "G",
+    "T"
+  ],
+  "stackAlpha": [],
+  "outputAlpha": [],
+  "tapeCount": 1,
+  "states": [
+    {
+      "id": "s1",
+      "x": 140,
+      "y": 310,
+      "name": "start"
+    },
+    {
+      "id": "s2",
+      "x": 260,
+      "y": 310,
+      "name": "A"
+    },
+    {
+      "id": "s3",
+      "x": 380,
+      "y": 310,
+      "name": "AT"
+    },
+    {
+      "id": "s4",
+      "x": 530,
+      "y": 310,
+      "name": "frame"
+    },
+    {
+      "id": "s5",
+      "x": 680,
+      "y": 460,
+      "name": "T"
+    },
+    {
+      "id": "s6",
+      "x": 680,
+      "y": 160,
+      "name": "x"
+    },
+    {
+      "id": "s7",
+      "x": 860,
+      "y": 370,
+      "name": "TA"
+    },
+    {
+      "id": "s8",
+      "x": 860,
+      "y": 550,
+      "name": "TG"
+    },
+    {
+      "id": "s9",
+      "x": 860,
+      "y": 160,
+      "name": "xx"
+    },
+    {
+      "id": "s10",
+      "x": 1040,
+      "y": 460,
+      "name": "stop"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "t1",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "A"
+    },
+    {
+      "id": "t2",
+      "from": "s2",
+      "to": "s3",
+      "symbol": "T"
+    },
+    {
+      "id": "t3",
+      "from": "s3",
+      "to": "s4",
+      "symbol": "G"
+    },
+    {
+      "id": "t4",
+      "from": "s4",
+      "to": "s5",
+      "symbol": "T"
+    },
+    {
+      "id": "t5",
+      "from": "s4",
+      "to": "s6",
+      "symbol": "A"
+    },
+    {
+      "id": "t6",
+      "from": "s4",
+      "to": "s6",
+      "symbol": "C"
+    },
+    {
+      "id": "t7",
+      "from": "s4",
+      "to": "s6",
+      "symbol": "G"
+    },
+    {
+      "id": "t8",
+      "from": "s5",
+      "to": "s7",
+      "symbol": "A"
+    },
+    {
+      "id": "t9",
+      "from": "s5",
+      "to": "s8",
+      "symbol": "G"
+    },
+    {
+      "id": "t10",
+      "from": "s5",
+      "to": "s9",
+      "symbol": "C"
+    },
+    {
+      "id": "t11",
+      "from": "s5",
+      "to": "s9",
+      "symbol": "T"
+    },
+    {
+      "id": "t12",
+      "from": "s6",
+      "to": "s9",
+      "symbol": "A"
+    },
+    {
+      "id": "t13",
+      "from": "s6",
+      "to": "s9",
+      "symbol": "C"
+    },
+    {
+      "id": "t14",
+      "from": "s6",
+      "to": "s9",
+      "symbol": "G"
+    },
+    {
+      "id": "t15",
+      "from": "s6",
+      "to": "s9",
+      "symbol": "T"
+    },
+    {
+      "id": "t16",
+      "from": "s9",
+      "to": "s4",
+      "symbol": "A"
+    },
+    {
+      "id": "t17",
+      "from": "s9",
+      "to": "s4",
+      "symbol": "C"
+    },
+    {
+      "id": "t18",
+      "from": "s9",
+      "to": "s4",
+      "symbol": "G"
+    },
+    {
+      "id": "t19",
+      "from": "s9",
+      "to": "s4",
+      "symbol": "T"
+    },
+    {
+      "id": "t20",
+      "from": "s7",
+      "to": "s10",
+      "symbol": "A"
+    },
+    {
+      "id": "t21",
+      "from": "s7",
+      "to": "s10",
+      "symbol": "G"
+    },
+    {
+      "id": "t22",
+      "from": "s7",
+      "to": "s4",
+      "symbol": "C"
+    },
+    {
+      "id": "t23",
+      "from": "s7",
+      "to": "s4",
+      "symbol": "T"
+    },
+    {
+      "id": "t24",
+      "from": "s8",
+      "to": "s10",
+      "symbol": "A"
+    },
+    {
+      "id": "t25",
+      "from": "s8",
+      "to": "s4",
+      "symbol": "C"
+    },
+    {
+      "id": "t26",
+      "from": "s8",
+      "to": "s4",
+      "symbol": "G"
+    },
+    {
+      "id": "t27",
+      "from": "s8",
+      "to": "s4",
+      "symbol": "T"
+    }
+  ],
+  "startId": "s1",
+  "accepts": [
+    "s10"
+  ],
+  "notes": [],
+  "dividers": [],
+  "blocks": [],
+  "meta": {
+    "title": "A gene, start codon to stop codon",
+    "blurb": "Is this read one open reading frame? It must begin with ATG, continue in whole codons none of which is a stop, and end on TAA, TAG or TGA. Inside the frame the machine counts bases mod 3, and only watches for T, TA and TG — the beginnings of a stop codon.",
+    "inputs": [
+      {
+        "w": "ATGTAA",
+        "expect": "accept"
+      },
+      {
+        "w": "ATGGCATTCTGA",
+        "expect": "accept"
+      },
+      {
+        "w": "ATGTCATAG",
+        "expect": "accept"
+      },
+      {
+        "w": "ATGTAAGCATAA",
+        "expect": "reject"
+      },
+      {
+        "w": "ATGGCTAA",
+        "expect": "reject"
+      },
+      {
+        "w": "ATCTAA",
+        "expect": "reject"
+      },
+      {
+        "w": "ATGGCA",
+        "expect": "reject"
+      }
+    ],
+    "library": {
+      "author": {
+        "login": "thethinkmachine"
+      },
+      "license": "CC-BY-4.0",
+      "tags": [
+        "dna",
+        "biology",
+        "reading-frames"
+      ],
+      "difficulty": "intermediate"
+    }
+  }
+}

@@ -1,0 +1,123 @@
+{
+  "format": "automata-studio/workspace",
+  "schema": 1,
+  "app": "dev",
+  "machine": "DFA",
+  "config": {
+    "sym": {
+      "eps": "ε",
+      "any": "Σ",
+      "blank": "⊔",
+      "leftMarker": "⊢",
+      "rightMarker": "⊣",
+      "stackBottom": "Z",
+      "lambda": "λ"
+    }
+  },
+  "sigma": [
+    "0",
+    "1"
+  ],
+  "stackAlpha": [],
+  "outputAlpha": [],
+  "tapeCount": 1,
+  "states": [
+    {
+      "id": "s1",
+      "x": 140,
+      "y": 160,
+      "name": "zeros"
+    },
+    {
+      "id": "s2",
+      "x": 319,
+      "y": 160,
+      "name": "one"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "t1",
+      "from": "s1",
+      "to": "s1",
+      "symbol": "0"
+    },
+    {
+      "id": "t2",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "1"
+    },
+    {
+      "id": "t3",
+      "from": "s2",
+      "to": "s2",
+      "symbol": "0"
+    }
+  ],
+  "startId": "s1",
+  "accepts": [
+    "s2"
+  ],
+  "notes": [],
+  "dividers": [],
+  "blocks": [],
+  "meta": {
+    "title": "Powers of two in binary",
+    "blurb": "A power of two is a single 1 with zeros around it — leading zeros allowed, any number of zeros after. The third possible state, a second 1, is left out: there is nowhere to go from it.",
+    "inputs": [
+      {
+        "w": "1",
+        "expect": "accept",
+        "label": "1"
+      },
+      {
+        "w": "100",
+        "expect": "accept",
+        "label": "4"
+      },
+      {
+        "w": "10",
+        "expect": "accept",
+        "label": "2"
+      },
+      {
+        "w": "1000000000",
+        "expect": "accept",
+        "label": "512"
+      },
+      {
+        "w": "11",
+        "expect": "reject",
+        "label": "3"
+      },
+      {
+        "w": "110",
+        "expect": "reject",
+        "label": "6"
+      },
+      {
+        "w": "101",
+        "expect": "reject",
+        "label": "5"
+      },
+      {
+        "w": "1100000000",
+        "expect": "reject",
+        "label": "768"
+      }
+    ],
+    "library": {
+      "author": {
+        "login": "thethinkmachine"
+      },
+      "license": "CC-BY-4.0",
+      "tags": [
+        "powers-of-two",
+        "binary-numbers",
+        "partial-dfa"
+      ],
+      "difficulty": "intro"
+    }
+  }
+}

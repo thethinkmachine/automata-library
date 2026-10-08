@@ -1,0 +1,567 @@
+{
+  "format": "automata-studio/workspace",
+  "schema": 1,
+  "app": "dev",
+  "machine": "DFA",
+  "config": {
+    "sym": {
+      "eps": "ε",
+      "any": "Σ",
+      "blank": "⊔",
+      "leftMarker": "⊢",
+      "rightMarker": "⊣",
+      "stackBottom": "Z",
+      "lambda": "λ"
+    }
+  },
+  "sigma": [
+    "1",
+    "2",
+    "3",
+    "4"
+  ],
+  "stackAlpha": [],
+  "outputAlpha": [],
+  "tapeCount": 1,
+  "states": [
+    {
+      "id": "s1",
+      "x": 140,
+      "y": 160,
+      "name": "1111"
+    },
+    {
+      "id": "s2",
+      "x": 290,
+      "y": 205,
+      "name": "1000"
+    },
+    {
+      "id": "s3",
+      "x": 208,
+      "y": 310,
+      "name": "0100"
+    },
+    {
+      "id": "s4",
+      "x": 500,
+      "y": 160,
+      "name": "0010"
+    },
+    {
+      "id": "s5",
+      "x": 140,
+      "y": 520,
+      "name": "0001"
+    },
+    {
+      "id": "s6",
+      "x": 358,
+      "y": 355,
+      "name": "0011"
+    },
+    {
+      "id": "s7",
+      "x": 650,
+      "y": 205,
+      "name": "0101"
+    },
+    {
+      "id": "s8",
+      "x": 290,
+      "y": 565,
+      "name": "0110"
+    },
+    {
+      "id": "s9",
+      "x": 568,
+      "y": 310,
+      "name": "1001"
+    },
+    {
+      "id": "s10",
+      "x": 208,
+      "y": 670,
+      "name": "1010"
+    },
+    {
+      "id": "s11",
+      "x": 500,
+      "y": 520,
+      "name": "1100"
+    },
+    {
+      "id": "s12",
+      "x": 718,
+      "y": 355,
+      "name": "1110"
+    },
+    {
+      "id": "s13",
+      "x": 358,
+      "y": 715,
+      "name": "1101"
+    },
+    {
+      "id": "s14",
+      "x": 650,
+      "y": 565,
+      "name": "1011"
+    },
+    {
+      "id": "s15",
+      "x": 568,
+      "y": 670,
+      "name": "0111"
+    },
+    {
+      "id": "s16",
+      "x": 718,
+      "y": 715,
+      "name": "0000"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "t1",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "1"
+    },
+    {
+      "id": "t2",
+      "from": "s1",
+      "to": "s3",
+      "symbol": "2"
+    },
+    {
+      "id": "t3",
+      "from": "s1",
+      "to": "s4",
+      "symbol": "3"
+    },
+    {
+      "id": "t4",
+      "from": "s1",
+      "to": "s5",
+      "symbol": "4"
+    },
+    {
+      "id": "t5",
+      "from": "s2",
+      "to": "s1",
+      "symbol": "1"
+    },
+    {
+      "id": "t6",
+      "from": "s2",
+      "to": "s6",
+      "symbol": "2"
+    },
+    {
+      "id": "t7",
+      "from": "s2",
+      "to": "s7",
+      "symbol": "3"
+    },
+    {
+      "id": "t8",
+      "from": "s2",
+      "to": "s8",
+      "symbol": "4"
+    },
+    {
+      "id": "t9",
+      "from": "s3",
+      "to": "s6",
+      "symbol": "1"
+    },
+    {
+      "id": "t10",
+      "from": "s3",
+      "to": "s1",
+      "symbol": "2"
+    },
+    {
+      "id": "t11",
+      "from": "s3",
+      "to": "s9",
+      "symbol": "3"
+    },
+    {
+      "id": "t12",
+      "from": "s3",
+      "to": "s10",
+      "symbol": "4"
+    },
+    {
+      "id": "t13",
+      "from": "s4",
+      "to": "s7",
+      "symbol": "1"
+    },
+    {
+      "id": "t14",
+      "from": "s4",
+      "to": "s9",
+      "symbol": "2"
+    },
+    {
+      "id": "t15",
+      "from": "s4",
+      "to": "s1",
+      "symbol": "3"
+    },
+    {
+      "id": "t16",
+      "from": "s4",
+      "to": "s11",
+      "symbol": "4"
+    },
+    {
+      "id": "t17",
+      "from": "s5",
+      "to": "s8",
+      "symbol": "1"
+    },
+    {
+      "id": "t18",
+      "from": "s5",
+      "to": "s10",
+      "symbol": "2"
+    },
+    {
+      "id": "t19",
+      "from": "s5",
+      "to": "s11",
+      "symbol": "3"
+    },
+    {
+      "id": "t20",
+      "from": "s5",
+      "to": "s1",
+      "symbol": "4"
+    },
+    {
+      "id": "t21",
+      "from": "s6",
+      "to": "s3",
+      "symbol": "1"
+    },
+    {
+      "id": "t22",
+      "from": "s6",
+      "to": "s2",
+      "symbol": "2"
+    },
+    {
+      "id": "t23",
+      "from": "s6",
+      "to": "s12",
+      "symbol": "3"
+    },
+    {
+      "id": "t24",
+      "from": "s6",
+      "to": "s13",
+      "symbol": "4"
+    },
+    {
+      "id": "t25",
+      "from": "s7",
+      "to": "s4",
+      "symbol": "1"
+    },
+    {
+      "id": "t26",
+      "from": "s7",
+      "to": "s12",
+      "symbol": "2"
+    },
+    {
+      "id": "t27",
+      "from": "s7",
+      "to": "s2",
+      "symbol": "3"
+    },
+    {
+      "id": "t28",
+      "from": "s7",
+      "to": "s14",
+      "symbol": "4"
+    },
+    {
+      "id": "t29",
+      "from": "s8",
+      "to": "s5",
+      "symbol": "1"
+    },
+    {
+      "id": "t30",
+      "from": "s8",
+      "to": "s13",
+      "symbol": "2"
+    },
+    {
+      "id": "t31",
+      "from": "s8",
+      "to": "s14",
+      "symbol": "3"
+    },
+    {
+      "id": "t32",
+      "from": "s8",
+      "to": "s2",
+      "symbol": "4"
+    },
+    {
+      "id": "t33",
+      "from": "s9",
+      "to": "s12",
+      "symbol": "1"
+    },
+    {
+      "id": "t34",
+      "from": "s9",
+      "to": "s4",
+      "symbol": "2"
+    },
+    {
+      "id": "t35",
+      "from": "s9",
+      "to": "s3",
+      "symbol": "3"
+    },
+    {
+      "id": "t36",
+      "from": "s9",
+      "to": "s15",
+      "symbol": "4"
+    },
+    {
+      "id": "t37",
+      "from": "s10",
+      "to": "s13",
+      "symbol": "1"
+    },
+    {
+      "id": "t38",
+      "from": "s10",
+      "to": "s5",
+      "symbol": "2"
+    },
+    {
+      "id": "t39",
+      "from": "s10",
+      "to": "s15",
+      "symbol": "3"
+    },
+    {
+      "id": "t40",
+      "from": "s10",
+      "to": "s3",
+      "symbol": "4"
+    },
+    {
+      "id": "t41",
+      "from": "s11",
+      "to": "s14",
+      "symbol": "1"
+    },
+    {
+      "id": "t42",
+      "from": "s11",
+      "to": "s15",
+      "symbol": "2"
+    },
+    {
+      "id": "t43",
+      "from": "s11",
+      "to": "s5",
+      "symbol": "3"
+    },
+    {
+      "id": "t44",
+      "from": "s11",
+      "to": "s4",
+      "symbol": "4"
+    },
+    {
+      "id": "t45",
+      "from": "s12",
+      "to": "s9",
+      "symbol": "1"
+    },
+    {
+      "id": "t46",
+      "from": "s12",
+      "to": "s7",
+      "symbol": "2"
+    },
+    {
+      "id": "t47",
+      "from": "s12",
+      "to": "s6",
+      "symbol": "3"
+    },
+    {
+      "id": "t48",
+      "from": "s12",
+      "to": "s16",
+      "symbol": "4"
+    },
+    {
+      "id": "t49",
+      "from": "s13",
+      "to": "s10",
+      "symbol": "1"
+    },
+    {
+      "id": "t50",
+      "from": "s13",
+      "to": "s8",
+      "symbol": "2"
+    },
+    {
+      "id": "t51",
+      "from": "s13",
+      "to": "s16",
+      "symbol": "3"
+    },
+    {
+      "id": "t52",
+      "from": "s13",
+      "to": "s6",
+      "symbol": "4"
+    },
+    {
+      "id": "t53",
+      "from": "s14",
+      "to": "s11",
+      "symbol": "1"
+    },
+    {
+      "id": "t54",
+      "from": "s14",
+      "to": "s16",
+      "symbol": "2"
+    },
+    {
+      "id": "t55",
+      "from": "s14",
+      "to": "s8",
+      "symbol": "3"
+    },
+    {
+      "id": "t56",
+      "from": "s14",
+      "to": "s7",
+      "symbol": "4"
+    },
+    {
+      "id": "t57",
+      "from": "s15",
+      "to": "s16",
+      "symbol": "1"
+    },
+    {
+      "id": "t58",
+      "from": "s15",
+      "to": "s11",
+      "symbol": "2"
+    },
+    {
+      "id": "t59",
+      "from": "s15",
+      "to": "s10",
+      "symbol": "3"
+    },
+    {
+      "id": "t60",
+      "from": "s15",
+      "to": "s9",
+      "symbol": "4"
+    },
+    {
+      "id": "t61",
+      "from": "s16",
+      "to": "s15",
+      "symbol": "1"
+    },
+    {
+      "id": "t62",
+      "from": "s16",
+      "to": "s14",
+      "symbol": "2"
+    },
+    {
+      "id": "t63",
+      "from": "s16",
+      "to": "s13",
+      "symbol": "3"
+    },
+    {
+      "id": "t64",
+      "from": "s16",
+      "to": "s12",
+      "symbol": "4"
+    }
+  ],
+  "startId": "s1",
+  "accepts": [
+    "s16"
+  ],
+  "notes": [],
+  "dividers": [],
+  "blocks": [],
+  "meta": {
+    "title": "Lights Out on a 2 × 2 board",
+    "blurb": "All four lights start on. Pressing one toggles it and its two neighbours. Accepted: the press sequences that turn everything off. The moves commute and each is its own inverse, so what matters is only which buttons were pressed an odd number of times.",
+    "inputs": [
+      {
+        "w": "1234",
+        "expect": "accept"
+      },
+      {
+        "w": "321411242433",
+        "expect": "accept"
+      },
+      {
+        "w": "42221344",
+        "expect": "accept"
+      },
+      {
+        "w": "134122142343",
+        "expect": "accept"
+      },
+      {
+        "w": "2234",
+        "expect": "reject"
+      },
+      {
+        "w": "121411242433",
+        "expect": "reject"
+      },
+      {
+        "w": "12221344",
+        "expect": "reject"
+      },
+      {
+        "w": "234122142343",
+        "expect": "reject"
+      }
+    ],
+    "library": {
+      "author": {
+        "login": "thethinkmachine"
+      },
+      "license": "CC-BY-4.0",
+      "tags": [
+        "puzzles",
+        "group-theory",
+        "lights-out"
+      ],
+      "difficulty": "intermediate"
+    }
+  }
+}

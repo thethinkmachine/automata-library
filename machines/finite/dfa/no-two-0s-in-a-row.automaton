@@ -1,0 +1,116 @@
+{
+  "format": "automata-studio/workspace",
+  "schema": 1,
+  "app": "dev",
+  "machine": "DFA",
+  "config": {
+    "sym": {
+      "eps": "ε",
+      "any": "Σ",
+      "blank": "⊔",
+      "leftMarker": "⊢",
+      "rightMarker": "⊣",
+      "stackBottom": "Z",
+      "lambda": "λ"
+    }
+  },
+  "sigma": [
+    "0",
+    "1"
+  ],
+  "stackAlpha": [],
+  "outputAlpha": [],
+  "tapeCount": 1,
+  "states": [
+    {
+      "id": "s1",
+      "x": 140,
+      "y": 160,
+      "name": "last1"
+    },
+    {
+      "id": "s2",
+      "x": 319,
+      "y": 160,
+      "name": "last0"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "t1",
+      "from": "s1",
+      "to": "s1",
+      "symbol": "1"
+    },
+    {
+      "id": "t2",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "0"
+    },
+    {
+      "id": "t3",
+      "from": "s2",
+      "to": "s1",
+      "symbol": "1"
+    }
+  ],
+  "startId": "s1",
+  "accepts": [
+    "s1",
+    "s2"
+  ],
+  "notes": [],
+  "dividers": [],
+  "blocks": [],
+  "meta": {
+    "title": "No two 0s in a row",
+    "blurb": "Two states: the last symbol was a 1 (or nothing yet), or it was a 0. The number of such words of length n is a Fibonacci number — the states are the two terms of the recurrence.",
+    "inputs": [
+      {
+        "w": "",
+        "expect": "accept"
+      },
+      {
+        "w": "0110",
+        "expect": "accept"
+      },
+      {
+        "w": "0",
+        "expect": "accept"
+      },
+      {
+        "w": "0101010110",
+        "expect": "accept"
+      },
+      {
+        "w": "0010",
+        "expect": "reject"
+      },
+      {
+        "w": "00",
+        "expect": "reject"
+      },
+      {
+        "w": "0001010110",
+        "expect": "reject"
+      },
+      {
+        "w": "00110",
+        "expect": "reject"
+      }
+    ],
+    "library": {
+      "author": {
+        "login": "thethinkmachine"
+      },
+      "license": "CC-BY-4.0",
+      "tags": [
+        "forbidden-pattern",
+        "fibonacci",
+        "partial-dfa"
+      ],
+      "difficulty": "intro"
+    }
+  }
+}

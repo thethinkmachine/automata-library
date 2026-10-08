@@ -1,0 +1,127 @@
+{
+  "format": "automata-studio/workspace",
+  "schema": 1,
+  "app": "dev",
+  "machine": "DFA",
+  "config": {
+    "sym": {
+      "eps": "ε",
+      "any": "Σ",
+      "blank": "⊔",
+      "leftMarker": "⊢",
+      "rightMarker": "⊣",
+      "stackBottom": "Z",
+      "lambda": "λ"
+    }
+  },
+  "sigma": [
+    "a",
+    "0",
+    "_"
+  ],
+  "stackAlpha": [],
+  "outputAlpha": [],
+  "tapeCount": 1,
+  "states": [
+    {
+      "id": "s1",
+      "x": 140,
+      "y": 160,
+      "name": "start"
+    },
+    {
+      "id": "s2",
+      "x": 319,
+      "y": 160,
+      "name": "ident"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "t1",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "a"
+    },
+    {
+      "id": "t2",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "_"
+    },
+    {
+      "id": "t3",
+      "from": "s2",
+      "to": "s2",
+      "symbol": "a"
+    },
+    {
+      "id": "t4",
+      "from": "s2",
+      "to": "s2",
+      "symbol": "0"
+    },
+    {
+      "id": "t5",
+      "from": "s2",
+      "to": "s2",
+      "symbol": "_"
+    }
+  ],
+  "startId": "s1",
+  "accepts": [
+    "s2"
+  ],
+  "notes": [],
+  "dividers": [],
+  "blocks": [],
+  "meta": {
+    "title": "An identifier",
+    "blurb": "A letter or underscore, then letters, digits and underscores: a stands for any letter, 0 for any digit. The first symbol is the only one with a restriction.",
+    "inputs": [
+      {
+        "w": "_",
+        "expect": "accept"
+      },
+      {
+        "w": "_00__a0",
+        "expect": "accept"
+      },
+      {
+        "w": "_0aa_",
+        "expect": "accept"
+      },
+      {
+        "w": "_0_a00a_aaaa__",
+        "expect": "accept"
+      },
+      {
+        "w": "0",
+        "expect": "reject"
+      },
+      {
+        "w": "000__a0",
+        "expect": "reject"
+      },
+      {
+        "w": "00aa_",
+        "expect": "reject"
+      },
+      {
+        "w": "00_a00a_aaaa__",
+        "expect": "reject"
+      }
+    ],
+    "library": {
+      "author": {
+        "login": "thethinkmachine"
+      },
+      "license": "CC-BY-4.0",
+      "tags": [
+        "lexing",
+        "validation"
+      ],
+      "difficulty": "intro"
+    }
+  }
+}

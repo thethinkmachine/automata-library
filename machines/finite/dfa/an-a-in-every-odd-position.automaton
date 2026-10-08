@@ -1,0 +1,115 @@
+{
+  "format": "automata-studio/workspace",
+  "schema": 1,
+  "app": "dev",
+  "machine": "DFA",
+  "config": {
+    "sym": {
+      "eps": "ε",
+      "any": "Σ",
+      "blank": "⊔",
+      "leftMarker": "⊢",
+      "rightMarker": "⊣",
+      "stackBottom": "Z",
+      "lambda": "λ"
+    }
+  },
+  "sigma": [
+    "a",
+    "b"
+  ],
+  "stackAlpha": [],
+  "outputAlpha": [],
+  "tapeCount": 1,
+  "states": [
+    {
+      "id": "s1",
+      "x": 140,
+      "y": 160,
+      "name": "odd"
+    },
+    {
+      "id": "s2",
+      "x": 319,
+      "y": 160,
+      "name": "even"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "t1",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "a"
+    },
+    {
+      "id": "t2",
+      "from": "s2",
+      "to": "s1",
+      "symbol": "a"
+    },
+    {
+      "id": "t3",
+      "from": "s2",
+      "to": "s1",
+      "symbol": "b"
+    }
+  ],
+  "startId": "s1",
+  "accepts": [
+    "s1",
+    "s2"
+  ],
+  "notes": [],
+  "dividers": [],
+  "blocks": [],
+  "meta": {
+    "title": "An a in every odd position",
+    "blurb": "Positions 1, 3, 5, … must hold a; the others may hold anything. The machine only needs to know whether the next position is odd or even.",
+    "inputs": [
+      {
+        "w": "",
+        "expect": "accept"
+      },
+      {
+        "w": "abaa",
+        "expect": "accept"
+      },
+      {
+        "w": "a",
+        "expect": "accept"
+      },
+      {
+        "w": "aaaaaaabaa",
+        "expect": "accept"
+      },
+      {
+        "w": "b",
+        "expect": "reject"
+      },
+      {
+        "w": "bbaa",
+        "expect": "reject"
+      },
+      {
+        "w": "ba",
+        "expect": "reject"
+      },
+      {
+        "w": "baaaaaabaa",
+        "expect": "reject"
+      }
+    ],
+    "library": {
+      "author": {
+        "login": "thethinkmachine"
+      },
+      "license": "CC-BY-4.0",
+      "tags": [
+        "positions",
+        "partial-dfa"
+      ],
+      "difficulty": "intro"
+    }
+  }
+}

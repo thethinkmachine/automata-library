@@ -1,0 +1,151 @@
+{
+  "format": "automata-studio/workspace",
+  "schema": 1,
+  "app": "dev",
+  "machine": "DFA",
+  "config": {
+    "sym": {
+      "eps": "ε",
+      "any": "Σ",
+      "blank": "⊔",
+      "leftMarker": "⊢",
+      "rightMarker": "⊣",
+      "stackBottom": "Z",
+      "lambda": "λ"
+    }
+  },
+  "sigma": [
+    "0+0=0",
+    "0+0=1",
+    "0+1=0",
+    "0+1=1",
+    "1+0=0",
+    "1+0=1",
+    "1+1=0",
+    "1+1=1"
+  ],
+  "stackAlpha": [],
+  "outputAlpha": [],
+  "tapeCount": 1,
+  "states": [
+    {
+      "id": "s1",
+      "x": 140,
+      "y": 160,
+      "name": "carry0"
+    },
+    {
+      "id": "s2",
+      "x": 319,
+      "y": 160,
+      "name": "carry1"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "t1",
+      "from": "s1",
+      "to": "s1",
+      "symbol": "0+0=0"
+    },
+    {
+      "id": "t2",
+      "from": "s1",
+      "to": "s1",
+      "symbol": "0+1=1"
+    },
+    {
+      "id": "t3",
+      "from": "s1",
+      "to": "s1",
+      "symbol": "1+0=1"
+    },
+    {
+      "id": "t4",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "1+1=0"
+    },
+    {
+      "id": "t5",
+      "from": "s2",
+      "to": "s1",
+      "symbol": "0+0=1"
+    },
+    {
+      "id": "t6",
+      "from": "s2",
+      "to": "s2",
+      "symbol": "0+1=0"
+    },
+    {
+      "id": "t7",
+      "from": "s2",
+      "to": "s2",
+      "symbol": "1+0=0"
+    },
+    {
+      "id": "t8",
+      "from": "s2",
+      "to": "s2",
+      "symbol": "1+1=1"
+    }
+  ],
+  "startId": "s1",
+  "accepts": [
+    "s1"
+  ],
+  "notes": [],
+  "dividers": [],
+  "blocks": [],
+  "meta": {
+    "title": "Checking a sum, column by column",
+    "blurb": "Each symbol is a column a+b=c of a binary addition, least significant column first. The carry is the only thing to remember, so two states check additions of any length.",
+    "inputs": [
+      {
+        "w": "",
+        "expect": "accept"
+      },
+      {
+        "w": "1+1=0 0+1=0 0+0=1 0+0=0",
+        "expect": "accept"
+      },
+      {
+        "w": "0+0=0 0+1=1 1+0=1",
+        "expect": "accept"
+      },
+      {
+        "w": "0+1=1 1+1=0 0+0=1 1+0=1 0+1=1 0+1=1 0+1=1",
+        "expect": "accept"
+      },
+      {
+        "w": "0+0=1",
+        "expect": "reject"
+      },
+      {
+        "w": "0+0=0 0+1=0 0+0=1 0+0=0",
+        "expect": "reject"
+      },
+      {
+        "w": "0+0=1 0+1=1 1+0=1",
+        "expect": "reject"
+      },
+      {
+        "w": "0+0=1 1+1=0 0+0=1 1+0=1 0+1=1 0+1=1 0+1=1",
+        "expect": "reject"
+      }
+    ],
+    "library": {
+      "author": {
+        "login": "thethinkmachine"
+      },
+      "license": "CC-BY-4.0",
+      "tags": [
+        "addition",
+        "binary-numbers",
+        "column-alphabet"
+      ],
+      "difficulty": "intermediate"
+    }
+  }
+}

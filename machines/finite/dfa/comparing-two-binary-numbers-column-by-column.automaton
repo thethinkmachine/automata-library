@@ -1,0 +1,177 @@
+{
+  "format": "automata-studio/workspace",
+  "schema": 1,
+  "app": "dev",
+  "machine": "DFA",
+  "config": {
+    "sym": {
+      "eps": "ε",
+      "any": "Σ",
+      "blank": "⊔",
+      "leftMarker": "⊢",
+      "rightMarker": "⊣",
+      "stackBottom": "Z",
+      "lambda": "λ"
+    }
+  },
+  "sigma": [
+    "00",
+    "01",
+    "10",
+    "11"
+  ],
+  "stackAlpha": [],
+  "outputAlpha": [],
+  "tapeCount": 1,
+  "states": [
+    {
+      "id": "s1",
+      "x": 140,
+      "y": 208,
+      "name": "same"
+    },
+    {
+      "id": "s2",
+      "x": 319,
+      "y": 255,
+      "name": "bigger"
+    },
+    {
+      "id": "s3",
+      "x": 319,
+      "y": 160,
+      "name": "smaller"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "t1",
+      "from": "s1",
+      "to": "s1",
+      "symbol": "00"
+    },
+    {
+      "id": "t2",
+      "from": "s1",
+      "to": "s1",
+      "symbol": "11"
+    },
+    {
+      "id": "t3",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "10"
+    },
+    {
+      "id": "t4",
+      "from": "s1",
+      "to": "s3",
+      "symbol": "01"
+    },
+    {
+      "id": "t5",
+      "from": "s2",
+      "to": "s2",
+      "symbol": "00"
+    },
+    {
+      "id": "t6",
+      "from": "s2",
+      "to": "s2",
+      "symbol": "01"
+    },
+    {
+      "id": "t7",
+      "from": "s2",
+      "to": "s2",
+      "symbol": "10"
+    },
+    {
+      "id": "t8",
+      "from": "s2",
+      "to": "s2",
+      "symbol": "11"
+    },
+    {
+      "id": "t9",
+      "from": "s3",
+      "to": "s3",
+      "symbol": "00"
+    },
+    {
+      "id": "t10",
+      "from": "s3",
+      "to": "s3",
+      "symbol": "01"
+    },
+    {
+      "id": "t11",
+      "from": "s3",
+      "to": "s3",
+      "symbol": "10"
+    },
+    {
+      "id": "t12",
+      "from": "s3",
+      "to": "s3",
+      "symbol": "11"
+    }
+  ],
+  "startId": "s1",
+  "accepts": [
+    "s2"
+  ],
+  "notes": [],
+  "dividers": [],
+  "blocks": [],
+  "meta": {
+    "title": "Comparing two binary numbers, column by column",
+    "blurb": "Each symbol is a column: the top number’s bit, then the bottom one’s. Reading from the most significant end, the first column that differs decides — after that nothing can change the answer.",
+    "inputs": [
+      {
+        "w": "10",
+        "expect": "accept"
+      },
+      {
+        "w": "00 10 01 11",
+        "expect": "accept"
+      },
+      {
+        "w": "00 00 11 10 10 11 01 01",
+        "expect": "accept"
+      },
+      {
+        "w": "00 10 10 01 01 10 10 00 10 11 11 00 01 00",
+        "expect": "accept"
+      },
+      {
+        "w": "00",
+        "expect": "reject"
+      },
+      {
+        "w": "01 10 01 11",
+        "expect": "reject"
+      },
+      {
+        "w": "01 00 11 10 10 11 01 01",
+        "expect": "reject"
+      },
+      {
+        "w": "01 10 10 01 01 10 10 00 10 11 11 00 01 00",
+        "expect": "reject"
+      }
+    ],
+    "library": {
+      "author": {
+        "login": "thethinkmachine"
+      },
+      "license": "CC-BY-4.0",
+      "tags": [
+        "comparison",
+        "binary-numbers",
+        "column-alphabet"
+      ],
+      "difficulty": "intermediate"
+    }
+  }
+}

@@ -1,0 +1,291 @@
+{
+  "format": "automata-studio/workspace",
+  "schema": 1,
+  "app": "dev",
+  "machine": "DFA",
+  "config": {
+    "sym": {
+      "eps": "ε",
+      "any": "Σ",
+      "blank": "⊔",
+      "leftMarker": "⊢",
+      "rightMarker": "⊣",
+      "stackBottom": "Z",
+      "lambda": "λ"
+    }
+  },
+  "sigma": [
+    "0",
+    "1",
+    "2",
+    "3",
+    "4",
+    "5",
+    "6",
+    "7",
+    "8",
+    "9"
+  ],
+  "stackAlpha": [],
+  "outputAlpha": [],
+  "tapeCount": 1,
+  "states": [
+    {
+      "id": "s1",
+      "x": 209,
+      "y": 160,
+      "name": "r0"
+    },
+    {
+      "id": "s2",
+      "x": 279,
+      "y": 280,
+      "name": "r1"
+    },
+    {
+      "id": "s3",
+      "x": 140,
+      "y": 280,
+      "name": "r2"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "t1",
+      "from": "s1",
+      "to": "s1",
+      "symbol": "0"
+    },
+    {
+      "id": "t2",
+      "from": "s1",
+      "to": "s1",
+      "symbol": "3"
+    },
+    {
+      "id": "t3",
+      "from": "s1",
+      "to": "s1",
+      "symbol": "6"
+    },
+    {
+      "id": "t4",
+      "from": "s1",
+      "to": "s1",
+      "symbol": "9"
+    },
+    {
+      "id": "t5",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "1"
+    },
+    {
+      "id": "t6",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "4"
+    },
+    {
+      "id": "t7",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "7"
+    },
+    {
+      "id": "t8",
+      "from": "s1",
+      "to": "s3",
+      "symbol": "2"
+    },
+    {
+      "id": "t9",
+      "from": "s1",
+      "to": "s3",
+      "symbol": "5"
+    },
+    {
+      "id": "t10",
+      "from": "s1",
+      "to": "s3",
+      "symbol": "8"
+    },
+    {
+      "id": "t11",
+      "from": "s2",
+      "to": "s2",
+      "symbol": "0"
+    },
+    {
+      "id": "t12",
+      "from": "s2",
+      "to": "s2",
+      "symbol": "3"
+    },
+    {
+      "id": "t13",
+      "from": "s2",
+      "to": "s2",
+      "symbol": "6"
+    },
+    {
+      "id": "t14",
+      "from": "s2",
+      "to": "s2",
+      "symbol": "9"
+    },
+    {
+      "id": "t15",
+      "from": "s2",
+      "to": "s3",
+      "symbol": "1"
+    },
+    {
+      "id": "t16",
+      "from": "s2",
+      "to": "s3",
+      "symbol": "4"
+    },
+    {
+      "id": "t17",
+      "from": "s2",
+      "to": "s3",
+      "symbol": "7"
+    },
+    {
+      "id": "t18",
+      "from": "s2",
+      "to": "s1",
+      "symbol": "2"
+    },
+    {
+      "id": "t19",
+      "from": "s2",
+      "to": "s1",
+      "symbol": "5"
+    },
+    {
+      "id": "t20",
+      "from": "s2",
+      "to": "s1",
+      "symbol": "8"
+    },
+    {
+      "id": "t21",
+      "from": "s3",
+      "to": "s3",
+      "symbol": "0"
+    },
+    {
+      "id": "t22",
+      "from": "s3",
+      "to": "s3",
+      "symbol": "3"
+    },
+    {
+      "id": "t23",
+      "from": "s3",
+      "to": "s3",
+      "symbol": "6"
+    },
+    {
+      "id": "t24",
+      "from": "s3",
+      "to": "s3",
+      "symbol": "9"
+    },
+    {
+      "id": "t25",
+      "from": "s3",
+      "to": "s1",
+      "symbol": "1"
+    },
+    {
+      "id": "t26",
+      "from": "s3",
+      "to": "s1",
+      "symbol": "4"
+    },
+    {
+      "id": "t27",
+      "from": "s3",
+      "to": "s1",
+      "symbol": "7"
+    },
+    {
+      "id": "t28",
+      "from": "s3",
+      "to": "s2",
+      "symbol": "2"
+    },
+    {
+      "id": "t29",
+      "from": "s3",
+      "to": "s2",
+      "symbol": "5"
+    },
+    {
+      "id": "t30",
+      "from": "s3",
+      "to": "s2",
+      "symbol": "8"
+    }
+  ],
+  "startId": "s1",
+  "accepts": [
+    "s1"
+  ],
+  "notes": [],
+  "dividers": [],
+  "blocks": [],
+  "meta": {
+    "title": "Decimal multiples of 3: the digit-sum rule",
+    "blurb": "A number is divisible by 3 exactly when its digit sum is, so three states — the digit sum mod 3 — are enough for numbers of any length. Every digit is one of three edges: 0, 3, 6, 9 change nothing.",
+    "inputs": [
+      {
+        "w": "3",
+        "expect": "accept"
+      },
+      {
+        "w": "491568237",
+        "expect": "accept"
+      },
+      {
+        "w": "52755102",
+        "expect": "accept"
+      },
+      {
+        "w": "190851702",
+        "expect": "accept"
+      },
+      {
+        "w": "1",
+        "expect": "reject"
+      },
+      {
+        "w": "291568237",
+        "expect": "reject"
+      },
+      {
+        "w": "12755102",
+        "expect": "reject"
+      },
+      {
+        "w": "290851702",
+        "expect": "reject"
+      }
+    ],
+    "library": {
+      "author": {
+        "login": "thethinkmachine"
+      },
+      "license": "CC-BY-4.0",
+      "tags": [
+        "divisibility",
+        "decimal",
+        "modular-arithmetic"
+      ],
+      "difficulty": "intro"
+    }
+  }
+}

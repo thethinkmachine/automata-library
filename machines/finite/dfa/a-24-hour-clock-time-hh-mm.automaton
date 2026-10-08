@@ -1,0 +1,340 @@
+{
+  "format": "automata-studio/workspace",
+  "schema": 1,
+  "app": "dev",
+  "machine": "DFA",
+  "config": {
+    "sym": {
+      "eps": "ε",
+      "any": "Σ",
+      "blank": "⊔",
+      "leftMarker": "⊢",
+      "rightMarker": "⊣",
+      "stackBottom": "Z",
+      "lambda": "λ"
+    }
+  },
+  "sigma": [
+    "0",
+    "1",
+    "2",
+    "3",
+    "4",
+    "5",
+    "6",
+    "7",
+    "8",
+    "9",
+    ":"
+  ],
+  "stackAlpha": [],
+  "outputAlpha": [],
+  "tapeCount": 1,
+  "states": [
+    {
+      "id": "s1",
+      "x": 140,
+      "y": 208,
+      "name": "start"
+    },
+    {
+      "id": "s2",
+      "x": 319,
+      "y": 255,
+      "name": "h01"
+    },
+    {
+      "id": "s3",
+      "x": 319,
+      "y": 160,
+      "name": "h2"
+    },
+    {
+      "id": "s4",
+      "x": 498,
+      "y": 208,
+      "name": "hh"
+    },
+    {
+      "id": "s5",
+      "x": 677,
+      "y": 208,
+      "name": "colon"
+    },
+    {
+      "id": "s6",
+      "x": 856,
+      "y": 208,
+      "name": "m1"
+    },
+    {
+      "id": "s7",
+      "x": 1035,
+      "y": 208,
+      "name": "done"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "t1",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "0"
+    },
+    {
+      "id": "t2",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "1"
+    },
+    {
+      "id": "t3",
+      "from": "s1",
+      "to": "s3",
+      "symbol": "2"
+    },
+    {
+      "id": "t4",
+      "from": "s2",
+      "to": "s4",
+      "symbol": "0"
+    },
+    {
+      "id": "t5",
+      "from": "s2",
+      "to": "s4",
+      "symbol": "1"
+    },
+    {
+      "id": "t6",
+      "from": "s2",
+      "to": "s4",
+      "symbol": "2"
+    },
+    {
+      "id": "t7",
+      "from": "s2",
+      "to": "s4",
+      "symbol": "3"
+    },
+    {
+      "id": "t8",
+      "from": "s2",
+      "to": "s4",
+      "symbol": "4"
+    },
+    {
+      "id": "t9",
+      "from": "s2",
+      "to": "s4",
+      "symbol": "5"
+    },
+    {
+      "id": "t10",
+      "from": "s2",
+      "to": "s4",
+      "symbol": "6"
+    },
+    {
+      "id": "t11",
+      "from": "s2",
+      "to": "s4",
+      "symbol": "7"
+    },
+    {
+      "id": "t12",
+      "from": "s2",
+      "to": "s4",
+      "symbol": "8"
+    },
+    {
+      "id": "t13",
+      "from": "s2",
+      "to": "s4",
+      "symbol": "9"
+    },
+    {
+      "id": "t14",
+      "from": "s3",
+      "to": "s4",
+      "symbol": "0"
+    },
+    {
+      "id": "t15",
+      "from": "s3",
+      "to": "s4",
+      "symbol": "1"
+    },
+    {
+      "id": "t16",
+      "from": "s3",
+      "to": "s4",
+      "symbol": "2"
+    },
+    {
+      "id": "t17",
+      "from": "s3",
+      "to": "s4",
+      "symbol": "3"
+    },
+    {
+      "id": "t18",
+      "from": "s4",
+      "to": "s5",
+      "symbol": ":"
+    },
+    {
+      "id": "t19",
+      "from": "s5",
+      "to": "s6",
+      "symbol": "0"
+    },
+    {
+      "id": "t20",
+      "from": "s5",
+      "to": "s6",
+      "symbol": "1"
+    },
+    {
+      "id": "t21",
+      "from": "s5",
+      "to": "s6",
+      "symbol": "2"
+    },
+    {
+      "id": "t22",
+      "from": "s5",
+      "to": "s6",
+      "symbol": "3"
+    },
+    {
+      "id": "t23",
+      "from": "s5",
+      "to": "s6",
+      "symbol": "4"
+    },
+    {
+      "id": "t24",
+      "from": "s5",
+      "to": "s6",
+      "symbol": "5"
+    },
+    {
+      "id": "t25",
+      "from": "s6",
+      "to": "s7",
+      "symbol": "0"
+    },
+    {
+      "id": "t26",
+      "from": "s6",
+      "to": "s7",
+      "symbol": "1"
+    },
+    {
+      "id": "t27",
+      "from": "s6",
+      "to": "s7",
+      "symbol": "2"
+    },
+    {
+      "id": "t28",
+      "from": "s6",
+      "to": "s7",
+      "symbol": "3"
+    },
+    {
+      "id": "t29",
+      "from": "s6",
+      "to": "s7",
+      "symbol": "4"
+    },
+    {
+      "id": "t30",
+      "from": "s6",
+      "to": "s7",
+      "symbol": "5"
+    },
+    {
+      "id": "t31",
+      "from": "s6",
+      "to": "s7",
+      "symbol": "6"
+    },
+    {
+      "id": "t32",
+      "from": "s6",
+      "to": "s7",
+      "symbol": "7"
+    },
+    {
+      "id": "t33",
+      "from": "s6",
+      "to": "s7",
+      "symbol": "8"
+    },
+    {
+      "id": "t34",
+      "from": "s6",
+      "to": "s7",
+      "symbol": "9"
+    }
+  ],
+  "startId": "s1",
+  "accepts": [
+    "s7"
+  ],
+  "notes": [],
+  "dividers": [],
+  "blocks": [],
+  "meta": {
+    "title": "A 24-hour clock time, HH:MM",
+    "blurb": "Valid times from 00:00 to 23:59. The only subtle state is the first digit: after a 2 the next may only be 0–3, so 0/1 and 2 lead to different places.",
+    "inputs": [
+      {
+        "w": "00:00",
+        "expect": "accept"
+      },
+      {
+        "w": "09:45",
+        "expect": "accept"
+      },
+      {
+        "w": "19:59",
+        "expect": "accept"
+      },
+      {
+        "w": "23:07",
+        "expect": "accept"
+      },
+      {
+        "w": "24:00",
+        "expect": "reject"
+      },
+      {
+        "w": "19:60",
+        "expect": "reject"
+      },
+      {
+        "w": "9:45",
+        "expect": "reject"
+      },
+      {
+        "w": "2359",
+        "expect": "reject"
+      }
+    ],
+    "library": {
+      "author": {
+        "login": "thethinkmachine"
+      },
+      "license": "CC-BY-4.0",
+      "tags": [
+        "validation",
+        "time",
+        "format"
+      ],
+      "difficulty": "intro"
+    }
+  }
+}

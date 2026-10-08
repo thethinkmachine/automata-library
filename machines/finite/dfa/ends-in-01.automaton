@@ -1,0 +1,138 @@
+{
+  "format": "automata-studio/workspace",
+  "schema": 1,
+  "app": "dev",
+  "machine": "DFA",
+  "config": {
+    "sym": {
+      "eps": "ε",
+      "any": "Σ",
+      "blank": "⊔",
+      "leftMarker": "⊢",
+      "rightMarker": "⊣",
+      "stackBottom": "Z",
+      "lambda": "λ"
+    }
+  },
+  "sigma": [
+    "0",
+    "1"
+  ],
+  "stackAlpha": [],
+  "outputAlpha": [],
+  "tapeCount": 1,
+  "states": [
+    {
+      "id": "s1",
+      "x": 140,
+      "y": 160,
+      "name": "start"
+    },
+    {
+      "id": "s2",
+      "x": 319,
+      "y": 160,
+      "name": "got0"
+    },
+    {
+      "id": "s3",
+      "x": 498,
+      "y": 160,
+      "name": "got01"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "t1",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "0"
+    },
+    {
+      "id": "t2",
+      "from": "s1",
+      "to": "s1",
+      "symbol": "1"
+    },
+    {
+      "id": "t3",
+      "from": "s2",
+      "to": "s2",
+      "symbol": "0"
+    },
+    {
+      "id": "t4",
+      "from": "s2",
+      "to": "s3",
+      "symbol": "1"
+    },
+    {
+      "id": "t5",
+      "from": "s3",
+      "to": "s2",
+      "symbol": "0"
+    },
+    {
+      "id": "t6",
+      "from": "s3",
+      "to": "s1",
+      "symbol": "1"
+    }
+  ],
+  "startId": "s1",
+  "accepts": [
+    "s3"
+  ],
+  "notes": [],
+  "dividers": [],
+  "blocks": [],
+  "meta": {
+    "title": "Ends in 01",
+    "blurb": "Three states remember how much of the suffix 01 has just been read. A 0 always means \"maybe starting it\", so no state ever has to back up further than one symbol.",
+    "inputs": [
+      {
+        "w": "01",
+        "expect": "accept"
+      },
+      {
+        "w": "11001",
+        "expect": "accept"
+      },
+      {
+        "w": "001",
+        "expect": "accept"
+      },
+      {
+        "w": "0000001101",
+        "expect": "accept"
+      },
+      {
+        "w": "11",
+        "expect": "reject"
+      },
+      {
+        "w": "11011",
+        "expect": "reject"
+      },
+      {
+        "w": "011",
+        "expect": "reject"
+      },
+      {
+        "w": "0000001111",
+        "expect": "reject"
+      }
+    ],
+    "library": {
+      "author": {
+        "login": "thethinkmachine"
+      },
+      "license": "CC-BY-4.0",
+      "tags": [
+        "suffix",
+        "pattern-matching"
+      ],
+      "difficulty": "intro"
+    }
+  }
+}

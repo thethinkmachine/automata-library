@@ -1,0 +1,193 @@
+{
+  "format": "automata-studio/workspace",
+  "schema": 1,
+  "app": "dev",
+  "machine": "DFA",
+  "config": {
+    "sym": {
+      "eps": "ε",
+      "any": "Σ",
+      "blank": "⊔",
+      "leftMarker": "⊢",
+      "rightMarker": "⊣",
+      "stackBottom": "Z",
+      "lambda": "λ"
+    }
+  },
+  "sigma": [
+    "a",
+    "b"
+  ],
+  "stackAlpha": [],
+  "outputAlpha": [],
+  "tapeCount": 1,
+  "states": [
+    {
+      "id": "s1",
+      "x": 140,
+      "y": 160,
+      "name": "a0b0"
+    },
+    {
+      "id": "s2",
+      "x": 310,
+      "y": 160,
+      "name": "a1b0"
+    },
+    {
+      "id": "s3",
+      "x": 140,
+      "y": 330,
+      "name": "a0b1"
+    },
+    {
+      "id": "s4",
+      "x": 480,
+      "y": 160,
+      "name": "a2b0"
+    },
+    {
+      "id": "s5",
+      "x": 310,
+      "y": 330,
+      "name": "a1b1"
+    },
+    {
+      "id": "s6",
+      "x": 480,
+      "y": 330,
+      "name": "a2b1"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "t1",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "a"
+    },
+    {
+      "id": "t2",
+      "from": "s1",
+      "to": "s3",
+      "symbol": "b"
+    },
+    {
+      "id": "t3",
+      "from": "s2",
+      "to": "s4",
+      "symbol": "a"
+    },
+    {
+      "id": "t4",
+      "from": "s2",
+      "to": "s5",
+      "symbol": "b"
+    },
+    {
+      "id": "t5",
+      "from": "s3",
+      "to": "s5",
+      "symbol": "a"
+    },
+    {
+      "id": "t6",
+      "from": "s3",
+      "to": "s1",
+      "symbol": "b"
+    },
+    {
+      "id": "t7",
+      "from": "s4",
+      "to": "s1",
+      "symbol": "a"
+    },
+    {
+      "id": "t8",
+      "from": "s4",
+      "to": "s6",
+      "symbol": "b"
+    },
+    {
+      "id": "t9",
+      "from": "s5",
+      "to": "s6",
+      "symbol": "a"
+    },
+    {
+      "id": "t10",
+      "from": "s5",
+      "to": "s2",
+      "symbol": "b"
+    },
+    {
+      "id": "t11",
+      "from": "s6",
+      "to": "s3",
+      "symbol": "a"
+    },
+    {
+      "id": "t12",
+      "from": "s6",
+      "to": "s4",
+      "symbol": "b"
+    }
+  ],
+  "startId": "s1",
+  "accepts": [
+    "s1"
+  ],
+  "notes": [],
+  "dividers": [],
+  "blocks": [],
+  "meta": {
+    "title": "a’s a multiple of 3, b’s even",
+    "blurb": "Two independent counters — a’s mod 3 and b’s mod 2 — run side by side. The machine is their product: six states laid out as a 3 × 2 grid, where a moves along a row and b moves between them.",
+    "inputs": [
+      {
+        "w": "",
+        "expect": "accept"
+      },
+      {
+        "w": "aabba",
+        "expect": "accept"
+      },
+      {
+        "w": "bb",
+        "expect": "accept"
+      },
+      {
+        "w": "aaaaababbb",
+        "expect": "accept"
+      },
+      {
+        "w": "a",
+        "expect": "reject"
+      },
+      {
+        "w": "babba",
+        "expect": "reject"
+      },
+      {
+        "w": "ab",
+        "expect": "reject"
+      },
+      {
+        "w": "baaaababbb",
+        "expect": "reject"
+      }
+    ],
+    "library": {
+      "author": {
+        "login": "thethinkmachine"
+      },
+      "license": "CC-BY-4.0",
+      "tags": [
+        "product-construction",
+        "counting",
+        "modular-arithmetic"
+      ],
+      "difficulty": "intro"
+    }
+  }
+}
