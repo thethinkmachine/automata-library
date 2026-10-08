@@ -1,0 +1,137 @@
+{
+  "format": "automata-studio/workspace",
+  "schema": 1,
+  "app": "dev",
+  "machine": "Moore",
+  "config": {
+    "sym": {
+      "eps": "ε",
+      "any": "Σ",
+      "blank": "⊔",
+      "leftMarker": "⊢",
+      "rightMarker": "⊣",
+      "stackBottom": "Z",
+      "lambda": "λ"
+    },
+    "transducerAccepts": false
+  },
+  "sigma": [
+    "0",
+    "1"
+  ],
+  "stackAlpha": [],
+  "outputAlpha": [
+    "0",
+    "1",
+    "2"
+  ],
+  "tapeCount": 1,
+  "states": [
+    {
+      "id": "s1",
+      "x": 140,
+      "y": 160,
+      "name": "r0",
+      "output": "0"
+    },
+    {
+      "id": "s2",
+      "x": 319,
+      "y": 160,
+      "name": "r1",
+      "output": "1"
+    },
+    {
+      "id": "s3",
+      "x": 498,
+      "y": 160,
+      "name": "r2",
+      "output": "2"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "t1",
+      "from": "s1",
+      "to": "s1",
+      "symbol": "0"
+    },
+    {
+      "id": "t2",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "1"
+    },
+    {
+      "id": "t3",
+      "from": "s2",
+      "to": "s3",
+      "symbol": "0"
+    },
+    {
+      "id": "t4",
+      "from": "s2",
+      "to": "s1",
+      "symbol": "1"
+    },
+    {
+      "id": "t5",
+      "from": "s3",
+      "to": "s2",
+      "symbol": "0"
+    },
+    {
+      "id": "t6",
+      "from": "s3",
+      "to": "s3",
+      "symbol": "1"
+    }
+  ],
+  "startId": "s1",
+  "accepts": [],
+  "notes": [],
+  "dividers": [],
+  "blocks": [],
+  "meta": {
+    "title": "The running remainder mod 3",
+    "blurb": "The divisibility-by-3 DFA with its answer written out at every step: each state prints its remainder, so the output is the value of every prefix of the binary number, mod 3. A Moore machine prints one symbol more than it reads — the start state’s, before anything has been read.",
+    "inputs": [
+      {
+        "w": "0",
+        "out": "00"
+      },
+      {
+        "w": "1",
+        "out": "01"
+      },
+      {
+        "w": "00",
+        "out": "000"
+      },
+      {
+        "w": "01",
+        "out": "001"
+      },
+      {
+        "w": "000",
+        "out": "0000"
+      },
+      {
+        "w": "1111101100011000",
+        "out": "01010122212101212"
+      }
+    ],
+    "library": {
+      "author": {
+        "login": "thethinkmachine"
+      },
+      "license": "CC-BY-4.0",
+      "tags": [
+        "modular-arithmetic",
+        "binary-numbers",
+        "running-output"
+      ],
+      "difficulty": "intro"
+    }
+  }
+}

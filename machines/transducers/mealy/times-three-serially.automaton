@@ -1,0 +1,199 @@
+{
+  "format": "automata-studio/workspace",
+  "schema": 1,
+  "app": "dev",
+  "machine": "Mealy",
+  "config": {
+    "sym": {
+      "eps": "ε",
+      "any": "Σ",
+      "blank": "⊔",
+      "leftMarker": "⊢",
+      "rightMarker": "⊣",
+      "stackBottom": "Z",
+      "lambda": "λ"
+    },
+    "transducerAccepts": false
+  },
+  "sigma": [
+    "0",
+    "1"
+  ],
+  "stackAlpha": [],
+  "outputAlpha": [
+    "0",
+    "1"
+  ],
+  "tapeCount": 1,
+  "states": [
+    {
+      "id": "s1",
+      "x": 140,
+      "y": 160,
+      "name": "c0_0"
+    },
+    {
+      "id": "s2",
+      "x": 319,
+      "y": 160,
+      "name": "c0_1"
+    },
+    {
+      "id": "s3",
+      "x": 498,
+      "y": 160,
+      "name": "c1_1"
+    },
+    {
+      "id": "s4",
+      "x": 677,
+      "y": 160,
+      "name": "c1_0"
+    },
+    {
+      "id": "s5",
+      "x": 856,
+      "y": 160,
+      "name": "c2_0"
+    },
+    {
+      "id": "s6",
+      "x": 1035,
+      "y": 160,
+      "name": "c2_1"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "t1",
+      "from": "s1",
+      "to": "s1",
+      "symbol": "0",
+      "output": "0"
+    },
+    {
+      "id": "t2",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "1",
+      "output": "1"
+    },
+    {
+      "id": "t3",
+      "from": "s2",
+      "to": "s1",
+      "symbol": "0",
+      "output": "1"
+    },
+    {
+      "id": "t4",
+      "from": "s2",
+      "to": "s3",
+      "symbol": "1",
+      "output": "0"
+    },
+    {
+      "id": "t5",
+      "from": "s4",
+      "to": "s1",
+      "symbol": "0",
+      "output": "1"
+    },
+    {
+      "id": "t6",
+      "from": "s4",
+      "to": "s3",
+      "symbol": "1",
+      "output": "0"
+    },
+    {
+      "id": "t7",
+      "from": "s3",
+      "to": "s4",
+      "symbol": "0",
+      "output": "0"
+    },
+    {
+      "id": "t8",
+      "from": "s3",
+      "to": "s3",
+      "symbol": "1",
+      "output": "1"
+    },
+    {
+      "id": "t9",
+      "from": "s5",
+      "to": "s4",
+      "symbol": "0",
+      "output": "0"
+    },
+    {
+      "id": "t10",
+      "from": "s5",
+      "to": "s3",
+      "symbol": "1",
+      "output": "1"
+    },
+    {
+      "id": "t11",
+      "from": "s6",
+      "to": "s4",
+      "symbol": "0",
+      "output": "1"
+    },
+    {
+      "id": "t12",
+      "from": "s6",
+      "to": "s6",
+      "symbol": "1",
+      "output": "0"
+    }
+  ],
+  "startId": "s1",
+  "accepts": [],
+  "notes": [],
+  "dividers": [],
+  "blocks": [],
+  "meta": {
+    "title": "Times three, serially",
+    "blurb": "Multiply a binary number by 3 as it streams in, least significant bit first. 3n = 2n + n, so each output bit is the input bit plus the previous one plus a carry; the carry can reach 2, so the states are the carries 0, 1 and 2 together with the last bit read. Feed enough trailing zeros to flush the carry.",
+    "inputs": [
+      {
+        "w": "0",
+        "out": "0"
+      },
+      {
+        "w": "1",
+        "out": "1"
+      },
+      {
+        "w": "00",
+        "out": "00"
+      },
+      {
+        "w": "01",
+        "out": "01"
+      },
+      {
+        "w": "000",
+        "out": "000"
+      },
+      {
+        "w": "1111101100011000",
+        "out": "1011100101010010"
+      }
+    ],
+    "library": {
+      "author": {
+        "login": "thethinkmachine"
+      },
+      "license": "CC-BY-4.0",
+      "tags": [
+        "binary-numbers",
+        "serial-arithmetic",
+        "multiplication"
+      ],
+      "difficulty": "intermediate"
+    }
+  }
+}

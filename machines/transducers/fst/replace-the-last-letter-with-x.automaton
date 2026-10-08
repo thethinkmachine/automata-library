@@ -1,0 +1,128 @@
+{
+  "format": "automata-studio/workspace",
+  "schema": 1,
+  "app": "dev",
+  "machine": "FST",
+  "config": {
+    "sym": {
+      "eps": "ε",
+      "any": "Σ",
+      "blank": "⊔",
+      "leftMarker": "⊢",
+      "rightMarker": "⊣",
+      "stackBottom": "Z",
+      "lambda": "λ"
+    },
+    "transducerAccepts": true
+  },
+  "sigma": [
+    "a",
+    "b"
+  ],
+  "stackAlpha": [],
+  "outputAlpha": [
+    "a",
+    "b",
+    "x"
+  ],
+  "tapeCount": 1,
+  "states": [
+    {
+      "id": "s1",
+      "x": 140,
+      "y": 160,
+      "name": "copy"
+    },
+    {
+      "id": "s2",
+      "x": 319,
+      "y": 160,
+      "name": "end"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "t1",
+      "from": "s1",
+      "to": "s1",
+      "symbol": "a",
+      "output": "a"
+    },
+    {
+      "id": "t2",
+      "from": "s1",
+      "to": "s1",
+      "symbol": "b",
+      "output": "b"
+    },
+    {
+      "id": "t3",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "a",
+      "output": "x"
+    },
+    {
+      "id": "t4",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "b",
+      "output": "x"
+    }
+  ],
+  "startId": "s1",
+  "accepts": [
+    "s2"
+  ],
+  "notes": [],
+  "dividers": [],
+  "blocks": [],
+  "meta": {
+    "title": "Replace the last letter with x",
+    "blurb": "A transducer reading left to right cannot know which letter is the last. This one guesses: on each letter it either copies it or bets that it is the last and writes x instead. Only the branch that bet correctly reaches the accepting state at the end, so exactly one output survives.",
+    "inputs": [
+      {
+        "w": "a",
+        "out": "x",
+        "expect": "accept"
+      },
+      {
+        "w": "b",
+        "out": "x",
+        "expect": "accept"
+      },
+      {
+        "w": "aa",
+        "out": "ax",
+        "expect": "accept"
+      },
+      {
+        "w": "ab",
+        "out": "ax",
+        "expect": "accept"
+      },
+      {
+        "w": "aaa",
+        "out": "aax",
+        "expect": "accept"
+      },
+      {
+        "w": "bbbbbabbaaabbaaa",
+        "out": "bbbbbabbaaabbaax",
+        "expect": "accept"
+      }
+    ],
+    "library": {
+      "author": {
+        "login": "thethinkmachine"
+      },
+      "license": "CC-BY-4.0",
+      "tags": [
+        "nondeterminism",
+        "guessing",
+        "functional-transducer"
+      ],
+      "difficulty": "intermediate"
+    }
+  }
+}

@@ -1,0 +1,128 @@
+{
+  "format": "automata-studio/workspace",
+  "schema": 1,
+  "app": "dev",
+  "machine": "DWA",
+  "config": {
+    "sym": {
+      "eps": "ε",
+      "any": "Σ",
+      "blank": "⊔",
+      "leftMarker": "⊢",
+      "rightMarker": "⊣",
+      "stackBottom": "Z",
+      "lambda": "λ"
+    }
+  },
+  "sigma": [
+    "a",
+    "b",
+    "c"
+  ],
+  "stackAlpha": [],
+  "outputAlpha": [],
+  "tapeCount": 1,
+  "states": [
+    {
+      "id": "s1",
+      "x": 140,
+      "y": 160,
+      "name": "wait"
+    },
+    {
+      "id": "s2",
+      "x": 319,
+      "y": 160,
+      "name": "after"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "t1",
+      "from": "s1",
+      "to": "s1",
+      "symbol": "b"
+    },
+    {
+      "id": "t2",
+      "from": "s1",
+      "to": "s1",
+      "symbol": "c"
+    },
+    {
+      "id": "t3",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "a"
+    },
+    {
+      "id": "t4",
+      "from": "s2",
+      "to": "s2",
+      "symbol": "a"
+    },
+    {
+      "id": "t5",
+      "from": "s2",
+      "to": "s2",
+      "symbol": "c"
+    }
+  ],
+  "startId": "s1",
+  "accepts": [
+    "s2"
+  ],
+  "notes": [],
+  "dividers": [],
+  "blocks": [],
+  "meta": {
+    "title": "An a, and no b ever after it",
+    "blurb": "F a ∧ G(a → G ¬b): an obligation, part guarantee and part safety. Waiting is rejecting, the state after the first a is accepting, and a b after that has no edge. Three components, none straddling the accepting set.",
+    "inputs": [
+      {
+        "w": "(a)",
+        "expect": "accept"
+      },
+      {
+        "w": "a(c)",
+        "expect": "accept"
+      },
+      {
+        "w": "(aa)",
+        "expect": "accept"
+      },
+      {
+        "w": "(ac)",
+        "expect": "accept"
+      },
+      {
+        "w": "(b)",
+        "expect": "reject"
+      },
+      {
+        "w": "(c)",
+        "expect": "reject"
+      },
+      {
+        "w": "(ab)",
+        "expect": "reject"
+      },
+      {
+        "w": "(ba)",
+        "expect": "reject"
+      }
+    ],
+    "library": {
+      "author": {
+        "login": "thethinkmachine"
+      },
+      "license": "CC-BY-4.0",
+      "tags": [
+        "ltl",
+        "obligation",
+        "weak"
+      ],
+      "difficulty": "intermediate"
+    }
+  }
+}

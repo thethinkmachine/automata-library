@@ -146,7 +146,7 @@ export function buildDoc(spec, { author = 'thethinkmachine' } = {}) {
   names(spec.accept).forEach(see);
   const idOf = new Map(order.map((n, i) => [n, `s${i + 1}`]));
   const states = order.map(n => ({ id: idOf.get(n), x: 0, y: 0, name: n }));
-  if (spec.out) for (const s of states) if (spec.out[s.name] !== undefined) s.output = spec.out[s.name];
+  if (spec.stateOut) for (const s of states) if (spec.stateOut[s.name] !== undefined) s.output = spec.stateOut[s.name];
   if (spec.priority) for (const s of states) s.priority = spec.priority[s.name] ?? 0;
   transitions = transitions.map((t, i) => ({ id: `t${i + 1}`, ...t, from: idOf.get(t.from), to: idOf.get(t.to) }));
   const startId = idOf.get(spec.start || order[0]);
@@ -220,7 +220,7 @@ function renamed(spec) {
   out.states = names(spec.states).map(r);
   out.accept = names(spec.accept).map(r);
   if (spec.delta) out.delta = rulesOf(spec.delta).map(x => `${r(x.from)} ${x.label} ${r(x.to)}`).join('\n');
-  for (const k of ['pos', 'out', 'priority']) if (spec[k]) out[k] = Object.fromEntries(Object.entries(spec[k]).map(([n, v]) => [r(n), v]));
+  for (const k of ['pos', 'stateOut', 'priority']) if (spec[k]) out[k] = Object.fromEntries(Object.entries(spec[k]).map(([n, v]) => [r(n), v]));
   return out;
 }
 

@@ -1,0 +1,207 @@
+{
+  "format": "automata-studio/workspace",
+  "schema": 1,
+  "app": "dev",
+  "machine": "NBA",
+  "config": {
+    "sym": {
+      "eps": "ε",
+      "any": "Σ",
+      "blank": "⊔",
+      "leftMarker": "⊢",
+      "rightMarker": "⊣",
+      "stackBottom": "Z",
+      "lambda": "λ"
+    }
+  },
+  "sigma": [
+    "a",
+    "b",
+    "c"
+  ],
+  "stackAlpha": [],
+  "outputAlpha": [],
+  "tapeCount": 1,
+  "states": [
+    {
+      "id": "s1",
+      "x": 140,
+      "y": 255,
+      "name": "start"
+    },
+    {
+      "id": "s2",
+      "x": 319,
+      "y": 255,
+      "name": "sawA"
+    },
+    {
+      "id": "s3",
+      "x": 319,
+      "y": 350,
+      "name": "other"
+    },
+    {
+      "id": "s4",
+      "x": 319,
+      "y": 160,
+      "name": "quiet"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "t1",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "a"
+    },
+    {
+      "id": "t2",
+      "from": "s1",
+      "to": "s3",
+      "symbol": "b"
+    },
+    {
+      "id": "t3",
+      "from": "s1",
+      "to": "s3",
+      "symbol": "c"
+    },
+    {
+      "id": "t4",
+      "from": "s2",
+      "to": "s2",
+      "symbol": "a"
+    },
+    {
+      "id": "t5",
+      "from": "s2",
+      "to": "s3",
+      "symbol": "b"
+    },
+    {
+      "id": "t6",
+      "from": "s2",
+      "to": "s3",
+      "symbol": "c"
+    },
+    {
+      "id": "t7",
+      "from": "s3",
+      "to": "s2",
+      "symbol": "a"
+    },
+    {
+      "id": "t8",
+      "from": "s3",
+      "to": "s3",
+      "symbol": "b"
+    },
+    {
+      "id": "t9",
+      "from": "s3",
+      "to": "s3",
+      "symbol": "c"
+    },
+    {
+      "id": "t10",
+      "from": "s1",
+      "to": "s1",
+      "symbol": "a"
+    },
+    {
+      "id": "t11",
+      "from": "s1",
+      "to": "s1",
+      "symbol": "b"
+    },
+    {
+      "id": "t12",
+      "from": "s1",
+      "to": "s1",
+      "symbol": "c"
+    },
+    {
+      "id": "t13",
+      "from": "s1",
+      "to": "s4",
+      "symbol": "a"
+    },
+    {
+      "id": "t14",
+      "from": "s1",
+      "to": "s4",
+      "symbol": "c"
+    },
+    {
+      "id": "t15",
+      "from": "s4",
+      "to": "s4",
+      "symbol": "a"
+    },
+    {
+      "id": "t16",
+      "from": "s4",
+      "to": "s4",
+      "symbol": "c"
+    }
+  ],
+  "startId": "s1",
+  "accepts": [
+    "s2",
+    "s4"
+  ],
+  "notes": [],
+  "dividers": [],
+  "blocks": [],
+  "meta": {
+    "title": "Infinitely many a’s, or finitely many b’s",
+    "blurb": "GF a ∨ FG ¬b. Nondeterminism makes a union easy: one branch is the deterministic machine for GF a, the other guesses the moment after which no b will come. The second half on its own already needs a guess.",
+    "inputs": [
+      {
+        "w": "(a)",
+        "expect": "accept"
+      },
+      {
+        "w": "(c)",
+        "expect": "accept"
+      },
+      {
+        "w": "(aa)",
+        "expect": "accept"
+      },
+      {
+        "w": "(ab)",
+        "expect": "accept"
+      },
+      {
+        "w": "(b)",
+        "expect": "reject"
+      },
+      {
+        "w": "(bb)",
+        "expect": "reject"
+      },
+      {
+        "w": "(bc)",
+        "expect": "reject"
+      },
+      {
+        "w": "(cb)",
+        "expect": "reject"
+      }
+    ],
+    "library": {
+      "author": {
+        "login": "thethinkmachine"
+      },
+      "license": "CC-BY-4.0",
+      "tags": [
+        "ltl",
+        "union",
+        "guessing"
+      ],
+      "difficulty": "intermediate"
+    }
+  }
+}

@@ -1,0 +1,548 @@
+{
+  "format": "automata-studio/workspace",
+  "schema": 1,
+  "app": "dev",
+  "machine": "FST",
+  "config": {
+    "sym": {
+      "eps": "ε",
+      "any": "Σ",
+      "blank": "⊔",
+      "leftMarker": "⊢",
+      "rightMarker": "⊣",
+      "stackBottom": "Z",
+      "lambda": "λ"
+    },
+    "transducerAccepts": true
+  },
+  "sigma": [
+    "0",
+    "1",
+    "2",
+    "3",
+    "4",
+    "5",
+    "6",
+    "7",
+    "8",
+    "9"
+  ],
+  "stackAlpha": [],
+  "outputAlpha": [
+    "0",
+    "1",
+    "2",
+    "3",
+    "4",
+    "5",
+    "6",
+    "7",
+    "8",
+    "9",
+    "_"
+  ],
+  "tapeCount": 1,
+  "states": [
+    {
+      "id": "s1",
+      "x": 140,
+      "y": 255,
+      "name": "start"
+    },
+    {
+      "id": "s2",
+      "x": 319,
+      "y": 160,
+      "name": "p2"
+    },
+    {
+      "id": "s3",
+      "x": 319,
+      "y": 255,
+      "name": "p1"
+    },
+    {
+      "id": "s4",
+      "x": 319,
+      "y": 350,
+      "name": "p0"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "t1",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "0",
+      "output": "0"
+    },
+    {
+      "id": "t2",
+      "from": "s1",
+      "to": "s3",
+      "symbol": "0",
+      "output": "0"
+    },
+    {
+      "id": "t3",
+      "from": "s1",
+      "to": "s4",
+      "symbol": "0",
+      "output": "0"
+    },
+    {
+      "id": "t4",
+      "from": "s2",
+      "to": "s3",
+      "symbol": "0",
+      "output": "0"
+    },
+    {
+      "id": "t5",
+      "from": "s3",
+      "to": "s4",
+      "symbol": "0",
+      "output": "0"
+    },
+    {
+      "id": "t6",
+      "from": "s4",
+      "to": "s2",
+      "symbol": "0",
+      "output": "_0"
+    },
+    {
+      "id": "t7",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "1",
+      "output": "1"
+    },
+    {
+      "id": "t8",
+      "from": "s1",
+      "to": "s3",
+      "symbol": "1",
+      "output": "1"
+    },
+    {
+      "id": "t9",
+      "from": "s1",
+      "to": "s4",
+      "symbol": "1",
+      "output": "1"
+    },
+    {
+      "id": "t10",
+      "from": "s2",
+      "to": "s3",
+      "symbol": "1",
+      "output": "1"
+    },
+    {
+      "id": "t11",
+      "from": "s3",
+      "to": "s4",
+      "symbol": "1",
+      "output": "1"
+    },
+    {
+      "id": "t12",
+      "from": "s4",
+      "to": "s2",
+      "symbol": "1",
+      "output": "_1"
+    },
+    {
+      "id": "t13",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "2",
+      "output": "2"
+    },
+    {
+      "id": "t14",
+      "from": "s1",
+      "to": "s3",
+      "symbol": "2",
+      "output": "2"
+    },
+    {
+      "id": "t15",
+      "from": "s1",
+      "to": "s4",
+      "symbol": "2",
+      "output": "2"
+    },
+    {
+      "id": "t16",
+      "from": "s2",
+      "to": "s3",
+      "symbol": "2",
+      "output": "2"
+    },
+    {
+      "id": "t17",
+      "from": "s3",
+      "to": "s4",
+      "symbol": "2",
+      "output": "2"
+    },
+    {
+      "id": "t18",
+      "from": "s4",
+      "to": "s2",
+      "symbol": "2",
+      "output": "_2"
+    },
+    {
+      "id": "t19",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "3",
+      "output": "3"
+    },
+    {
+      "id": "t20",
+      "from": "s1",
+      "to": "s3",
+      "symbol": "3",
+      "output": "3"
+    },
+    {
+      "id": "t21",
+      "from": "s1",
+      "to": "s4",
+      "symbol": "3",
+      "output": "3"
+    },
+    {
+      "id": "t22",
+      "from": "s2",
+      "to": "s3",
+      "symbol": "3",
+      "output": "3"
+    },
+    {
+      "id": "t23",
+      "from": "s3",
+      "to": "s4",
+      "symbol": "3",
+      "output": "3"
+    },
+    {
+      "id": "t24",
+      "from": "s4",
+      "to": "s2",
+      "symbol": "3",
+      "output": "_3"
+    },
+    {
+      "id": "t25",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "4",
+      "output": "4"
+    },
+    {
+      "id": "t26",
+      "from": "s1",
+      "to": "s3",
+      "symbol": "4",
+      "output": "4"
+    },
+    {
+      "id": "t27",
+      "from": "s1",
+      "to": "s4",
+      "symbol": "4",
+      "output": "4"
+    },
+    {
+      "id": "t28",
+      "from": "s2",
+      "to": "s3",
+      "symbol": "4",
+      "output": "4"
+    },
+    {
+      "id": "t29",
+      "from": "s3",
+      "to": "s4",
+      "symbol": "4",
+      "output": "4"
+    },
+    {
+      "id": "t30",
+      "from": "s4",
+      "to": "s2",
+      "symbol": "4",
+      "output": "_4"
+    },
+    {
+      "id": "t31",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "5",
+      "output": "5"
+    },
+    {
+      "id": "t32",
+      "from": "s1",
+      "to": "s3",
+      "symbol": "5",
+      "output": "5"
+    },
+    {
+      "id": "t33",
+      "from": "s1",
+      "to": "s4",
+      "symbol": "5",
+      "output": "5"
+    },
+    {
+      "id": "t34",
+      "from": "s2",
+      "to": "s3",
+      "symbol": "5",
+      "output": "5"
+    },
+    {
+      "id": "t35",
+      "from": "s3",
+      "to": "s4",
+      "symbol": "5",
+      "output": "5"
+    },
+    {
+      "id": "t36",
+      "from": "s4",
+      "to": "s2",
+      "symbol": "5",
+      "output": "_5"
+    },
+    {
+      "id": "t37",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "6",
+      "output": "6"
+    },
+    {
+      "id": "t38",
+      "from": "s1",
+      "to": "s3",
+      "symbol": "6",
+      "output": "6"
+    },
+    {
+      "id": "t39",
+      "from": "s1",
+      "to": "s4",
+      "symbol": "6",
+      "output": "6"
+    },
+    {
+      "id": "t40",
+      "from": "s2",
+      "to": "s3",
+      "symbol": "6",
+      "output": "6"
+    },
+    {
+      "id": "t41",
+      "from": "s3",
+      "to": "s4",
+      "symbol": "6",
+      "output": "6"
+    },
+    {
+      "id": "t42",
+      "from": "s4",
+      "to": "s2",
+      "symbol": "6",
+      "output": "_6"
+    },
+    {
+      "id": "t43",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "7",
+      "output": "7"
+    },
+    {
+      "id": "t44",
+      "from": "s1",
+      "to": "s3",
+      "symbol": "7",
+      "output": "7"
+    },
+    {
+      "id": "t45",
+      "from": "s1",
+      "to": "s4",
+      "symbol": "7",
+      "output": "7"
+    },
+    {
+      "id": "t46",
+      "from": "s2",
+      "to": "s3",
+      "symbol": "7",
+      "output": "7"
+    },
+    {
+      "id": "t47",
+      "from": "s3",
+      "to": "s4",
+      "symbol": "7",
+      "output": "7"
+    },
+    {
+      "id": "t48",
+      "from": "s4",
+      "to": "s2",
+      "symbol": "7",
+      "output": "_7"
+    },
+    {
+      "id": "t49",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "8",
+      "output": "8"
+    },
+    {
+      "id": "t50",
+      "from": "s1",
+      "to": "s3",
+      "symbol": "8",
+      "output": "8"
+    },
+    {
+      "id": "t51",
+      "from": "s1",
+      "to": "s4",
+      "symbol": "8",
+      "output": "8"
+    },
+    {
+      "id": "t52",
+      "from": "s2",
+      "to": "s3",
+      "symbol": "8",
+      "output": "8"
+    },
+    {
+      "id": "t53",
+      "from": "s3",
+      "to": "s4",
+      "symbol": "8",
+      "output": "8"
+    },
+    {
+      "id": "t54",
+      "from": "s4",
+      "to": "s2",
+      "symbol": "8",
+      "output": "_8"
+    },
+    {
+      "id": "t55",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "9",
+      "output": "9"
+    },
+    {
+      "id": "t56",
+      "from": "s1",
+      "to": "s3",
+      "symbol": "9",
+      "output": "9"
+    },
+    {
+      "id": "t57",
+      "from": "s1",
+      "to": "s4",
+      "symbol": "9",
+      "output": "9"
+    },
+    {
+      "id": "t58",
+      "from": "s2",
+      "to": "s3",
+      "symbol": "9",
+      "output": "9"
+    },
+    {
+      "id": "t59",
+      "from": "s3",
+      "to": "s4",
+      "symbol": "9",
+      "output": "9"
+    },
+    {
+      "id": "t60",
+      "from": "s4",
+      "to": "s2",
+      "symbol": "9",
+      "output": "_9"
+    }
+  ],
+  "startId": "s1",
+  "accepts": [
+    "s4"
+  ],
+  "notes": [],
+  "dividers": [],
+  "blocks": [],
+  "meta": {
+    "title": "Thousands separators",
+    "blurb": "Write 1234567 as 1_234_567. Where the separators go depends on the length mod 3, counted from the right — which a left-to-right reader does not know yet. So the transducer guesses the phase at the start and only the branch whose guess was right ends in an accepting state.",
+    "inputs": [
+      {
+        "w": "7",
+        "out": "7",
+        "expect": "accept"
+      },
+      {
+        "w": "42",
+        "out": "42",
+        "expect": "accept"
+      },
+      {
+        "w": "123",
+        "out": "123",
+        "expect": "accept"
+      },
+      {
+        "w": "1234",
+        "out": "1_234",
+        "expect": "accept"
+      },
+      {
+        "w": "12345",
+        "out": "12_345",
+        "expect": "accept"
+      },
+      {
+        "w": "1234567",
+        "out": "1_234_567",
+        "expect": "accept"
+      }
+    ],
+    "library": {
+      "author": {
+        "login": "thethinkmachine"
+      },
+      "license": "CC-BY-4.0",
+      "tags": [
+        "formatting",
+        "nondeterminism",
+        "guessing"
+      ],
+      "difficulty": "advanced"
+    }
+  }
+}

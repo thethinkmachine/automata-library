@@ -1,0 +1,193 @@
+{
+  "format": "automata-studio/workspace",
+  "schema": 1,
+  "app": "dev",
+  "machine": "Moore",
+  "config": {
+    "sym": {
+      "eps": "ε",
+      "any": "Σ",
+      "blank": "⊔",
+      "leftMarker": "⊢",
+      "rightMarker": "⊣",
+      "stackBottom": "Z",
+      "lambda": "λ"
+    },
+    "transducerAccepts": false
+  },
+  "sigma": [
+    "0",
+    "1"
+  ],
+  "stackAlpha": [],
+  "outputAlpha": [
+    "0",
+    "1"
+  ],
+  "tapeCount": 1,
+  "states": [
+    {
+      "id": "s1",
+      "x": 140,
+      "y": 160,
+      "name": "lo0",
+      "output": "0"
+    },
+    {
+      "id": "s2",
+      "x": 310,
+      "y": 160,
+      "name": "lo1",
+      "output": "0"
+    },
+    {
+      "id": "s3",
+      "x": 480,
+      "y": 160,
+      "name": "lo2",
+      "output": "0"
+    },
+    {
+      "id": "s4",
+      "x": 480,
+      "y": 364,
+      "name": "hi0",
+      "output": "1"
+    },
+    {
+      "id": "s5",
+      "x": 310,
+      "y": 364,
+      "name": "hi1",
+      "output": "1"
+    },
+    {
+      "id": "s6",
+      "x": 140,
+      "y": 364,
+      "name": "hi2",
+      "output": "1"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "t1",
+      "from": "s1",
+      "to": "s1",
+      "symbol": "0"
+    },
+    {
+      "id": "t2",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "1"
+    },
+    {
+      "id": "t3",
+      "from": "s2",
+      "to": "s1",
+      "symbol": "0"
+    },
+    {
+      "id": "t4",
+      "from": "s2",
+      "to": "s3",
+      "symbol": "1"
+    },
+    {
+      "id": "t5",
+      "from": "s3",
+      "to": "s1",
+      "symbol": "0"
+    },
+    {
+      "id": "t6",
+      "from": "s3",
+      "to": "s4",
+      "symbol": "1"
+    },
+    {
+      "id": "t7",
+      "from": "s4",
+      "to": "s4",
+      "symbol": "1"
+    },
+    {
+      "id": "t8",
+      "from": "s4",
+      "to": "s5",
+      "symbol": "0"
+    },
+    {
+      "id": "t9",
+      "from": "s5",
+      "to": "s4",
+      "symbol": "1"
+    },
+    {
+      "id": "t10",
+      "from": "s5",
+      "to": "s6",
+      "symbol": "0"
+    },
+    {
+      "id": "t11",
+      "from": "s6",
+      "to": "s4",
+      "symbol": "1"
+    },
+    {
+      "id": "t12",
+      "from": "s6",
+      "to": "s1",
+      "symbol": "0"
+    }
+  ],
+  "startId": "s1",
+  "accepts": [],
+  "notes": [],
+  "dividers": [],
+  "blocks": [],
+  "meta": {
+    "title": "A switch debouncer",
+    "blurb": "A mechanical switch chatters, so its reading flips briefly before it settles. The debouncer changes its output only after the input has held the new value for three samples in a row; shorter glitches are ignored. Each state is the current output and how long the other value has been seen.",
+    "inputs": [
+      {
+        "w": "0",
+        "out": "00"
+      },
+      {
+        "w": "1",
+        "out": "00"
+      },
+      {
+        "w": "00",
+        "out": "000"
+      },
+      {
+        "w": "01",
+        "out": "000"
+      },
+      {
+        "w": "000",
+        "out": "0000"
+      },
+      {
+        "w": "1111101100011000",
+        "out": "00011111111000000"
+      }
+    ],
+    "library": {
+      "author": {
+        "login": "thethinkmachine"
+      },
+      "license": "CC-BY-4.0",
+      "tags": [
+        "hardware",
+        "debouncing",
+        "signal-processing"
+      ],
+      "difficulty": "intermediate"
+    }
+  }
+}

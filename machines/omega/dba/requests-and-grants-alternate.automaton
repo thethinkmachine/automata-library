@@ -1,0 +1,123 @@
+{
+  "format": "automata-studio/workspace",
+  "schema": 1,
+  "app": "dev",
+  "machine": "DBA",
+  "config": {
+    "sym": {
+      "eps": "ε",
+      "any": "Σ",
+      "blank": "⊔",
+      "leftMarker": "⊢",
+      "rightMarker": "⊣",
+      "stackBottom": "Z",
+      "lambda": "λ"
+    }
+  },
+  "sigma": [
+    "r",
+    "g",
+    "n"
+  ],
+  "stackAlpha": [],
+  "outputAlpha": [],
+  "tapeCount": 1,
+  "states": [
+    {
+      "id": "s1",
+      "x": 140,
+      "y": 160,
+      "name": "idle"
+    },
+    {
+      "id": "s2",
+      "x": 319,
+      "y": 160,
+      "name": "busy"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "t1",
+      "from": "s1",
+      "to": "s1",
+      "symbol": "n"
+    },
+    {
+      "id": "t2",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "r"
+    },
+    {
+      "id": "t3",
+      "from": "s2",
+      "to": "s2",
+      "symbol": "n"
+    },
+    {
+      "id": "t4",
+      "from": "s2",
+      "to": "s1",
+      "symbol": "g"
+    }
+  ],
+  "startId": "s1",
+  "accepts": [
+    "s1"
+  ],
+  "notes": [],
+  "dividers": [],
+  "blocks": [],
+  "meta": {
+    "title": "Requests and grants alternate",
+    "blurb": "A request, then its grant, then the next request: never two of either in a row, no grant first, and no request left hanging. A safety part (the order) and a liveness part (the hanging request), checked by one two-state machine.",
+    "inputs": [
+      {
+        "w": "(n)",
+        "expect": "accept"
+      },
+      {
+        "w": "(nn)",
+        "expect": "accept"
+      },
+      {
+        "w": "(rg)",
+        "expect": "accept"
+      },
+      {
+        "w": "nn(n)",
+        "expect": "accept"
+      },
+      {
+        "w": "(g)",
+        "expect": "reject"
+      },
+      {
+        "w": "(r)",
+        "expect": "reject"
+      },
+      {
+        "w": "g(n)",
+        "expect": "reject"
+      },
+      {
+        "w": "g(r)",
+        "expect": "reject"
+      }
+    ],
+    "library": {
+      "author": {
+        "login": "thethinkmachine"
+      },
+      "license": "CC-BY-4.0",
+      "tags": [
+        "ltl",
+        "protocols",
+        "alternation",
+        "liveness"
+      ],
+      "difficulty": "intermediate"
+    }
+  }
+}

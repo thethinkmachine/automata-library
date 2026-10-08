@@ -1,0 +1,179 @@
+{
+  "format": "automata-studio/workspace",
+  "schema": 1,
+  "app": "dev",
+  "machine": "FST",
+  "config": {
+    "sym": {
+      "eps": "ε",
+      "any": "Σ",
+      "blank": "⊔",
+      "leftMarker": "⊢",
+      "rightMarker": "⊣",
+      "stackBottom": "Z",
+      "lambda": "λ"
+    },
+    "transducerAccepts": false
+  },
+  "sigma": [
+    "0",
+    "1"
+  ],
+  "stackAlpha": [],
+  "outputAlpha": [
+    "0",
+    "1"
+  ],
+  "tapeCount": 1,
+  "states": [
+    {
+      "id": "s1",
+      "x": 140,
+      "y": 160,
+      "name": "r0"
+    },
+    {
+      "id": "s2",
+      "x": 319,
+      "y": 160,
+      "name": "r1"
+    },
+    {
+      "id": "s3",
+      "x": 498,
+      "y": 160,
+      "name": "r2"
+    },
+    {
+      "id": "s4",
+      "x": 677,
+      "y": 160,
+      "name": "r3"
+    },
+    {
+      "id": "s5",
+      "x": 856,
+      "y": 160,
+      "name": "r4"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "t1",
+      "from": "s1",
+      "to": "s1",
+      "symbol": "0",
+      "output": "0"
+    },
+    {
+      "id": "t2",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "1",
+      "output": "1"
+    },
+    {
+      "id": "t3",
+      "from": "s2",
+      "to": "s1",
+      "symbol": "0",
+      "output": "0"
+    },
+    {
+      "id": "t4",
+      "from": "s2",
+      "to": "s3",
+      "symbol": "1",
+      "output": "1"
+    },
+    {
+      "id": "t5",
+      "from": "s3",
+      "to": "s1",
+      "symbol": "0",
+      "output": "0"
+    },
+    {
+      "id": "t6",
+      "from": "s3",
+      "to": "s4",
+      "symbol": "1",
+      "output": "1"
+    },
+    {
+      "id": "t7",
+      "from": "s4",
+      "to": "s1",
+      "symbol": "0",
+      "output": "0"
+    },
+    {
+      "id": "t8",
+      "from": "s4",
+      "to": "s5",
+      "symbol": "1",
+      "output": "1"
+    },
+    {
+      "id": "t9",
+      "from": "s5",
+      "to": "s1",
+      "symbol": "0",
+      "output": "0"
+    },
+    {
+      "id": "t10",
+      "from": "s5",
+      "to": "s1",
+      "symbol": "1",
+      "output": "10"
+    }
+  ],
+  "startId": "s1",
+  "accepts": [],
+  "notes": [],
+  "dividers": [],
+  "blocks": [],
+  "meta": {
+    "title": "HDLC bit stuffing",
+    "blurb": "A frame is marked by 01111110, so the data inside must never contain six 1s in a row. After every five consecutive 1s the sender inserts a 0, and the receiver removes it. The transducer counts the run of 1s and, at five, writes 10 instead of 1.",
+    "inputs": [
+      {
+        "w": "0",
+        "out": "0"
+      },
+      {
+        "w": "1",
+        "out": "1"
+      },
+      {
+        "w": "00",
+        "out": "00"
+      },
+      {
+        "w": "01",
+        "out": "01"
+      },
+      {
+        "w": "000",
+        "out": "000"
+      },
+      {
+        "w": "1111101000011001",
+        "out": "11111001000011001"
+      }
+    ],
+    "library": {
+      "author": {
+        "login": "thethinkmachine"
+      },
+      "license": "CC-BY-4.0",
+      "tags": [
+        "networking",
+        "framing",
+        "bit-stuffing"
+      ],
+      "difficulty": "intermediate"
+    }
+  }
+}

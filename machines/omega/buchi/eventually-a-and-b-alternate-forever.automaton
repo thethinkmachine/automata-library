@@ -1,0 +1,133 @@
+{
+  "format": "automata-studio/workspace",
+  "schema": 1,
+  "app": "dev",
+  "machine": "NBA",
+  "config": {
+    "sym": {
+      "eps": "ε",
+      "any": "Σ",
+      "blank": "⊔",
+      "leftMarker": "⊢",
+      "rightMarker": "⊣",
+      "stackBottom": "Z",
+      "lambda": "λ"
+    }
+  },
+  "sigma": [
+    "a",
+    "b"
+  ],
+  "stackAlpha": [],
+  "outputAlpha": [],
+  "tapeCount": 1,
+  "states": [
+    {
+      "id": "s1",
+      "x": 140,
+      "y": 160,
+      "name": "skip"
+    },
+    {
+      "id": "s2",
+      "x": 319,
+      "y": 160,
+      "name": "gotA"
+    },
+    {
+      "id": "s3",
+      "x": 498,
+      "y": 160,
+      "name": "gotB"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "t1",
+      "from": "s1",
+      "to": "s1",
+      "symbol": "a"
+    },
+    {
+      "id": "t2",
+      "from": "s1",
+      "to": "s1",
+      "symbol": "b"
+    },
+    {
+      "id": "t3",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "a"
+    },
+    {
+      "id": "t4",
+      "from": "s2",
+      "to": "s3",
+      "symbol": "b"
+    },
+    {
+      "id": "t5",
+      "from": "s3",
+      "to": "s2",
+      "symbol": "a"
+    }
+  ],
+  "startId": "s1",
+  "accepts": [
+    "s3"
+  ],
+  "notes": [],
+  "dividers": [],
+  "blocks": [],
+  "meta": {
+    "title": "Eventually, a and b alternate forever",
+    "blurb": "From some point on the word is ababab…: the machine skips any prefix, then guesses where the alternation begins and checks it for ever. Like FG b, this needs the guess — no deterministic Büchi automaton can tell when to start looking.",
+    "inputs": [
+      {
+        "w": "(ab)",
+        "expect": "accept"
+      },
+      {
+        "w": "(ba)",
+        "expect": "accept"
+      },
+      {
+        "w": "(abab)",
+        "expect": "accept"
+      },
+      {
+        "w": "(baba)",
+        "expect": "accept"
+      },
+      {
+        "w": "(a)",
+        "expect": "reject"
+      },
+      {
+        "w": "(b)",
+        "expect": "reject"
+      },
+      {
+        "w": "(aa)",
+        "expect": "reject"
+      },
+      {
+        "w": "(bb)",
+        "expect": "reject"
+      }
+    ],
+    "library": {
+      "author": {
+        "login": "thethinkmachine"
+      },
+      "license": "CC-BY-4.0",
+      "tags": [
+        "ltl",
+        "persistence",
+        "guessing"
+      ],
+      "difficulty": "intermediate"
+    }
+  }
+}

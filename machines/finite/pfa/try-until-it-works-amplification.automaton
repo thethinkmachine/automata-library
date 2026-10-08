@@ -1,0 +1,118 @@
+{
+  "format": "automata-studio/workspace",
+  "schema": 1,
+  "app": "dev",
+  "machine": "PFA",
+  "config": {
+    "sym": {
+      "eps": "ε",
+      "any": "Σ",
+      "blank": "⊔",
+      "leftMarker": "⊢",
+      "rightMarker": "⊣",
+      "stackBottom": "Z",
+      "lambda": "λ"
+    },
+    "pfaCutPoint": 0.9
+  },
+  "sigma": [
+    "a"
+  ],
+  "stackAlpha": [],
+  "outputAlpha": [],
+  "tapeCount": 1,
+  "states": [
+    {
+      "id": "s1",
+      "x": 140,
+      "y": 160,
+      "name": "trying"
+    },
+    {
+      "id": "s2",
+      "x": 319,
+      "y": 160,
+      "name": "success"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "t1",
+      "from": "s1",
+      "to": "s1",
+      "symbol": "a",
+      "weight": 0.5
+    },
+    {
+      "id": "t2",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "a",
+      "weight": 0.5
+    },
+    {
+      "id": "t3",
+      "from": "s2",
+      "to": "s2",
+      "symbol": "a",
+      "weight": 1
+    }
+  ],
+  "startId": "s1",
+  "accepts": [
+    "s2"
+  ],
+  "notes": [],
+  "dividers": [],
+  "blocks": [],
+  "meta": {
+    "title": "Try until it works: amplification",
+    "blurb": "Each a is an attempt that succeeds with probability 1/2, and success is permanent. After n attempts the chance of at least one success is 1 − 2⁻ⁿ, which passes the cut-point 0.9 at n = 4. Repetition turns a coin flip into near-certainty — the idea behind every randomised algorithm’s error bound.",
+    "inputs": [
+      {
+        "w": "aaaa",
+        "expect": "accept"
+      },
+      {
+        "w": "aaaaa",
+        "expect": "accept"
+      },
+      {
+        "w": "aaaaaa",
+        "expect": "accept"
+      },
+      {
+        "w": "aaaaaaaaaaaa",
+        "expect": "accept"
+      },
+      {
+        "w": "aaa",
+        "expect": "reject"
+      },
+      {
+        "w": "",
+        "expect": "reject"
+      },
+      {
+        "w": "aa",
+        "expect": "reject"
+      },
+      {
+        "w": "a",
+        "expect": "reject"
+      }
+    ],
+    "library": {
+      "author": {
+        "login": "thethinkmachine"
+      },
+      "license": "CC-BY-4.0",
+      "tags": [
+        "probability",
+        "amplification",
+        "randomised-algorithms"
+      ],
+      "difficulty": "intro"
+    }
+  }
+}

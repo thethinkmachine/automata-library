@@ -1,0 +1,130 @@
+{
+  "format": "automata-studio/workspace",
+  "schema": 1,
+  "app": "dev",
+  "machine": "DBA",
+  "config": {
+    "sym": {
+      "eps": "ε",
+      "any": "Σ",
+      "blank": "⊔",
+      "leftMarker": "⊢",
+      "rightMarker": "⊣",
+      "stackBottom": "Z",
+      "lambda": "λ"
+    }
+  },
+  "sigma": [
+    "r",
+    "g",
+    "n"
+  ],
+  "stackAlpha": [],
+  "outputAlpha": [],
+  "tapeCount": 1,
+  "states": [
+    {
+      "id": "s1",
+      "x": 140,
+      "y": 160,
+      "name": "before"
+    },
+    {
+      "id": "s2",
+      "x": 319,
+      "y": 160,
+      "name": "after"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "t1",
+      "from": "s1",
+      "to": "s1",
+      "symbol": "n"
+    },
+    {
+      "id": "t2",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "r"
+    },
+    {
+      "id": "t3",
+      "from": "s2",
+      "to": "s2",
+      "symbol": "r"
+    },
+    {
+      "id": "t4",
+      "from": "s2",
+      "to": "s2",
+      "symbol": "g"
+    },
+    {
+      "id": "t5",
+      "from": "s2",
+      "to": "s2",
+      "symbol": "n"
+    }
+  ],
+  "startId": "s1",
+  "accepts": [
+    "s1",
+    "s2"
+  ],
+  "notes": [],
+  "dividers": [],
+  "blocks": [],
+  "meta": {
+    "title": "No grant before the first request",
+    "blurb": "¬g W r: g may not happen until r has, and r need never happen. A precedence property — one of the specification patterns of Dwyer, Avrunin and Corbett — and pure safety: once r is seen, anything goes.",
+    "inputs": [
+      {
+        "w": "(n)",
+        "expect": "accept"
+      },
+      {
+        "w": "(r)",
+        "expect": "accept"
+      },
+      {
+        "w": "r(g)",
+        "expect": "accept"
+      },
+      {
+        "w": "r(n)",
+        "expect": "accept"
+      },
+      {
+        "w": "(g)",
+        "expect": "reject"
+      },
+      {
+        "w": "g(n)",
+        "expect": "reject"
+      },
+      {
+        "w": "g(r)",
+        "expect": "reject"
+      },
+      {
+        "w": "n(g)",
+        "expect": "reject"
+      }
+    ],
+    "library": {
+      "author": {
+        "login": "thethinkmachine"
+      },
+      "license": "CC-BY-4.0",
+      "tags": [
+        "ltl",
+        "precedence",
+        "safety",
+        "specification-patterns"
+      ],
+      "difficulty": "intro"
+    }
+  }
+}

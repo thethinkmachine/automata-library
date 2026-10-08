@@ -1,0 +1,148 @@
+{
+  "format": "automata-studio/workspace",
+  "schema": 1,
+  "app": "dev",
+  "machine": "FST",
+  "config": {
+    "sym": {
+      "eps": "ε",
+      "any": "Σ",
+      "blank": "⊔",
+      "leftMarker": "⊢",
+      "rightMarker": "⊣",
+      "stackBottom": "Z",
+      "lambda": "λ"
+    },
+    "transducerAccepts": false
+  },
+  "sigma": [
+    "e",
+    "t",
+    "a",
+    "n",
+    "i",
+    "m",
+    "s",
+    "o"
+  ],
+  "stackAlpha": [],
+  "outputAlpha": [
+    ".",
+    "-",
+    "/"
+  ],
+  "tapeCount": 1,
+  "states": [
+    {
+      "id": "s1",
+      "x": 140,
+      "y": 160,
+      "name": "q"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "t1",
+      "from": "s1",
+      "to": "s1",
+      "symbol": "e",
+      "output": "./"
+    },
+    {
+      "id": "t2",
+      "from": "s1",
+      "to": "s1",
+      "symbol": "t",
+      "output": "-/"
+    },
+    {
+      "id": "t3",
+      "from": "s1",
+      "to": "s1",
+      "symbol": "a",
+      "output": ".-/"
+    },
+    {
+      "id": "t4",
+      "from": "s1",
+      "to": "s1",
+      "symbol": "n",
+      "output": "-./"
+    },
+    {
+      "id": "t5",
+      "from": "s1",
+      "to": "s1",
+      "symbol": "i",
+      "output": "../"
+    },
+    {
+      "id": "t6",
+      "from": "s1",
+      "to": "s1",
+      "symbol": "m",
+      "output": "--/"
+    },
+    {
+      "id": "t7",
+      "from": "s1",
+      "to": "s1",
+      "symbol": "s",
+      "output": ".../"
+    },
+    {
+      "id": "t8",
+      "from": "s1",
+      "to": "s1",
+      "symbol": "o",
+      "output": "---/"
+    }
+  ],
+  "startId": "s1",
+  "accepts": [],
+  "notes": [],
+  "dividers": [],
+  "blocks": [],
+  "meta": {
+    "title": "Morse code for e, t, a, n, i, m, s and o",
+    "blurb": "Every letter is replaced by its code — e is ., t is -, s is ..., o is --- — with / between letters. A substitution of strings for letters is a homomorphism, and a homomorphism is a transducer with a single state.",
+    "inputs": [
+      {
+        "w": "a",
+        "out": ".-/"
+      },
+      {
+        "w": "e",
+        "out": "./"
+      },
+      {
+        "w": "aa",
+        "out": ".-/.-/"
+      },
+      {
+        "w": "ae",
+        "out": ".-/./"
+      },
+      {
+        "w": "aaa",
+        "out": ".-/.-/.-/"
+      },
+      {
+        "w": "ttoonomitost",
+        "out": "-/-/---/---/-./---/--/../-/---/.../-/"
+      }
+    ],
+    "library": {
+      "author": {
+        "login": "thethinkmachine"
+      },
+      "license": "CC-BY-4.0",
+      "tags": [
+        "morse-code",
+        "homomorphism",
+        "encoding"
+      ],
+      "difficulty": "intro"
+    }
+  }
+}

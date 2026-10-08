@@ -1,5 +1,5 @@
 {
-  "machine": "NBA",
+  "machine": "DBA",
   "sigma": [
     "a",
     "b"
@@ -70,7 +70,7 @@
   ],
   "meta": {
     "title": "Infinitely often a",
-    "blurb": "The canonical Büchi automaton for GF a: accepts exactly those infinite words containing infinitely many a's. Acceptance is about the cycle the run settles into, not where it stops.",
+    "blurb": "GF a, the canonical Büchi condition: accept the infinite words with infinitely many a’s. Two states — the last letter was a, or it was not — and acceptance asks for the first one again and again. Its mirror image FG b is the standard language no DBA can recognise.",
     "inputs": [
       {
         "w": "(a)",
@@ -103,8 +103,9 @@
       },
       "license": "CC-BY-4.0",
       "tags": [
-        "showcase",
-        "nba"
+        "ltl",
+        "recurrence",
+        "canonical"
       ],
       "difficulty": "intermediate"
     }
