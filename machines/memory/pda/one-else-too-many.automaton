@@ -16,8 +16,8 @@
     "pdaParadigm": "explicit"
   },
   "sigma": [
-    "a",
-    "b"
+    "i",
+    "e"
   ],
   "stackAlpha": [
     "Z",
@@ -30,111 +30,82 @@
       "id": "s1",
       "x": 140,
       "y": 160,
-      "name": "start"
+      "name": "q"
     },
     {
       "id": "s2",
       "x": 319,
       "y": 160,
-      "name": "as"
-    },
-    {
-      "id": "s3",
-      "x": 498,
-      "y": 160,
-      "name": "bs"
-    },
-    {
-      "id": "s4",
-      "x": 677,
-      "y": 160,
-      "name": "done"
+      "name": "f"
     }
   ],
   "transitions": [
     {
       "id": "t1",
       "from": "s1",
-      "to": "s2",
-      "symbol": "a",
-      "pop": "Z",
-      "push": "XZ"
+      "to": "s1",
+      "symbol": "i",
+      "pop": "ε",
+      "push": "X"
     },
     {
       "id": "t2",
-      "from": "s2",
-      "to": "s2",
-      "symbol": "a",
+      "from": "s1",
+      "to": "s1",
+      "symbol": "e",
       "pop": "X",
-      "push": "XX"
+      "push": "ε"
     },
     {
       "id": "t3",
-      "from": "s2",
-      "to": "s3",
-      "symbol": "b",
-      "pop": "X",
-      "push": "ε"
-    },
-    {
-      "id": "t4",
-      "from": "s3",
-      "to": "s3",
-      "symbol": "b",
-      "pop": "X",
-      "push": "ε"
-    },
-    {
-      "id": "t5",
-      "from": "s3",
-      "to": "s4",
-      "symbol": "ε",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "e",
       "pop": "Z",
       "push": "Z"
     }
   ],
   "startId": "s1",
   "accepts": [
-    "s1",
-    "s4"
+    "s2"
   ],
   "notes": [],
   "dividers": [],
   "blocks": [],
   "meta": {
-    "title": "aⁿbⁿ",
-    "blurb": "The language that is not regular: no finite memory can count the a’s, and a stack can. Push one X per a, pop one per b, and accept when the bottom marker comes back into view exactly as the input runs out.",
+    "title": "One else too many",
+    "blurb": "Hopcroft, Motwani and Ullman’s if/else example: i is an if, e an else, and the machine stops at the first else that has no if to match. It accepts exactly the strings where that happens at the last symbol — in the book by emptying its stack, here by moving to a final state when it would have.",
     "inputs": [
       {
-        "w": "",
+        "w": "e",
         "expect": "accept"
       },
       {
-        "w": "aabb",
+        "w": "iee",
         "expect": "accept"
       },
       {
-        "w": "ab",
+        "w": "ieiieee",
         "expect": "accept"
       },
       {
-        "w": "aaaaaaabbbbbbb",
+        "w": "ieieiieee",
         "expect": "accept"
       },
       {
-        "w": "a",
+        "w": "i",
         "expect": "reject"
       },
       {
-        "w": "babb",
+        "w": "eee",
         "expect": "reject"
       },
       {
-        "w": "bb",
+        "w": "eeiieee",
         "expect": "reject"
       },
       {
-        "w": "baaaaaabbbbbbb",
+        "w": "eeieiieee",
         "expect": "reject"
       }
     ],
@@ -144,12 +115,13 @@
       },
       "license": "CC-BY-4.0",
       "tags": [
-        "canonical",
-        "counting",
-        "non-regular"
+        "textbook",
+        "hopcroft",
+        "empty-stack",
+        "parsing"
       ],
-      "difficulty": "intro",
-      "chapter": "Sipser, Introduction to the Theory of Computation, §2.2 (as 0ⁿ1ⁿ)"
+      "difficulty": "intermediate",
+      "chapter": "Hopcroft, Motwani & Ullman, §6.2 (if and else)"
     }
   }
 }

@@ -421,7 +421,8 @@
         "crossing-off",
         "sipser"
       ],
-      "difficulty": "advanced"
+      "difficulty": "advanced",
+      "chapter": "Sipser, Introduction to the Theory of Computation, §3.1 (M3)"
     }
   }
 }

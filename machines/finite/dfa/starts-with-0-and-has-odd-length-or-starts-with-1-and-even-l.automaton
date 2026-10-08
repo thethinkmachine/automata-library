@@ -2,7 +2,7 @@
   "format": "automata-studio/workspace",
   "schema": 1,
   "app": "dev",
-  "machine": "DPDA",
+  "machine": "DFA",
   "config": {
     "sym": {
       "eps": "ε",
@@ -12,43 +12,33 @@
       "rightMarker": "⊣",
       "stackBottom": "Z",
       "lambda": "λ"
-    },
-    "pdaParadigm": "explicit"
+    }
   },
   "sigma": [
-    "a",
-    "b"
+    "0",
+    "1"
   ],
-  "stackAlpha": [
-    "Z",
-    "X"
-  ],
+  "stackAlpha": [],
   "outputAlpha": [],
   "tapeCount": 1,
   "states": [
     {
       "id": "s1",
       "x": 140,
-      "y": 160,
-      "name": "start"
+      "y": 208,
+      "name": "s"
     },
     {
       "id": "s2",
       "x": 319,
       "y": 160,
-      "name": "as"
+      "name": "yes"
     },
     {
       "id": "s3",
-      "x": 498,
-      "y": 160,
-      "name": "bs"
-    },
-    {
-      "id": "s4",
-      "x": 677,
-      "y": 160,
-      "name": "done"
+      "x": 319,
+      "y": 255,
+      "name": "no"
     }
   ],
   "transitions": [
@@ -56,85 +46,80 @@
       "id": "t1",
       "from": "s1",
       "to": "s2",
-      "symbol": "a",
-      "pop": "Z",
-      "push": "XZ"
+      "symbol": "0"
     },
     {
       "id": "t2",
-      "from": "s2",
-      "to": "s2",
-      "symbol": "a",
-      "pop": "X",
-      "push": "XX"
+      "from": "s1",
+      "to": "s3",
+      "symbol": "1"
     },
     {
       "id": "t3",
       "from": "s2",
       "to": "s3",
-      "symbol": "b",
-      "pop": "X",
-      "push": "ε"
+      "symbol": "0"
     },
     {
       "id": "t4",
-      "from": "s3",
+      "from": "s2",
       "to": "s3",
-      "symbol": "b",
-      "pop": "X",
-      "push": "ε"
+      "symbol": "1"
     },
     {
       "id": "t5",
       "from": "s3",
-      "to": "s4",
-      "symbol": "ε",
-      "pop": "Z",
-      "push": "Z"
+      "to": "s2",
+      "symbol": "0"
+    },
+    {
+      "id": "t6",
+      "from": "s3",
+      "to": "s2",
+      "symbol": "1"
     }
   ],
   "startId": "s1",
   "accepts": [
-    "s1",
-    "s4"
+    "s2"
   ],
   "notes": [],
   "dividers": [],
   "blocks": [],
   "meta": {
-    "title": "aⁿbⁿ",
-    "blurb": "The language that is not regular: no finite memory can count the a’s, and a stack can. Push one X per a, pop one per b, and accept when the bottom marker comes back into view exactly as the input runs out.",
+    "title": "Starts with 0 and has odd length, or starts with 1 and even length",
+    "blurb": "Two conditions that look like two branches, each with its own parity counter. Minimise it and the branches collapse into one: after the first symbol, all that matters is whether the length so far has the parity that symbol asked for. Three states.",
     "inputs": [
       {
-        "w": "",
+        "w": "0",
         "expect": "accept"
       },
       {
-        "w": "aabb",
+        "w": "00110",
         "expect": "accept"
       },
       {
-        "w": "ab",
+        "w": "10",
         "expect": "accept"
       },
       {
-        "w": "aaaaaaabbbbbbb",
+        "w": "1000000011",
         "expect": "accept"
       },
       {
-        "w": "a",
+        "w": "1",
         "expect": "reject"
       },
       {
-        "w": "babb",
+        "w": "10110",
         "expect": "reject"
       },
       {
-        "w": "bb",
+        "w": "00",
         "expect": "reject"
       },
       {
-        "w": "baaaaaabbbbbbb",
+        "w": "0000000011",
         "expect": "reject"
       }
     ],
@@ -144,12 +129,13 @@
       },
       "license": "CC-BY-4.0",
       "tags": [
-        "canonical",
-        "counting",
-        "non-regular"
+        "textbook",
+        "sipser",
+        "parity",
+        "branching"
       ],
       "difficulty": "intro",
-      "chapter": "Sipser, Introduction to the Theory of Computation, §2.2 (as 0ⁿ1ⁿ)"
+      "chapter": "Sipser, Introduction to the Theory of Computation, exercises to chapter 1"
     }
   }
 }

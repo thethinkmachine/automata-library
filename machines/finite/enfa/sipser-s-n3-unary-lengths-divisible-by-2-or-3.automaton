@@ -2,7 +2,7 @@
   "format": "automata-studio/workspace",
   "schema": 1,
   "app": "dev",
-  "machine": "DPDA",
+  "machine": "ε-NFA",
   "config": {
     "sym": {
       "eps": "ε",
@@ -12,43 +12,50 @@
       "rightMarker": "⊣",
       "stackBottom": "Z",
       "lambda": "λ"
-    },
-    "pdaParadigm": "explicit"
+    }
   },
   "sigma": [
-    "a",
-    "b"
+    "0"
   ],
-  "stackAlpha": [
-    "Z",
-    "X"
-  ],
+  "stackAlpha": [],
   "outputAlpha": [],
   "tapeCount": 1,
   "states": [
     {
       "id": "s1",
       "x": 140,
-      "y": 160,
+      "y": 330,
       "name": "start"
     },
     {
       "id": "s2",
-      "x": 319,
+      "x": 310,
       "y": 160,
-      "name": "as"
+      "name": "two0"
     },
     {
       "id": "s3",
-      "x": 498,
-      "y": 160,
-      "name": "bs"
+      "x": 310,
+      "y": 500,
+      "name": "three0"
     },
     {
       "id": "s4",
-      "x": 677,
+      "x": 480,
       "y": 160,
-      "name": "done"
+      "name": "two1"
+    },
+    {
+      "id": "s5",
+      "x": 480,
+      "y": 432,
+      "name": "three1"
+    },
+    {
+      "id": "s6",
+      "x": 480,
+      "y": 568,
+      "name": "three2"
     }
   ],
   "transitions": [
@@ -56,85 +63,87 @@
       "id": "t1",
       "from": "s1",
       "to": "s2",
-      "symbol": "a",
-      "pop": "Z",
-      "push": "XZ"
+      "symbol": "ε"
     },
     {
       "id": "t2",
-      "from": "s2",
-      "to": "s2",
-      "symbol": "a",
-      "pop": "X",
-      "push": "XX"
+      "from": "s1",
+      "to": "s3",
+      "symbol": "ε"
     },
     {
       "id": "t3",
       "from": "s2",
-      "to": "s3",
-      "symbol": "b",
-      "pop": "X",
-      "push": "ε"
+      "to": "s4",
+      "symbol": "0"
     },
     {
       "id": "t4",
-      "from": "s3",
-      "to": "s3",
-      "symbol": "b",
-      "pop": "X",
-      "push": "ε"
+      "from": "s4",
+      "to": "s2",
+      "symbol": "0"
     },
     {
       "id": "t5",
       "from": "s3",
-      "to": "s4",
-      "symbol": "ε",
-      "pop": "Z",
-      "push": "Z"
+      "to": "s5",
+      "symbol": "0"
+    },
+    {
+      "id": "t6",
+      "from": "s5",
+      "to": "s6",
+      "symbol": "0"
+    },
+    {
+      "id": "t7",
+      "from": "s6",
+      "to": "s3",
+      "symbol": "0"
     }
   ],
   "startId": "s1",
   "accepts": [
-    "s1",
-    "s4"
+    "s2",
+    "s3"
   ],
   "notes": [],
   "dividers": [],
   "blocks": [],
   "meta": {
-    "title": "aⁿbⁿ",
-    "blurb": "The language that is not regular: no finite memory can count the a’s, and a stack can. Push one X per a, pop one per b, and accept when the bottom marker comes back into view exactly as the input runs out.",
+    "title": "Sipser’s N3: unary lengths divisible by 2 or 3",
+    "blurb": "An ε-move from the start chooses between a cycle of two and a cycle of three, each accepting at its own beginning. The DFA for the same language is one cycle of six — the product of the two.",
     "inputs": [
       {
         "w": "",
         "expect": "accept"
       },
       {
-        "w": "aabb",
+        "w": "00",
         "expect": "accept"
       },
       {
-        "w": "ab",
+        "w": "000",
         "expect": "accept"
       },
       {
-        "w": "aaaaaaabbbbbbb",
+        "w": "00000000000000",
         "expect": "accept"
       },
       {
-        "w": "a",
+        "w": "0",
         "expect": "reject"
       },
       {
-        "w": "babb",
+        "w": "0000000000000",
         "expect": "reject"
       },
       {
-        "w": "bb",
+        "w": "00000",
         "expect": "reject"
       },
       {
-        "w": "baaaaaabbbbbbb",
+        "w": "0000000",
         "expect": "reject"
       }
     ],
@@ -144,12 +153,13 @@
       },
       "license": "CC-BY-4.0",
       "tags": [
-        "canonical",
-        "counting",
-        "non-regular"
+        "textbook",
+        "sipser",
+        "unary",
+        "union"
       ],
       "difficulty": "intro",
-      "chapter": "Sipser, Introduction to the Theory of Computation, §2.2 (as 0ⁿ1ⁿ)"
+      "chapter": "Sipser, Introduction to the Theory of Computation, §1.2 (N3)"
     }
   }
 }

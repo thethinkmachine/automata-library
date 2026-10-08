@@ -2,7 +2,7 @@
   "format": "automata-studio/workspace",
   "schema": 1,
   "app": "dev",
-  "machine": "DPDA",
+  "machine": "DFA",
   "config": {
     "sym": {
       "eps": "ε",
@@ -12,17 +12,13 @@
       "rightMarker": "⊣",
       "stackBottom": "Z",
       "lambda": "λ"
-    },
-    "pdaParadigm": "explicit"
+    }
   },
   "sigma": [
-    "a",
-    "b"
+    "0",
+    "1"
   ],
-  "stackAlpha": [
-    "Z",
-    "X"
-  ],
+  "stackAlpha": [],
   "outputAlpha": [],
   "tapeCount": 1,
   "states": [
@@ -30,111 +26,96 @@
       "id": "s1",
       "x": 140,
       "y": 160,
-      "name": "start"
+      "name": "none"
     },
     {
       "id": "s2",
       "x": 319,
       "y": 160,
-      "name": "as"
+      "name": "one"
     },
     {
       "id": "s3",
       "x": 498,
       "y": 160,
-      "name": "bs"
-    },
-    {
-      "id": "s4",
-      "x": 677,
-      "y": 160,
-      "name": "done"
+      "name": "oneone"
     }
   ],
   "transitions": [
     {
       "id": "t1",
       "from": "s1",
-      "to": "s2",
-      "symbol": "a",
-      "pop": "Z",
-      "push": "XZ"
+      "to": "s1",
+      "symbol": "0"
     },
     {
       "id": "t2",
-      "from": "s2",
+      "from": "s1",
       "to": "s2",
-      "symbol": "a",
-      "pop": "X",
-      "push": "XX"
+      "symbol": "1"
     },
     {
       "id": "t3",
       "from": "s2",
-      "to": "s3",
-      "symbol": "b",
-      "pop": "X",
-      "push": "ε"
+      "to": "s1",
+      "symbol": "0"
     },
     {
       "id": "t4",
-      "from": "s3",
+      "from": "s2",
       "to": "s3",
-      "symbol": "b",
-      "pop": "X",
-      "push": "ε"
+      "symbol": "1"
     },
     {
       "id": "t5",
       "from": "s3",
-      "to": "s4",
-      "symbol": "ε",
-      "pop": "Z",
-      "push": "Z"
+      "to": "s3",
+      "symbol": "1"
     }
   ],
   "startId": "s1",
   "accepts": [
     "s1",
-    "s4"
+    "s2",
+    "s3"
   ],
   "notes": [],
   "dividers": [],
   "blocks": [],
   "meta": {
-    "title": "aⁿbⁿ",
-    "blurb": "The language that is not regular: no finite memory can count the a’s, and a stack can. Push one X per a, pop one per b, and accept when the bottom marker comes back into view exactly as the input runs out.",
+    "title": "Never contains 110",
+    "blurb": "Once 11 has been read, a 0 would complete the forbidden pattern and every further 1 keeps the danger alive — so the state after 11 has a self-loop on 1 and no way out on 0.",
     "inputs": [
       {
         "w": "",
         "expect": "accept"
       },
       {
-        "w": "aabb",
+        "w": "10011",
         "expect": "accept"
       },
       {
-        "w": "ab",
+        "w": "0",
         "expect": "accept"
       },
       {
-        "w": "aaaaaaabbbbbbb",
+        "w": "0000001011",
         "expect": "accept"
       },
       {
-        "w": "a",
+        "w": "11011",
         "expect": "reject"
       },
       {
-        "w": "babb",
+        "w": "0000011011",
         "expect": "reject"
       },
       {
-        "w": "bb",
+        "w": "110",
         "expect": "reject"
       },
       {
-        "w": "baaaaaabbbbbbb",
+        "w": "00110",
         "expect": "reject"
       }
     ],
@@ -144,12 +125,13 @@
       },
       "license": "CC-BY-4.0",
       "tags": [
-        "canonical",
-        "counting",
-        "non-regular"
+        "textbook",
+        "sipser",
+        "forbidden-pattern",
+        "partial-dfa"
       ],
       "difficulty": "intro",
-      "chapter": "Sipser, Introduction to the Theory of Computation, §2.2 (as 0ⁿ1ⁿ)"
+      "chapter": "Sipser, Introduction to the Theory of Computation, exercises to chapter 1"
     }
   }
 }

@@ -7,7 +7,7 @@ const count = (w, c) => [...w].filter(x => x === c).length;
 
 export default [
   {
-    title: 'The third symbol from the end is a 1, by guessing',
+    title: 'The third symbol from the end is a 1, by guessing', chapter: 'Sipser, Introduction to the Theory of Computation, §1.2 (N2)',
     blurb: 'Four states: wait, then guess that this 1 is the third from the end and check that exactly two symbols follow. The DFA for the same language needs eight — the guess replaces remembering the last three symbols.',
     tags: ['guessing', 'suffix', 'state-blowup'], level: 'intro',
     sigma: '01', accept: 'q3',

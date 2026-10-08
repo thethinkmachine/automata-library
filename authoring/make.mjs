@@ -46,6 +46,7 @@ function lint(spec) {
   if (!Array.isArray(spec.tags) || !spec.tags.length || spec.tags.length > 12) e.push('tags: 1–12');
   else if (spec.tags.some(t => t !== slugify(t))) e.push(`tags are lowercase-hyphenated: ${spec.tags.join(', ')}`);
   if (!LEVELS.has(spec.level)) e.push(`level is intro, intermediate or advanced`);
+  if (spec.chapter && spec.chapter.length > 80) e.push(`chapter is cut at 80 characters (${spec.chapter.length})`);
   if (!spec.lang && !spec.out && !spec.ltl && !spec.omega) e.push('no reference (lang, out, ltl or omega)');
   return e;
 }

@@ -98,7 +98,7 @@ export default [
   // ── one-way tape: deciding ──────────────────────────────────────
   {
     type: 'TM',
-    title: 'Two equal halves: w#w',
+    title: 'Two equal halves: w#w', chapter: 'Sipser, Introduction to the Theory of Computation, §3.1 (M1)',
     blurb: 'The first machine in Sipser’s chapter on Turing machines. Cross off the first symbol, remember it in the state, cross off its partner after the #, and come back; repeat until the left half is gone. Everything is checked with nothing but a pencil and a lot of walking.',
     tags: ['copy-language', 'zigzag', 'sipser'], level: 'intro',
     sigma: '01#', accept: 'acc',
@@ -143,7 +143,7 @@ export default [
   },
   {
     type: 'TM',
-    title: 'Multiplication checked: aⁱbʲcᵏ with k = i·j',
+    title: 'Multiplication checked: aⁱbʲcᵏ with k = i·j', chapter: 'Sipser, Introduction to the Theory of Computation, §3.1 (M3)',
     blurb: 'Sipser’s third example. After checking the shape a⁺b⁺c⁺, the machine takes the a’s one at a time; for each, it crosses off one c per b, marking the b’s and then restoring them. The c’s run out exactly when k = i·j.',
     tags: ['multiplication', 'crossing-off', 'sipser'], level: 'advanced',
     sigma: 'abc', accept: 'acc',

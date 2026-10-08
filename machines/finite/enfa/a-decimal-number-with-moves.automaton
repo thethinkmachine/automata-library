@@ -2,7 +2,7 @@
   "format": "automata-studio/workspace",
   "schema": 1,
   "app": "dev",
-  "machine": "NFA",
+  "machine": "ε-NFA",
   "config": {
     "sym": {
       "eps": "ε",
@@ -15,8 +15,10 @@
     }
   },
   "sigma": [
-    "0",
-    "1"
+    "d",
+    ".",
+    "+",
+    "-"
   ],
   "stackAlpha": [],
   "outputAlpha": [],
@@ -25,13 +27,13 @@
     {
       "id": "s1",
       "x": 140,
-      "y": 160,
+      "y": 330,
       "name": "q0"
     },
     {
       "id": "s2",
       "x": 310,
-      "y": 160,
+      "y": 330,
       "name": "q1"
     },
     {
@@ -42,96 +44,126 @@
     },
     {
       "id": "s4",
+      "x": 480,
+      "y": 500,
+      "name": "q4"
+    },
+    {
+      "id": "s5",
       "x": 650,
-      "y": 160,
+      "y": 330,
       "name": "q3"
+    },
+    {
+      "id": "s6",
+      "x": 820,
+      "y": 330,
+      "name": "q5"
     }
   ],
   "transitions": [
     {
       "id": "t1",
       "from": "s1",
-      "to": "s1",
-      "symbol": "0"
+      "to": "s2",
+      "symbol": "ε"
     },
     {
       "id": "t2",
       "from": "s1",
-      "to": "s1",
-      "symbol": "1"
+      "to": "s2",
+      "symbol": "+"
     },
     {
       "id": "t3",
       "from": "s1",
       "to": "s2",
-      "symbol": "1"
+      "symbol": "-"
     },
     {
       "id": "t4",
       "from": "s2",
-      "to": "s3",
-      "symbol": "0"
+      "to": "s2",
+      "symbol": "d"
     },
     {
       "id": "t5",
       "from": "s2",
       "to": "s3",
-      "symbol": "1"
+      "symbol": "."
     },
     {
       "id": "t6",
-      "from": "s3",
+      "from": "s2",
       "to": "s4",
-      "symbol": "0"
+      "symbol": "d"
     },
     {
       "id": "t7",
+      "from": "s4",
+      "to": "s5",
+      "symbol": "."
+    },
+    {
+      "id": "t8",
       "from": "s3",
-      "to": "s4",
-      "symbol": "1"
+      "to": "s5",
+      "symbol": "d"
+    },
+    {
+      "id": "t9",
+      "from": "s5",
+      "to": "s5",
+      "symbol": "d"
+    },
+    {
+      "id": "t10",
+      "from": "s5",
+      "to": "s6",
+      "symbol": "ε"
     }
   ],
   "startId": "s1",
   "accepts": [
-    "s4"
+    "s6"
   ],
   "notes": [],
   "dividers": [],
   "blocks": [],
   "meta": {
-    "title": "The third symbol from the end is a 1, by guessing",
-    "blurb": "Four states: wait, then guess that this 1 is the third from the end and check that exactly two symbols follow. The DFA for the same language needs eight — the guess replaces remembering the last three symbols.",
+    "title": "A decimal number, with ε-moves",
+    "blurb": "An optional sign, digits, a decimal point and more digits — either run of digits may be empty, but not both. The ε-move at the start makes the sign optional and the one at the end lets two routes share an accepting state. d stands for any digit.",
     "inputs": [
       {
-        "w": "100",
+        "w": "d.d",
         "expect": "accept"
       },
       {
-        "w": "0110",
+        "w": "-dd.",
         "expect": "accept"
       },
       {
-        "w": "00100",
+        "w": "+.d",
         "expect": "accept"
       },
       {
-        "w": "0000000110",
+        "w": ".dd",
         "expect": "accept"
       },
       {
-        "w": "000",
+        "w": "d",
         "expect": "reject"
       },
       {
-        "w": "0010",
+        "w": ".",
         "expect": "reject"
       },
       {
-        "w": "00000",
+        "w": "+-d.d",
         "expect": "reject"
       },
       {
-        "w": "0000000010",
+        "w": "d.d.",
         "expect": "reject"
       }
     ],
@@ -141,12 +173,13 @@
       },
       "license": "CC-BY-4.0",
       "tags": [
-        "guessing",
-        "suffix",
-        "state-blowup"
+        "textbook",
+        "hopcroft",
+        "epsilon-moves",
+        "numbers"
       ],
       "difficulty": "intro",
-      "chapter": "Sipser, Introduction to the Theory of Computation, §1.2 (N2)"
+      "chapter": "Hopcroft, Motwani & Ullman, §2.5"
     }
   }
 }

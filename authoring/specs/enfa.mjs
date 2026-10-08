@@ -27,7 +27,7 @@ const levDelta = (() => {
 
 export default [
   {
-    title: 'Thompson’s construction of (a|b)*abb',
+    title: 'Thompson’s construction of (a|b)*abb', chapter: 'Aho, Lam, Sethi & Ullman, Compilers (the dragon book), §3.7',
     blurb: 'The ε-NFA that Thompson’s construction builds from the regular expression (a|b)*abb, state for state as in the dragon book: each operator contributes a small gadget, and ε-moves glue the gadgets together.',
     tags: ['thompson-construction', 'regular-expressions', 'compilers'], level: 'intermediate',
     sigma: 'ab', start: '0', accept: '10',

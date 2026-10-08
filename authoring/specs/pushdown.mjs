@@ -38,7 +38,7 @@ export default [
   // ── deterministic pushdown automata ─────────────────────────────
   {
     type: 'DPDA',
-    title: 'aⁿbⁿ',
+    title: 'aⁿbⁿ', chapter: 'Sipser, Introduction to the Theory of Computation, §2.2 (as 0ⁿ1ⁿ)',
     blurb: 'The language that is not regular: no finite memory can count the a’s, and a stack can. Push one X per a, pop one per b, and accept when the bottom marker comes back into view exactly as the input runs out.',
     tags: ['canonical', 'counting', 'non-regular'], level: 'intro',
     sigma: 'ab', accept: 'start done',

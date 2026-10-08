@@ -1,0 +1,222 @@
+{
+  "format": "automata-studio/workspace",
+  "schema": 1,
+  "app": "dev",
+  "machine": "TM",
+  "config": {
+    "sym": {
+      "eps": "ε",
+      "any": "Σ",
+      "blank": "⊔",
+      "leftMarker": "⊢",
+      "rightMarker": "⊣",
+      "stackBottom": "Z",
+      "lambda": "λ"
+    }
+  },
+  "sigma": [
+    "0"
+  ],
+  "stackAlpha": [
+    "0",
+    "⊔",
+    "x"
+  ],
+  "outputAlpha": [],
+  "tapeCount": 1,
+  "states": [
+    {
+      "id": "s1",
+      "x": 140,
+      "y": 208,
+      "name": "q1"
+    },
+    {
+      "id": "s2",
+      "x": 319,
+      "y": 208,
+      "name": "q2"
+    },
+    {
+      "id": "s3",
+      "x": 498,
+      "y": 255,
+      "name": "acc"
+    },
+    {
+      "id": "s4",
+      "x": 498,
+      "y": 160,
+      "name": "q3"
+    },
+    {
+      "id": "s5",
+      "x": 677,
+      "y": 255,
+      "name": "q4"
+    },
+    {
+      "id": "s6",
+      "x": 677,
+      "y": 160,
+      "name": "q5"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "t1",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "0",
+      "write": "⊔",
+      "dir": "R"
+    },
+    {
+      "id": "t2",
+      "from": "s2",
+      "to": "s2",
+      "symbol": "x",
+      "write": "x",
+      "dir": "R"
+    },
+    {
+      "id": "t3",
+      "from": "s2",
+      "to": "s3",
+      "symbol": "⊔",
+      "write": "⊔",
+      "dir": "R"
+    },
+    {
+      "id": "t4",
+      "from": "s2",
+      "to": "s4",
+      "symbol": "0",
+      "write": "x",
+      "dir": "R"
+    },
+    {
+      "id": "t5",
+      "from": "s4",
+      "to": "s4",
+      "symbol": "x",
+      "write": "x",
+      "dir": "R"
+    },
+    {
+      "id": "t6",
+      "from": "s4",
+      "to": "s5",
+      "symbol": "0",
+      "write": "0",
+      "dir": "R"
+    },
+    {
+      "id": "t7",
+      "from": "s4",
+      "to": "s6",
+      "symbol": "⊔",
+      "write": "⊔",
+      "dir": "L"
+    },
+    {
+      "id": "t8",
+      "from": "s5",
+      "to": "s5",
+      "symbol": "x",
+      "write": "x",
+      "dir": "R"
+    },
+    {
+      "id": "t9",
+      "from": "s5",
+      "to": "s4",
+      "symbol": "0",
+      "write": "x",
+      "dir": "R"
+    },
+    {
+      "id": "t10",
+      "from": "s6",
+      "to": "s6",
+      "symbol": "0",
+      "write": "0",
+      "dir": "L"
+    },
+    {
+      "id": "t11",
+      "from": "s6",
+      "to": "s6",
+      "symbol": "x",
+      "write": "x",
+      "dir": "L"
+    },
+    {
+      "id": "t12",
+      "from": "s6",
+      "to": "s2",
+      "symbol": "⊔",
+      "write": "⊔",
+      "dir": "R"
+    }
+  ],
+  "startId": "s1",
+  "accepts": [
+    "s3"
+  ],
+  "notes": [],
+  "dividers": [],
+  "blocks": [],
+  "meta": {
+    "title": "Sipser’s M2: 0s whose number is a power of 2",
+    "blurb": "Each pass crosses off every other 0, halving the count; an odd count above one means the number was not a power of 2. The first 0 is replaced by a blank so the machine can find the left end of its tape again.",
+    "inputs": [
+      {
+        "w": "0",
+        "expect": "accept"
+      },
+      {
+        "w": "00",
+        "expect": "accept"
+      },
+      {
+        "w": "0000",
+        "expect": "accept"
+      },
+      {
+        "w": "00000000",
+        "expect": "accept"
+      },
+      {
+        "w": "",
+        "expect": "reject"
+      },
+      {
+        "w": "000",
+        "expect": "reject"
+      },
+      {
+        "w": "00000",
+        "expect": "reject"
+      },
+      {
+        "w": "0000000",
+        "expect": "reject"
+      }
+    ],
+    "library": {
+      "author": {
+        "login": "thethinkmachine"
+      },
+      "license": "CC-BY-4.0",
+      "tags": [
+        "textbook",
+        "sipser",
+        "powers-of-two",
+        "halving"
+      ],
+      "difficulty": "intermediate",
+      "chapter": "Sipser, Introduction to the Theory of Computation, §3.1 (M2)"
+    }
+  }
+}

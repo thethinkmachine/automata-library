@@ -223,7 +223,8 @@
         "regular-expressions",
         "compilers"
       ],
-      "difficulty": "intermediate"
+      "difficulty": "intermediate",
+      "chapter": "Aho, Lam, Sethi & Ullman, Compilers (the dragon book), §3.7"
     }
   }
 }

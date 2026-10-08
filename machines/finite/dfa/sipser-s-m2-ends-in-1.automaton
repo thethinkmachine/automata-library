@@ -2,7 +2,7 @@
   "format": "automata-studio/workspace",
   "schema": 1,
   "app": "dev",
-  "machine": "NFA",
+  "machine": "DFA",
   "config": {
     "sym": {
       "eps": "ε",
@@ -26,25 +26,13 @@
       "id": "s1",
       "x": 140,
       "y": 160,
-      "name": "q0"
-    },
-    {
-      "id": "s2",
-      "x": 310,
-      "y": 160,
       "name": "q1"
     },
     {
-      "id": "s3",
-      "x": 480,
+      "id": "s2",
+      "x": 319,
       "y": 160,
       "name": "q2"
-    },
-    {
-      "id": "s4",
-      "x": 650,
-      "y": 160,
-      "name": "q3"
     }
   ],
   "transitions": [
@@ -57,81 +45,63 @@
     {
       "id": "t2",
       "from": "s1",
-      "to": "s1",
+      "to": "s2",
       "symbol": "1"
     },
     {
       "id": "t3",
-      "from": "s1",
+      "from": "s2",
       "to": "s2",
       "symbol": "1"
     },
     {
       "id": "t4",
       "from": "s2",
-      "to": "s3",
+      "to": "s1",
       "symbol": "0"
-    },
-    {
-      "id": "t5",
-      "from": "s2",
-      "to": "s3",
-      "symbol": "1"
-    },
-    {
-      "id": "t6",
-      "from": "s3",
-      "to": "s4",
-      "symbol": "0"
-    },
-    {
-      "id": "t7",
-      "from": "s3",
-      "to": "s4",
-      "symbol": "1"
     }
   ],
   "startId": "s1",
   "accepts": [
-    "s4"
+    "s2"
   ],
   "notes": [],
   "dividers": [],
   "blocks": [],
   "meta": {
-    "title": "The third symbol from the end is a 1, by guessing",
-    "blurb": "Four states: wait, then guess that this 1 is the third from the end and check that exactly two symbols follow. The DFA for the same language needs eight — the guess replaces remembering the last three symbols.",
+    "title": "Sipser’s M2: ends in 1",
+    "blurb": "Two states that record only the last symbol read; the accepting one is “the last symbol was a 1”. The smallest machine whose state means something.",
     "inputs": [
       {
-        "w": "100",
+        "w": "1",
         "expect": "accept"
       },
       {
-        "w": "0110",
+        "w": "10011",
         "expect": "accept"
       },
       {
-        "w": "00100",
+        "w": "01",
         "expect": "accept"
       },
       {
-        "w": "0000000110",
+        "w": "0000001011",
         "expect": "accept"
       },
       {
-        "w": "000",
+        "w": "0",
         "expect": "reject"
       },
       {
-        "w": "0010",
+        "w": "10010",
         "expect": "reject"
       },
       {
-        "w": "00000",
+        "w": "00",
         "expect": "reject"
       },
       {
-        "w": "0000000010",
+        "w": "0000001010",
         "expect": "reject"
       }
     ],
@@ -141,12 +111,12 @@
       },
       "license": "CC-BY-4.0",
       "tags": [
-        "guessing",
-        "suffix",
-        "state-blowup"
+        "textbook",
+        "sipser",
+        "suffix"
       ],
       "difficulty": "intro",
-      "chapter": "Sipser, Introduction to the Theory of Computation, §1.2 (N2)"
+      "chapter": "Sipser, Introduction to the Theory of Computation, §1.1 (M2)"
     }
   }
 }

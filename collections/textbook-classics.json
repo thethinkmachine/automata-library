@@ -1,0 +1,32 @@
+{
+  "title": "From the textbooks: Sipser and Hopcroft–Motwani–Ullman",
+  "blurb": "The machines the two standard textbooks build, with their own state names, each card saying where in the book it comes from. Read alongside the chapter, or run them to see what the diagram on the page does.",
+  "curator": "thethinkmachine",
+  "entries": [
+    "finite/dfa/sipser-s-m1-a-1-then-an-even-number-of-0s",
+    "finite/dfa/sipser-s-m2-ends-in-1",
+    "finite/dfa/sipser-s-m3-empty-or-ends-in-0",
+    "finite/dfa/sipser-s-m4-starts-and-ends-with-the-same-symbol",
+    "finite/dfa/sipser-s-m5-a-running-sum-mod-3-with-reset",
+    "finite/dfa/contains-001",
+    "finite/enfa/sipser-s-n1-contains-101-or-11",
+    "finite/nfa/the-third-symbol-from-the-end-is-a-1-by-guessing",
+    "finite/enfa/sipser-s-n3-unary-lengths-divisible-by-2-or-3",
+    "finite/enfa/sipser-s-n4-the-nfa-converted-in-the-text",
+    "memory/pda/anbn",
+    "memory/npda/aibjck-with-i-j-or-i-k",
+    "memory/npda/palindromes-guess-the-middle",
+    "turing/tm/two-equal-halves-w-w",
+    "turing/tm/sipser-s-m2-0s-whose-number-is-a-power-of-2",
+    "turing/tm/multiplication-checked-aibjck-with-k-i-j",
+    "finite/dfa/contains-01",
+    "finite/dfa/an-even-number-of-0s-and-an-even-number-of-1s",
+    "finite/nfa/ends-in-01-by-guessing",
+    "finite/nfa/finding-web-or-ebay",
+    "finite/enfa/a-decimal-number-with-moves",
+    "memory/pda/one-else-too-many",
+    "turing/tm/0n1n-by-crossing-off",
+    "turing/tm/proper-subtraction-m-n",
+    "finite/enfa/thompson-s-construction-of-a-b-abb"
+  ]
+}

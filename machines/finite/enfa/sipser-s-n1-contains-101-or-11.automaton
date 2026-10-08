@@ -2,7 +2,7 @@
   "format": "automata-studio/workspace",
   "schema": 1,
   "app": "dev",
-  "machine": "DPDA",
+  "machine": "ε-NFA",
   "config": {
     "sym": {
       "eps": "ε",
@@ -12,17 +12,13 @@
       "rightMarker": "⊣",
       "stackBottom": "Z",
       "lambda": "λ"
-    },
-    "pdaParadigm": "explicit"
+    }
   },
   "sigma": [
-    "a",
-    "b"
+    "0",
+    "1"
   ],
-  "stackAlpha": [
-    "Z",
-    "X"
-  ],
+  "stackAlpha": [],
   "outputAlpha": [],
   "tapeCount": 1,
   "states": [
@@ -30,111 +26,118 @@
       "id": "s1",
       "x": 140,
       "y": 160,
-      "name": "start"
+      "name": "q1"
     },
     {
       "id": "s2",
-      "x": 319,
+      "x": 310,
       "y": 160,
-      "name": "as"
+      "name": "q2"
     },
     {
       "id": "s3",
-      "x": 498,
+      "x": 480,
       "y": 160,
-      "name": "bs"
+      "name": "q3"
     },
     {
       "id": "s4",
-      "x": 677,
+      "x": 650,
       "y": 160,
-      "name": "done"
+      "name": "q4"
     }
   ],
   "transitions": [
     {
       "id": "t1",
       "from": "s1",
-      "to": "s2",
-      "symbol": "a",
-      "pop": "Z",
-      "push": "XZ"
+      "to": "s1",
+      "symbol": "0"
     },
     {
       "id": "t2",
-      "from": "s2",
-      "to": "s2",
-      "symbol": "a",
-      "pop": "X",
-      "push": "XX"
+      "from": "s1",
+      "to": "s1",
+      "symbol": "1"
     },
     {
       "id": "t3",
-      "from": "s2",
-      "to": "s3",
-      "symbol": "b",
-      "pop": "X",
-      "push": "ε"
+      "from": "s1",
+      "to": "s2",
+      "symbol": "1"
     },
     {
       "id": "t4",
-      "from": "s3",
+      "from": "s2",
       "to": "s3",
-      "symbol": "b",
-      "pop": "X",
-      "push": "ε"
+      "symbol": "0"
     },
     {
       "id": "t5",
+      "from": "s2",
+      "to": "s3",
+      "symbol": "ε"
+    },
+    {
+      "id": "t6",
       "from": "s3",
       "to": "s4",
-      "symbol": "ε",
-      "pop": "Z",
-      "push": "Z"
+      "symbol": "1"
+    },
+    {
+      "id": "t7",
+      "from": "s4",
+      "to": "s4",
+      "symbol": "0"
+    },
+    {
+      "id": "t8",
+      "from": "s4",
+      "to": "s4",
+      "symbol": "1"
     }
   ],
   "startId": "s1",
   "accepts": [
-    "s1",
     "s4"
   ],
   "notes": [],
   "dividers": [],
   "blocks": [],
   "meta": {
-    "title": "aⁿbⁿ",
-    "blurb": "The language that is not regular: no finite memory can count the a’s, and a stack can. Push one X per a, pop one per b, and accept when the bottom marker comes back into view exactly as the input runs out.",
+    "title": "Sipser’s N1: contains 101 or 11",
+    "blurb": "The NFA Sipser uses to introduce nondeterminism. In q1 it may stay or guess that this 1 starts the pattern; from q2 the ε-move lets the middle 0 be skipped, so the same three edges match both 101 and 11.",
     "inputs": [
       {
-        "w": "",
+        "w": "11",
         "expect": "accept"
       },
       {
-        "w": "aabb",
+        "w": "101",
         "expect": "accept"
       },
       {
-        "w": "ab",
+        "w": "0011",
         "expect": "accept"
       },
       {
-        "w": "aaaaaaabbbbbbb",
+        "w": "0000000110",
         "expect": "accept"
       },
       {
-        "w": "a",
+        "w": "01",
         "expect": "reject"
       },
       {
-        "w": "babb",
+        "w": "001",
         "expect": "reject"
       },
       {
-        "w": "bb",
+        "w": "0001",
         "expect": "reject"
       },
       {
-        "w": "baaaaaabbbbbbb",
+        "w": "0000000010",
         "expect": "reject"
       }
     ],
@@ -144,12 +147,13 @@
       },
       "license": "CC-BY-4.0",
       "tags": [
-        "canonical",
-        "counting",
-        "non-regular"
+        "textbook",
+        "sipser",
+        "nondeterminism",
+        "substrings"
       ],
       "difficulty": "intro",
-      "chapter": "Sipser, Introduction to the Theory of Computation, §2.2 (as 0ⁿ1ⁿ)"
+      "chapter": "Sipser, Introduction to the Theory of Computation, §1.2 (N1)"
     }
   }
 }

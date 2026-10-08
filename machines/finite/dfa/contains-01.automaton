@@ -2,7 +2,7 @@
   "format": "automata-studio/workspace",
   "schema": 1,
   "app": "dev",
-  "machine": "DPDA",
+  "machine": "DFA",
   "config": {
     "sym": {
       "eps": "ε",
@@ -12,17 +12,13 @@
       "rightMarker": "⊣",
       "stackBottom": "Z",
       "lambda": "λ"
-    },
-    "pdaParadigm": "explicit"
+    }
   },
   "sigma": [
-    "a",
-    "b"
+    "0",
+    "1"
   ],
-  "stackAlpha": [
-    "Z",
-    "X"
-  ],
+  "stackAlpha": [],
   "outputAlpha": [],
   "tapeCount": 1,
   "states": [
@@ -30,111 +26,100 @@
       "id": "s1",
       "x": 140,
       "y": 160,
-      "name": "start"
+      "name": "q0"
     },
     {
       "id": "s2",
       "x": 319,
       "y": 160,
-      "name": "as"
+      "name": "q2"
     },
     {
       "id": "s3",
       "x": 498,
       "y": 160,
-      "name": "bs"
-    },
-    {
-      "id": "s4",
-      "x": 677,
-      "y": 160,
-      "name": "done"
+      "name": "q1"
     }
   ],
   "transitions": [
     {
       "id": "t1",
       "from": "s1",
-      "to": "s2",
-      "symbol": "a",
-      "pop": "Z",
-      "push": "XZ"
+      "to": "s1",
+      "symbol": "1"
     },
     {
       "id": "t2",
-      "from": "s2",
+      "from": "s1",
       "to": "s2",
-      "symbol": "a",
-      "pop": "X",
-      "push": "XX"
+      "symbol": "0"
     },
     {
       "id": "t3",
       "from": "s2",
-      "to": "s3",
-      "symbol": "b",
-      "pop": "X",
-      "push": "ε"
+      "to": "s2",
+      "symbol": "0"
     },
     {
       "id": "t4",
-      "from": "s3",
+      "from": "s2",
       "to": "s3",
-      "symbol": "b",
-      "pop": "X",
-      "push": "ε"
+      "symbol": "1"
     },
     {
       "id": "t5",
       "from": "s3",
-      "to": "s4",
-      "symbol": "ε",
-      "pop": "Z",
-      "push": "Z"
+      "to": "s3",
+      "symbol": "0"
+    },
+    {
+      "id": "t6",
+      "from": "s3",
+      "to": "s3",
+      "symbol": "1"
     }
   ],
   "startId": "s1",
   "accepts": [
-    "s1",
-    "s4"
+    "s3"
   ],
   "notes": [],
   "dividers": [],
   "blocks": [],
   "meta": {
-    "title": "aⁿbⁿ",
-    "blurb": "The language that is not regular: no finite memory can count the a’s, and a stack can. Push one X per a, pop one per b, and accept when the bottom marker comes back into view exactly as the input runs out.",
+    "title": "Contains 01",
+    "blurb": "The first DFA in Hopcroft, Motwani and Ullman. q0 has seen no 0 yet (or only 1s since), q2 has just seen a 0 and is waiting for a 1, and q1 has found 01 and will never leave.",
     "inputs": [
       {
+        "w": "01",
+        "expect": "accept"
+      },
+      {
+        "w": "00110",
+        "expect": "accept"
+      },
+      {
+        "w": "001",
+        "expect": "accept"
+      },
+      {
+        "w": "0000000110",
+        "expect": "accept"
+      },
+      {
+        "w": "11",
+        "expect": "reject"
+      },
+      {
+        "w": "000",
+        "expect": "reject"
+      },
+      {
         "w": "",
-        "expect": "accept"
-      },
-      {
-        "w": "aabb",
-        "expect": "accept"
-      },
-      {
-        "w": "ab",
-        "expect": "accept"
-      },
-      {
-        "w": "aaaaaaabbbbbbb",
-        "expect": "accept"
-      },
-      {
-        "w": "a",
         "expect": "reject"
       },
       {
-        "w": "babb",
-        "expect": "reject"
-      },
-      {
-        "w": "bb",
-        "expect": "reject"
-      },
-      {
-        "w": "baaaaaabbbbbbb",
+        "w": "1100",
         "expect": "reject"
       }
     ],
@@ -144,12 +129,12 @@
       },
       "license": "CC-BY-4.0",
       "tags": [
-        "canonical",
-        "counting",
-        "non-regular"
+        "textbook",
+        "hopcroft",
+        "substrings"
       ],
       "difficulty": "intro",
-      "chapter": "Sipser, Introduction to the Theory of Computation, §2.2 (as 0ⁿ1ⁿ)"
+      "chapter": "Hopcroft, Motwani & Ullman, §2.2"
     }
   }
 }
