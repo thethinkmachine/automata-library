@@ -1,0 +1,207 @@
+{
+  "format": "automata-studio/workspace",
+  "schema": 1,
+  "app": "dev",
+  "machine": "Moore",
+  "config": {
+    "sym": {
+      "eps": "ε",
+      "any": "Σ",
+      "blank": "⊔",
+      "leftMarker": "⊢",
+      "rightMarker": "⊣",
+      "stackBottom": "Z",
+      "lambda": "λ"
+    },
+    "transducerAccepts": false
+  },
+  "sigma": [
+    "b",
+    "t",
+    "o"
+  ],
+  "stackAlpha": [],
+  "outputAlpha": [
+    "C",
+    "O",
+    "S",
+    "D"
+  ],
+  "tapeCount": 1,
+  "states": [
+    {
+      "id": "s1",
+      "x": 140,
+      "y": 208,
+      "name": "closed",
+      "output": "C"
+    },
+    {
+      "id": "s2",
+      "x": 319,
+      "y": 208,
+      "name": "opening",
+      "output": "O"
+    },
+    {
+      "id": "s3",
+      "x": 498,
+      "y": 255,
+      "name": "stopped",
+      "output": "S"
+    },
+    {
+      "id": "s4",
+      "x": 498,
+      "y": 160,
+      "name": "open",
+      "output": "C"
+    },
+    {
+      "id": "s5",
+      "x": 677,
+      "y": 208,
+      "name": "closing",
+      "output": "D"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "t1",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "b"
+    },
+    {
+      "id": "t2",
+      "from": "s1",
+      "to": "s1",
+      "symbol": "t"
+    },
+    {
+      "id": "t3",
+      "from": "s1",
+      "to": "s1",
+      "symbol": "o"
+    },
+    {
+      "id": "t4",
+      "from": "s2",
+      "to": "s3",
+      "symbol": "b"
+    },
+    {
+      "id": "t5",
+      "from": "s2",
+      "to": "s4",
+      "symbol": "t"
+    },
+    {
+      "id": "t6",
+      "from": "s2",
+      "to": "s2",
+      "symbol": "o"
+    },
+    {
+      "id": "t7",
+      "from": "s4",
+      "to": "s5",
+      "symbol": "b"
+    },
+    {
+      "id": "t8",
+      "from": "s4",
+      "to": "s4",
+      "symbol": "t"
+    },
+    {
+      "id": "t9",
+      "from": "s4",
+      "to": "s4",
+      "symbol": "o"
+    },
+    {
+      "id": "t10",
+      "from": "s5",
+      "to": "s3",
+      "symbol": "b"
+    },
+    {
+      "id": "t11",
+      "from": "s5",
+      "to": "s1",
+      "symbol": "t"
+    },
+    {
+      "id": "t12",
+      "from": "s5",
+      "to": "s2",
+      "symbol": "o"
+    },
+    {
+      "id": "t13",
+      "from": "s3",
+      "to": "s5",
+      "symbol": "b"
+    },
+    {
+      "id": "t14",
+      "from": "s3",
+      "to": "s3",
+      "symbol": "t"
+    },
+    {
+      "id": "t15",
+      "from": "s3",
+      "to": "s3",
+      "symbol": "o"
+    }
+  ],
+  "startId": "s1",
+  "accepts": [],
+  "notes": [],
+  "dividers": [],
+  "blocks": [],
+  "meta": {
+    "title": "A garage door with a safety sensor",
+    "blurb": "One button b and two sensors: t when the door reaches the top or bottom, o when something blocks it. Pressing the button starts the door moving or stops it; reaching an end stops it; and an obstacle while closing sends it back up — the rule that keeps the door from closing on anyone. The output is what the door is doing.",
+    "inputs": [
+      {
+        "w": "b",
+        "out": "CO"
+      },
+      {
+        "w": "o",
+        "out": "CC"
+      },
+      {
+        "w": "bb",
+        "out": "COS"
+      },
+      {
+        "w": "bo",
+        "out": "COO"
+      },
+      {
+        "w": "bbb",
+        "out": "COSD"
+      },
+      {
+        "w": "tttobbotobtbboob",
+        "out": "CCCCCOSSSSDCOSSSD"
+      }
+    ],
+    "library": {
+      "author": {
+        "login": "thethinkmachine"
+      },
+      "license": "CC-BY-4.0",
+      "tags": [
+        "control",
+        "safety",
+        "embedded-systems"
+      ],
+      "difficulty": "intermediate"
+    }
+  }
+}

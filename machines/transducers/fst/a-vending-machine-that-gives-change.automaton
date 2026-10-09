@@ -1,0 +1,139 @@
+{
+  "format": "automata-studio/workspace",
+  "schema": 1,
+  "app": "dev",
+  "machine": "FST",
+  "config": {
+    "sym": {
+      "eps": "ε",
+      "any": "Σ",
+      "blank": "⊔",
+      "leftMarker": "⊢",
+      "rightMarker": "⊣",
+      "stackBottom": "Z",
+      "lambda": "λ"
+    },
+    "transducerAccepts": false
+  },
+  "sigma": [
+    "n",
+    "d"
+  ],
+  "stackAlpha": [],
+  "outputAlpha": [
+    "V",
+    "n"
+  ],
+  "tapeCount": 1,
+  "states": [
+    {
+      "id": "s1",
+      "x": 140,
+      "y": 208,
+      "name": "c0"
+    },
+    {
+      "id": "s2",
+      "x": 319,
+      "y": 160,
+      "name": "c5"
+    },
+    {
+      "id": "s3",
+      "x": 319,
+      "y": 255,
+      "name": "c10"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "t1",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "n",
+      "output": ""
+    },
+    {
+      "id": "t2",
+      "from": "s1",
+      "to": "s3",
+      "symbol": "d",
+      "output": ""
+    },
+    {
+      "id": "t3",
+      "from": "s2",
+      "to": "s3",
+      "symbol": "n",
+      "output": ""
+    },
+    {
+      "id": "t4",
+      "from": "s2",
+      "to": "s1",
+      "symbol": "d",
+      "output": "V"
+    },
+    {
+      "id": "t5",
+      "from": "s3",
+      "to": "s1",
+      "symbol": "n",
+      "output": "V"
+    },
+    {
+      "id": "t6",
+      "from": "s3",
+      "to": "s1",
+      "symbol": "d",
+      "output": "Vn"
+    }
+  ],
+  "startId": "s1",
+  "accepts": [],
+  "notes": [],
+  "dividers": [],
+  "blocks": [],
+  "meta": {
+    "title": "A vending machine that gives change",
+    "blurb": "A drink costs 15¢. Nickels n and dimes d go in; when the total reaches 15 the machine prints V for the drink and, if it was paid 20, an n of change, and starts again. A Mealy machine could only answer one symbol per coin — here one coin can produce a drink and a coin together.",
+    "inputs": [
+      {
+        "w": "d",
+        "out": ""
+      },
+      {
+        "w": "n",
+        "out": ""
+      },
+      {
+        "w": "dd",
+        "out": "Vn"
+      },
+      {
+        "w": "dn",
+        "out": "V"
+      },
+      {
+        "w": "ddd",
+        "out": "Vn"
+      },
+      {
+        "w": "nnddnnndddddnndd",
+        "out": "VnVVnVnVnVn"
+      }
+    ],
+    "library": {
+      "author": {
+        "login": "thethinkmachine"
+      },
+      "license": "CC-BY-4.0",
+      "tags": [
+        "vending-machine",
+        "control",
+        "change-making"
+      ],
+      "difficulty": "intro"
+    }
+  }
+}

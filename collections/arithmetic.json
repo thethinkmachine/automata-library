@@ -17,6 +17,7 @@
     "turing/ittm/binary-increment",
     "finite/dfa/decimal-multiples-of-5-only-the-last-digit-counts",
     "finite/dfa/binary-multiples-of-6-in-four-states",
-    "turing/tm/which-binary-number-is-smaller-x-y"
+    "turing/tm/which-binary-number-is-smaller-x-y",
+    "turing/ittm/is-n-a-perfect-square-1-3-5"
   ]
 }

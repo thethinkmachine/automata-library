@@ -1,0 +1,172 @@
+{
+  "format": "automata-studio/workspace",
+  "schema": 1,
+  "app": "dev",
+  "machine": "NPDA",
+  "config": {
+    "sym": {
+      "eps": "ε",
+      "any": "Σ",
+      "blank": "⊔",
+      "leftMarker": "⊢",
+      "rightMarker": "⊣",
+      "stackBottom": "Z",
+      "lambda": "λ"
+    },
+    "pdaParadigm": "explicit"
+  },
+  "sigma": [
+    "a",
+    "b"
+  ],
+  "stackAlpha": [
+    "Z",
+    "A",
+    "B"
+  ],
+  "outputAlpha": [],
+  "tapeCount": 1,
+  "states": [
+    {
+      "id": "s1",
+      "x": 140,
+      "y": 160,
+      "name": "push"
+    },
+    {
+      "id": "s2",
+      "x": 319,
+      "y": 160,
+      "name": "pop"
+    },
+    {
+      "id": "s3",
+      "x": 498,
+      "y": 160,
+      "name": "done"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "t1",
+      "from": "s1",
+      "to": "s1",
+      "symbol": "a",
+      "pop": "ε",
+      "push": "A"
+    },
+    {
+      "id": "t2",
+      "from": "s1",
+      "to": "s1",
+      "symbol": "b",
+      "pop": "ε",
+      "push": "B"
+    },
+    {
+      "id": "t3",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "ε",
+      "pop": "ε",
+      "push": "ε"
+    },
+    {
+      "id": "t4",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "a",
+      "pop": "ε",
+      "push": "ε"
+    },
+    {
+      "id": "t5",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "b",
+      "pop": "ε",
+      "push": "ε"
+    },
+    {
+      "id": "t6",
+      "from": "s2",
+      "to": "s2",
+      "symbol": "a",
+      "pop": "A",
+      "push": "ε"
+    },
+    {
+      "id": "t7",
+      "from": "s2",
+      "to": "s2",
+      "symbol": "b",
+      "pop": "B",
+      "push": "ε"
+    },
+    {
+      "id": "t8",
+      "from": "s2",
+      "to": "s3",
+      "symbol": "ε",
+      "pop": "Z",
+      "push": "Z"
+    }
+  ],
+  "startId": "s1",
+  "accepts": [
+    "s3"
+  ],
+  "notes": [],
+  "dividers": [],
+  "blocks": [],
+  "meta": {
+    "title": "Every palindrome, odd or even",
+    "blurb": "A palindrome reads the same backwards. Push the first half, guess where the middle is — either between two letters or on a letter that has no partner — and pop the second half against the first. One guess too many letters early or late and the stack does not empty at the end.",
+    "inputs": [
+      {
+        "w": "",
+        "expect": "accept"
+      },
+      {
+        "w": "abba",
+        "expect": "accept"
+      },
+      {
+        "w": "aa",
+        "expect": "accept"
+      },
+      {
+        "w": "aaaabbaaaa",
+        "expect": "accept"
+      },
+      {
+        "w": "bbba",
+        "expect": "reject"
+      },
+      {
+        "w": "ba",
+        "expect": "reject"
+      },
+      {
+        "w": "baaabbaaaa",
+        "expect": "reject"
+      },
+      {
+        "w": "ab",
+        "expect": "reject"
+      }
+    ],
+    "library": {
+      "author": {
+        "login": "thethinkmachine"
+      },
+      "license": "CC-BY-4.0",
+      "tags": [
+        "palindromes",
+        "guessing",
+        "canonical"
+      ],
+      "difficulty": "intro"
+    }
+  }
+}

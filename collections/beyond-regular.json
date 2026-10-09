@@ -19,6 +19,9 @@
     "turing/mtm/palindromes-in-linear-time",
     "memory/epda/cross-serial-dependencies-anbmcndm",
     "memory/npda/two-different-words-x-y-with-x-y",
-    "turing/mtm/anbncn-in-one-pass-with-two-tapes"
+    "turing/mtm/anbncn-in-one-pass-with-two-tapes",
+    "memory/npda/every-palindrome-odd-or-even",
+    "memory/pda/unbalanced-parentheses",
+    "memory/counter/the-account-goes-overdrawn"
   ]
 }

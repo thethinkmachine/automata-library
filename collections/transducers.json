@@ -25,6 +25,8 @@
     "transducers/fst/run-length-decoding",
     "transducers/twodft/rotate-move-the-first-letter-to-the-end",
     "transducers/moore/a-traffic-light-with-a-pedestrian-button",
-    "transducers/fst/strip-comments"
+    "transducers/fst/strip-comments",
+    "transducers/moore/a-garage-door-with-a-safety-sensor",
+    "transducers/fst/a-vending-machine-that-gives-change"
   ]
 }
