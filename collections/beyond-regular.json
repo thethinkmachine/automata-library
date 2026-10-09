@@ -18,6 +18,7 @@
     "turing/tm/two-equal-halves-w-w",
     "turing/mtm/palindromes-in-linear-time",
     "memory/epda/cross-serial-dependencies-anbmcndm",
-    "memory/npda/two-different-words-x-y-with-x-y"
+    "memory/npda/two-different-words-x-y-with-x-y",
+    "turing/mtm/anbncn-in-one-pass-with-two-tapes"
   ]
 }
