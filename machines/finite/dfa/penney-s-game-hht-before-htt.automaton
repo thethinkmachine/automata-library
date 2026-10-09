@@ -1,0 +1,157 @@
+{
+  "format": "automata-studio/workspace",
+  "schema": 1,
+  "app": "dev",
+  "machine": "DFA",
+  "config": {
+    "sym": {
+      "eps": "ε",
+      "any": "Σ",
+      "blank": "⊔",
+      "leftMarker": "⊢",
+      "rightMarker": "⊣",
+      "stackBottom": "Z",
+      "lambda": "λ"
+    }
+  },
+  "sigma": [
+    "H",
+    "T"
+  ],
+  "stackAlpha": [],
+  "outputAlpha": [],
+  "tapeCount": 1,
+  "states": [
+    {
+      "id": "s1",
+      "x": 140,
+      "y": 208,
+      "name": "start"
+    },
+    {
+      "id": "s2",
+      "x": 319,
+      "y": 208,
+      "name": "H"
+    },
+    {
+      "id": "s3",
+      "x": 498,
+      "y": 255,
+      "name": "HH"
+    },
+    {
+      "id": "s4",
+      "x": 498,
+      "y": 160,
+      "name": "HT"
+    },
+    {
+      "id": "s5",
+      "x": 677,
+      "y": 208,
+      "name": "win"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "t1",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "H"
+    },
+    {
+      "id": "t2",
+      "from": "s1",
+      "to": "s1",
+      "symbol": "T"
+    },
+    {
+      "id": "t3",
+      "from": "s2",
+      "to": "s3",
+      "symbol": "H"
+    },
+    {
+      "id": "t4",
+      "from": "s2",
+      "to": "s4",
+      "symbol": "T"
+    },
+    {
+      "id": "t5",
+      "from": "s3",
+      "to": "s3",
+      "symbol": "H"
+    },
+    {
+      "id": "t6",
+      "from": "s3",
+      "to": "s5",
+      "symbol": "T"
+    },
+    {
+      "id": "t7",
+      "from": "s4",
+      "to": "s2",
+      "symbol": "H"
+    }
+  ],
+  "startId": "s1",
+  "accepts": [
+    "s5"
+  ],
+  "notes": [],
+  "dividers": [],
+  "blocks": [],
+  "meta": {
+    "title": "Penney’s game: HHT before HTT",
+    "blurb": "Flip a coin until HHT or HTT appears; accept the sequences where HHT comes first, at the moment it does. The DFA’s states are the useful suffixes of what has been flipped. Read as a Markov chain the same graph gives the odds: HHT wins two times in three.",
+    "inputs": [
+      {
+        "w": "HHT",
+        "expect": "accept"
+      },
+      {
+        "w": "TTHHT",
+        "expect": "accept"
+      },
+      {
+        "w": "HHHT",
+        "expect": "accept"
+      },
+      {
+        "w": "TTHHHHHHHT",
+        "expect": "accept"
+      },
+      {
+        "w": "THT",
+        "expect": "reject"
+      },
+      {
+        "w": "TTTHT",
+        "expect": "reject"
+      },
+      {
+        "w": "HTHT",
+        "expect": "reject"
+      },
+      {
+        "w": "TTHHTHHHHT",
+        "expect": "reject"
+      }
+    ],
+    "library": {
+      "author": {
+        "login": "thethinkmachine"
+      },
+      "license": "CC-BY-4.0",
+      "tags": [
+        "probability",
+        "games",
+        "pattern-matching"
+      ],
+      "difficulty": "intermediate"
+    }
+  }
+}

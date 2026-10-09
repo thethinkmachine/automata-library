@@ -45,7 +45,8 @@ const outStr = s => (s === undefined || s === 'ε') ? '' : s;
 const list = s => s === '' ? [] : s.split(',').map(fixSym);
 
 function rulesOf(delta) {
-  return String(delta).split(/[\n;]/).map(l => l.replace(/\/\/.*$/, '').trim()).filter(Boolean).map(line => {
+  // ; separates rules only straight after a token, so `q ; r` reads ; as a symbol
+  return String(delta).split(/\n|(?<=\S);(?=\s|$)/).map(l => l.replace(/\/\/.*$/, '').trim()).filter(Boolean).map(line => {
     const parts = line.split(/\s+/);
     if (parts.length !== 3) throw new Error(`A rule is "from label to": ${line}`);
     return { from: parts[0], label: parts[1], to: parts[2], line };

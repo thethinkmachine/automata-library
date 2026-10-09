@@ -1,0 +1,750 @@
+{
+  "format": "automata-studio/workspace",
+  "schema": 1,
+  "app": "dev",
+  "machine": "DFA",
+  "config": {
+    "sym": {
+      "eps": "ε",
+      "any": "Σ",
+      "blank": "⊔",
+      "leftMarker": "⊢",
+      "rightMarker": "⊣",
+      "stackBottom": "Z",
+      "lambda": "λ"
+    }
+  },
+  "sigma": [
+    "fillA",
+    "fillB",
+    "emptyA",
+    "emptyB",
+    "AtoB",
+    "BtoA"
+  ],
+  "stackAlpha": [],
+  "outputAlpha": [],
+  "tapeCount": 1,
+  "states": [
+    {
+      "id": "s1",
+      "x": 140,
+      "y": 255,
+      "name": "0,0"
+    },
+    {
+      "id": "s2",
+      "x": 319,
+      "y": 208,
+      "name": "3,0"
+    },
+    {
+      "id": "s3",
+      "x": 319,
+      "y": 303,
+      "name": "0,5"
+    },
+    {
+      "id": "s4",
+      "x": 498,
+      "y": 255,
+      "name": "3,5"
+    },
+    {
+      "id": "s5",
+      "x": 498,
+      "y": 160,
+      "name": "0,3"
+    },
+    {
+      "id": "s6",
+      "x": 498,
+      "y": 350,
+      "name": "3,2"
+    },
+    {
+      "id": "s7",
+      "x": 677,
+      "y": 208,
+      "name": "3,3"
+    },
+    {
+      "id": "s8",
+      "x": 677,
+      "y": 303,
+      "name": "0,2"
+    },
+    {
+      "id": "s9",
+      "x": 856,
+      "y": 208,
+      "name": "1,5"
+    },
+    {
+      "id": "s10",
+      "x": 856,
+      "y": 303,
+      "name": "2,0"
+    },
+    {
+      "id": "s11",
+      "x": 1035,
+      "y": 208,
+      "name": "1,0"
+    },
+    {
+      "id": "s12",
+      "x": 1035,
+      "y": 303,
+      "name": "2,5"
+    },
+    {
+      "id": "s13",
+      "x": 1214,
+      "y": 208,
+      "name": "0,1"
+    },
+    {
+      "id": "s14",
+      "x": 1214,
+      "y": 303,
+      "name": "3,4"
+    },
+    {
+      "id": "s15",
+      "x": 1393,
+      "y": 208,
+      "name": "3,1"
+    },
+    {
+      "id": "s16",
+      "x": 1393,
+      "y": 303,
+      "name": "0,4"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "t1",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "fillA"
+    },
+    {
+      "id": "t2",
+      "from": "s1",
+      "to": "s3",
+      "symbol": "fillB"
+    },
+    {
+      "id": "t3",
+      "from": "s1",
+      "to": "s1",
+      "symbol": "emptyA"
+    },
+    {
+      "id": "t4",
+      "from": "s1",
+      "to": "s1",
+      "symbol": "emptyB"
+    },
+    {
+      "id": "t5",
+      "from": "s1",
+      "to": "s1",
+      "symbol": "AtoB"
+    },
+    {
+      "id": "t6",
+      "from": "s1",
+      "to": "s1",
+      "symbol": "BtoA"
+    },
+    {
+      "id": "t7",
+      "from": "s2",
+      "to": "s2",
+      "symbol": "fillA"
+    },
+    {
+      "id": "t8",
+      "from": "s2",
+      "to": "s4",
+      "symbol": "fillB"
+    },
+    {
+      "id": "t9",
+      "from": "s2",
+      "to": "s1",
+      "symbol": "emptyA"
+    },
+    {
+      "id": "t10",
+      "from": "s2",
+      "to": "s2",
+      "symbol": "emptyB"
+    },
+    {
+      "id": "t11",
+      "from": "s2",
+      "to": "s5",
+      "symbol": "AtoB"
+    },
+    {
+      "id": "t12",
+      "from": "s2",
+      "to": "s2",
+      "symbol": "BtoA"
+    },
+    {
+      "id": "t13",
+      "from": "s3",
+      "to": "s4",
+      "symbol": "fillA"
+    },
+    {
+      "id": "t14",
+      "from": "s3",
+      "to": "s3",
+      "symbol": "fillB"
+    },
+    {
+      "id": "t15",
+      "from": "s3",
+      "to": "s3",
+      "symbol": "emptyA"
+    },
+    {
+      "id": "t16",
+      "from": "s3",
+      "to": "s1",
+      "symbol": "emptyB"
+    },
+    {
+      "id": "t17",
+      "from": "s3",
+      "to": "s3",
+      "symbol": "AtoB"
+    },
+    {
+      "id": "t18",
+      "from": "s3",
+      "to": "s6",
+      "symbol": "BtoA"
+    },
+    {
+      "id": "t19",
+      "from": "s4",
+      "to": "s4",
+      "symbol": "fillA"
+    },
+    {
+      "id": "t20",
+      "from": "s4",
+      "to": "s4",
+      "symbol": "fillB"
+    },
+    {
+      "id": "t21",
+      "from": "s4",
+      "to": "s3",
+      "symbol": "emptyA"
+    },
+    {
+      "id": "t22",
+      "from": "s4",
+      "to": "s2",
+      "symbol": "emptyB"
+    },
+    {
+      "id": "t23",
+      "from": "s4",
+      "to": "s4",
+      "symbol": "AtoB"
+    },
+    {
+      "id": "t24",
+      "from": "s4",
+      "to": "s4",
+      "symbol": "BtoA"
+    },
+    {
+      "id": "t25",
+      "from": "s5",
+      "to": "s7",
+      "symbol": "fillA"
+    },
+    {
+      "id": "t26",
+      "from": "s5",
+      "to": "s3",
+      "symbol": "fillB"
+    },
+    {
+      "id": "t27",
+      "from": "s5",
+      "to": "s5",
+      "symbol": "emptyA"
+    },
+    {
+      "id": "t28",
+      "from": "s5",
+      "to": "s1",
+      "symbol": "emptyB"
+    },
+    {
+      "id": "t29",
+      "from": "s5",
+      "to": "s5",
+      "symbol": "AtoB"
+    },
+    {
+      "id": "t30",
+      "from": "s5",
+      "to": "s2",
+      "symbol": "BtoA"
+    },
+    {
+      "id": "t31",
+      "from": "s6",
+      "to": "s6",
+      "symbol": "fillA"
+    },
+    {
+      "id": "t32",
+      "from": "s6",
+      "to": "s4",
+      "symbol": "fillB"
+    },
+    {
+      "id": "t33",
+      "from": "s6",
+      "to": "s8",
+      "symbol": "emptyA"
+    },
+    {
+      "id": "t34",
+      "from": "s6",
+      "to": "s2",
+      "symbol": "emptyB"
+    },
+    {
+      "id": "t35",
+      "from": "s6",
+      "to": "s3",
+      "symbol": "AtoB"
+    },
+    {
+      "id": "t36",
+      "from": "s6",
+      "to": "s6",
+      "symbol": "BtoA"
+    },
+    {
+      "id": "t37",
+      "from": "s7",
+      "to": "s7",
+      "symbol": "fillA"
+    },
+    {
+      "id": "t38",
+      "from": "s7",
+      "to": "s4",
+      "symbol": "fillB"
+    },
+    {
+      "id": "t39",
+      "from": "s7",
+      "to": "s5",
+      "symbol": "emptyA"
+    },
+    {
+      "id": "t40",
+      "from": "s7",
+      "to": "s2",
+      "symbol": "emptyB"
+    },
+    {
+      "id": "t41",
+      "from": "s7",
+      "to": "s9",
+      "symbol": "AtoB"
+    },
+    {
+      "id": "t42",
+      "from": "s7",
+      "to": "s7",
+      "symbol": "BtoA"
+    },
+    {
+      "id": "t43",
+      "from": "s8",
+      "to": "s6",
+      "symbol": "fillA"
+    },
+    {
+      "id": "t44",
+      "from": "s8",
+      "to": "s3",
+      "symbol": "fillB"
+    },
+    {
+      "id": "t45",
+      "from": "s8",
+      "to": "s8",
+      "symbol": "emptyA"
+    },
+    {
+      "id": "t46",
+      "from": "s8",
+      "to": "s1",
+      "symbol": "emptyB"
+    },
+    {
+      "id": "t47",
+      "from": "s8",
+      "to": "s8",
+      "symbol": "AtoB"
+    },
+    {
+      "id": "t48",
+      "from": "s8",
+      "to": "s10",
+      "symbol": "BtoA"
+    },
+    {
+      "id": "t49",
+      "from": "s9",
+      "to": "s4",
+      "symbol": "fillA"
+    },
+    {
+      "id": "t50",
+      "from": "s9",
+      "to": "s9",
+      "symbol": "fillB"
+    },
+    {
+      "id": "t51",
+      "from": "s9",
+      "to": "s3",
+      "symbol": "emptyA"
+    },
+    {
+      "id": "t52",
+      "from": "s9",
+      "to": "s11",
+      "symbol": "emptyB"
+    },
+    {
+      "id": "t53",
+      "from": "s9",
+      "to": "s9",
+      "symbol": "AtoB"
+    },
+    {
+      "id": "t54",
+      "from": "s9",
+      "to": "s7",
+      "symbol": "BtoA"
+    },
+    {
+      "id": "t55",
+      "from": "s10",
+      "to": "s2",
+      "symbol": "fillA"
+    },
+    {
+      "id": "t56",
+      "from": "s10",
+      "to": "s12",
+      "symbol": "fillB"
+    },
+    {
+      "id": "t57",
+      "from": "s10",
+      "to": "s1",
+      "symbol": "emptyA"
+    },
+    {
+      "id": "t58",
+      "from": "s10",
+      "to": "s10",
+      "symbol": "emptyB"
+    },
+    {
+      "id": "t59",
+      "from": "s10",
+      "to": "s8",
+      "symbol": "AtoB"
+    },
+    {
+      "id": "t60",
+      "from": "s10",
+      "to": "s10",
+      "symbol": "BtoA"
+    },
+    {
+      "id": "t61",
+      "from": "s11",
+      "to": "s2",
+      "symbol": "fillA"
+    },
+    {
+      "id": "t62",
+      "from": "s11",
+      "to": "s9",
+      "symbol": "fillB"
+    },
+    {
+      "id": "t63",
+      "from": "s11",
+      "to": "s1",
+      "symbol": "emptyA"
+    },
+    {
+      "id": "t64",
+      "from": "s11",
+      "to": "s11",
+      "symbol": "emptyB"
+    },
+    {
+      "id": "t65",
+      "from": "s11",
+      "to": "s13",
+      "symbol": "AtoB"
+    },
+    {
+      "id": "t66",
+      "from": "s11",
+      "to": "s11",
+      "symbol": "BtoA"
+    },
+    {
+      "id": "t67",
+      "from": "s12",
+      "to": "s4",
+      "symbol": "fillA"
+    },
+    {
+      "id": "t68",
+      "from": "s12",
+      "to": "s12",
+      "symbol": "fillB"
+    },
+    {
+      "id": "t69",
+      "from": "s12",
+      "to": "s3",
+      "symbol": "emptyA"
+    },
+    {
+      "id": "t70",
+      "from": "s12",
+      "to": "s10",
+      "symbol": "emptyB"
+    },
+    {
+      "id": "t71",
+      "from": "s12",
+      "to": "s12",
+      "symbol": "AtoB"
+    },
+    {
+      "id": "t72",
+      "from": "s12",
+      "to": "s14",
+      "symbol": "BtoA"
+    },
+    {
+      "id": "t73",
+      "from": "s13",
+      "to": "s15",
+      "symbol": "fillA"
+    },
+    {
+      "id": "t74",
+      "from": "s13",
+      "to": "s3",
+      "symbol": "fillB"
+    },
+    {
+      "id": "t75",
+      "from": "s13",
+      "to": "s13",
+      "symbol": "emptyA"
+    },
+    {
+      "id": "t76",
+      "from": "s13",
+      "to": "s1",
+      "symbol": "emptyB"
+    },
+    {
+      "id": "t77",
+      "from": "s13",
+      "to": "s13",
+      "symbol": "AtoB"
+    },
+    {
+      "id": "t78",
+      "from": "s13",
+      "to": "s11",
+      "symbol": "BtoA"
+    },
+    {
+      "id": "t79",
+      "from": "s14",
+      "to": "s14",
+      "symbol": "fillA"
+    },
+    {
+      "id": "t80",
+      "from": "s14",
+      "to": "s4",
+      "symbol": "fillB"
+    },
+    {
+      "id": "t81",
+      "from": "s14",
+      "to": "s16",
+      "symbol": "emptyA"
+    },
+    {
+      "id": "t82",
+      "from": "s14",
+      "to": "s2",
+      "symbol": "emptyB"
+    },
+    {
+      "id": "t83",
+      "from": "s14",
+      "to": "s12",
+      "symbol": "AtoB"
+    },
+    {
+      "id": "t84",
+      "from": "s14",
+      "to": "s14",
+      "symbol": "BtoA"
+    },
+    {
+      "id": "t85",
+      "from": "s15",
+      "to": "s15",
+      "symbol": "fillA"
+    },
+    {
+      "id": "t86",
+      "from": "s15",
+      "to": "s4",
+      "symbol": "fillB"
+    },
+    {
+      "id": "t87",
+      "from": "s15",
+      "to": "s13",
+      "symbol": "emptyA"
+    },
+    {
+      "id": "t88",
+      "from": "s15",
+      "to": "s2",
+      "symbol": "emptyB"
+    },
+    {
+      "id": "t89",
+      "from": "s15",
+      "to": "s16",
+      "symbol": "AtoB"
+    },
+    {
+      "id": "t90",
+      "from": "s15",
+      "to": "s15",
+      "symbol": "BtoA"
+    },
+    {
+      "id": "t91",
+      "from": "s16",
+      "to": "s14",
+      "symbol": "fillA"
+    },
+    {
+      "id": "t92",
+      "from": "s16",
+      "to": "s3",
+      "symbol": "fillB"
+    },
+    {
+      "id": "t93",
+      "from": "s16",
+      "to": "s16",
+      "symbol": "emptyA"
+    },
+    {
+      "id": "t94",
+      "from": "s16",
+      "to": "s1",
+      "symbol": "emptyB"
+    },
+    {
+      "id": "t95",
+      "from": "s16",
+      "to": "s16",
+      "symbol": "AtoB"
+    },
+    {
+      "id": "t96",
+      "from": "s16",
+      "to": "s15",
+      "symbol": "BtoA"
+    }
+  ],
+  "startId": "s1",
+  "accepts": [
+    "s14",
+    "s16"
+  ],
+  "notes": [],
+  "dividers": [],
+  "blocks": [],
+  "meta": {
+    "title": "Measuring 4 litres with 3- and 5-litre jugs",
+    "blurb": "Fill, empty or pour one jug into the other until it is empty or the other is full. A state is how much each jug holds, and the machine accepts when the large jug holds exactly 4. The shortest solution takes six moves.",
+    "inputs": [
+      {
+        "w": "fillB BtoA emptyA BtoA fillB BtoA",
+        "expect": "accept"
+      },
+      {
+        "w": "fillA AtoB fillA AtoB emptyB AtoB fillA AtoB",
+        "expect": "accept"
+      },
+      {
+        "w": "fillB BtoA emptyA BtoA fillB",
+        "expect": "reject"
+      },
+      {
+        "w": "fillA fillB",
+        "expect": "reject"
+      },
+      {
+        "w": "fillB emptyB",
+        "expect": "reject"
+      }
+    ],
+    "library": {
+      "author": {
+        "login": "thethinkmachine"
+      },
+      "license": "CC-BY-4.0",
+      "tags": [
+        "puzzles",
+        "state-space-search",
+        "number-theory"
+      ],
+      "difficulty": "intermediate"
+    }
+  }
+}

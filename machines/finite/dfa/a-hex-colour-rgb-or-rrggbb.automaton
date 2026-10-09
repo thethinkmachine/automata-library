@@ -1,0 +1,168 @@
+{
+  "format": "automata-studio/workspace",
+  "schema": 1,
+  "app": "dev",
+  "machine": "DFA",
+  "config": {
+    "sym": {
+      "eps": "ε",
+      "any": "Σ",
+      "blank": "⊔",
+      "leftMarker": "⊢",
+      "rightMarker": "⊣",
+      "stackBottom": "Z",
+      "lambda": "λ"
+    }
+  },
+  "sigma": [
+    "#",
+    "h"
+  ],
+  "stackAlpha": [],
+  "outputAlpha": [],
+  "tapeCount": 1,
+  "states": [
+    {
+      "id": "s1",
+      "x": 140,
+      "y": 160,
+      "name": "s"
+    },
+    {
+      "id": "s2",
+      "x": 260,
+      "y": 160,
+      "name": "h0"
+    },
+    {
+      "id": "s3",
+      "x": 380,
+      "y": 160,
+      "name": "h1"
+    },
+    {
+      "id": "s4",
+      "x": 500,
+      "y": 160,
+      "name": "h2"
+    },
+    {
+      "id": "s5",
+      "x": 620,
+      "y": 160,
+      "name": "h3"
+    },
+    {
+      "id": "s6",
+      "x": 740,
+      "y": 160,
+      "name": "h4"
+    },
+    {
+      "id": "s7",
+      "x": 860,
+      "y": 160,
+      "name": "h5"
+    },
+    {
+      "id": "s8",
+      "x": 980,
+      "y": 160,
+      "name": "h6"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "t1",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "#"
+    },
+    {
+      "id": "t2",
+      "from": "s2",
+      "to": "s3",
+      "symbol": "h"
+    },
+    {
+      "id": "t3",
+      "from": "s3",
+      "to": "s4",
+      "symbol": "h"
+    },
+    {
+      "id": "t4",
+      "from": "s4",
+      "to": "s5",
+      "symbol": "h"
+    },
+    {
+      "id": "t5",
+      "from": "s5",
+      "to": "s6",
+      "symbol": "h"
+    },
+    {
+      "id": "t6",
+      "from": "s6",
+      "to": "s7",
+      "symbol": "h"
+    },
+    {
+      "id": "t7",
+      "from": "s7",
+      "to": "s8",
+      "symbol": "h"
+    }
+  ],
+  "startId": "s1",
+  "accepts": [
+    "s5",
+    "s8"
+  ],
+  "notes": [],
+  "dividers": [],
+  "blocks": [],
+  "meta": {
+    "title": "A hex colour: #rgb or #rrggbb",
+    "blurb": "A # and exactly three or six hex digits (h). After three digits the machine is in an accepting state that can still be extended — but only by exactly three more.",
+    "inputs": [
+      {
+        "w": "#hhh",
+        "expect": "accept"
+      },
+      {
+        "w": "#hhhhhh",
+        "expect": "accept"
+      },
+      {
+        "w": "hhhh",
+        "expect": "reject"
+      },
+      {
+        "w": "hhhhhhh",
+        "expect": "reject"
+      },
+      {
+        "w": "",
+        "expect": "reject"
+      },
+      {
+        "w": "##hh#",
+        "expect": "reject"
+      }
+    ],
+    "library": {
+      "author": {
+        "login": "thethinkmachine"
+      },
+      "license": "CC-BY-4.0",
+      "tags": [
+        "validation",
+        "css",
+        "format"
+      ],
+      "difficulty": "intro"
+    }
+  }
+}

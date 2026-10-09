@@ -1,0 +1,231 @@
+{
+  "format": "automata-studio/workspace",
+  "schema": 1,
+  "app": "dev",
+  "machine": "DFA",
+  "config": {
+    "sym": {
+      "eps": "ε",
+      "any": "Σ",
+      "blank": "⊔",
+      "leftMarker": "⊢",
+      "rightMarker": "⊣",
+      "stackBottom": "Z",
+      "lambda": "λ"
+    }
+  },
+  "sigma": [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E",
+    "F",
+    "G",
+    "H"
+  ],
+  "stackAlpha": [],
+  "outputAlpha": [],
+  "tapeCount": 1,
+  "states": [
+    {
+      "id": "s1",
+      "x": 264,
+      "y": 160,
+      "name": "a3"
+    },
+    {
+      "id": "s2",
+      "x": 352,
+      "y": 196,
+      "name": "c2"
+    },
+    {
+      "id": "s3",
+      "x": 388,
+      "y": 284,
+      "name": "b1"
+    },
+    {
+      "id": "s4",
+      "x": 352,
+      "y": 372,
+      "name": "a1"
+    },
+    {
+      "id": "s5",
+      "x": 264,
+      "y": 408,
+      "name": "c3"
+    },
+    {
+      "id": "s6",
+      "x": 176,
+      "y": 372,
+      "name": "b3"
+    },
+    {
+      "id": "s7",
+      "x": 140,
+      "y": 284,
+      "name": "a2"
+    },
+    {
+      "id": "s8",
+      "x": 176,
+      "y": 196,
+      "name": "c1"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "t1",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "C"
+    },
+    {
+      "id": "t2",
+      "from": "s1",
+      "to": "s3",
+      "symbol": "D"
+    },
+    {
+      "id": "t3",
+      "from": "s2",
+      "to": "s4",
+      "symbol": "F"
+    },
+    {
+      "id": "t4",
+      "from": "s2",
+      "to": "s1",
+      "symbol": "G"
+    },
+    {
+      "id": "t5",
+      "from": "s3",
+      "to": "s5",
+      "symbol": "A"
+    },
+    {
+      "id": "t6",
+      "from": "s3",
+      "to": "s1",
+      "symbol": "H"
+    },
+    {
+      "id": "t7",
+      "from": "s4",
+      "to": "s6",
+      "symbol": "A"
+    },
+    {
+      "id": "t8",
+      "from": "s4",
+      "to": "s2",
+      "symbol": "B"
+    },
+    {
+      "id": "t9",
+      "from": "s5",
+      "to": "s3",
+      "symbol": "E"
+    },
+    {
+      "id": "t10",
+      "from": "s5",
+      "to": "s7",
+      "symbol": "F"
+    },
+    {
+      "id": "t11",
+      "from": "s6",
+      "to": "s8",
+      "symbol": "D"
+    },
+    {
+      "id": "t12",
+      "from": "s6",
+      "to": "s4",
+      "symbol": "E"
+    },
+    {
+      "id": "t13",
+      "from": "s7",
+      "to": "s5",
+      "symbol": "B"
+    },
+    {
+      "id": "t14",
+      "from": "s7",
+      "to": "s8",
+      "symbol": "C"
+    },
+    {
+      "id": "t15",
+      "from": "s8",
+      "to": "s7",
+      "symbol": "G"
+    },
+    {
+      "id": "t16",
+      "from": "s8",
+      "to": "s6",
+      "symbol": "H"
+    }
+  ],
+  "startId": "s1",
+  "accepts": [
+    "s1"
+  ],
+  "notes": [],
+  "dividers": [],
+  "blocks": [],
+  "meta": {
+    "title": "A knight on a 3 × 3 board",
+    "blurb": "Starting in a corner, the knight moves in any of its eight directions (A–H) without leaving the board. The centre is unreachable, and the other eight squares form a single cycle — so every closed tour has a length divisible by… well, try it.",
+    "inputs": [
+      {
+        "w": "",
+        "expect": "accept"
+      },
+      {
+        "w": "CG",
+        "expect": "accept"
+      },
+      {
+        "w": "DH",
+        "expect": "accept"
+      },
+      {
+        "w": "A",
+        "expect": "reject"
+      },
+      {
+        "w": "AG",
+        "expect": "reject"
+      },
+      {
+        "w": "AH",
+        "expect": "reject"
+      },
+      {
+        "w": "BCEDHEGF",
+        "expect": "reject"
+      }
+    ],
+    "library": {
+      "author": {
+        "login": "thethinkmachine"
+      },
+      "license": "CC-BY-4.0",
+      "tags": [
+        "chess",
+        "graphs",
+        "walks"
+      ],
+      "difficulty": "intermediate"
+    }
+  }
+}

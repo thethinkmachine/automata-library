@@ -1,0 +1,225 @@
+{
+  "format": "automata-studio/workspace",
+  "schema": 1,
+  "app": "dev",
+  "machine": "DFA",
+  "config": {
+    "sym": {
+      "eps": "ε",
+      "any": "Σ",
+      "blank": "⊔",
+      "leftMarker": "⊢",
+      "rightMarker": "⊣",
+      "stackBottom": "Z",
+      "lambda": "λ"
+    }
+  },
+  "sigma": [
+    "0",
+    "1",
+    "2",
+    "3",
+    "4",
+    "5",
+    "6",
+    "7",
+    "8",
+    "9"
+  ],
+  "stackAlpha": [],
+  "outputAlpha": [],
+  "tapeCount": 1,
+  "states": [
+    {
+      "id": "s1",
+      "x": 140,
+      "y": 160,
+      "name": "no"
+    },
+    {
+      "id": "s2",
+      "x": 319,
+      "y": 160,
+      "name": "yes"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "t1",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "0"
+    },
+    {
+      "id": "t2",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "5"
+    },
+    {
+      "id": "t3",
+      "from": "s1",
+      "to": "s1",
+      "symbol": "1"
+    },
+    {
+      "id": "t4",
+      "from": "s1",
+      "to": "s1",
+      "symbol": "2"
+    },
+    {
+      "id": "t5",
+      "from": "s1",
+      "to": "s1",
+      "symbol": "3"
+    },
+    {
+      "id": "t6",
+      "from": "s1",
+      "to": "s1",
+      "symbol": "4"
+    },
+    {
+      "id": "t7",
+      "from": "s1",
+      "to": "s1",
+      "symbol": "6"
+    },
+    {
+      "id": "t8",
+      "from": "s1",
+      "to": "s1",
+      "symbol": "7"
+    },
+    {
+      "id": "t9",
+      "from": "s1",
+      "to": "s1",
+      "symbol": "8"
+    },
+    {
+      "id": "t10",
+      "from": "s1",
+      "to": "s1",
+      "symbol": "9"
+    },
+    {
+      "id": "t11",
+      "from": "s2",
+      "to": "s2",
+      "symbol": "0"
+    },
+    {
+      "id": "t12",
+      "from": "s2",
+      "to": "s2",
+      "symbol": "5"
+    },
+    {
+      "id": "t13",
+      "from": "s2",
+      "to": "s1",
+      "symbol": "1"
+    },
+    {
+      "id": "t14",
+      "from": "s2",
+      "to": "s1",
+      "symbol": "2"
+    },
+    {
+      "id": "t15",
+      "from": "s2",
+      "to": "s1",
+      "symbol": "3"
+    },
+    {
+      "id": "t16",
+      "from": "s2",
+      "to": "s1",
+      "symbol": "4"
+    },
+    {
+      "id": "t17",
+      "from": "s2",
+      "to": "s1",
+      "symbol": "6"
+    },
+    {
+      "id": "t18",
+      "from": "s2",
+      "to": "s1",
+      "symbol": "7"
+    },
+    {
+      "id": "t19",
+      "from": "s2",
+      "to": "s1",
+      "symbol": "8"
+    },
+    {
+      "id": "t20",
+      "from": "s2",
+      "to": "s1",
+      "symbol": "9"
+    }
+  ],
+  "startId": "s1",
+  "accepts": [
+    "s2"
+  ],
+  "notes": [],
+  "dividers": [],
+  "blocks": [],
+  "meta": {
+    "title": "Decimal multiples of 5: only the last digit counts",
+    "blurb": "A remainder machine for 5 would need five states, but this one needs two. 10 is a multiple of 5, so every digit before the last contributes nothing to the remainder, and the machine only has to ask whether the last digit was 0 or 5.",
+    "inputs": [
+      {
+        "w": "5",
+        "expect": "accept"
+      },
+      {
+        "w": "84679320",
+        "expect": "accept"
+      },
+      {
+        "w": "507801775",
+        "expect": "accept"
+      },
+      {
+        "w": "21945730",
+        "expect": "accept"
+      },
+      {
+        "w": "1",
+        "expect": "reject"
+      },
+      {
+        "w": "84679321",
+        "expect": "reject"
+      },
+      {
+        "w": "507801771",
+        "expect": "reject"
+      },
+      {
+        "w": "21945731",
+        "expect": "reject"
+      }
+    ],
+    "library": {
+      "author": {
+        "login": "thethinkmachine"
+      },
+      "license": "CC-BY-4.0",
+      "tags": [
+        "divisibility",
+        "decimal",
+        "minimisation"
+      ],
+      "difficulty": "intro"
+    }
+  }
+}

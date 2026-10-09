@@ -1,0 +1,172 @@
+{
+  "format": "automata-studio/workspace",
+  "schema": 1,
+  "app": "dev",
+  "machine": "DFA",
+  "config": {
+    "sym": {
+      "eps": "ε",
+      "any": "Σ",
+      "blank": "⊔",
+      "leftMarker": "⊢",
+      "rightMarker": "⊣",
+      "stackBottom": "Z",
+      "lambda": "λ"
+    }
+  },
+  "sigma": [
+    "a",
+    ";",
+    "\""
+  ],
+  "stackAlpha": [],
+  "outputAlpha": [],
+  "tapeCount": 1,
+  "states": [
+    {
+      "id": "s1",
+      "x": 140,
+      "y": 208,
+      "name": "field"
+    },
+    {
+      "id": "s2",
+      "x": 319,
+      "y": 255,
+      "name": "plain"
+    },
+    {
+      "id": "s3",
+      "x": 319,
+      "y": 160,
+      "name": "quoted"
+    },
+    {
+      "id": "s4",
+      "x": 498,
+      "y": 208,
+      "name": "closed"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "t1",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "a"
+    },
+    {
+      "id": "t2",
+      "from": "s1",
+      "to": "s1",
+      "symbol": ";"
+    },
+    {
+      "id": "t3",
+      "from": "s1",
+      "to": "s3",
+      "symbol": "\""
+    },
+    {
+      "id": "t4",
+      "from": "s2",
+      "to": "s2",
+      "symbol": "a"
+    },
+    {
+      "id": "t5",
+      "from": "s2",
+      "to": "s1",
+      "symbol": ";"
+    },
+    {
+      "id": "t6",
+      "from": "s3",
+      "to": "s3",
+      "symbol": ";"
+    },
+    {
+      "id": "t7",
+      "from": "s3",
+      "to": "s3",
+      "symbol": "a"
+    },
+    {
+      "id": "t8",
+      "from": "s3",
+      "to": "s4",
+      "symbol": "\""
+    },
+    {
+      "id": "t9",
+      "from": "s4",
+      "to": "s3",
+      "symbol": "\""
+    },
+    {
+      "id": "t10",
+      "from": "s4",
+      "to": "s1",
+      "symbol": ";"
+    }
+  ],
+  "startId": "s1",
+  "accepts": [
+    "s1",
+    "s2",
+    "s4"
+  ],
+  "notes": [],
+  "dividers": [],
+  "blocks": [],
+  "meta": {
+    "title": "A CSV record with quoted fields",
+    "blurb": "Fields separated by ; — a field is either plain characters (a) or a quoted string in which ; is allowed and a quote is written twice. After a closing quote only a separator or the end may follow, which is where hand-written parsers usually go wrong.",
+    "inputs": [
+      {
+        "w": "a;a",
+        "expect": "accept"
+      },
+      {
+        "w": "\"a;a\";a",
+        "expect": "accept"
+      },
+      {
+        "w": "\"a\"\"a\"",
+        "expect": "accept"
+      },
+      {
+        "w": ";;",
+        "expect": "accept"
+      },
+      {
+        "w": "\"a\"a",
+        "expect": "reject"
+      },
+      {
+        "w": "a\"a",
+        "expect": "reject"
+      },
+      {
+        "w": "\"a",
+        "expect": "reject"
+      },
+      {
+        "w": "\"\";a",
+        "expect": "accept"
+      }
+    ],
+    "library": {
+      "author": {
+        "login": "thethinkmachine"
+      },
+      "license": "CC-BY-4.0",
+      "tags": [
+        "lexing",
+        "csv",
+        "escaping"
+      ],
+      "difficulty": "intermediate"
+    }
+  }
+}

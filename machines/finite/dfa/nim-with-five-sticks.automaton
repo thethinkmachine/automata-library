@@ -1,0 +1,193 @@
+{
+  "format": "automata-studio/workspace",
+  "schema": 1,
+  "app": "dev",
+  "machine": "DFA",
+  "config": {
+    "sym": {
+      "eps": "ε",
+      "any": "Σ",
+      "blank": "⊔",
+      "leftMarker": "⊢",
+      "rightMarker": "⊣",
+      "stackBottom": "Z",
+      "lambda": "λ"
+    }
+  },
+  "sigma": [
+    "1",
+    "2"
+  ],
+  "stackAlpha": [],
+  "outputAlpha": [],
+  "tapeCount": 1,
+  "states": [
+    {
+      "id": "s1",
+      "x": 140,
+      "y": 255,
+      "name": "5·P1"
+    },
+    {
+      "id": "s2",
+      "x": 319,
+      "y": 303,
+      "name": "4·P2"
+    },
+    {
+      "id": "s3",
+      "x": 319,
+      "y": 208,
+      "name": "3·P2"
+    },
+    {
+      "id": "s4",
+      "x": 498,
+      "y": 350,
+      "name": "3·P1"
+    },
+    {
+      "id": "s5",
+      "x": 498,
+      "y": 255,
+      "name": "2·P1"
+    },
+    {
+      "id": "s6",
+      "x": 498,
+      "y": 160,
+      "name": "1·P1"
+    },
+    {
+      "id": "s7",
+      "x": 677,
+      "y": 303,
+      "name": "2·P2"
+    },
+    {
+      "id": "s8",
+      "x": 677,
+      "y": 208,
+      "name": "P1_wins"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "t1",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "1"
+    },
+    {
+      "id": "t2",
+      "from": "s1",
+      "to": "s3",
+      "symbol": "2"
+    },
+    {
+      "id": "t3",
+      "from": "s2",
+      "to": "s4",
+      "symbol": "1"
+    },
+    {
+      "id": "t4",
+      "from": "s2",
+      "to": "s5",
+      "symbol": "2"
+    },
+    {
+      "id": "t5",
+      "from": "s3",
+      "to": "s5",
+      "symbol": "1"
+    },
+    {
+      "id": "t6",
+      "from": "s3",
+      "to": "s6",
+      "symbol": "2"
+    },
+    {
+      "id": "t7",
+      "from": "s4",
+      "to": "s7",
+      "symbol": "1"
+    },
+    {
+      "id": "t8",
+      "from": "s5",
+      "to": "s8",
+      "symbol": "2"
+    },
+    {
+      "id": "t9",
+      "from": "s6",
+      "to": "s8",
+      "symbol": "1"
+    },
+    {
+      "id": "t10",
+      "from": "s7",
+      "to": "s6",
+      "symbol": "1"
+    }
+  ],
+  "startId": "s1",
+  "accepts": [
+    "s8"
+  ],
+  "notes": [],
+  "dividers": [],
+  "blocks": [],
+  "meta": {
+    "title": "Nim with five sticks",
+    "blurb": "Two players take 1 or 2 sticks in turn, and whoever takes the last one wins. The accepted words are the games the first player wins. Every losing position for the player to move has a multiple of 3 sticks — the first player wins by taking 2, then always making the total taken in a round 3.",
+    "inputs": [
+      {
+        "w": "122",
+        "expect": "accept"
+      },
+      {
+        "w": "11111",
+        "expect": "accept"
+      },
+      {
+        "w": "212",
+        "expect": "accept"
+      },
+      {
+        "w": "221",
+        "expect": "accept"
+      },
+      {
+        "w": "222",
+        "expect": "reject"
+      },
+      {
+        "w": "21111",
+        "expect": "reject"
+      },
+      {
+        "w": "112",
+        "expect": "reject"
+      },
+      {
+        "w": "121",
+        "expect": "reject"
+      }
+    ],
+    "library": {
+      "author": {
+        "login": "thethinkmachine"
+      },
+      "license": "CC-BY-4.0",
+      "tags": [
+        "games",
+        "combinatorial-game-theory",
+        "nim"
+      ],
+      "difficulty": "intermediate"
+    }
+  }
+}

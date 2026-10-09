@@ -1,0 +1,664 @@
+{
+  "format": "automata-studio/workspace",
+  "schema": 1,
+  "app": "dev",
+  "machine": "DFA",
+  "config": {
+    "sym": {
+      "eps": "ε",
+      "any": "Σ",
+      "blank": "⊔",
+      "leftMarker": "⊢",
+      "rightMarker": "⊣",
+      "stackBottom": "Z",
+      "lambda": "λ"
+    }
+  },
+  "sigma": [
+    "0",
+    "1",
+    "2",
+    "3",
+    "4",
+    "5",
+    "6",
+    "7",
+    "8",
+    "9",
+    "-"
+  ],
+  "stackAlpha": [],
+  "outputAlpha": [],
+  "tapeCount": 1,
+  "states": [
+    {
+      "id": "s1",
+      "x": 140,
+      "y": 255,
+      "name": "s"
+    },
+    {
+      "id": "s2",
+      "x": 319,
+      "y": 255,
+      "name": "y1"
+    },
+    {
+      "id": "s3",
+      "x": 498,
+      "y": 255,
+      "name": "y2"
+    },
+    {
+      "id": "s4",
+      "x": 677,
+      "y": 255,
+      "name": "y3"
+    },
+    {
+      "id": "s5",
+      "x": 856,
+      "y": 255,
+      "name": "y4"
+    },
+    {
+      "id": "s6",
+      "x": 1035,
+      "y": 255,
+      "name": "dash1"
+    },
+    {
+      "id": "s7",
+      "x": 1214,
+      "y": 303,
+      "name": "m0"
+    },
+    {
+      "id": "s8",
+      "x": 1214,
+      "y": 208,
+      "name": "m1"
+    },
+    {
+      "id": "s9",
+      "x": 1393,
+      "y": 255,
+      "name": "mm"
+    },
+    {
+      "id": "s10",
+      "x": 1572,
+      "y": 255,
+      "name": "dash2"
+    },
+    {
+      "id": "s11",
+      "x": 1751,
+      "y": 350,
+      "name": "d0"
+    },
+    {
+      "id": "s12",
+      "x": 1751,
+      "y": 255,
+      "name": "d12"
+    },
+    {
+      "id": "s13",
+      "x": 1751,
+      "y": 160,
+      "name": "d3"
+    },
+    {
+      "id": "s14",
+      "x": 1930,
+      "y": 255,
+      "name": "done"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "t1",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "0"
+    },
+    {
+      "id": "t2",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "1"
+    },
+    {
+      "id": "t3",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "2"
+    },
+    {
+      "id": "t4",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "3"
+    },
+    {
+      "id": "t5",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "4"
+    },
+    {
+      "id": "t6",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "5"
+    },
+    {
+      "id": "t7",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "6"
+    },
+    {
+      "id": "t8",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "7"
+    },
+    {
+      "id": "t9",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "8"
+    },
+    {
+      "id": "t10",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "9"
+    },
+    {
+      "id": "t11",
+      "from": "s2",
+      "to": "s3",
+      "symbol": "0"
+    },
+    {
+      "id": "t12",
+      "from": "s2",
+      "to": "s3",
+      "symbol": "1"
+    },
+    {
+      "id": "t13",
+      "from": "s2",
+      "to": "s3",
+      "symbol": "2"
+    },
+    {
+      "id": "t14",
+      "from": "s2",
+      "to": "s3",
+      "symbol": "3"
+    },
+    {
+      "id": "t15",
+      "from": "s2",
+      "to": "s3",
+      "symbol": "4"
+    },
+    {
+      "id": "t16",
+      "from": "s2",
+      "to": "s3",
+      "symbol": "5"
+    },
+    {
+      "id": "t17",
+      "from": "s2",
+      "to": "s3",
+      "symbol": "6"
+    },
+    {
+      "id": "t18",
+      "from": "s2",
+      "to": "s3",
+      "symbol": "7"
+    },
+    {
+      "id": "t19",
+      "from": "s2",
+      "to": "s3",
+      "symbol": "8"
+    },
+    {
+      "id": "t20",
+      "from": "s2",
+      "to": "s3",
+      "symbol": "9"
+    },
+    {
+      "id": "t21",
+      "from": "s3",
+      "to": "s4",
+      "symbol": "0"
+    },
+    {
+      "id": "t22",
+      "from": "s3",
+      "to": "s4",
+      "symbol": "1"
+    },
+    {
+      "id": "t23",
+      "from": "s3",
+      "to": "s4",
+      "symbol": "2"
+    },
+    {
+      "id": "t24",
+      "from": "s3",
+      "to": "s4",
+      "symbol": "3"
+    },
+    {
+      "id": "t25",
+      "from": "s3",
+      "to": "s4",
+      "symbol": "4"
+    },
+    {
+      "id": "t26",
+      "from": "s3",
+      "to": "s4",
+      "symbol": "5"
+    },
+    {
+      "id": "t27",
+      "from": "s3",
+      "to": "s4",
+      "symbol": "6"
+    },
+    {
+      "id": "t28",
+      "from": "s3",
+      "to": "s4",
+      "symbol": "7"
+    },
+    {
+      "id": "t29",
+      "from": "s3",
+      "to": "s4",
+      "symbol": "8"
+    },
+    {
+      "id": "t30",
+      "from": "s3",
+      "to": "s4",
+      "symbol": "9"
+    },
+    {
+      "id": "t31",
+      "from": "s4",
+      "to": "s5",
+      "symbol": "0"
+    },
+    {
+      "id": "t32",
+      "from": "s4",
+      "to": "s5",
+      "symbol": "1"
+    },
+    {
+      "id": "t33",
+      "from": "s4",
+      "to": "s5",
+      "symbol": "2"
+    },
+    {
+      "id": "t34",
+      "from": "s4",
+      "to": "s5",
+      "symbol": "3"
+    },
+    {
+      "id": "t35",
+      "from": "s4",
+      "to": "s5",
+      "symbol": "4"
+    },
+    {
+      "id": "t36",
+      "from": "s4",
+      "to": "s5",
+      "symbol": "5"
+    },
+    {
+      "id": "t37",
+      "from": "s4",
+      "to": "s5",
+      "symbol": "6"
+    },
+    {
+      "id": "t38",
+      "from": "s4",
+      "to": "s5",
+      "symbol": "7"
+    },
+    {
+      "id": "t39",
+      "from": "s4",
+      "to": "s5",
+      "symbol": "8"
+    },
+    {
+      "id": "t40",
+      "from": "s4",
+      "to": "s5",
+      "symbol": "9"
+    },
+    {
+      "id": "t41",
+      "from": "s5",
+      "to": "s6",
+      "symbol": "-"
+    },
+    {
+      "id": "t42",
+      "from": "s6",
+      "to": "s7",
+      "symbol": "0"
+    },
+    {
+      "id": "t43",
+      "from": "s6",
+      "to": "s8",
+      "symbol": "1"
+    },
+    {
+      "id": "t44",
+      "from": "s7",
+      "to": "s9",
+      "symbol": "1"
+    },
+    {
+      "id": "t45",
+      "from": "s7",
+      "to": "s9",
+      "symbol": "2"
+    },
+    {
+      "id": "t46",
+      "from": "s7",
+      "to": "s9",
+      "symbol": "3"
+    },
+    {
+      "id": "t47",
+      "from": "s7",
+      "to": "s9",
+      "symbol": "4"
+    },
+    {
+      "id": "t48",
+      "from": "s7",
+      "to": "s9",
+      "symbol": "5"
+    },
+    {
+      "id": "t49",
+      "from": "s7",
+      "to": "s9",
+      "symbol": "6"
+    },
+    {
+      "id": "t50",
+      "from": "s7",
+      "to": "s9",
+      "symbol": "7"
+    },
+    {
+      "id": "t51",
+      "from": "s7",
+      "to": "s9",
+      "symbol": "8"
+    },
+    {
+      "id": "t52",
+      "from": "s7",
+      "to": "s9",
+      "symbol": "9"
+    },
+    {
+      "id": "t53",
+      "from": "s8",
+      "to": "s9",
+      "symbol": "0"
+    },
+    {
+      "id": "t54",
+      "from": "s8",
+      "to": "s9",
+      "symbol": "1"
+    },
+    {
+      "id": "t55",
+      "from": "s8",
+      "to": "s9",
+      "symbol": "2"
+    },
+    {
+      "id": "t56",
+      "from": "s9",
+      "to": "s10",
+      "symbol": "-"
+    },
+    {
+      "id": "t57",
+      "from": "s10",
+      "to": "s11",
+      "symbol": "0"
+    },
+    {
+      "id": "t58",
+      "from": "s10",
+      "to": "s12",
+      "symbol": "1"
+    },
+    {
+      "id": "t59",
+      "from": "s10",
+      "to": "s12",
+      "symbol": "2"
+    },
+    {
+      "id": "t60",
+      "from": "s10",
+      "to": "s13",
+      "symbol": "3"
+    },
+    {
+      "id": "t61",
+      "from": "s11",
+      "to": "s14",
+      "symbol": "1"
+    },
+    {
+      "id": "t62",
+      "from": "s11",
+      "to": "s14",
+      "symbol": "2"
+    },
+    {
+      "id": "t63",
+      "from": "s11",
+      "to": "s14",
+      "symbol": "3"
+    },
+    {
+      "id": "t64",
+      "from": "s11",
+      "to": "s14",
+      "symbol": "4"
+    },
+    {
+      "id": "t65",
+      "from": "s11",
+      "to": "s14",
+      "symbol": "5"
+    },
+    {
+      "id": "t66",
+      "from": "s11",
+      "to": "s14",
+      "symbol": "6"
+    },
+    {
+      "id": "t67",
+      "from": "s11",
+      "to": "s14",
+      "symbol": "7"
+    },
+    {
+      "id": "t68",
+      "from": "s11",
+      "to": "s14",
+      "symbol": "8"
+    },
+    {
+      "id": "t69",
+      "from": "s11",
+      "to": "s14",
+      "symbol": "9"
+    },
+    {
+      "id": "t70",
+      "from": "s12",
+      "to": "s14",
+      "symbol": "0"
+    },
+    {
+      "id": "t71",
+      "from": "s12",
+      "to": "s14",
+      "symbol": "1"
+    },
+    {
+      "id": "t72",
+      "from": "s12",
+      "to": "s14",
+      "symbol": "2"
+    },
+    {
+      "id": "t73",
+      "from": "s12",
+      "to": "s14",
+      "symbol": "3"
+    },
+    {
+      "id": "t74",
+      "from": "s12",
+      "to": "s14",
+      "symbol": "4"
+    },
+    {
+      "id": "t75",
+      "from": "s12",
+      "to": "s14",
+      "symbol": "5"
+    },
+    {
+      "id": "t76",
+      "from": "s12",
+      "to": "s14",
+      "symbol": "6"
+    },
+    {
+      "id": "t77",
+      "from": "s12",
+      "to": "s14",
+      "symbol": "7"
+    },
+    {
+      "id": "t78",
+      "from": "s12",
+      "to": "s14",
+      "symbol": "8"
+    },
+    {
+      "id": "t79",
+      "from": "s12",
+      "to": "s14",
+      "symbol": "9"
+    },
+    {
+      "id": "t80",
+      "from": "s13",
+      "to": "s14",
+      "symbol": "0"
+    },
+    {
+      "id": "t81",
+      "from": "s13",
+      "to": "s14",
+      "symbol": "1"
+    }
+  ],
+  "startId": "s1",
+  "accepts": [
+    "s14"
+  ],
+  "notes": [],
+  "dividers": [],
+  "blocks": [],
+  "meta": {
+    "title": "An ISO date, YYYY-MM-DD",
+    "blurb": "Any four-digit year, a month from 01 to 12 and a day from 01 to 31. The first digit of the month and of the day each decide what the second may be. Whether February has a 30th is beyond it — that would need the year’s remainder mod 4, and the month, together.",
+    "inputs": [
+      {
+        "w": "2024-02-29",
+        "expect": "accept"
+      },
+      {
+        "w": "1999-12-31",
+        "expect": "accept"
+      },
+      {
+        "w": "2000-01-01",
+        "expect": "accept"
+      },
+      {
+        "w": "2024-13-01",
+        "expect": "reject"
+      },
+      {
+        "w": "2024-00-10",
+        "expect": "reject"
+      },
+      {
+        "w": "2024-12-32",
+        "expect": "reject"
+      },
+      {
+        "w": "24-12-01",
+        "expect": "reject"
+      },
+      {
+        "w": "2024-1-01",
+        "expect": "reject"
+      }
+    ],
+    "library": {
+      "author": {
+        "login": "thethinkmachine"
+      },
+      "license": "CC-BY-4.0",
+      "tags": [
+        "validation",
+        "dates",
+        "format"
+      ],
+      "difficulty": "intro"
+    }
+  }
+}

@@ -402,7 +402,7 @@ export default [
     blurb: 'A unary language is ultimately periodic. Here the period is lcm(2, 3) = 6: a ring of six states, four of them accepting — 0, 2, 3 and 4.',
     tags: ['unary', 'periodicity', 'union'], level: 'intro',
     sigma: 'a', accept: 'n0 n2 n3 n4', layout: 'circle',
-    delta: [0, 1, 2, 3, 4, 5].map(i => `n${i} a n${(i + 1) % 6}`).join(';'),
+    delta: [0, 1, 2, 3, 4, 5].map(i => `n${i} a n${(i + 1) % 6}`).join('\n'),
     lang: w => w.length % 2 === 0 || w.length % 3 === 0,
     maxLen: 20,
     badges: ['minimal']
