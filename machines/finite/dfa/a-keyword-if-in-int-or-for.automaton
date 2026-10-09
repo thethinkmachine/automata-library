@@ -1,0 +1,169 @@
+{
+  "format": "automata-studio/workspace",
+  "schema": 1,
+  "app": "dev",
+  "machine": "DFA",
+  "config": {
+    "sym": {
+      "eps": "ε",
+      "any": "Σ",
+      "blank": "⊔",
+      "leftMarker": "⊢",
+      "rightMarker": "⊣",
+      "stackBottom": "Z",
+      "lambda": "λ"
+    }
+  },
+  "sigma": [
+    "i",
+    "f",
+    "n",
+    "o",
+    "t",
+    "r"
+  ],
+  "stackAlpha": [],
+  "outputAlpha": [],
+  "tapeCount": 1,
+  "states": [
+    {
+      "id": "s1",
+      "x": 140,
+      "y": 255,
+      "name": "start"
+    },
+    {
+      "id": "s2",
+      "x": 319,
+      "y": 303,
+      "name": "i"
+    },
+    {
+      "id": "s3",
+      "x": 319,
+      "y": 208,
+      "name": "f"
+    },
+    {
+      "id": "s4",
+      "x": 498,
+      "y": 350,
+      "name": "if"
+    },
+    {
+      "id": "s5",
+      "x": 498,
+      "y": 255,
+      "name": "in"
+    },
+    {
+      "id": "s6",
+      "x": 498,
+      "y": 160,
+      "name": "fo"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "t1",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "i"
+    },
+    {
+      "id": "t2",
+      "from": "s1",
+      "to": "s3",
+      "symbol": "f"
+    },
+    {
+      "id": "t3",
+      "from": "s2",
+      "to": "s4",
+      "symbol": "f"
+    },
+    {
+      "id": "t4",
+      "from": "s2",
+      "to": "s5",
+      "symbol": "n"
+    },
+    {
+      "id": "t5",
+      "from": "s3",
+      "to": "s6",
+      "symbol": "o"
+    },
+    {
+      "id": "t6",
+      "from": "s5",
+      "to": "s4",
+      "symbol": "t"
+    },
+    {
+      "id": "t7",
+      "from": "s6",
+      "to": "s4",
+      "symbol": "r"
+    }
+  ],
+  "startId": "s1",
+  "accepts": [
+    "s4",
+    "s5"
+  ],
+  "notes": [],
+  "dividers": [],
+  "blocks": [],
+  "meta": {
+    "title": "A keyword: if, in, int or for",
+    "blurb": "A finite set of words is a trie, and a trie is a DFA. Minimising it merges every word’s ending into one state, since nothing can follow any of them — but in keeps its own, because int continues it.",
+    "inputs": [
+      {
+        "w": "if",
+        "expect": "accept"
+      },
+      {
+        "w": "in",
+        "expect": "accept"
+      },
+      {
+        "w": "int",
+        "expect": "accept"
+      },
+      {
+        "w": "for",
+        "expect": "accept"
+      },
+      {
+        "w": "i",
+        "expect": "reject"
+      },
+      {
+        "w": "fo",
+        "expect": "reject"
+      },
+      {
+        "w": "inf",
+        "expect": "reject"
+      },
+      {
+        "w": "into",
+        "expect": "reject"
+      }
+    ],
+    "library": {
+      "author": {
+        "login": "thethinkmachine"
+      },
+      "license": "CC-BY-4.0",
+      "tags": [
+        "keywords",
+        "finite-language",
+        "trie",
+        "lexing"
+      ],
+      "difficulty": "intro"
+    }
+  }
+}

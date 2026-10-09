@@ -1,0 +1,139 @@
+{
+  "format": "automata-studio/workspace",
+  "schema": 1,
+  "app": "dev",
+  "machine": "DcoBA",
+  "config": {
+    "sym": {
+      "eps": "ε",
+      "any": "Σ",
+      "blank": "⊔",
+      "leftMarker": "⊢",
+      "rightMarker": "⊣",
+      "stackBottom": "Z",
+      "lambda": "λ"
+    }
+  },
+  "sigma": [
+    "a",
+    "b"
+  ],
+  "stackAlpha": [],
+  "outputAlpha": [],
+  "tapeCount": 1,
+  "states": [
+    {
+      "id": "s1",
+      "x": 140,
+      "y": 160,
+      "name": "free"
+    },
+    {
+      "id": "s2",
+      "x": 319,
+      "y": 160,
+      "name": "owe"
+    },
+    {
+      "id": "s3",
+      "x": 498,
+      "y": 160,
+      "name": "slip"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "t1",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "a"
+    },
+    {
+      "id": "t2",
+      "from": "s1",
+      "to": "s1",
+      "symbol": "b"
+    },
+    {
+      "id": "t3",
+      "from": "s2",
+      "to": "s1",
+      "symbol": "b"
+    },
+    {
+      "id": "t4",
+      "from": "s2",
+      "to": "s3",
+      "symbol": "a"
+    },
+    {
+      "id": "t5",
+      "from": "s3",
+      "to": "s3",
+      "symbol": "a"
+    },
+    {
+      "id": "t6",
+      "from": "s3",
+      "to": "s1",
+      "symbol": "b"
+    }
+  ],
+  "startId": "s1",
+  "accepts": [
+    "s3"
+  ],
+  "notes": [],
+  "dividers": [],
+  "blocks": [],
+  "meta": {
+    "title": "Eventually, every a is followed by b",
+    "blurb": "FG(a → X b): a finite number of mistakes is forgiven. Co-Büchi acceptance marks the mistakes — the state reached when an a is followed by another a — and accepts the runs that visit it only finitely often.",
+    "inputs": [
+      {
+        "w": "(b)",
+        "expect": "accept"
+      },
+      {
+        "w": "(ab)",
+        "expect": "accept"
+      },
+      {
+        "w": "(ba)",
+        "expect": "accept"
+      },
+      {
+        "w": "(bb)",
+        "expect": "accept"
+      },
+      {
+        "w": "(a)",
+        "expect": "reject"
+      },
+      {
+        "w": "(aa)",
+        "expect": "reject"
+      },
+      {
+        "w": "(aaa)",
+        "expect": "reject"
+      },
+      {
+        "w": "(aab)",
+        "expect": "reject"
+      }
+    ],
+    "library": {
+      "author": {
+        "login": "thethinkmachine"
+      },
+      "license": "CC-BY-4.0",
+      "tags": [
+        "ltl",
+        "persistence",
+        "co-buchi"
+      ],
+      "difficulty": "intermediate"
+    }
+  }
+}

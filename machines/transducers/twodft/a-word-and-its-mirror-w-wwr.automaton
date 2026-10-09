@@ -1,0 +1,167 @@
+{
+  "format": "automata-studio/workspace",
+  "schema": 1,
+  "app": "dev",
+  "machine": "2DFT",
+  "config": {
+    "sym": {
+      "eps": "ε",
+      "any": "Σ",
+      "blank": "⊔",
+      "leftMarker": "⊢",
+      "rightMarker": "⊣",
+      "stackBottom": "Z",
+      "lambda": "λ"
+    },
+    "transducerAccepts": true
+  },
+  "sigma": [
+    "a",
+    "b"
+  ],
+  "stackAlpha": [],
+  "outputAlpha": [
+    "a",
+    "b"
+  ],
+  "tapeCount": 1,
+  "states": [
+    {
+      "id": "s1",
+      "x": 140,
+      "y": 160,
+      "name": "start"
+    },
+    {
+      "id": "s2",
+      "x": 319,
+      "y": 160,
+      "name": "fwd"
+    },
+    {
+      "id": "s3",
+      "x": 498,
+      "y": 160,
+      "name": "bwd"
+    },
+    {
+      "id": "s4",
+      "x": 677,
+      "y": 160,
+      "name": "done"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "t1",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "⊢",
+      "dir": "R",
+      "output": ""
+    },
+    {
+      "id": "t2",
+      "from": "s2",
+      "to": "s2",
+      "symbol": "a",
+      "dir": "R",
+      "output": "a"
+    },
+    {
+      "id": "t3",
+      "from": "s2",
+      "to": "s2",
+      "symbol": "b",
+      "dir": "R",
+      "output": "b"
+    },
+    {
+      "id": "t4",
+      "from": "s2",
+      "to": "s3",
+      "symbol": "⊣",
+      "dir": "L",
+      "output": ""
+    },
+    {
+      "id": "t5",
+      "from": "s3",
+      "to": "s3",
+      "symbol": "a",
+      "dir": "L",
+      "output": "a"
+    },
+    {
+      "id": "t6",
+      "from": "s3",
+      "to": "s3",
+      "symbol": "b",
+      "dir": "L",
+      "output": "b"
+    },
+    {
+      "id": "t7",
+      "from": "s3",
+      "to": "s4",
+      "symbol": "⊢",
+      "dir": "S",
+      "output": ""
+    }
+  ],
+  "startId": "s1",
+  "accepts": [
+    "s4"
+  ],
+  "notes": [],
+  "dividers": [],
+  "blocks": [],
+  "meta": {
+    "title": "A word and its mirror: w ↦ wwᴿ",
+    "blurb": "Sweep right printing every letter, then sweep back printing them again. The result is always a palindrome of even length. One-way transducers cannot reverse; a head that can turn round does it with no memory at all.",
+    "inputs": [
+      {
+        "w": "a",
+        "out": "aa",
+        "expect": "accept"
+      },
+      {
+        "w": "b",
+        "out": "bb",
+        "expect": "accept"
+      },
+      {
+        "w": "aa",
+        "out": "aaaa",
+        "expect": "accept"
+      },
+      {
+        "w": "ab",
+        "out": "abba",
+        "expect": "accept"
+      },
+      {
+        "w": "aaa",
+        "out": "aaaaaa",
+        "expect": "accept"
+      },
+      {
+        "w": "bbbbbabbaaabbaaa",
+        "out": "bbbbbabbaaabbaaaaaabbaaabbabbbbb",
+        "expect": "accept"
+      }
+    ],
+    "library": {
+      "author": {
+        "login": "thethinkmachine"
+      },
+      "license": "CC-BY-4.0",
+      "tags": [
+        "reversal",
+        "palindromes",
+        "two-way"
+      ],
+      "difficulty": "intro"
+    }
+  }
+}

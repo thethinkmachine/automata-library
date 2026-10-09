@@ -1,0 +1,121 @@
+{
+  "format": "automata-studio/workspace",
+  "schema": 1,
+  "app": "dev",
+  "machine": "DWA",
+  "config": {
+    "sym": {
+      "eps": "ε",
+      "any": "Σ",
+      "blank": "⊔",
+      "leftMarker": "⊢",
+      "rightMarker": "⊣",
+      "stackBottom": "Z",
+      "lambda": "λ"
+    }
+  },
+  "sigma": [
+    "a",
+    "b"
+  ],
+  "stackAlpha": [],
+  "outputAlpha": [],
+  "tapeCount": 1,
+  "states": [
+    {
+      "id": "s1",
+      "x": 140,
+      "y": 160,
+      "name": "wait"
+    },
+    {
+      "id": "s2",
+      "x": 319,
+      "y": 160,
+      "name": "done"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "t1",
+      "from": "s1",
+      "to": "s1",
+      "symbol": "b"
+    },
+    {
+      "id": "t2",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "a"
+    },
+    {
+      "id": "t3",
+      "from": "s2",
+      "to": "s2",
+      "symbol": "a"
+    },
+    {
+      "id": "t4",
+      "from": "s2",
+      "to": "s2",
+      "symbol": "b"
+    }
+  ],
+  "startId": "s1",
+  "accepts": [
+    "s2"
+  ],
+  "notes": [],
+  "dividers": [],
+  "blocks": [],
+  "meta": {
+    "title": "a happens, eventually",
+    "blurb": "F a, the simplest guarantee property. Two strongly connected components — waiting and done — and each lies wholly inside or wholly outside the accepting set. That is what makes an automaton weak, and why its Büchi and co-Büchi readings agree.",
+    "inputs": [
+      {
+        "w": "(a)",
+        "expect": "accept"
+      },
+      {
+        "w": "a(b)",
+        "expect": "accept"
+      },
+      {
+        "w": "(aa)",
+        "expect": "accept"
+      },
+      {
+        "w": "(ab)",
+        "expect": "accept"
+      },
+      {
+        "w": "(b)",
+        "expect": "reject"
+      },
+      {
+        "w": "(bb)",
+        "expect": "reject"
+      },
+      {
+        "w": "(bbb)",
+        "expect": "reject"
+      },
+      {
+        "w": "bbb(b)",
+        "expect": "reject"
+      }
+    ],
+    "library": {
+      "author": {
+        "login": "thethinkmachine"
+      },
+      "license": "CC-BY-4.0",
+      "tags": [
+        "ltl",
+        "guarantee",
+        "weak"
+      ],
+      "difficulty": "intro"
+    }
+  }
+}

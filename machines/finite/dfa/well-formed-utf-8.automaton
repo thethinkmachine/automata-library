@@ -1,0 +1,154 @@
+{
+  "format": "automata-studio/workspace",
+  "schema": 1,
+  "app": "dev",
+  "machine": "DFA",
+  "config": {
+    "sym": {
+      "eps": "ε",
+      "any": "Σ",
+      "blank": "⊔",
+      "leftMarker": "⊢",
+      "rightMarker": "⊣",
+      "stackBottom": "Z",
+      "lambda": "λ"
+    }
+  },
+  "sigma": [
+    "a",
+    "c",
+    "2",
+    "3",
+    "4"
+  ],
+  "stackAlpha": [],
+  "outputAlpha": [],
+  "tapeCount": 1,
+  "states": [
+    {
+      "id": "s1",
+      "x": 140,
+      "y": 160,
+      "name": "ok"
+    },
+    {
+      "id": "s2",
+      "x": 310,
+      "y": 160,
+      "name": "owe1"
+    },
+    {
+      "id": "s3",
+      "x": 480,
+      "y": 160,
+      "name": "owe2"
+    },
+    {
+      "id": "s4",
+      "x": 650,
+      "y": 160,
+      "name": "owe3"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "t1",
+      "from": "s1",
+      "to": "s1",
+      "symbol": "a"
+    },
+    {
+      "id": "t2",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "2"
+    },
+    {
+      "id": "t3",
+      "from": "s1",
+      "to": "s3",
+      "symbol": "3"
+    },
+    {
+      "id": "t4",
+      "from": "s1",
+      "to": "s4",
+      "symbol": "4"
+    },
+    {
+      "id": "t5",
+      "from": "s2",
+      "to": "s1",
+      "symbol": "c"
+    },
+    {
+      "id": "t6",
+      "from": "s3",
+      "to": "s2",
+      "symbol": "c"
+    },
+    {
+      "id": "t7",
+      "from": "s4",
+      "to": "s3",
+      "symbol": "c"
+    }
+  ],
+  "startId": "s1",
+  "accepts": [
+    "s1"
+  ],
+  "notes": [],
+  "dividers": [],
+  "blocks": [],
+  "meta": {
+    "title": "Well-formed UTF-8",
+    "blurb": "Each symbol is a byte class: a for an ASCII byte (0xxxxxxx), c for a continuation byte (10xxxxxx), and 2, 3, 4 for the lead byte of a two-, three- or four-byte character. The DFA counts how many continuation bytes are still owed — the core of every UTF-8 decoder, before the finer rules on overlong forms.",
+    "inputs": [
+      {
+        "w": "",
+        "expect": "accept"
+      },
+      {
+        "w": "2ca",
+        "expect": "accept"
+      },
+      {
+        "w": "aa3cc",
+        "expect": "accept"
+      },
+      {
+        "w": "aaaaa",
+        "expect": "accept"
+      },
+      {
+        "w": "c",
+        "expect": "reject"
+      },
+      {
+        "w": "aca",
+        "expect": "reject"
+      },
+      {
+        "w": "ca3cc",
+        "expect": "reject"
+      },
+      {
+        "w": "caaaa",
+        "expect": "reject"
+      }
+    ],
+    "library": {
+      "author": {
+        "login": "thethinkmachine"
+      },
+      "license": "CC-BY-4.0",
+      "tags": [
+        "unicode",
+        "encoding",
+        "validation"
+      ],
+      "difficulty": "intermediate"
+    }
+  }
+}

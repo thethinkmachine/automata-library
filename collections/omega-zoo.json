@@ -1,15 +1,23 @@
 {
   "title": "The ω-automata zoo",
-  "blurb": "All eight acceptance conditions × determinism: Büchi, co-Büchi, parity and weak, deterministic and not — and the languages that tell them apart.",
+  "blurb": "All eight acceptance conditions × determinism: Büchi, co-Büchi, parity and weak, deterministic and not — each checked against an LTL formula, and the languages that tell the classes apart.",
   "curator": "thethinkmachine",
   "entries": [
+    "omega/dba/infinitely-often-a",
+    "omega/dba/every-request-is-eventually-granted",
     "omega/dba/never-two-a-s-in-a-row",
-    "omega/dcoba/eventually-always-b",
-    "omega/dpa/eventually-always-b-by-priority",
-    "omega/buchi/infinitely-often-a",
     "omega/buchi/classic-eventually-always-b",
+    "omega/buchi/eventually-a-and-b-alternate-forever",
+    "omega/dcoba/eventually-always-b",
     "omega/ncoba/eventually-always-b-with-a-needless-guess",
+    "omega/dpa/eventually-always-b-by-priority",
+    "omega/dpa/strong-fairness-gf-a-gf-b",
     "omega/npa/infinitely-often-a-or-eventually-always-c",
-    "omega/nwa/never-two-a-s-with-a-needless-guess"
+    "omega/dwa/a-happens-eventually",
+    "omega/dwa/an-a-and-no-b-ever-after-it",
+    "omega/nwa/never-two-a-s-with-a-needless-guess",
+    "omega/dpa/the-parity-condition-itself",
+    "omega/dwa/a-happens-at-least-twice",
+    "omega/npa/exactly-one-of-a-and-b-infinitely-often"
   ]
 }

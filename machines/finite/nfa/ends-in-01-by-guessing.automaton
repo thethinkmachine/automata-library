@@ -1,0 +1,129 @@
+{
+  "format": "automata-studio/workspace",
+  "schema": 1,
+  "app": "dev",
+  "machine": "NFA",
+  "config": {
+    "sym": {
+      "eps": "ε",
+      "any": "Σ",
+      "blank": "⊔",
+      "leftMarker": "⊢",
+      "rightMarker": "⊣",
+      "stackBottom": "Z",
+      "lambda": "λ"
+    }
+  },
+  "sigma": [
+    "0",
+    "1"
+  ],
+  "stackAlpha": [],
+  "outputAlpha": [],
+  "tapeCount": 1,
+  "states": [
+    {
+      "id": "s1",
+      "x": 140,
+      "y": 160,
+      "name": "q0"
+    },
+    {
+      "id": "s2",
+      "x": 310,
+      "y": 160,
+      "name": "q1"
+    },
+    {
+      "id": "s3",
+      "x": 480,
+      "y": 160,
+      "name": "q2"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "t1",
+      "from": "s1",
+      "to": "s1",
+      "symbol": "0"
+    },
+    {
+      "id": "t2",
+      "from": "s1",
+      "to": "s1",
+      "symbol": "1"
+    },
+    {
+      "id": "t3",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "0"
+    },
+    {
+      "id": "t4",
+      "from": "s2",
+      "to": "s3",
+      "symbol": "1"
+    }
+  ],
+  "startId": "s1",
+  "accepts": [
+    "s3"
+  ],
+  "notes": [],
+  "dividers": [],
+  "blocks": [],
+  "meta": {
+    "title": "Ends in 01, by guessing",
+    "blurb": "The NFA Hopcroft, Motwani and Ullman use to introduce nondeterminism: stay in q0, or guess that this 0 is the second-to-last symbol and check that a 1 and then the end follow. Its DFA has three states too — the guess saves nothing here, which is part of the lesson.",
+    "inputs": [
+      {
+        "w": "01",
+        "expect": "accept"
+      },
+      {
+        "w": "11001",
+        "expect": "accept"
+      },
+      {
+        "w": "001",
+        "expect": "accept"
+      },
+      {
+        "w": "0000001101",
+        "expect": "accept"
+      },
+      {
+        "w": "11",
+        "expect": "reject"
+      },
+      {
+        "w": "11011",
+        "expect": "reject"
+      },
+      {
+        "w": "011",
+        "expect": "reject"
+      },
+      {
+        "w": "0000001111",
+        "expect": "reject"
+      }
+    ],
+    "library": {
+      "author": {
+        "login": "thethinkmachine"
+      },
+      "license": "CC-BY-4.0",
+      "tags": [
+        "textbook",
+        "hopcroft",
+        "nondeterminism",
+        "suffix"
+      ],
+      "difficulty": "intro",
+      "chapter": "Hopcroft, Motwani & Ullman, §2.3"
+    }
+  }
+}

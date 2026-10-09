@@ -1,0 +1,20 @@
+{
+  "title": "Turing machines that compute",
+  "blurb": "Machines that leave an answer on the tape rather than only accepting: addition and multiplication in unary, increment and counting in binary, copying, reversing and sorting.",
+  "curator": "thethinkmachine",
+  "entries": [
+    "turing/tm/unary-addition",
+    "turing/tm/unary-multiplication",
+    "turing/ittm/binary-increment",
+    "turing/ittm/counting-to-n-in-binary",
+    "turing/tm/binary-addition-a-b",
+    "turing/tm/copy-a-string-w-w-w",
+    "turing/tm/reverse-a-string",
+    "turing/tm/sort-the-0s-before-the-1s",
+    "turing/mtm/3-tape-adder-one-pass",
+    "turing/mtm/4-tape-alu-add-and-or-xor-not",
+    "turing/tm/say-every-letter-twice",
+    "turing/ittm/binary-to-unary-counting-down",
+    "turing/ittm/unary-remainder-a-mod-b"
+  ]
+}

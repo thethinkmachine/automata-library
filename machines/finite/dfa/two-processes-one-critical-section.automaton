@@ -1,0 +1,129 @@
+{
+  "format": "automata-studio/workspace",
+  "schema": 1,
+  "app": "dev",
+  "machine": "DFA",
+  "config": {
+    "sym": {
+      "eps": "ε",
+      "any": "Σ",
+      "blank": "⊔",
+      "leftMarker": "⊢",
+      "rightMarker": "⊣",
+      "stackBottom": "Z",
+      "lambda": "λ"
+    }
+  },
+  "sigma": [
+    "A+",
+    "A-",
+    "B+",
+    "B-"
+  ],
+  "stackAlpha": [],
+  "outputAlpha": [],
+  "tapeCount": 1,
+  "states": [
+    {
+      "id": "s1",
+      "x": 140,
+      "y": 208,
+      "name": "idle"
+    },
+    {
+      "id": "s2",
+      "x": 319,
+      "y": 255,
+      "name": "inA"
+    },
+    {
+      "id": "s3",
+      "x": 319,
+      "y": 160,
+      "name": "inB"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "t1",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "A+"
+    },
+    {
+      "id": "t2",
+      "from": "s1",
+      "to": "s3",
+      "symbol": "B+"
+    },
+    {
+      "id": "t3",
+      "from": "s2",
+      "to": "s1",
+      "symbol": "A-"
+    },
+    {
+      "id": "t4",
+      "from": "s3",
+      "to": "s1",
+      "symbol": "B-"
+    }
+  ],
+  "startId": "s1",
+  "accepts": [
+    "s1"
+  ],
+  "notes": [],
+  "dividers": [],
+  "blocks": [],
+  "meta": {
+    "title": "Two processes, one critical section",
+    "blurb": "A+ and A− are process A entering and leaving its critical section, B+ and B− the same for B. Accepted: traces that keep mutual exclusion and end with both outside. The state where both are inside does not exist — that is the property.",
+    "inputs": [
+      {
+        "w": "",
+        "expect": "accept"
+      },
+      {
+        "w": "A+ A- B+ B-",
+        "expect": "accept"
+      },
+      {
+        "w": "A+ A-",
+        "expect": "accept"
+      },
+      {
+        "w": "B+ B- B+ B-",
+        "expect": "accept"
+      },
+      {
+        "w": "A+",
+        "expect": "reject"
+      },
+      {
+        "w": "A- A- B+ B-",
+        "expect": "reject"
+      },
+      {
+        "w": "A- A-",
+        "expect": "reject"
+      },
+      {
+        "w": "A+ B- B+ B-",
+        "expect": "reject"
+      }
+    ],
+    "library": {
+      "author": {
+        "login": "thethinkmachine"
+      },
+      "license": "CC-BY-4.0",
+      "tags": [
+        "concurrency",
+        "mutual-exclusion",
+        "protocols"
+      ],
+      "difficulty": "intro"
+    }
+  }
+}

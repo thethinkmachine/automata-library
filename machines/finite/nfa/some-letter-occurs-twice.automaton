@@ -1,0 +1,242 @@
+{
+  "format": "automata-studio/workspace",
+  "schema": 1,
+  "app": "dev",
+  "machine": "NFA",
+  "config": {
+    "sym": {
+      "eps": "ε",
+      "any": "Σ",
+      "blank": "⊔",
+      "leftMarker": "⊢",
+      "rightMarker": "⊣",
+      "stackBottom": "Z",
+      "lambda": "λ"
+    }
+  },
+  "sigma": [
+    "a",
+    "b",
+    "c"
+  ],
+  "stackAlpha": [],
+  "outputAlpha": [],
+  "tapeCount": 1,
+  "states": [
+    {
+      "id": "s1",
+      "x": 140,
+      "y": 255,
+      "name": "start"
+    },
+    {
+      "id": "s2",
+      "x": 319,
+      "y": 350,
+      "name": "seenA"
+    },
+    {
+      "id": "s3",
+      "x": 319,
+      "y": 255,
+      "name": "seenB"
+    },
+    {
+      "id": "s4",
+      "x": 319,
+      "y": 160,
+      "name": "seenC"
+    },
+    {
+      "id": "s5",
+      "x": 498,
+      "y": 255,
+      "name": "twice"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "t1",
+      "from": "s1",
+      "to": "s1",
+      "symbol": "a"
+    },
+    {
+      "id": "t2",
+      "from": "s1",
+      "to": "s1",
+      "symbol": "b"
+    },
+    {
+      "id": "t3",
+      "from": "s1",
+      "to": "s1",
+      "symbol": "c"
+    },
+    {
+      "id": "t4",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "a"
+    },
+    {
+      "id": "t5",
+      "from": "s1",
+      "to": "s3",
+      "symbol": "b"
+    },
+    {
+      "id": "t6",
+      "from": "s1",
+      "to": "s4",
+      "symbol": "c"
+    },
+    {
+      "id": "t7",
+      "from": "s2",
+      "to": "s2",
+      "symbol": "a"
+    },
+    {
+      "id": "t8",
+      "from": "s2",
+      "to": "s2",
+      "symbol": "b"
+    },
+    {
+      "id": "t9",
+      "from": "s2",
+      "to": "s2",
+      "symbol": "c"
+    },
+    {
+      "id": "t10",
+      "from": "s2",
+      "to": "s5",
+      "symbol": "a"
+    },
+    {
+      "id": "t11",
+      "from": "s3",
+      "to": "s3",
+      "symbol": "a"
+    },
+    {
+      "id": "t12",
+      "from": "s3",
+      "to": "s3",
+      "symbol": "b"
+    },
+    {
+      "id": "t13",
+      "from": "s3",
+      "to": "s3",
+      "symbol": "c"
+    },
+    {
+      "id": "t14",
+      "from": "s3",
+      "to": "s5",
+      "symbol": "b"
+    },
+    {
+      "id": "t15",
+      "from": "s4",
+      "to": "s4",
+      "symbol": "a"
+    },
+    {
+      "id": "t16",
+      "from": "s4",
+      "to": "s4",
+      "symbol": "b"
+    },
+    {
+      "id": "t17",
+      "from": "s4",
+      "to": "s4",
+      "symbol": "c"
+    },
+    {
+      "id": "t18",
+      "from": "s4",
+      "to": "s5",
+      "symbol": "c"
+    },
+    {
+      "id": "t19",
+      "from": "s5",
+      "to": "s5",
+      "symbol": "a"
+    },
+    {
+      "id": "t20",
+      "from": "s5",
+      "to": "s5",
+      "symbol": "b"
+    },
+    {
+      "id": "t21",
+      "from": "s5",
+      "to": "s5",
+      "symbol": "c"
+    }
+  ],
+  "startId": "s1",
+  "accepts": [
+    "s5"
+  ],
+  "notes": [],
+  "dividers": [],
+  "blocks": [],
+  "meta": {
+    "title": "Some letter occurs twice",
+    "blurb": "Guess the letter and the moment of its first occurrence, then wait for the second. Every word of length four or more over a, b, c is accepted — the pigeonhole principle, visible as a machine.",
+    "inputs": [
+      {
+        "w": "aa",
+        "expect": "accept"
+      },
+      {
+        "w": "abacbbc",
+        "expect": "accept"
+      },
+      {
+        "w": "cca",
+        "expect": "accept"
+      },
+      {
+        "w": "abbcaababcaccb",
+        "expect": "accept"
+      },
+      {
+        "w": "ba",
+        "expect": "reject"
+      },
+      {
+        "w": "bca",
+        "expect": "reject"
+      },
+      {
+        "w": "",
+        "expect": "reject"
+      },
+      {
+        "w": "abc",
+        "expect": "reject"
+      }
+    ],
+    "library": {
+      "author": {
+        "login": "thethinkmachine"
+      },
+      "license": "CC-BY-4.0",
+      "tags": [
+        "guessing",
+        "pigeonhole",
+        "subset-construction"
+      ],
+      "difficulty": "intermediate"
+    }
+  }
+}

@@ -1,0 +1,267 @@
+{
+  "format": "automata-studio/workspace",
+  "schema": 1,
+  "app": "dev",
+  "machine": "DFA",
+  "config": {
+    "sym": {
+      "eps": "ε",
+      "any": "Σ",
+      "blank": "⊔",
+      "leftMarker": "⊢",
+      "rightMarker": "⊣",
+      "stackBottom": "Z",
+      "lambda": "λ"
+    }
+  },
+  "sigma": [
+    "N",
+    "S",
+    "E",
+    "W"
+  ],
+  "stackAlpha": [],
+  "outputAlpha": [],
+  "tapeCount": 1,
+  "states": [
+    {
+      "id": "s1",
+      "x": 378,
+      "y": 704,
+      "name": "down"
+    },
+    {
+      "id": "s2",
+      "x": 378,
+      "y": 517,
+      "name": "S"
+    },
+    {
+      "id": "s3",
+      "x": 378,
+      "y": 347,
+      "name": "N"
+    },
+    {
+      "id": "s4",
+      "x": 140,
+      "y": 432,
+      "name": "W"
+    },
+    {
+      "id": "s5",
+      "x": 616,
+      "y": 432,
+      "name": "E"
+    },
+    {
+      "id": "s6",
+      "x": 378,
+      "y": 160,
+      "name": "up"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "t1",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "N"
+    },
+    {
+      "id": "t2",
+      "from": "s1",
+      "to": "s3",
+      "symbol": "S"
+    },
+    {
+      "id": "t3",
+      "from": "s1",
+      "to": "s4",
+      "symbol": "E"
+    },
+    {
+      "id": "t4",
+      "from": "s1",
+      "to": "s5",
+      "symbol": "W"
+    },
+    {
+      "id": "t5",
+      "from": "s6",
+      "to": "s3",
+      "symbol": "N"
+    },
+    {
+      "id": "t6",
+      "from": "s6",
+      "to": "s2",
+      "symbol": "S"
+    },
+    {
+      "id": "t7",
+      "from": "s6",
+      "to": "s5",
+      "symbol": "E"
+    },
+    {
+      "id": "t8",
+      "from": "s6",
+      "to": "s4",
+      "symbol": "W"
+    },
+    {
+      "id": "t9",
+      "from": "s3",
+      "to": "s1",
+      "symbol": "N"
+    },
+    {
+      "id": "t10",
+      "from": "s3",
+      "to": "s6",
+      "symbol": "S"
+    },
+    {
+      "id": "t11",
+      "from": "s3",
+      "to": "s3",
+      "symbol": "E"
+    },
+    {
+      "id": "t12",
+      "from": "s3",
+      "to": "s3",
+      "symbol": "W"
+    },
+    {
+      "id": "t13",
+      "from": "s2",
+      "to": "s6",
+      "symbol": "N"
+    },
+    {
+      "id": "t14",
+      "from": "s2",
+      "to": "s1",
+      "symbol": "S"
+    },
+    {
+      "id": "t15",
+      "from": "s2",
+      "to": "s2",
+      "symbol": "E"
+    },
+    {
+      "id": "t16",
+      "from": "s2",
+      "to": "s2",
+      "symbol": "W"
+    },
+    {
+      "id": "t17",
+      "from": "s5",
+      "to": "s1",
+      "symbol": "E"
+    },
+    {
+      "id": "t18",
+      "from": "s5",
+      "to": "s6",
+      "symbol": "W"
+    },
+    {
+      "id": "t19",
+      "from": "s5",
+      "to": "s5",
+      "symbol": "N"
+    },
+    {
+      "id": "t20",
+      "from": "s5",
+      "to": "s5",
+      "symbol": "S"
+    },
+    {
+      "id": "t21",
+      "from": "s4",
+      "to": "s1",
+      "symbol": "W"
+    },
+    {
+      "id": "t22",
+      "from": "s4",
+      "to": "s6",
+      "symbol": "E"
+    },
+    {
+      "id": "t23",
+      "from": "s4",
+      "to": "s4",
+      "symbol": "N"
+    },
+    {
+      "id": "t24",
+      "from": "s4",
+      "to": "s4",
+      "symbol": "S"
+    }
+  ],
+  "startId": "s1",
+  "accepts": [
+    "s6"
+  ],
+  "notes": [],
+  "dividers": [],
+  "blocks": [],
+  "meta": {
+    "title": "Rolling a die until 6 is on top",
+    "blurb": "A die rolls N, S, E or W, and the machine accepts when 6 faces up. The die has 24 orientations, but only one fact matters for this question — which way the 6 is facing — so the minimal DFA has six states, not 24.",
+    "inputs": [
+      {
+        "w": "EE",
+        "expect": "accept"
+      },
+      {
+        "w": "NSWW",
+        "expect": "accept"
+      },
+      {
+        "w": "WSNNESSEW",
+        "expect": "accept"
+      },
+      {
+        "w": "SWNWSESWNENNSE",
+        "expect": "accept"
+      },
+      {
+        "w": "NE",
+        "expect": "reject"
+      },
+      {
+        "w": "SSWW",
+        "expect": "reject"
+      },
+      {
+        "w": "NSNNESSEW",
+        "expect": "reject"
+      },
+      {
+        "w": "NWNWSESWNENNSE",
+        "expect": "reject"
+      }
+    ],
+    "library": {
+      "author": {
+        "login": "thethinkmachine"
+      },
+      "license": "CC-BY-4.0",
+      "tags": [
+        "geometry",
+        "dice",
+        "minimisation"
+      ],
+      "difficulty": "intermediate"
+    }
+  }
+}

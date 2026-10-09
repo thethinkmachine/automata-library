@@ -1,0 +1,193 @@
+{
+  "format": "automata-studio/workspace",
+  "schema": 1,
+  "app": "dev",
+  "machine": "DFA",
+  "config": {
+    "sym": {
+      "eps": "ε",
+      "any": "Σ",
+      "blank": "⊔",
+      "leftMarker": "⊢",
+      "rightMarker": "⊣",
+      "stackBottom": "Z",
+      "lambda": "λ"
+    }
+  },
+  "sigma": [
+    "s",
+    "c"
+  ],
+  "stackAlpha": [],
+  "outputAlpha": [],
+  "tapeCount": 1,
+  "states": [
+    {
+      "id": "s1",
+      "x": 222,
+      "y": 160,
+      "name": "ABC"
+    },
+    {
+      "id": "s2",
+      "x": 305,
+      "y": 208,
+      "name": "BAC"
+    },
+    {
+      "id": "s3",
+      "x": 305,
+      "y": 303,
+      "name": "BCA"
+    },
+    {
+      "id": "s4",
+      "x": 222,
+      "y": 350,
+      "name": "ACB"
+    },
+    {
+      "id": "s5",
+      "x": 140,
+      "y": 303,
+      "name": "CBA"
+    },
+    {
+      "id": "s6",
+      "x": 140,
+      "y": 208,
+      "name": "CAB"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "t1",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "s"
+    },
+    {
+      "id": "t2",
+      "from": "s1",
+      "to": "s3",
+      "symbol": "c"
+    },
+    {
+      "id": "t3",
+      "from": "s2",
+      "to": "s1",
+      "symbol": "s"
+    },
+    {
+      "id": "t4",
+      "from": "s2",
+      "to": "s4",
+      "symbol": "c"
+    },
+    {
+      "id": "t5",
+      "from": "s3",
+      "to": "s5",
+      "symbol": "s"
+    },
+    {
+      "id": "t6",
+      "from": "s3",
+      "to": "s6",
+      "symbol": "c"
+    },
+    {
+      "id": "t7",
+      "from": "s4",
+      "to": "s6",
+      "symbol": "s"
+    },
+    {
+      "id": "t8",
+      "from": "s4",
+      "to": "s5",
+      "symbol": "c"
+    },
+    {
+      "id": "t9",
+      "from": "s5",
+      "to": "s3",
+      "symbol": "s"
+    },
+    {
+      "id": "t10",
+      "from": "s5",
+      "to": "s2",
+      "symbol": "c"
+    },
+    {
+      "id": "t11",
+      "from": "s6",
+      "to": "s4",
+      "symbol": "s"
+    },
+    {
+      "id": "t12",
+      "from": "s6",
+      "to": "s1",
+      "symbol": "c"
+    }
+  ],
+  "startId": "s1",
+  "accepts": [
+    "s1"
+  ],
+  "notes": [],
+  "dividers": [],
+  "blocks": [],
+  "meta": {
+    "title": "Shuffling three cards",
+    "blurb": "s swaps the top two cards; c moves the top card to the bottom. Accepted: the shuffles that put the deck back in order. The six states are the six orders, and the machine is the Cayley graph of the permutation group S₃.",
+    "inputs": [
+      {
+        "w": "",
+        "expect": "accept"
+      },
+      {
+        "w": "ccssc",
+        "expect": "accept"
+      },
+      {
+        "w": "ss",
+        "expect": "accept"
+      },
+      {
+        "w": "cccccsscss",
+        "expect": "accept"
+      },
+      {
+        "w": "s",
+        "expect": "reject"
+      },
+      {
+        "w": "scssc",
+        "expect": "reject"
+      },
+      {
+        "w": "cs",
+        "expect": "reject"
+      },
+      {
+        "w": "sccccsscss",
+        "expect": "reject"
+      }
+    ],
+    "library": {
+      "author": {
+        "login": "thethinkmachine"
+      },
+      "license": "CC-BY-4.0",
+      "tags": [
+        "group-theory",
+        "permutations",
+        "cards"
+      ],
+      "difficulty": "intermediate"
+    }
+  }
+}

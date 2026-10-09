@@ -1,0 +1,366 @@
+{
+  "format": "automata-studio/workspace",
+  "schema": 1,
+  "app": "dev",
+  "machine": "ε-NFA",
+  "config": {
+    "sym": {
+      "eps": "ε",
+      "any": "Σ",
+      "blank": "⊔",
+      "leftMarker": "⊢",
+      "rightMarker": "⊣",
+      "stackBottom": "Z",
+      "lambda": "λ"
+    }
+  },
+  "sigma": [
+    "c",
+    "a",
+    "t",
+    "x"
+  ],
+  "stackAlpha": [],
+  "outputAlpha": [],
+  "tapeCount": 1,
+  "states": [
+    {
+      "id": "s1",
+      "x": 140,
+      "y": 160,
+      "name": "∅"
+    },
+    {
+      "id": "s2",
+      "x": 320,
+      "y": 160,
+      "name": "c"
+    },
+    {
+      "id": "s3",
+      "x": 140,
+      "y": 376,
+      "name": "∅′"
+    },
+    {
+      "id": "s4",
+      "x": 320,
+      "y": 376,
+      "name": "c′"
+    },
+    {
+      "id": "s5",
+      "x": 500,
+      "y": 160,
+      "name": "ca"
+    },
+    {
+      "id": "s6",
+      "x": 500,
+      "y": 376,
+      "name": "ca′"
+    },
+    {
+      "id": "s7",
+      "x": 680,
+      "y": 160,
+      "name": "cat"
+    },
+    {
+      "id": "s8",
+      "x": 680,
+      "y": 376,
+      "name": "cat′"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "t1",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "c"
+    },
+    {
+      "id": "t2",
+      "from": "s3",
+      "to": "s4",
+      "symbol": "c"
+    },
+    {
+      "id": "t3",
+      "from": "s1",
+      "to": "s3",
+      "symbol": "c"
+    },
+    {
+      "id": "t4",
+      "from": "s1",
+      "to": "s3",
+      "symbol": "a"
+    },
+    {
+      "id": "t5",
+      "from": "s1",
+      "to": "s3",
+      "symbol": "t"
+    },
+    {
+      "id": "t6",
+      "from": "s1",
+      "to": "s3",
+      "symbol": "x"
+    },
+    {
+      "id": "t7",
+      "from": "s1",
+      "to": "s4",
+      "symbol": "c"
+    },
+    {
+      "id": "t8",
+      "from": "s1",
+      "to": "s4",
+      "symbol": "a"
+    },
+    {
+      "id": "t9",
+      "from": "s1",
+      "to": "s4",
+      "symbol": "t"
+    },
+    {
+      "id": "t10",
+      "from": "s1",
+      "to": "s4",
+      "symbol": "x"
+    },
+    {
+      "id": "t11",
+      "from": "s1",
+      "to": "s4",
+      "symbol": "ε"
+    },
+    {
+      "id": "t12",
+      "from": "s2",
+      "to": "s5",
+      "symbol": "a"
+    },
+    {
+      "id": "t13",
+      "from": "s4",
+      "to": "s6",
+      "symbol": "a"
+    },
+    {
+      "id": "t14",
+      "from": "s2",
+      "to": "s4",
+      "symbol": "c"
+    },
+    {
+      "id": "t15",
+      "from": "s2",
+      "to": "s4",
+      "symbol": "a"
+    },
+    {
+      "id": "t16",
+      "from": "s2",
+      "to": "s4",
+      "symbol": "t"
+    },
+    {
+      "id": "t17",
+      "from": "s2",
+      "to": "s4",
+      "symbol": "x"
+    },
+    {
+      "id": "t18",
+      "from": "s2",
+      "to": "s6",
+      "symbol": "c"
+    },
+    {
+      "id": "t19",
+      "from": "s2",
+      "to": "s6",
+      "symbol": "a"
+    },
+    {
+      "id": "t20",
+      "from": "s2",
+      "to": "s6",
+      "symbol": "t"
+    },
+    {
+      "id": "t21",
+      "from": "s2",
+      "to": "s6",
+      "symbol": "x"
+    },
+    {
+      "id": "t22",
+      "from": "s2",
+      "to": "s6",
+      "symbol": "ε"
+    },
+    {
+      "id": "t23",
+      "from": "s5",
+      "to": "s7",
+      "symbol": "t"
+    },
+    {
+      "id": "t24",
+      "from": "s6",
+      "to": "s8",
+      "symbol": "t"
+    },
+    {
+      "id": "t25",
+      "from": "s5",
+      "to": "s6",
+      "symbol": "c"
+    },
+    {
+      "id": "t26",
+      "from": "s5",
+      "to": "s6",
+      "symbol": "a"
+    },
+    {
+      "id": "t27",
+      "from": "s5",
+      "to": "s6",
+      "symbol": "t"
+    },
+    {
+      "id": "t28",
+      "from": "s5",
+      "to": "s6",
+      "symbol": "x"
+    },
+    {
+      "id": "t29",
+      "from": "s5",
+      "to": "s8",
+      "symbol": "c"
+    },
+    {
+      "id": "t30",
+      "from": "s5",
+      "to": "s8",
+      "symbol": "a"
+    },
+    {
+      "id": "t31",
+      "from": "s5",
+      "to": "s8",
+      "symbol": "t"
+    },
+    {
+      "id": "t32",
+      "from": "s5",
+      "to": "s8",
+      "symbol": "x"
+    },
+    {
+      "id": "t33",
+      "from": "s5",
+      "to": "s8",
+      "symbol": "ε"
+    },
+    {
+      "id": "t34",
+      "from": "s7",
+      "to": "s8",
+      "symbol": "c"
+    },
+    {
+      "id": "t35",
+      "from": "s7",
+      "to": "s8",
+      "symbol": "a"
+    },
+    {
+      "id": "t36",
+      "from": "s7",
+      "to": "s8",
+      "symbol": "t"
+    },
+    {
+      "id": "t37",
+      "from": "s7",
+      "to": "s8",
+      "symbol": "x"
+    }
+  ],
+  "startId": "s1",
+  "accepts": [
+    "s7",
+    "s8"
+  ],
+  "notes": [],
+  "dividers": [],
+  "blocks": [],
+  "meta": {
+    "title": "Within one typo of “cat”",
+    "blurb": "A Levenshtein automaton: accept every word one edit or fewer from cat. Each state is how much of cat has been matched and whether the edit is spent. A letter read sideways is an insertion, diagonally a substitution, and an ε-move diagonally is a deletion. x stands for any other letter.",
+    "inputs": [
+      {
+        "w": "cat",
+        "expect": "accept"
+      },
+      {
+        "w": "at",
+        "expect": "accept"
+      },
+      {
+        "w": "caxt",
+        "expect": "accept"
+      },
+      {
+        "w": "cxt",
+        "expect": "accept"
+      },
+      {
+        "w": "xcat",
+        "expect": "accept"
+      },
+      {
+        "w": "catx",
+        "expect": "accept"
+      },
+      {
+        "w": "ct",
+        "expect": "accept"
+      },
+      {
+        "w": "act",
+        "expect": "reject"
+      },
+      {
+        "w": "xxx",
+        "expect": "reject"
+      },
+      {
+        "w": "tac",
+        "expect": "reject"
+      }
+    ],
+    "library": {
+      "author": {
+        "login": "thethinkmachine"
+      },
+      "license": "CC-BY-4.0",
+      "tags": [
+        "edit-distance",
+        "spell-checking",
+        "approximate-matching"
+      ],
+      "difficulty": "advanced"
+    }
+  }
+}

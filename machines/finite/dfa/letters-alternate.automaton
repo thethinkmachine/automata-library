@@ -1,0 +1,128 @@
+{
+  "format": "automata-studio/workspace",
+  "schema": 1,
+  "app": "dev",
+  "machine": "DFA",
+  "config": {
+    "sym": {
+      "eps": "ε",
+      "any": "Σ",
+      "blank": "⊔",
+      "leftMarker": "⊢",
+      "rightMarker": "⊣",
+      "stackBottom": "Z",
+      "lambda": "λ"
+    }
+  },
+  "sigma": [
+    "a",
+    "b"
+  ],
+  "stackAlpha": [],
+  "outputAlpha": [],
+  "tapeCount": 1,
+  "states": [
+    {
+      "id": "s1",
+      "x": 140,
+      "y": 208,
+      "name": "start"
+    },
+    {
+      "id": "s2",
+      "x": 319,
+      "y": 160,
+      "name": "lastA"
+    },
+    {
+      "id": "s3",
+      "x": 319,
+      "y": 255,
+      "name": "lastB"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "t1",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "a"
+    },
+    {
+      "id": "t2",
+      "from": "s1",
+      "to": "s3",
+      "symbol": "b"
+    },
+    {
+      "id": "t3",
+      "from": "s2",
+      "to": "s3",
+      "symbol": "b"
+    },
+    {
+      "id": "t4",
+      "from": "s3",
+      "to": "s2",
+      "symbol": "a"
+    }
+  ],
+  "startId": "s1",
+  "accepts": [
+    "s1",
+    "s2",
+    "s3"
+  ],
+  "notes": [],
+  "dividers": [],
+  "blocks": [],
+  "meta": {
+    "title": "Letters alternate",
+    "blurb": "No aa and no bb: each letter must differ from the one before. Three states — nothing read yet, last was a, last was b.",
+    "inputs": [
+      {
+        "w": "",
+        "expect": "accept"
+      },
+      {
+        "w": "aba",
+        "expect": "accept"
+      },
+      {
+        "w": "a",
+        "expect": "accept"
+      },
+      {
+        "w": "ababababab",
+        "expect": "accept"
+      },
+      {
+        "w": "bba",
+        "expect": "reject"
+      },
+      {
+        "w": "aa",
+        "expect": "reject"
+      },
+      {
+        "w": "bbabababab",
+        "expect": "reject"
+      },
+      {
+        "w": "abba",
+        "expect": "reject"
+      }
+    ],
+    "library": {
+      "author": {
+        "login": "thethinkmachine"
+      },
+      "license": "CC-BY-4.0",
+      "tags": [
+        "alternation",
+        "partial-dfa"
+      ],
+      "difficulty": "intro"
+    }
+  }
+}

@@ -1,0 +1,225 @@
+{
+  "format": "automata-studio/workspace",
+  "schema": 1,
+  "app": "dev",
+  "machine": "DPDA",
+  "config": {
+    "sym": {
+      "eps": "ε",
+      "any": "Σ",
+      "blank": "⊔",
+      "leftMarker": "⊢",
+      "rightMarker": "⊣",
+      "stackBottom": "Z",
+      "lambda": "λ"
+    },
+    "pdaParadigm": "explicit"
+  },
+  "sigma": [
+    "a",
+    "b",
+    "c",
+    "d"
+  ],
+  "stackAlpha": [
+    "Z",
+    "A",
+    "B"
+  ],
+  "outputAlpha": [],
+  "tapeCount": 1,
+  "states": [
+    {
+      "id": "s1",
+      "x": 140,
+      "y": 208,
+      "name": "start"
+    },
+    {
+      "id": "s2",
+      "x": 319,
+      "y": 160,
+      "name": "as"
+    },
+    {
+      "id": "s3",
+      "x": 319,
+      "y": 255,
+      "name": "bs"
+    },
+    {
+      "id": "s4",
+      "x": 498,
+      "y": 160,
+      "name": "ds"
+    },
+    {
+      "id": "s5",
+      "x": 498,
+      "y": 255,
+      "name": "cs"
+    },
+    {
+      "id": "s6",
+      "x": 677,
+      "y": 208,
+      "name": "done"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "t1",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "a",
+      "pop": "Z",
+      "push": "AZ"
+    },
+    {
+      "id": "t2",
+      "from": "s1",
+      "to": "s3",
+      "symbol": "b",
+      "pop": "Z",
+      "push": "BZ"
+    },
+    {
+      "id": "t3",
+      "from": "s2",
+      "to": "s2",
+      "symbol": "a",
+      "pop": "A",
+      "push": "AA"
+    },
+    {
+      "id": "t4",
+      "from": "s2",
+      "to": "s3",
+      "symbol": "b",
+      "pop": "A",
+      "push": "BA"
+    },
+    {
+      "id": "t5",
+      "from": "s2",
+      "to": "s4",
+      "symbol": "d",
+      "pop": "A",
+      "push": "ε"
+    },
+    {
+      "id": "t6",
+      "from": "s3",
+      "to": "s3",
+      "symbol": "b",
+      "pop": "B",
+      "push": "BB"
+    },
+    {
+      "id": "t7",
+      "from": "s3",
+      "to": "s5",
+      "symbol": "c",
+      "pop": "B",
+      "push": "ε"
+    },
+    {
+      "id": "t8",
+      "from": "s5",
+      "to": "s5",
+      "symbol": "c",
+      "pop": "B",
+      "push": "ε"
+    },
+    {
+      "id": "t9",
+      "from": "s5",
+      "to": "s4",
+      "symbol": "d",
+      "pop": "A",
+      "push": "ε"
+    },
+    {
+      "id": "t10",
+      "from": "s5",
+      "to": "s6",
+      "symbol": "ε",
+      "pop": "Z",
+      "push": "Z"
+    },
+    {
+      "id": "t11",
+      "from": "s4",
+      "to": "s4",
+      "symbol": "d",
+      "pop": "A",
+      "push": "ε"
+    },
+    {
+      "id": "t12",
+      "from": "s4",
+      "to": "s6",
+      "symbol": "ε",
+      "pop": "Z",
+      "push": "Z"
+    }
+  ],
+  "startId": "s1",
+  "accepts": [
+    "s1",
+    "s6"
+  ],
+  "notes": [],
+  "dividers": [],
+  "blocks": [],
+  "meta": {
+    "title": "Nested counts: aⁿbᵐcᵐdⁿ",
+    "blurb": "Two pairs of counts, one inside the other, like a function call inside a function call. The b’s are matched by the c’s on top of the stack while the a’s wait underneath for the d’s. Swap c and d and no stack can do it.",
+    "inputs": [
+      {
+        "w": "",
+        "expect": "accept"
+      },
+      {
+        "w": "abcd",
+        "expect": "accept"
+      },
+      {
+        "w": "aabbccdd",
+        "expect": "accept"
+      },
+      {
+        "w": "aabbbbbcccccdd",
+        "expect": "accept"
+      },
+      {
+        "w": "a",
+        "expect": "reject"
+      },
+      {
+        "w": "bbcd",
+        "expect": "reject"
+      },
+      {
+        "w": "babbccdd",
+        "expect": "reject"
+      },
+      {
+        "w": "babbbbbcccccdd",
+        "expect": "reject"
+      }
+    ],
+    "library": {
+      "author": {
+        "login": "thethinkmachine"
+      },
+      "license": "CC-BY-4.0",
+      "tags": [
+        "nesting",
+        "counting",
+        "stack-matching"
+      ],
+      "difficulty": "intermediate"
+    }
+  }
+}

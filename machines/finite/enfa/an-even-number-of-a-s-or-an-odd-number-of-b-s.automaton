@@ -1,0 +1,176 @@
+{
+  "format": "automata-studio/workspace",
+  "schema": 1,
+  "app": "dev",
+  "machine": "ε-NFA",
+  "config": {
+    "sym": {
+      "eps": "ε",
+      "any": "Σ",
+      "blank": "⊔",
+      "leftMarker": "⊢",
+      "rightMarker": "⊣",
+      "stackBottom": "Z",
+      "lambda": "λ"
+    }
+  },
+  "sigma": [
+    "a",
+    "b"
+  ],
+  "stackAlpha": [],
+  "outputAlpha": [],
+  "tapeCount": 1,
+  "states": [
+    {
+      "id": "s1",
+      "x": 140,
+      "y": 330,
+      "name": "start"
+    },
+    {
+      "id": "s2",
+      "x": 310,
+      "y": 160,
+      "name": "evenA"
+    },
+    {
+      "id": "s3",
+      "x": 310,
+      "y": 500,
+      "name": "evenB"
+    },
+    {
+      "id": "s4",
+      "x": 480,
+      "y": 160,
+      "name": "oddA"
+    },
+    {
+      "id": "s5",
+      "x": 480,
+      "y": 500,
+      "name": "oddB"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "t1",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "ε"
+    },
+    {
+      "id": "t2",
+      "from": "s1",
+      "to": "s3",
+      "symbol": "ε"
+    },
+    {
+      "id": "t3",
+      "from": "s2",
+      "to": "s4",
+      "symbol": "a"
+    },
+    {
+      "id": "t4",
+      "from": "s4",
+      "to": "s2",
+      "symbol": "a"
+    },
+    {
+      "id": "t5",
+      "from": "s2",
+      "to": "s2",
+      "symbol": "b"
+    },
+    {
+      "id": "t6",
+      "from": "s4",
+      "to": "s4",
+      "symbol": "b"
+    },
+    {
+      "id": "t7",
+      "from": "s3",
+      "to": "s5",
+      "symbol": "b"
+    },
+    {
+      "id": "t8",
+      "from": "s5",
+      "to": "s3",
+      "symbol": "b"
+    },
+    {
+      "id": "t9",
+      "from": "s3",
+      "to": "s3",
+      "symbol": "a"
+    },
+    {
+      "id": "t10",
+      "from": "s5",
+      "to": "s5",
+      "symbol": "a"
+    }
+  ],
+  "startId": "s1",
+  "accepts": [
+    "s2",
+    "s5"
+  ],
+  "notes": [],
+  "dividers": [],
+  "blocks": [],
+  "meta": {
+    "title": "An even number of a’s, or an odd number of b’s",
+    "blurb": "Union by ε: the start state jumps silently into two separate machines, one counting a’s and one counting b’s, and the word is accepted if either ends in an accepting state. Each half ignores the other’s letter.",
+    "inputs": [
+      {
+        "w": "",
+        "expect": "accept"
+      },
+      {
+        "w": "baabb",
+        "expect": "accept"
+      },
+      {
+        "w": "b",
+        "expect": "accept"
+      },
+      {
+        "w": "aaaaaaabba",
+        "expect": "accept"
+      },
+      {
+        "w": "a",
+        "expect": "reject"
+      },
+      {
+        "w": "aaabb",
+        "expect": "reject"
+      },
+      {
+        "w": "aaaaaabba",
+        "expect": "reject"
+      },
+      {
+        "w": "aabba",
+        "expect": "reject"
+      }
+    ],
+    "library": {
+      "author": {
+        "login": "thethinkmachine"
+      },
+      "license": "CC-BY-4.0",
+      "tags": [
+        "union",
+        "parity",
+        "closure-properties"
+      ],
+      "difficulty": "intro"
+    }
+  }
+}

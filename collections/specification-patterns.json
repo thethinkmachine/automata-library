@@ -1,0 +1,18 @@
+{
+  "title": "Specification patterns in LTL",
+  "blurb": "The properties engineers write about systems — response, precedence, alternation, fairness, eventual stability — each as an ω-automaton checked against its LTL formula.",
+  "curator": "thethinkmachine",
+  "entries": [
+    "omega/dba/every-request-is-eventually-granted",
+    "omega/dba/no-grant-before-the-first-request",
+    "omega/dba/requests-and-grants-alternate",
+    "omega/dba/both-a-and-b-infinitely-often",
+    "omega/dpa/strong-fairness-gf-a-gf-b",
+    "omega/dcoba/eventually-every-a-is-followed-by-b",
+    "omega/dwa/an-a-and-no-b-ever-after-it",
+    "finite/dfa/two-processes-one-critical-section",
+    "omega/dba/at-most-two-requests-ever",
+    "omega/dba/between-q-and-r-p-must-happen",
+    "omega/dcoba/eventually-it-stops-changing"
+  ]
+}

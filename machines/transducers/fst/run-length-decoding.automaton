@@ -1,0 +1,162 @@
+{
+  "format": "automata-studio/workspace",
+  "schema": 1,
+  "app": "dev",
+  "machine": "FST",
+  "config": {
+    "sym": {
+      "eps": "ε",
+      "any": "Σ",
+      "blank": "⊔",
+      "leftMarker": "⊢",
+      "rightMarker": "⊣",
+      "stackBottom": "Z",
+      "lambda": "λ"
+    },
+    "transducerAccepts": true
+  },
+  "sigma": [
+    "a",
+    "b",
+    "1",
+    "2",
+    "3"
+  ],
+  "stackAlpha": [],
+  "outputAlpha": [
+    "a",
+    "b"
+  ],
+  "tapeCount": 1,
+  "states": [
+    {
+      "id": "s1",
+      "x": 140,
+      "y": 208,
+      "name": "ready"
+    },
+    {
+      "id": "s2",
+      "x": 319,
+      "y": 255,
+      "name": "heldA"
+    },
+    {
+      "id": "s3",
+      "x": 319,
+      "y": 160,
+      "name": "heldB"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "t1",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "a",
+      "output": ""
+    },
+    {
+      "id": "t2",
+      "from": "s1",
+      "to": "s3",
+      "symbol": "b",
+      "output": ""
+    },
+    {
+      "id": "t3",
+      "from": "s2",
+      "to": "s1",
+      "symbol": "1",
+      "output": "a"
+    },
+    {
+      "id": "t4",
+      "from": "s2",
+      "to": "s1",
+      "symbol": "2",
+      "output": "aa"
+    },
+    {
+      "id": "t5",
+      "from": "s2",
+      "to": "s1",
+      "symbol": "3",
+      "output": "aaa"
+    },
+    {
+      "id": "t6",
+      "from": "s3",
+      "to": "s1",
+      "symbol": "1",
+      "output": "b"
+    },
+    {
+      "id": "t7",
+      "from": "s3",
+      "to": "s1",
+      "symbol": "2",
+      "output": "bb"
+    },
+    {
+      "id": "t8",
+      "from": "s3",
+      "to": "s1",
+      "symbol": "3",
+      "output": "bbb"
+    }
+  ],
+  "startId": "s1",
+  "accepts": [
+    "s1"
+  ],
+  "notes": [],
+  "dividers": [],
+  "blocks": [],
+  "meta": {
+    "title": "Run-length decoding",
+    "blurb": "a2b3 becomes aabbb: each letter is followed by how many times to repeat it, here 1 to 3. The transducer remembers the letter until the count arrives and then writes it that many times — a single edge can print a string, which is what lifts an FST above a Mealy machine.",
+    "inputs": [
+      {
+        "w": "1",
+        "expect": "reject"
+      },
+      {
+        "w": "2",
+        "expect": "reject"
+      },
+      {
+        "w": "a1",
+        "out": "a",
+        "expect": "accept"
+      },
+      {
+        "w": "a2",
+        "out": "aa",
+        "expect": "accept"
+      },
+      {
+        "w": "a1a1",
+        "out": "aa",
+        "expect": "accept"
+      },
+      {
+        "w": "b1b3a3b2",
+        "out": "bbbbaaabb",
+        "expect": "accept"
+      }
+    ],
+    "library": {
+      "author": {
+        "login": "thethinkmachine"
+      },
+      "license": "CC-BY-4.0",
+      "tags": [
+        "compression",
+        "run-length",
+        "encoding"
+      ],
+      "difficulty": "intro"
+    }
+  }
+}

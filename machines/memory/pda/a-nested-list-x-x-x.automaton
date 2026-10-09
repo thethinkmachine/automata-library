@@ -1,0 +1,215 @@
+{
+  "format": "automata-studio/workspace",
+  "schema": 1,
+  "app": "dev",
+  "machine": "DPDA",
+  "config": {
+    "sym": {
+      "eps": "ε",
+      "any": "Σ",
+      "blank": "⊔",
+      "leftMarker": "⊢",
+      "rightMarker": "⊣",
+      "stackBottom": "Z",
+      "lambda": "λ"
+    },
+    "pdaParadigm": "explicit"
+  },
+  "sigma": [
+    "[",
+    "]",
+    ";",
+    "x"
+  ],
+  "stackAlpha": [
+    "Z",
+    "L"
+  ],
+  "outputAlpha": [],
+  "tapeCount": 1,
+  "states": [
+    {
+      "id": "s1",
+      "x": 140,
+      "y": 208,
+      "name": "start"
+    },
+    {
+      "id": "s2",
+      "x": 319,
+      "y": 208,
+      "name": "open"
+    },
+    {
+      "id": "s3",
+      "x": 498,
+      "y": 160,
+      "name": "after"
+    },
+    {
+      "id": "s4",
+      "x": 498,
+      "y": 255,
+      "name": "closed"
+    },
+    {
+      "id": "s5",
+      "x": 677,
+      "y": 160,
+      "name": "need"
+    },
+    {
+      "id": "s6",
+      "x": 677,
+      "y": 255,
+      "name": "done"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "t1",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "[",
+      "pop": "Z",
+      "push": "LZ"
+    },
+    {
+      "id": "t2",
+      "from": "s2",
+      "to": "s3",
+      "symbol": "x",
+      "pop": "ε",
+      "push": "ε"
+    },
+    {
+      "id": "t3",
+      "from": "s2",
+      "to": "s2",
+      "symbol": "[",
+      "pop": "ε",
+      "push": "L"
+    },
+    {
+      "id": "t4",
+      "from": "s2",
+      "to": "s4",
+      "symbol": "]",
+      "pop": "L",
+      "push": "ε"
+    },
+    {
+      "id": "t5",
+      "from": "s3",
+      "to": "s5",
+      "symbol": ";",
+      "pop": "ε",
+      "push": "ε"
+    },
+    {
+      "id": "t6",
+      "from": "s3",
+      "to": "s4",
+      "symbol": "]",
+      "pop": "L",
+      "push": "ε"
+    },
+    {
+      "id": "t7",
+      "from": "s5",
+      "to": "s3",
+      "symbol": "x",
+      "pop": "ε",
+      "push": "ε"
+    },
+    {
+      "id": "t8",
+      "from": "s5",
+      "to": "s2",
+      "symbol": "[",
+      "pop": "ε",
+      "push": "L"
+    },
+    {
+      "id": "t9",
+      "from": "s4",
+      "to": "s3",
+      "symbol": "ε",
+      "pop": "L",
+      "push": "L"
+    },
+    {
+      "id": "t10",
+      "from": "s4",
+      "to": "s6",
+      "symbol": "ε",
+      "pop": "Z",
+      "push": "Z"
+    }
+  ],
+  "startId": "s1",
+  "accepts": [
+    "s6"
+  ],
+  "notes": [],
+  "dividers": [],
+  "blocks": [],
+  "meta": {
+    "title": "A nested list: [x;[x;x];[]]",
+    "blurb": "The bones of JSON’s arrays: a list is brackets around items separated by semicolons, and an item is an atom x or another list. The control knows only whether an item or a separator comes next; the stack knows how deep the brackets go, so the machine can tell when the outermost list has closed.",
+    "inputs": [
+      {
+        "w": "[]",
+        "expect": "accept"
+      },
+      {
+        "w": "[x]",
+        "expect": "accept"
+      },
+      {
+        "w": "[x;x]",
+        "expect": "accept"
+      },
+      {
+        "w": "[x;[x;x];[]]",
+        "expect": "accept"
+      },
+      {
+        "w": "[[[]]]",
+        "expect": "accept"
+      },
+      {
+        "w": "[x;]",
+        "expect": "reject"
+      },
+      {
+        "w": "[x",
+        "expect": "reject"
+      },
+      {
+        "w": "x",
+        "expect": "reject"
+      },
+      {
+        "w": "[];[]",
+        "expect": "reject"
+      },
+      {
+        "w": "[[x]x]",
+        "expect": "reject"
+      }
+    ],
+    "library": {
+      "author": {
+        "login": "thethinkmachine"
+      },
+      "license": "CC-BY-4.0",
+      "tags": [
+        "parsing",
+        "json",
+        "nesting"
+      ],
+      "difficulty": "intermediate"
+    }
+  }
+}

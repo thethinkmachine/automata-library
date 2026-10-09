@@ -1,0 +1,167 @@
+{
+  "format": "automata-studio/workspace",
+  "schema": 1,
+  "app": "dev",
+  "machine": "DFA",
+  "config": {
+    "sym": {
+      "eps": "ε",
+      "any": "Σ",
+      "blank": "⊔",
+      "leftMarker": "⊢",
+      "rightMarker": "⊣",
+      "stackBottom": "Z",
+      "lambda": "λ"
+    }
+  },
+  "sigma": [
+    "0",
+    "1"
+  ],
+  "stackAlpha": [],
+  "outputAlpha": [],
+  "tapeCount": 1,
+  "states": [
+    {
+      "id": "s1",
+      "x": 140,
+      "y": 160,
+      "name": "start"
+    },
+    {
+      "id": "s2",
+      "x": 319,
+      "y": 160,
+      "name": "one"
+    },
+    {
+      "id": "s3",
+      "x": 498,
+      "y": 160,
+      "name": "z1"
+    },
+    {
+      "id": "s4",
+      "x": 677,
+      "y": 160,
+      "name": "z2"
+    },
+    {
+      "id": "s5",
+      "x": 856,
+      "y": 160,
+      "name": "z3"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "t1",
+      "from": "s1",
+      "to": "s1",
+      "symbol": "0"
+    },
+    {
+      "id": "t2",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "1"
+    },
+    {
+      "id": "t3",
+      "from": "s2",
+      "to": "s3",
+      "symbol": "0"
+    },
+    {
+      "id": "t4",
+      "from": "s3",
+      "to": "s4",
+      "symbol": "0"
+    },
+    {
+      "id": "t5",
+      "from": "s4",
+      "to": "s5",
+      "symbol": "0"
+    },
+    {
+      "id": "t6",
+      "from": "s3",
+      "to": "s2",
+      "symbol": "1"
+    },
+    {
+      "id": "t7",
+      "from": "s4",
+      "to": "s2",
+      "symbol": "1"
+    },
+    {
+      "id": "t8",
+      "from": "s5",
+      "to": "s2",
+      "symbol": "1"
+    }
+  ],
+  "startId": "s1",
+  "accepts": [
+    "s1",
+    "s2",
+    "s3",
+    "s4",
+    "s5"
+  ],
+  "notes": [],
+  "dividers": [],
+  "blocks": [],
+  "meta": {
+    "title": "MFM encoding: between two 1s, one to three 0s",
+    "blurb": "Floppy disks recorded data in MFM, whose bit stream obeys a (1,3) run-length limit: two 1s are separated by at least one 0, so pulses never crowd, and at most three, so the clock never drifts. The DFA counts the 0s since the last 1.",
+    "inputs": [
+      {
+        "w": "",
+        "expect": "accept"
+      },
+      {
+        "w": "0010",
+        "expect": "accept"
+      },
+      {
+        "w": "0",
+        "expect": "accept"
+      },
+      {
+        "w": "0000000010",
+        "expect": "accept"
+      },
+      {
+        "w": "0110",
+        "expect": "reject"
+      },
+      {
+        "w": "1000000010",
+        "expect": "reject"
+      },
+      {
+        "w": "11",
+        "expect": "reject"
+      },
+      {
+        "w": "00110",
+        "expect": "reject"
+      }
+    ],
+    "library": {
+      "author": {
+        "login": "thethinkmachine"
+      },
+      "license": "CC-BY-4.0",
+      "tags": [
+        "coding",
+        "storage",
+        "run-length-limited"
+      ],
+      "difficulty": "intermediate"
+    }
+  }
+}

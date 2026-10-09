@@ -1,0 +1,159 @@
+{
+  "format": "automata-studio/workspace",
+  "schema": 1,
+  "app": "dev",
+  "machine": "DFA",
+  "config": {
+    "sym": {
+      "eps": "ε",
+      "any": "Σ",
+      "blank": "⊔",
+      "leftMarker": "⊢",
+      "rightMarker": "⊣",
+      "stackBottom": "Z",
+      "lambda": "λ"
+    }
+  },
+  "sigma": [
+    "a"
+  ],
+  "stackAlpha": [],
+  "outputAlpha": [],
+  "tapeCount": 1,
+  "states": [
+    {
+      "id": "s1",
+      "x": 222,
+      "y": 160,
+      "name": "n0"
+    },
+    {
+      "id": "s2",
+      "x": 305,
+      "y": 208,
+      "name": "n1"
+    },
+    {
+      "id": "s3",
+      "x": 305,
+      "y": 303,
+      "name": "n2"
+    },
+    {
+      "id": "s4",
+      "x": 222,
+      "y": 350,
+      "name": "n3"
+    },
+    {
+      "id": "s5",
+      "x": 140,
+      "y": 303,
+      "name": "n4"
+    },
+    {
+      "id": "s6",
+      "x": 140,
+      "y": 208,
+      "name": "n5"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "t1",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "a"
+    },
+    {
+      "id": "t2",
+      "from": "s2",
+      "to": "s3",
+      "symbol": "a"
+    },
+    {
+      "id": "t3",
+      "from": "s3",
+      "to": "s4",
+      "symbol": "a"
+    },
+    {
+      "id": "t4",
+      "from": "s4",
+      "to": "s5",
+      "symbol": "a"
+    },
+    {
+      "id": "t5",
+      "from": "s5",
+      "to": "s6",
+      "symbol": "a"
+    },
+    {
+      "id": "t6",
+      "from": "s6",
+      "to": "s1",
+      "symbol": "a"
+    }
+  ],
+  "startId": "s1",
+  "accepts": [
+    "s1",
+    "s3",
+    "s4",
+    "s5"
+  ],
+  "notes": [],
+  "dividers": [],
+  "blocks": [],
+  "meta": {
+    "title": "Lengths divisible by 2 or by 3",
+    "blurb": "A unary language is ultimately periodic. Here the period is lcm(2, 3) = 6: a ring of six states, four of them accepting — 0, 2, 3 and 4.",
+    "inputs": [
+      {
+        "w": "",
+        "expect": "accept"
+      },
+      {
+        "w": "aa",
+        "expect": "accept"
+      },
+      {
+        "w": "aaa",
+        "expect": "accept"
+      },
+      {
+        "w": "aaaaaaaaaaaaaa",
+        "expect": "accept"
+      },
+      {
+        "w": "a",
+        "expect": "reject"
+      },
+      {
+        "w": "aaaaaaaaaaaaa",
+        "expect": "reject"
+      },
+      {
+        "w": "aaaaa",
+        "expect": "reject"
+      },
+      {
+        "w": "aaaaaaa",
+        "expect": "reject"
+      }
+    ],
+    "library": {
+      "author": {
+        "login": "thethinkmachine"
+      },
+      "license": "CC-BY-4.0",
+      "tags": [
+        "unary",
+        "periodicity",
+        "union"
+      ],
+      "difficulty": "intro"
+    }
+  }
+}

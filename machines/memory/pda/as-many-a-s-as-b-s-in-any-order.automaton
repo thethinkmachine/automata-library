@@ -1,0 +1,180 @@
+{
+  "format": "automata-studio/workspace",
+  "schema": 1,
+  "app": "dev",
+  "machine": "DPDA",
+  "config": {
+    "sym": {
+      "eps": "ε",
+      "any": "Σ",
+      "blank": "⊔",
+      "leftMarker": "⊢",
+      "rightMarker": "⊣",
+      "stackBottom": "Z",
+      "lambda": "λ"
+    },
+    "pdaParadigm": "explicit"
+  },
+  "sigma": [
+    "a",
+    "b"
+  ],
+  "stackAlpha": [
+    "Z",
+    "A",
+    "B"
+  ],
+  "outputAlpha": [],
+  "tapeCount": 1,
+  "states": [
+    {
+      "id": "s1",
+      "x": 140,
+      "y": 160,
+      "name": "even"
+    },
+    {
+      "id": "s2",
+      "x": 319,
+      "y": 160,
+      "name": "ahead"
+    },
+    {
+      "id": "s3",
+      "x": 498,
+      "y": 160,
+      "name": "check"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "t1",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "a",
+      "pop": "Z",
+      "push": "AZ"
+    },
+    {
+      "id": "t2",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "b",
+      "pop": "Z",
+      "push": "BZ"
+    },
+    {
+      "id": "t3",
+      "from": "s2",
+      "to": "s2",
+      "symbol": "a",
+      "pop": "A",
+      "push": "AA"
+    },
+    {
+      "id": "t4",
+      "from": "s2",
+      "to": "s2",
+      "symbol": "b",
+      "pop": "B",
+      "push": "BB"
+    },
+    {
+      "id": "t5",
+      "from": "s2",
+      "to": "s3",
+      "symbol": "a",
+      "pop": "B",
+      "push": "ε"
+    },
+    {
+      "id": "t6",
+      "from": "s2",
+      "to": "s3",
+      "symbol": "b",
+      "pop": "A",
+      "push": "ε"
+    },
+    {
+      "id": "t7",
+      "from": "s3",
+      "to": "s1",
+      "symbol": "ε",
+      "pop": "Z",
+      "push": "Z"
+    },
+    {
+      "id": "t8",
+      "from": "s3",
+      "to": "s2",
+      "symbol": "ε",
+      "pop": "A",
+      "push": "A"
+    },
+    {
+      "id": "t9",
+      "from": "s3",
+      "to": "s2",
+      "symbol": "ε",
+      "pop": "B",
+      "push": "B"
+    }
+  ],
+  "startId": "s1",
+  "accepts": [
+    "s1"
+  ],
+  "notes": [],
+  "dividers": [],
+  "blocks": [],
+  "meta": {
+    "title": "As many a’s as b’s, in any order",
+    "blurb": "The stack holds the surplus: A’s while a is ahead, B’s while b is. A letter either adds to the surplus or cancels one. After a cancellation the machine looks at the top to see whether it is back to even, which is the only accepting state.",
+    "inputs": [
+      {
+        "w": "",
+        "expect": "accept"
+      },
+      {
+        "w": "aabb",
+        "expect": "accept"
+      },
+      {
+        "w": "ba",
+        "expect": "accept"
+      },
+      {
+        "w": "baabbaabbaab",
+        "expect": "accept"
+      },
+      {
+        "w": "a",
+        "expect": "reject"
+      },
+      {
+        "w": "babb",
+        "expect": "reject"
+      },
+      {
+        "w": "aa",
+        "expect": "reject"
+      },
+      {
+        "w": "aaabbaabbaab",
+        "expect": "reject"
+      }
+    ],
+    "library": {
+      "author": {
+        "login": "thethinkmachine"
+      },
+      "license": "CC-BY-4.0",
+      "tags": [
+        "counting",
+        "balance",
+        "deterministic-cfl"
+      ],
+      "difficulty": "intermediate"
+    }
+  }
+}

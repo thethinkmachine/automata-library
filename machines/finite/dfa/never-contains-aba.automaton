@@ -1,0 +1,135 @@
+{
+  "format": "automata-studio/workspace",
+  "schema": 1,
+  "app": "dev",
+  "machine": "DFA",
+  "config": {
+    "sym": {
+      "eps": "ε",
+      "any": "Σ",
+      "blank": "⊔",
+      "leftMarker": "⊢",
+      "rightMarker": "⊣",
+      "stackBottom": "Z",
+      "lambda": "λ"
+    }
+  },
+  "sigma": [
+    "a",
+    "b"
+  ],
+  "stackAlpha": [],
+  "outputAlpha": [],
+  "tapeCount": 1,
+  "states": [
+    {
+      "id": "s1",
+      "x": 140,
+      "y": 160,
+      "name": "none"
+    },
+    {
+      "id": "s2",
+      "x": 319,
+      "y": 160,
+      "name": "a"
+    },
+    {
+      "id": "s3",
+      "x": 498,
+      "y": 160,
+      "name": "ab"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "t1",
+      "from": "s1",
+      "to": "s1",
+      "symbol": "b"
+    },
+    {
+      "id": "t2",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "a"
+    },
+    {
+      "id": "t3",
+      "from": "s2",
+      "to": "s2",
+      "symbol": "a"
+    },
+    {
+      "id": "t4",
+      "from": "s2",
+      "to": "s3",
+      "symbol": "b"
+    },
+    {
+      "id": "t5",
+      "from": "s3",
+      "to": "s1",
+      "symbol": "b"
+    }
+  ],
+  "startId": "s1",
+  "accepts": [
+    "s1",
+    "s2",
+    "s3"
+  ],
+  "notes": [],
+  "dividers": [],
+  "blocks": [],
+  "meta": {
+    "title": "Never contains aba",
+    "blurb": "The complement of a search: the same states as a matcher for aba, with the final one removed. Every state that remains accepts.",
+    "inputs": [
+      {
+        "w": "",
+        "expect": "accept"
+      },
+      {
+        "w": "aabba",
+        "expect": "accept"
+      },
+      {
+        "w": "a",
+        "expect": "accept"
+      },
+      {
+        "w": "aaaaaaabba",
+        "expect": "accept"
+      },
+      {
+        "w": "aaaba",
+        "expect": "reject"
+      },
+      {
+        "w": "abaaaaabba",
+        "expect": "reject"
+      },
+      {
+        "w": "aba",
+        "expect": "reject"
+      },
+      {
+        "w": "aababb",
+        "expect": "reject"
+      }
+    ],
+    "library": {
+      "author": {
+        "login": "thethinkmachine"
+      },
+      "license": "CC-BY-4.0",
+      "tags": [
+        "complement",
+        "forbidden-pattern",
+        "partial-dfa"
+      ],
+      "difficulty": "intro"
+    }
+  }
+}

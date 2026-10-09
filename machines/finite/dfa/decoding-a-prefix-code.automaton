@@ -1,0 +1,139 @@
+{
+  "format": "automata-studio/workspace",
+  "schema": 1,
+  "app": "dev",
+  "machine": "DFA",
+  "config": {
+    "sym": {
+      "eps": "ε",
+      "any": "Σ",
+      "blank": "⊔",
+      "leftMarker": "⊢",
+      "rightMarker": "⊣",
+      "stackBottom": "Z",
+      "lambda": "λ"
+    }
+  },
+  "sigma": [
+    "0",
+    "1"
+  ],
+  "stackAlpha": [],
+  "outputAlpha": [],
+  "tapeCount": 1,
+  "states": [
+    {
+      "id": "s1",
+      "x": 140,
+      "y": 160,
+      "name": "root"
+    },
+    {
+      "id": "s2",
+      "x": 319,
+      "y": 160,
+      "name": "n1"
+    },
+    {
+      "id": "s3",
+      "x": 498,
+      "y": 160,
+      "name": "n11"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "t1",
+      "from": "s1",
+      "to": "s1",
+      "symbol": "0"
+    },
+    {
+      "id": "t2",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "1"
+    },
+    {
+      "id": "t3",
+      "from": "s2",
+      "to": "s1",
+      "symbol": "0"
+    },
+    {
+      "id": "t4",
+      "from": "s2",
+      "to": "s3",
+      "symbol": "1"
+    },
+    {
+      "id": "t5",
+      "from": "s3",
+      "to": "s1",
+      "symbol": "0"
+    },
+    {
+      "id": "t6",
+      "from": "s3",
+      "to": "s1",
+      "symbol": "1"
+    }
+  ],
+  "startId": "s1",
+  "accepts": [
+    "s1"
+  ],
+  "notes": [],
+  "dividers": [],
+  "blocks": [],
+  "meta": {
+    "title": "Decoding a prefix code",
+    "blurb": "The codewords are 0, 10, 110 and 111 — no one a prefix of another, as a Huffman code guarantees. The DFA is the code tree with every leaf glued back to the root: it accepts a bit string exactly when it splits into whole codewords, and each return to the root is one decoded letter.",
+    "inputs": [
+      {
+        "w": "",
+        "expect": "accept"
+      },
+      {
+        "w": "00110",
+        "expect": "accept"
+      },
+      {
+        "w": "0",
+        "expect": "accept"
+      },
+      {
+        "w": "0000000110",
+        "expect": "accept"
+      },
+      {
+        "w": "1",
+        "expect": "reject"
+      },
+      {
+        "w": "0011",
+        "expect": "reject"
+      },
+      {
+        "w": "01",
+        "expect": "reject"
+      },
+      {
+        "w": "000000011",
+        "expect": "reject"
+      }
+    ],
+    "library": {
+      "author": {
+        "login": "thethinkmachine"
+      },
+      "license": "CC-BY-4.0",
+      "tags": [
+        "coding-theory",
+        "huffman",
+        "prefix-codes"
+      ],
+      "difficulty": "intermediate"
+    }
+  }
+}

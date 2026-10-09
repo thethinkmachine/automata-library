@@ -1,0 +1,474 @@
+{
+  "format": "automata-studio/workspace",
+  "schema": 1,
+  "app": "dev",
+  "machine": "TM",
+  "config": {
+    "sym": {
+      "eps": "ε",
+      "any": "Σ",
+      "blank": "⊔",
+      "leftMarker": "⊢",
+      "rightMarker": "⊣",
+      "stackBottom": "Z",
+      "lambda": "λ"
+    }
+  },
+  "sigma": [
+    "a",
+    "b"
+  ],
+  "stackAlpha": [
+    "a",
+    "b",
+    "w",
+    " ",
+    "=",
+    ">",
+    "[",
+    ".",
+    "]",
+    "r",
+    "e",
+    "v",
+    "s",
+    "(",
+    ")",
+    "j",
+    "o",
+    "i",
+    "n",
+    "'",
+    "A",
+    "B",
+    "⊔",
+    "#"
+  ],
+  "outputAlpha": [],
+  "tapeCount": 1,
+  "states": [
+    {
+      "id": "s1",
+      "x": 140,
+      "y": 303,
+      "name": "start"
+    },
+    {
+      "id": "s2",
+      "x": 319,
+      "y": 255,
+      "name": "toEnd"
+    },
+    {
+      "id": "s3",
+      "x": 319,
+      "y": 350,
+      "name": "done"
+    },
+    {
+      "id": "s4",
+      "x": 498,
+      "y": 303,
+      "name": "take"
+    },
+    {
+      "id": "s5",
+      "x": 677,
+      "y": 445,
+      "name": "goA"
+    },
+    {
+      "id": "s6",
+      "x": 677,
+      "y": 350,
+      "name": "goB"
+    },
+    {
+      "id": "s7",
+      "x": 677,
+      "y": 255,
+      "name": "lastA"
+    },
+    {
+      "id": "s8",
+      "x": 677,
+      "y": 160,
+      "name": "lastB"
+    },
+    {
+      "id": "s9",
+      "x": 856,
+      "y": 445,
+      "name": "outA"
+    },
+    {
+      "id": "s10",
+      "x": 1035,
+      "y": 350,
+      "name": "ret"
+    },
+    {
+      "id": "s11",
+      "x": 856,
+      "y": 350,
+      "name": "outB"
+    },
+    {
+      "id": "s12",
+      "x": 856,
+      "y": 255,
+      "name": "endA"
+    },
+    {
+      "id": "s13",
+      "x": 1035,
+      "y": 255,
+      "name": "fin"
+    },
+    {
+      "id": "s14",
+      "x": 856,
+      "y": 160,
+      "name": "endB"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "t1",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "a",
+      "write": "A",
+      "dir": "R"
+    },
+    {
+      "id": "t2",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "b",
+      "write": "B",
+      "dir": "R"
+    },
+    {
+      "id": "t3",
+      "from": "s1",
+      "to": "s3",
+      "symbol": "⊔",
+      "write": "⊔",
+      "dir": "S"
+    },
+    {
+      "id": "t4",
+      "from": "s2",
+      "to": "s2",
+      "symbol": "a",
+      "write": "a",
+      "dir": "R"
+    },
+    {
+      "id": "t5",
+      "from": "s2",
+      "to": "s2",
+      "symbol": "b",
+      "write": "b",
+      "dir": "R"
+    },
+    {
+      "id": "t6",
+      "from": "s2",
+      "to": "s4",
+      "symbol": "⊔",
+      "write": "#",
+      "dir": "L"
+    },
+    {
+      "id": "t7",
+      "from": "s4",
+      "to": "s5",
+      "symbol": "a",
+      "write": "⊔",
+      "dir": "R"
+    },
+    {
+      "id": "t8",
+      "from": "s4",
+      "to": "s6",
+      "symbol": "b",
+      "write": "⊔",
+      "dir": "R"
+    },
+    {
+      "id": "t9",
+      "from": "s4",
+      "to": "s7",
+      "symbol": "A",
+      "write": "⊔",
+      "dir": "R"
+    },
+    {
+      "id": "t10",
+      "from": "s4",
+      "to": "s8",
+      "symbol": "B",
+      "write": "⊔",
+      "dir": "R"
+    },
+    {
+      "id": "t11",
+      "from": "s4",
+      "to": "s4",
+      "symbol": "⊔",
+      "write": "⊔",
+      "dir": "L"
+    },
+    {
+      "id": "t12",
+      "from": "s5",
+      "to": "s5",
+      "symbol": "⊔",
+      "write": "⊔",
+      "dir": "R"
+    },
+    {
+      "id": "t13",
+      "from": "s5",
+      "to": "s9",
+      "symbol": "#",
+      "write": "#",
+      "dir": "R"
+    },
+    {
+      "id": "t14",
+      "from": "s9",
+      "to": "s9",
+      "symbol": "a",
+      "write": "a",
+      "dir": "R"
+    },
+    {
+      "id": "t15",
+      "from": "s9",
+      "to": "s9",
+      "symbol": "b",
+      "write": "b",
+      "dir": "R"
+    },
+    {
+      "id": "t16",
+      "from": "s9",
+      "to": "s10",
+      "symbol": "⊔",
+      "write": "a",
+      "dir": "L"
+    },
+    {
+      "id": "t17",
+      "from": "s6",
+      "to": "s6",
+      "symbol": "⊔",
+      "write": "⊔",
+      "dir": "R"
+    },
+    {
+      "id": "t18",
+      "from": "s6",
+      "to": "s11",
+      "symbol": "#",
+      "write": "#",
+      "dir": "R"
+    },
+    {
+      "id": "t19",
+      "from": "s11",
+      "to": "s11",
+      "symbol": "a",
+      "write": "a",
+      "dir": "R"
+    },
+    {
+      "id": "t20",
+      "from": "s11",
+      "to": "s11",
+      "symbol": "b",
+      "write": "b",
+      "dir": "R"
+    },
+    {
+      "id": "t21",
+      "from": "s11",
+      "to": "s10",
+      "symbol": "⊔",
+      "write": "b",
+      "dir": "L"
+    },
+    {
+      "id": "t22",
+      "from": "s10",
+      "to": "s10",
+      "symbol": "a",
+      "write": "a",
+      "dir": "L"
+    },
+    {
+      "id": "t23",
+      "from": "s10",
+      "to": "s10",
+      "symbol": "b",
+      "write": "b",
+      "dir": "L"
+    },
+    {
+      "id": "t24",
+      "from": "s10",
+      "to": "s4",
+      "symbol": "#",
+      "write": "#",
+      "dir": "L"
+    },
+    {
+      "id": "t25",
+      "from": "s7",
+      "to": "s7",
+      "symbol": "⊔",
+      "write": "⊔",
+      "dir": "R"
+    },
+    {
+      "id": "t26",
+      "from": "s7",
+      "to": "s12",
+      "symbol": "#",
+      "write": "#",
+      "dir": "R"
+    },
+    {
+      "id": "t27",
+      "from": "s12",
+      "to": "s12",
+      "symbol": "a",
+      "write": "a",
+      "dir": "R"
+    },
+    {
+      "id": "t28",
+      "from": "s12",
+      "to": "s12",
+      "symbol": "b",
+      "write": "b",
+      "dir": "R"
+    },
+    {
+      "id": "t29",
+      "from": "s12",
+      "to": "s13",
+      "symbol": "⊔",
+      "write": "a",
+      "dir": "L"
+    },
+    {
+      "id": "t30",
+      "from": "s8",
+      "to": "s8",
+      "symbol": "⊔",
+      "write": "⊔",
+      "dir": "R"
+    },
+    {
+      "id": "t31",
+      "from": "s8",
+      "to": "s14",
+      "symbol": "#",
+      "write": "#",
+      "dir": "R"
+    },
+    {
+      "id": "t32",
+      "from": "s14",
+      "to": "s14",
+      "symbol": "a",
+      "write": "a",
+      "dir": "R"
+    },
+    {
+      "id": "t33",
+      "from": "s14",
+      "to": "s14",
+      "symbol": "b",
+      "write": "b",
+      "dir": "R"
+    },
+    {
+      "id": "t34",
+      "from": "s14",
+      "to": "s13",
+      "symbol": "⊔",
+      "write": "b",
+      "dir": "L"
+    },
+    {
+      "id": "t35",
+      "from": "s13",
+      "to": "s13",
+      "symbol": "a",
+      "write": "a",
+      "dir": "L"
+    },
+    {
+      "id": "t36",
+      "from": "s13",
+      "to": "s13",
+      "symbol": "b",
+      "write": "b",
+      "dir": "L"
+    },
+    {
+      "id": "t37",
+      "from": "s13",
+      "to": "s3",
+      "symbol": "#",
+      "write": "⊔",
+      "dir": "S"
+    }
+  ],
+  "startId": "s1",
+  "accepts": [
+    "s3"
+  ],
+  "notes": [],
+  "dividers": [],
+  "blocks": [],
+  "meta": {
+    "title": "Reverse a string",
+    "blurb": "Take the last symbol of w, erase it, and write it after a # at the far end; repeat until w is gone, then remove the #. The first symbol is marked at the start (A or B) so the machine can tell when it is copying the last one — a one-way tape has no other way to know where its left end is.",
+    "inputs": [
+      {
+        "w": "",
+        "expect": "accept"
+      },
+      {
+        "w": "aabba",
+        "expect": "accept"
+      },
+      {
+        "w": "a",
+        "expect": "accept"
+      },
+      {
+        "w": "aaaaaabba",
+        "expect": "accept"
+      }
+    ],
+    "library": {
+      "author": {
+        "login": "thethinkmachine"
+      },
+      "license": "CC-BY-4.0",
+      "tags": [
+        "reversal",
+        "computing-a-function",
+        "left-end-marker"
+      ],
+      "difficulty": "intermediate"
+    }
+  }
+}

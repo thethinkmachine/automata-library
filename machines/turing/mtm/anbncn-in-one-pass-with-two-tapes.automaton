@@ -1,0 +1,267 @@
+{
+  "format": "automata-studio/workspace",
+  "schema": 1,
+  "app": "dev",
+  "machine": "MTM",
+  "config": {
+    "sym": {
+      "eps": "ε",
+      "any": "Σ",
+      "blank": "⊔",
+      "leftMarker": "⊢",
+      "rightMarker": "⊣",
+      "stackBottom": "Z",
+      "lambda": "λ"
+    }
+  },
+  "sigma": [
+    "a",
+    "b",
+    "c"
+  ],
+  "stackAlpha": [
+    "a",
+    "b",
+    "c",
+    "⊔",
+    ">",
+    "X"
+  ],
+  "outputAlpha": [],
+  "tapeCount": 2,
+  "states": [
+    {
+      "id": "s1",
+      "x": 140,
+      "y": 208,
+      "name": "q0"
+    },
+    {
+      "id": "s2",
+      "x": 319,
+      "y": 160,
+      "name": "as"
+    },
+    {
+      "id": "s3",
+      "x": 319,
+      "y": 255,
+      "name": "acc"
+    },
+    {
+      "id": "s4",
+      "x": 498,
+      "y": 208,
+      "name": "bs"
+    },
+    {
+      "id": "s5",
+      "x": 677,
+      "y": 208,
+      "name": "cs"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "t1",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "a",
+      "tapeSyms": [
+        "a",
+        "⊔"
+      ],
+      "tapeWrites": [
+        "a",
+        ">"
+      ],
+      "tapeDirs": [
+        "S",
+        "R"
+      ]
+    },
+    {
+      "id": "t2",
+      "from": "s1",
+      "to": "s3",
+      "symbol": "⊔",
+      "tapeSyms": [
+        "⊔",
+        "⊔"
+      ],
+      "tapeWrites": [
+        "⊔",
+        "⊔"
+      ],
+      "tapeDirs": [
+        "S",
+        "S"
+      ]
+    },
+    {
+      "id": "t3",
+      "from": "s2",
+      "to": "s2",
+      "symbol": "a",
+      "tapeSyms": [
+        "a",
+        "⊔"
+      ],
+      "tapeWrites": [
+        "a",
+        "X"
+      ],
+      "tapeDirs": [
+        "R",
+        "R"
+      ]
+    },
+    {
+      "id": "t4",
+      "from": "s2",
+      "to": "s4",
+      "symbol": "b",
+      "tapeSyms": [
+        "b",
+        "⊔"
+      ],
+      "tapeWrites": [
+        "b",
+        "⊔"
+      ],
+      "tapeDirs": [
+        "S",
+        "L"
+      ]
+    },
+    {
+      "id": "t5",
+      "from": "s4",
+      "to": "s4",
+      "symbol": "b",
+      "tapeSyms": [
+        "b",
+        "X"
+      ],
+      "tapeWrites": [
+        "b",
+        "X"
+      ],
+      "tapeDirs": [
+        "R",
+        "L"
+      ]
+    },
+    {
+      "id": "t6",
+      "from": "s4",
+      "to": "s5",
+      "symbol": "c",
+      "tapeSyms": [
+        "c",
+        ">"
+      ],
+      "tapeWrites": [
+        "c",
+        ">"
+      ],
+      "tapeDirs": [
+        "S",
+        "R"
+      ]
+    },
+    {
+      "id": "t7",
+      "from": "s5",
+      "to": "s5",
+      "symbol": "c",
+      "tapeSyms": [
+        "c",
+        "X"
+      ],
+      "tapeWrites": [
+        "c",
+        "X"
+      ],
+      "tapeDirs": [
+        "R",
+        "R"
+      ]
+    },
+    {
+      "id": "t8",
+      "from": "s5",
+      "to": "s3",
+      "symbol": "⊔",
+      "tapeSyms": [
+        "⊔",
+        "⊔"
+      ],
+      "tapeWrites": [
+        "⊔",
+        "⊔"
+      ],
+      "tapeDirs": [
+        "S",
+        "S"
+      ]
+    }
+  ],
+  "startId": "s1",
+  "accepts": [
+    "s3"
+  ],
+  "notes": [],
+  "dividers": [],
+  "blocks": [],
+  "meta": {
+    "title": "aⁿbⁿcⁿ in one pass, with two tapes",
+    "blurb": "The second tape is a ruler. Each a draws a mark on it; each b steps the ruler’s head back over one mark; each c steps it forward again. One left-to-right sweep, so linear time — where a single tape must zigzag and takes time proportional to n².",
+    "inputs": [
+      {
+        "w": "",
+        "expect": "accept"
+      },
+      {
+        "w": "abc",
+        "expect": "accept"
+      },
+      {
+        "w": "aabbcc",
+        "expect": "accept"
+      },
+      {
+        "w": "aaaabbbbcccc",
+        "expect": "accept"
+      },
+      {
+        "w": "a",
+        "expect": "reject"
+      },
+      {
+        "w": "bbc",
+        "expect": "reject"
+      },
+      {
+        "w": "babbcc",
+        "expect": "reject"
+      },
+      {
+        "w": "baaabbbbcccc",
+        "expect": "reject"
+      }
+    ],
+    "library": {
+      "author": {
+        "login": "thethinkmachine"
+      },
+      "license": "CC-BY-4.0",
+      "tags": [
+        "multi-tape",
+        "linear-time",
+        "counting"
+      ],
+      "difficulty": "intermediate"
+    }
+  }
+}

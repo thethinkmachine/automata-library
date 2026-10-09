@@ -1,0 +1,428 @@
+{
+  "format": "automata-studio/workspace",
+  "schema": 1,
+  "app": "dev",
+  "machine": "TM",
+  "config": {
+    "sym": {
+      "eps": "ε",
+      "any": "Σ",
+      "blank": "⊔",
+      "leftMarker": "⊢",
+      "rightMarker": "⊣",
+      "stackBottom": "Z",
+      "lambda": "λ"
+    }
+  },
+  "sigma": [
+    "a",
+    "b",
+    "c"
+  ],
+  "stackAlpha": [
+    "a",
+    "b",
+    "c",
+    "A",
+    "⊔",
+    "x",
+    "y",
+    "z"
+  ],
+  "outputAlpha": [],
+  "tapeCount": 1,
+  "states": [
+    {
+      "id": "s1",
+      "x": 140,
+      "y": 208,
+      "name": "f0"
+    },
+    {
+      "id": "s2",
+      "x": 319,
+      "y": 208,
+      "name": "f1"
+    },
+    {
+      "id": "s3",
+      "x": 498,
+      "y": 208,
+      "name": "f2"
+    },
+    {
+      "id": "s4",
+      "x": 677,
+      "y": 208,
+      "name": "f3"
+    },
+    {
+      "id": "s5",
+      "x": 856,
+      "y": 208,
+      "name": "rw"
+    },
+    {
+      "id": "s6",
+      "x": 1035,
+      "y": 208,
+      "name": "pa"
+    },
+    {
+      "id": "s7",
+      "x": 1214,
+      "y": 208,
+      "name": "gb"
+    },
+    {
+      "id": "s8",
+      "x": 1393,
+      "y": 208,
+      "name": "gc"
+    },
+    {
+      "id": "s9",
+      "x": 1572,
+      "y": 208,
+      "name": "bk"
+    },
+    {
+      "id": "s10",
+      "x": 1751,
+      "y": 208,
+      "name": "nb"
+    },
+    {
+      "id": "s11",
+      "x": 1930,
+      "y": 208,
+      "name": "restore"
+    },
+    {
+      "id": "s12",
+      "x": 2109,
+      "y": 255,
+      "name": "na"
+    },
+    {
+      "id": "s13",
+      "x": 2109,
+      "y": 160,
+      "name": "fin"
+    },
+    {
+      "id": "s14",
+      "x": 2288,
+      "y": 208,
+      "name": "acc"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "t1",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "a",
+      "write": "A",
+      "dir": "R"
+    },
+    {
+      "id": "t2",
+      "from": "s2",
+      "to": "s2",
+      "symbol": "a",
+      "write": "a",
+      "dir": "R"
+    },
+    {
+      "id": "t3",
+      "from": "s2",
+      "to": "s3",
+      "symbol": "b",
+      "write": "b",
+      "dir": "R"
+    },
+    {
+      "id": "t4",
+      "from": "s3",
+      "to": "s3",
+      "symbol": "b",
+      "write": "b",
+      "dir": "R"
+    },
+    {
+      "id": "t5",
+      "from": "s3",
+      "to": "s4",
+      "symbol": "c",
+      "write": "c",
+      "dir": "R"
+    },
+    {
+      "id": "t6",
+      "from": "s4",
+      "to": "s4",
+      "symbol": "c",
+      "write": "c",
+      "dir": "R"
+    },
+    {
+      "id": "t7",
+      "from": "s4",
+      "to": "s5",
+      "symbol": "⊔",
+      "write": "⊔",
+      "dir": "L"
+    },
+    {
+      "id": "t8",
+      "from": "s5",
+      "to": "s5",
+      "symbol": "a",
+      "write": "a",
+      "dir": "L"
+    },
+    {
+      "id": "t9",
+      "from": "s5",
+      "to": "s5",
+      "symbol": "b",
+      "write": "b",
+      "dir": "L"
+    },
+    {
+      "id": "t10",
+      "from": "s5",
+      "to": "s5",
+      "symbol": "c",
+      "write": "c",
+      "dir": "L"
+    },
+    {
+      "id": "t11",
+      "from": "s5",
+      "to": "s6",
+      "symbol": "A",
+      "write": "A",
+      "dir": "S"
+    },
+    {
+      "id": "t12",
+      "from": "s6",
+      "to": "s7",
+      "symbol": "a",
+      "write": "x",
+      "dir": "R"
+    },
+    {
+      "id": "t13",
+      "from": "s6",
+      "to": "s7",
+      "symbol": "A",
+      "write": "x",
+      "dir": "R"
+    },
+    {
+      "id": "t14",
+      "from": "s7",
+      "to": "s7",
+      "symbol": "a",
+      "write": "a",
+      "dir": "R"
+    },
+    {
+      "id": "t15",
+      "from": "s7",
+      "to": "s8",
+      "symbol": "b",
+      "write": "y",
+      "dir": "R"
+    },
+    {
+      "id": "t16",
+      "from": "s8",
+      "to": "s8",
+      "symbol": "b",
+      "write": "b",
+      "dir": "R"
+    },
+    {
+      "id": "t17",
+      "from": "s8",
+      "to": "s8",
+      "symbol": "z",
+      "write": "z",
+      "dir": "R"
+    },
+    {
+      "id": "t18",
+      "from": "s8",
+      "to": "s9",
+      "symbol": "c",
+      "write": "z",
+      "dir": "L"
+    },
+    {
+      "id": "t19",
+      "from": "s9",
+      "to": "s9",
+      "symbol": "z",
+      "write": "z",
+      "dir": "L"
+    },
+    {
+      "id": "t20",
+      "from": "s9",
+      "to": "s9",
+      "symbol": "b",
+      "write": "b",
+      "dir": "L"
+    },
+    {
+      "id": "t21",
+      "from": "s9",
+      "to": "s10",
+      "symbol": "y",
+      "write": "y",
+      "dir": "R"
+    },
+    {
+      "id": "t22",
+      "from": "s10",
+      "to": "s8",
+      "symbol": "b",
+      "write": "y",
+      "dir": "R"
+    },
+    {
+      "id": "t23",
+      "from": "s10",
+      "to": "s11",
+      "symbol": "z",
+      "write": "z",
+      "dir": "L"
+    },
+    {
+      "id": "t24",
+      "from": "s11",
+      "to": "s11",
+      "symbol": "y",
+      "write": "b",
+      "dir": "L"
+    },
+    {
+      "id": "t25",
+      "from": "s11",
+      "to": "s12",
+      "symbol": "a",
+      "write": "a",
+      "dir": "L"
+    },
+    {
+      "id": "t26",
+      "from": "s11",
+      "to": "s13",
+      "symbol": "x",
+      "write": "x",
+      "dir": "R"
+    },
+    {
+      "id": "t27",
+      "from": "s12",
+      "to": "s12",
+      "symbol": "a",
+      "write": "a",
+      "dir": "L"
+    },
+    {
+      "id": "t28",
+      "from": "s12",
+      "to": "s6",
+      "symbol": "x",
+      "write": "x",
+      "dir": "R"
+    },
+    {
+      "id": "t29",
+      "from": "s13",
+      "to": "s13",
+      "symbol": "b",
+      "write": "b",
+      "dir": "R"
+    },
+    {
+      "id": "t30",
+      "from": "s13",
+      "to": "s13",
+      "symbol": "z",
+      "write": "z",
+      "dir": "R"
+    },
+    {
+      "id": "t31",
+      "from": "s13",
+      "to": "s14",
+      "symbol": "⊔",
+      "write": "⊔",
+      "dir": "S"
+    }
+  ],
+  "startId": "s1",
+  "accepts": [
+    "s14"
+  ],
+  "notes": [],
+  "dividers": [],
+  "blocks": [],
+  "meta": {
+    "title": "Multiplication checked: aⁱbʲcᵏ with k = i·j",
+    "blurb": "Sipser’s third example. After checking the shape a⁺b⁺c⁺, the machine takes the a’s one at a time; for each, it crosses off one c per b, marking the b’s and then restoring them. The c’s run out exactly when k = i·j.",
+    "inputs": [
+      {
+        "w": "abc",
+        "expect": "accept"
+      },
+      {
+        "w": "aabbcccc",
+        "expect": "accept"
+      },
+      {
+        "w": "aabcc",
+        "expect": "accept"
+      },
+      {
+        "w": "aaabbcccccc",
+        "expect": "accept"
+      },
+      {
+        "w": "bbc",
+        "expect": "reject"
+      },
+      {
+        "w": "babbcccc",
+        "expect": "reject"
+      },
+      {
+        "w": "babcc",
+        "expect": "reject"
+      },
+      {
+        "w": "baabbcccccc",
+        "expect": "reject"
+      }
+    ],
+    "library": {
+      "author": {
+        "login": "thethinkmachine"
+      },
+      "license": "CC-BY-4.0",
+      "tags": [
+        "multiplication",
+        "crossing-off",
+        "sipser"
+      ],
+      "difficulty": "advanced",
+      "chapter": "Sipser, Introduction to the Theory of Computation, §3.1 (M3)"
+    }
+  }
+}

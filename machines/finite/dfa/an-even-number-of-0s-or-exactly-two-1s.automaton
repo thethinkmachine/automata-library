@@ -1,0 +1,235 @@
+{
+  "format": "automata-studio/workspace",
+  "schema": 1,
+  "app": "dev",
+  "machine": "DFA",
+  "config": {
+    "sym": {
+      "eps": "ε",
+      "any": "Σ",
+      "blank": "⊔",
+      "leftMarker": "⊢",
+      "rightMarker": "⊣",
+      "stackBottom": "Z",
+      "lambda": "λ"
+    }
+  },
+  "sigma": [
+    "0",
+    "1"
+  ],
+  "stackAlpha": [],
+  "outputAlpha": [],
+  "tapeCount": 1,
+  "states": [
+    {
+      "id": "s1",
+      "x": 140,
+      "y": 160,
+      "name": "e0"
+    },
+    {
+      "id": "s2",
+      "x": 140,
+      "y": 330,
+      "name": "o0"
+    },
+    {
+      "id": "s3",
+      "x": 310,
+      "y": 160,
+      "name": "e1"
+    },
+    {
+      "id": "s4",
+      "x": 310,
+      "y": 330,
+      "name": "o1"
+    },
+    {
+      "id": "s5",
+      "x": 480,
+      "y": 160,
+      "name": "e2"
+    },
+    {
+      "id": "s6",
+      "x": 480,
+      "y": 330,
+      "name": "o2"
+    },
+    {
+      "id": "s7",
+      "x": 650,
+      "y": 160,
+      "name": "e3"
+    },
+    {
+      "id": "s8",
+      "x": 650,
+      "y": 330,
+      "name": "o3"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "t1",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "0"
+    },
+    {
+      "id": "t2",
+      "from": "s1",
+      "to": "s3",
+      "symbol": "1"
+    },
+    {
+      "id": "t3",
+      "from": "s2",
+      "to": "s1",
+      "symbol": "0"
+    },
+    {
+      "id": "t4",
+      "from": "s2",
+      "to": "s4",
+      "symbol": "1"
+    },
+    {
+      "id": "t5",
+      "from": "s3",
+      "to": "s4",
+      "symbol": "0"
+    },
+    {
+      "id": "t6",
+      "from": "s3",
+      "to": "s5",
+      "symbol": "1"
+    },
+    {
+      "id": "t7",
+      "from": "s4",
+      "to": "s3",
+      "symbol": "0"
+    },
+    {
+      "id": "t8",
+      "from": "s4",
+      "to": "s6",
+      "symbol": "1"
+    },
+    {
+      "id": "t9",
+      "from": "s5",
+      "to": "s6",
+      "symbol": "0"
+    },
+    {
+      "id": "t10",
+      "from": "s5",
+      "to": "s7",
+      "symbol": "1"
+    },
+    {
+      "id": "t11",
+      "from": "s6",
+      "to": "s5",
+      "symbol": "0"
+    },
+    {
+      "id": "t12",
+      "from": "s6",
+      "to": "s8",
+      "symbol": "1"
+    },
+    {
+      "id": "t13",
+      "from": "s7",
+      "to": "s8",
+      "symbol": "0"
+    },
+    {
+      "id": "t14",
+      "from": "s7",
+      "to": "s7",
+      "symbol": "1"
+    },
+    {
+      "id": "t15",
+      "from": "s8",
+      "to": "s7",
+      "symbol": "0"
+    },
+    {
+      "id": "t16",
+      "from": "s8",
+      "to": "s8",
+      "symbol": "1"
+    }
+  ],
+  "startId": "s1",
+  "accepts": [
+    "s1",
+    "s3",
+    "s5",
+    "s7",
+    "s6"
+  ],
+  "notes": [],
+  "dividers": [],
+  "blocks": [],
+  "meta": {
+    "title": "An even number of 0s, or exactly two 1s",
+    "blurb": "A union, built as a product: one component counts 0s mod 2, the other counts 1s up to three. Accept when either component is happy — eight states, laid out as the 2 × 4 grid they are.",
+    "inputs": [
+      {
+        "w": "",
+        "expect": "accept"
+      },
+      {
+        "w": "00110",
+        "expect": "accept"
+      },
+      {
+        "w": "1",
+        "expect": "accept"
+      },
+      {
+        "w": "0000000110",
+        "expect": "accept"
+      },
+      {
+        "w": "0",
+        "expect": "reject"
+      },
+      {
+        "w": "0010",
+        "expect": "reject"
+      },
+      {
+        "w": "01",
+        "expect": "reject"
+      },
+      {
+        "w": "1000000110",
+        "expect": "reject"
+      }
+    ],
+    "library": {
+      "author": {
+        "login": "thethinkmachine"
+      },
+      "license": "CC-BY-4.0",
+      "tags": [
+        "textbook",
+        "sipser",
+        "union",
+        "product-construction"
+      ],
+      "difficulty": "intermediate",
+      "chapter": "Sipser, Introduction to the Theory of Computation, exercises to chapter 1"
+    }
+  }
+}

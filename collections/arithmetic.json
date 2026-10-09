@@ -1,0 +1,23 @@
+{
+  "title": "Arithmetic with automata",
+  "blurb": "Remainders, carries and comparisons: how much arithmetic fits in finite memory, and what needs a stack or a tape. Several of these read numbers least significant digit first, which is often what keeps them small.",
+  "curator": "thethinkmachine",
+  "entries": [
+    "finite/dfa/binary-divisibility-by-3",
+    "finite/dfa/decimal-multiples-of-3-the-digit-sum-rule",
+    "finite/dfa/even-numbers-in-base-3",
+    "finite/dfa/checking-a-sum-column-by-column",
+    "finite/dfa/comparing-two-binary-numbers-column-by-column",
+    "transducers/mealy/serial-binary-adder",
+    "transducers/mealy/times-three-serially",
+    "transducers/mealy/dividing-by-3-most-significant-bit-first",
+    "transducers/mealy/two-s-complement-least-significant-bit-first",
+    "memory/pda/unary-addition-aibjci-j",
+    "turing/tm/multiplication-checked-aibjck-with-k-i-j",
+    "turing/ittm/binary-increment",
+    "finite/dfa/decimal-multiples-of-5-only-the-last-digit-counts",
+    "finite/dfa/binary-multiples-of-6-in-four-states",
+    "turing/tm/which-binary-number-is-smaller-x-y",
+    "turing/ittm/is-n-a-perfect-square-1-3-5"
+  ]
+}

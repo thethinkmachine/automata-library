@@ -1,0 +1,298 @@
+{
+  "format": "automata-studio/workspace",
+  "schema": 1,
+  "app": "dev",
+  "machine": "DFA",
+  "config": {
+    "sym": {
+      "eps": "ε",
+      "any": "Σ",
+      "blank": "⊔",
+      "leftMarker": "⊢",
+      "rightMarker": "⊣",
+      "stackBottom": "Z",
+      "lambda": "λ"
+    }
+  },
+  "sigma": [
+    "A",
+    "C",
+    "G",
+    "T"
+  ],
+  "stackAlpha": [],
+  "outputAlpha": [],
+  "tapeCount": 1,
+  "states": [
+    {
+      "id": "s1",
+      "x": 140,
+      "y": 160,
+      "name": "none"
+    },
+    {
+      "id": "s2",
+      "x": 319,
+      "y": 160,
+      "name": "G"
+    },
+    {
+      "id": "s3",
+      "x": 498,
+      "y": 160,
+      "name": "GA"
+    },
+    {
+      "id": "s4",
+      "x": 677,
+      "y": 160,
+      "name": "GAA"
+    },
+    {
+      "id": "s5",
+      "x": 856,
+      "y": 160,
+      "name": "GAAT"
+    },
+    {
+      "id": "s6",
+      "x": 1035,
+      "y": 160,
+      "name": "GAATT"
+    },
+    {
+      "id": "s7",
+      "x": 1214,
+      "y": 160,
+      "name": "found"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "t1",
+      "from": "s1",
+      "to": "s1",
+      "symbol": "A"
+    },
+    {
+      "id": "t2",
+      "from": "s1",
+      "to": "s1",
+      "symbol": "C"
+    },
+    {
+      "id": "t3",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "G"
+    },
+    {
+      "id": "t4",
+      "from": "s1",
+      "to": "s1",
+      "symbol": "T"
+    },
+    {
+      "id": "t5",
+      "from": "s2",
+      "to": "s3",
+      "symbol": "A"
+    },
+    {
+      "id": "t6",
+      "from": "s2",
+      "to": "s1",
+      "symbol": "C"
+    },
+    {
+      "id": "t7",
+      "from": "s2",
+      "to": "s2",
+      "symbol": "G"
+    },
+    {
+      "id": "t8",
+      "from": "s2",
+      "to": "s1",
+      "symbol": "T"
+    },
+    {
+      "id": "t9",
+      "from": "s3",
+      "to": "s4",
+      "symbol": "A"
+    },
+    {
+      "id": "t10",
+      "from": "s3",
+      "to": "s1",
+      "symbol": "C"
+    },
+    {
+      "id": "t11",
+      "from": "s3",
+      "to": "s2",
+      "symbol": "G"
+    },
+    {
+      "id": "t12",
+      "from": "s3",
+      "to": "s1",
+      "symbol": "T"
+    },
+    {
+      "id": "t13",
+      "from": "s4",
+      "to": "s1",
+      "symbol": "A"
+    },
+    {
+      "id": "t14",
+      "from": "s4",
+      "to": "s1",
+      "symbol": "C"
+    },
+    {
+      "id": "t15",
+      "from": "s4",
+      "to": "s2",
+      "symbol": "G"
+    },
+    {
+      "id": "t16",
+      "from": "s4",
+      "to": "s5",
+      "symbol": "T"
+    },
+    {
+      "id": "t17",
+      "from": "s5",
+      "to": "s1",
+      "symbol": "A"
+    },
+    {
+      "id": "t18",
+      "from": "s5",
+      "to": "s1",
+      "symbol": "C"
+    },
+    {
+      "id": "t19",
+      "from": "s5",
+      "to": "s2",
+      "symbol": "G"
+    },
+    {
+      "id": "t20",
+      "from": "s5",
+      "to": "s6",
+      "symbol": "T"
+    },
+    {
+      "id": "t21",
+      "from": "s6",
+      "to": "s1",
+      "symbol": "A"
+    },
+    {
+      "id": "t22",
+      "from": "s6",
+      "to": "s7",
+      "symbol": "C"
+    },
+    {
+      "id": "t23",
+      "from": "s6",
+      "to": "s2",
+      "symbol": "G"
+    },
+    {
+      "id": "t24",
+      "from": "s6",
+      "to": "s1",
+      "symbol": "T"
+    },
+    {
+      "id": "t25",
+      "from": "s7",
+      "to": "s7",
+      "symbol": "A"
+    },
+    {
+      "id": "t26",
+      "from": "s7",
+      "to": "s7",
+      "symbol": "C"
+    },
+    {
+      "id": "t27",
+      "from": "s7",
+      "to": "s7",
+      "symbol": "G"
+    },
+    {
+      "id": "t28",
+      "from": "s7",
+      "to": "s7",
+      "symbol": "T"
+    }
+  ],
+  "startId": "s1",
+  "accepts": [
+    "s7"
+  ],
+  "notes": [],
+  "dividers": [],
+  "blocks": [],
+  "meta": {
+    "title": "Finding the EcoRI site GAATTC in DNA",
+    "blurb": "The restriction enzyme EcoRI cuts DNA at GAATTC. A DFA finds it in one pass: each state is how much of the site has just been matched, and a mismatch falls back to the longest part that still fits — the Knuth–Morris–Pratt idea.",
+    "inputs": [
+      {
+        "w": "GAATTC",
+        "expect": "accept"
+      },
+      {
+        "w": "ACGTGAATTCTA",
+        "expect": "accept"
+      },
+      {
+        "w": "GAATTCTA",
+        "expect": "accept"
+      },
+      {
+        "w": "ACGTGAATTCTATA",
+        "expect": "accept"
+      },
+      {
+        "w": "AAATTC",
+        "expect": "reject"
+      },
+      {
+        "w": "ACGTAAATTCTA",
+        "expect": "reject"
+      },
+      {
+        "w": "AAATTCTA",
+        "expect": "reject"
+      },
+      {
+        "w": "ACGTAAATTCTATA",
+        "expect": "reject"
+      }
+    ],
+    "library": {
+      "author": {
+        "login": "thethinkmachine"
+      },
+      "license": "CC-BY-4.0",
+      "tags": [
+        "dna",
+        "pattern-matching",
+        "kmp",
+        "biology"
+      ],
+      "difficulty": "intermediate"
+    }
+  }
+}

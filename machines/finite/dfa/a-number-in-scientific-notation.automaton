@@ -1,0 +1,228 @@
+{
+  "format": "automata-studio/workspace",
+  "schema": 1,
+  "app": "dev",
+  "machine": "DFA",
+  "config": {
+    "sym": {
+      "eps": "ε",
+      "any": "Σ",
+      "blank": "⊔",
+      "leftMarker": "⊢",
+      "rightMarker": "⊣",
+      "stackBottom": "Z",
+      "lambda": "λ"
+    }
+  },
+  "sigma": [
+    "d",
+    ".",
+    "e",
+    "+",
+    "-"
+  ],
+  "stackAlpha": [],
+  "outputAlpha": [],
+  "tapeCount": 1,
+  "states": [
+    {
+      "id": "s1",
+      "x": 140,
+      "y": 255,
+      "name": "start"
+    },
+    {
+      "id": "s2",
+      "x": 319,
+      "y": 208,
+      "name": "sign"
+    },
+    {
+      "id": "s3",
+      "x": 319,
+      "y": 303,
+      "name": "int"
+    },
+    {
+      "id": "s4",
+      "x": 498,
+      "y": 208,
+      "name": "dot"
+    },
+    {
+      "id": "s5",
+      "x": 498,
+      "y": 303,
+      "name": "e"
+    },
+    {
+      "id": "s6",
+      "x": 677,
+      "y": 160,
+      "name": "frac"
+    },
+    {
+      "id": "s7",
+      "x": 677,
+      "y": 255,
+      "name": "esign"
+    },
+    {
+      "id": "s8",
+      "x": 677,
+      "y": 350,
+      "name": "exp"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "t1",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "+"
+    },
+    {
+      "id": "t2",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "-"
+    },
+    {
+      "id": "t3",
+      "from": "s1",
+      "to": "s3",
+      "symbol": "d"
+    },
+    {
+      "id": "t4",
+      "from": "s2",
+      "to": "s3",
+      "symbol": "d"
+    },
+    {
+      "id": "t5",
+      "from": "s3",
+      "to": "s3",
+      "symbol": "d"
+    },
+    {
+      "id": "t6",
+      "from": "s3",
+      "to": "s4",
+      "symbol": "."
+    },
+    {
+      "id": "t7",
+      "from": "s3",
+      "to": "s5",
+      "symbol": "e"
+    },
+    {
+      "id": "t8",
+      "from": "s4",
+      "to": "s6",
+      "symbol": "d"
+    },
+    {
+      "id": "t9",
+      "from": "s6",
+      "to": "s6",
+      "symbol": "d"
+    },
+    {
+      "id": "t10",
+      "from": "s6",
+      "to": "s5",
+      "symbol": "e"
+    },
+    {
+      "id": "t11",
+      "from": "s5",
+      "to": "s7",
+      "symbol": "+"
+    },
+    {
+      "id": "t12",
+      "from": "s5",
+      "to": "s7",
+      "symbol": "-"
+    },
+    {
+      "id": "t13",
+      "from": "s5",
+      "to": "s8",
+      "symbol": "d"
+    },
+    {
+      "id": "t14",
+      "from": "s7",
+      "to": "s8",
+      "symbol": "d"
+    },
+    {
+      "id": "t15",
+      "from": "s8",
+      "to": "s8",
+      "symbol": "d"
+    }
+  ],
+  "startId": "s1",
+  "accepts": [
+    "s3",
+    "s6",
+    "s8"
+  ],
+  "notes": [],
+  "dividers": [],
+  "blocks": [],
+  "meta": {
+    "title": "A number in scientific notation",
+    "blurb": "An optional sign, digits, an optional fraction, an optional exponent with its own sign: d stands for any digit. Every optional part is a fork in the DFA that rejoins the main path.",
+    "inputs": [
+      {
+        "w": "d",
+        "expect": "accept"
+      },
+      {
+        "w": "-dd.d",
+        "expect": "accept"
+      },
+      {
+        "w": "d.de-dd",
+        "expect": "accept"
+      },
+      {
+        "w": "+de+d",
+        "expect": "accept"
+      },
+      {
+        "w": "d.",
+        "expect": "reject"
+      },
+      {
+        "w": ".d",
+        "expect": "reject"
+      },
+      {
+        "w": "de",
+        "expect": "reject"
+      },
+      {
+        "w": "d.d.d",
+        "expect": "reject"
+      }
+    ],
+    "library": {
+      "author": {
+        "login": "thethinkmachine"
+      },
+      "license": "CC-BY-4.0",
+      "tags": [
+        "validation",
+        "lexing",
+        "format"
+      ],
+      "difficulty": "intermediate"
+    }
+  }
+}

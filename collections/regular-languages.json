@@ -1,16 +1,22 @@
 {
   "title": "Regular languages, start to finish",
-  "blurb": "DFAs, NFAs, ε-NFAs and two-way automata — the finite-memory machines, from the textbook classics to the showcase examples.",
+  "blurb": "The finite-memory machines in the order a course meets them: a parity bit, a suffix, a forbidden pattern; then the price of determinism, ε-moves and Thompson’s construction; then two-way heads, which add no power and can save exponentially many states.",
   "curator": "thethinkmachine",
   "entries": [
-    "finite/dfa/even-number-of-1s",
-    "finite/dfa/binary-divisibility-by-5",
-    "finite/nfa/guess-the-penultimate-1",
-    "finite/nfa/keyword-search-cat-car-cab",
-    "finite/enfa/a-then-b",
-    "finite/enfa/float-regex-compiled",
+    "finite/dfa/an-even-number-of-1s",
+    "finite/dfa/ends-in-01",
+    "finite/dfa/no-two-0s-in-a-row",
+    "finite/dfa/a-s-a-multiple-of-3-b-s-even",
+    "finite/dfa/the-third-symbol-from-the-end-is-a-1",
+    "finite/nfa/the-third-symbol-from-the-end-is-a-1-by-guessing",
+    "finite/nfa/some-letter-is-missing",
+    "finite/nfa/ab-aba",
+    "finite/enfa/a-s-then-b-s-then-c-s",
+    "finite/enfa/thompson-s-construction-of-a-b-abb",
+    "finite/dfa/a-game-of-tennis-won-by-a",
+    "finite/dfa/as-many-ab-s-as-ba-s",
+    "finite/twdfa/the-fourth-symbol-from-the-end-by-walking-back",
     "finite/twdfa/two-passes-one-head",
-    "finite/twnfa/deja-vu-the-last-letter-is-a-rerun",
-    "finite/dfa/binary-divisibility-by-3"
+    "finite/twnfa/deja-vu-the-last-letter-is-a-rerun"
   ]
 }

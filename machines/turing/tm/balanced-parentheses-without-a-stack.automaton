@@ -1,0 +1,210 @@
+{
+  "format": "automata-studio/workspace",
+  "schema": 1,
+  "app": "dev",
+  "machine": "TM",
+  "config": {
+    "sym": {
+      "eps": "ε",
+      "any": "Σ",
+      "blank": "⊔",
+      "leftMarker": "⊢",
+      "rightMarker": "⊣",
+      "stackBottom": "Z",
+      "lambda": "λ"
+    }
+  },
+  "sigma": [
+    "(",
+    ")"
+  ],
+  "stackAlpha": [
+    "(",
+    ")",
+    "A",
+    "⊔",
+    "X",
+    "B"
+  ],
+  "outputAlpha": [],
+  "tapeCount": 1,
+  "states": [
+    {
+      "id": "s1",
+      "x": 140,
+      "y": 208,
+      "name": "start"
+    },
+    {
+      "id": "s2",
+      "x": 319,
+      "y": 160,
+      "name": "scan"
+    },
+    {
+      "id": "s3",
+      "x": 319,
+      "y": 255,
+      "name": "acc"
+    },
+    {
+      "id": "s4",
+      "x": 498,
+      "y": 255,
+      "name": "open"
+    },
+    {
+      "id": "s5",
+      "x": 498,
+      "y": 160,
+      "name": "check"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "t1",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "(",
+      "write": "A",
+      "dir": "R"
+    },
+    {
+      "id": "t2",
+      "from": "s1",
+      "to": "s3",
+      "symbol": "⊔",
+      "write": "⊔",
+      "dir": "S"
+    },
+    {
+      "id": "t3",
+      "from": "s2",
+      "to": "s2",
+      "symbol": "(",
+      "write": "(",
+      "dir": "R"
+    },
+    {
+      "id": "t4",
+      "from": "s2",
+      "to": "s2",
+      "symbol": "X",
+      "write": "X",
+      "dir": "R"
+    },
+    {
+      "id": "t5",
+      "from": "s2",
+      "to": "s4",
+      "symbol": ")",
+      "write": "X",
+      "dir": "L"
+    },
+    {
+      "id": "t6",
+      "from": "s2",
+      "to": "s5",
+      "symbol": "⊔",
+      "write": "⊔",
+      "dir": "L"
+    },
+    {
+      "id": "t7",
+      "from": "s4",
+      "to": "s4",
+      "symbol": "X",
+      "write": "X",
+      "dir": "L"
+    },
+    {
+      "id": "t8",
+      "from": "s4",
+      "to": "s2",
+      "symbol": "(",
+      "write": "X",
+      "dir": "R"
+    },
+    {
+      "id": "t9",
+      "from": "s4",
+      "to": "s2",
+      "symbol": "A",
+      "write": "B",
+      "dir": "R"
+    },
+    {
+      "id": "t10",
+      "from": "s5",
+      "to": "s5",
+      "symbol": "X",
+      "write": "X",
+      "dir": "L"
+    },
+    {
+      "id": "t11",
+      "from": "s5",
+      "to": "s3",
+      "symbol": "B",
+      "write": "B",
+      "dir": "S"
+    }
+  ],
+  "startId": "s1",
+  "accepts": [
+    "s3"
+  ],
+  "notes": [],
+  "dividers": [],
+  "blocks": [],
+  "meta": {
+    "title": "Balanced parentheses without a stack",
+    "blurb": "Find the first ), cross it off, walk left to the nearest ( that is still open and cross that off too. When no ) is left, there must be no ( either. The leftmost ( is marked A at the start so the machine can tell when its walk left has run out of room.",
+    "inputs": [
+      {
+        "w": "",
+        "expect": "accept"
+      },
+      {
+        "w": "(())",
+        "expect": "accept"
+      },
+      {
+        "w": "(()())",
+        "expect": "accept"
+      },
+      {
+        "w": "(()())(()())",
+        "expect": "accept"
+      },
+      {
+        "w": "(",
+        "expect": "reject"
+      },
+      {
+        "w": ")())",
+        "expect": "reject"
+      },
+      {
+        "w": ")()())",
+        "expect": "reject"
+      },
+      {
+        "w": ")()())(()())",
+        "expect": "reject"
+      }
+    ],
+    "library": {
+      "author": {
+        "login": "thethinkmachine"
+      },
+      "license": "CC-BY-4.0",
+      "tags": [
+        "parentheses",
+        "crossing-off",
+        "left-end-marker"
+      ],
+      "difficulty": "intermediate"
+    }
+  }
+}

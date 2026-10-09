@@ -1,0 +1,406 @@
+{
+  "format": "automata-studio/workspace",
+  "schema": 1,
+  "app": "dev",
+  "machine": "TM",
+  "config": {
+    "sym": {
+      "eps": "ε",
+      "any": "Σ",
+      "blank": "⊔",
+      "leftMarker": "⊢",
+      "rightMarker": "⊣",
+      "stackBottom": "Z",
+      "lambda": "λ"
+    }
+  },
+  "sigma": [
+    "a",
+    "b"
+  ],
+  "stackAlpha": [
+    "a",
+    "b",
+    "w",
+    " ",
+    "=",
+    ">",
+    "[",
+    ".",
+    "]",
+    "m",
+    "p",
+    "(",
+    "c",
+    "+",
+    ")",
+    "j",
+    "o",
+    "i",
+    "n",
+    "'",
+    "X",
+    "Y",
+    "#",
+    "⊔"
+  ],
+  "outputAlpha": [],
+  "tapeCount": 1,
+  "states": [
+    {
+      "id": "s1",
+      "x": 140,
+      "y": 303,
+      "name": "next"
+    },
+    {
+      "id": "s2",
+      "x": 319,
+      "y": 445,
+      "name": "carryA"
+    },
+    {
+      "id": "s3",
+      "x": 319,
+      "y": 255,
+      "name": "carryB"
+    },
+    {
+      "id": "s4",
+      "x": 319,
+      "y": 160,
+      "name": "wipe"
+    },
+    {
+      "id": "s5",
+      "x": 319,
+      "y": 350,
+      "name": "done"
+    },
+    {
+      "id": "s6",
+      "x": 498,
+      "y": 445,
+      "name": "pastA"
+    },
+    {
+      "id": "s7",
+      "x": 498,
+      "y": 350,
+      "name": "firstA"
+    },
+    {
+      "id": "s8",
+      "x": 677,
+      "y": 350,
+      "name": "putA"
+    },
+    {
+      "id": "s9",
+      "x": 856,
+      "y": 303,
+      "name": "home"
+    },
+    {
+      "id": "s10",
+      "x": 498,
+      "y": 255,
+      "name": "pastB"
+    },
+    {
+      "id": "s11",
+      "x": 498,
+      "y": 160,
+      "name": "firstB"
+    },
+    {
+      "id": "s12",
+      "x": 677,
+      "y": 255,
+      "name": "putB"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "t1",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "a",
+      "write": "X",
+      "dir": "R"
+    },
+    {
+      "id": "t2",
+      "from": "s1",
+      "to": "s3",
+      "symbol": "b",
+      "write": "Y",
+      "dir": "R"
+    },
+    {
+      "id": "t3",
+      "from": "s1",
+      "to": "s4",
+      "symbol": "#",
+      "write": "⊔",
+      "dir": "L"
+    },
+    {
+      "id": "t4",
+      "from": "s1",
+      "to": "s5",
+      "symbol": "⊔",
+      "write": "⊔",
+      "dir": "S"
+    },
+    {
+      "id": "t5",
+      "from": "s2",
+      "to": "s2",
+      "symbol": "a",
+      "write": "a",
+      "dir": "R"
+    },
+    {
+      "id": "t6",
+      "from": "s2",
+      "to": "s2",
+      "symbol": "b",
+      "write": "b",
+      "dir": "R"
+    },
+    {
+      "id": "t7",
+      "from": "s2",
+      "to": "s6",
+      "symbol": "#",
+      "write": "#",
+      "dir": "R"
+    },
+    {
+      "id": "t8",
+      "from": "s2",
+      "to": "s7",
+      "symbol": "⊔",
+      "write": "#",
+      "dir": "R"
+    },
+    {
+      "id": "t9",
+      "from": "s7",
+      "to": "s8",
+      "symbol": "⊔",
+      "write": "a",
+      "dir": "R"
+    },
+    {
+      "id": "t10",
+      "from": "s6",
+      "to": "s6",
+      "symbol": "a",
+      "write": "a",
+      "dir": "R"
+    },
+    {
+      "id": "t11",
+      "from": "s6",
+      "to": "s6",
+      "symbol": "b",
+      "write": "b",
+      "dir": "R"
+    },
+    {
+      "id": "t12",
+      "from": "s6",
+      "to": "s8",
+      "symbol": "⊔",
+      "write": "a",
+      "dir": "R"
+    },
+    {
+      "id": "t13",
+      "from": "s8",
+      "to": "s9",
+      "symbol": "⊔",
+      "write": "a",
+      "dir": "L"
+    },
+    {
+      "id": "t14",
+      "from": "s3",
+      "to": "s3",
+      "symbol": "a",
+      "write": "a",
+      "dir": "R"
+    },
+    {
+      "id": "t15",
+      "from": "s3",
+      "to": "s3",
+      "symbol": "b",
+      "write": "b",
+      "dir": "R"
+    },
+    {
+      "id": "t16",
+      "from": "s3",
+      "to": "s10",
+      "symbol": "#",
+      "write": "#",
+      "dir": "R"
+    },
+    {
+      "id": "t17",
+      "from": "s3",
+      "to": "s11",
+      "symbol": "⊔",
+      "write": "#",
+      "dir": "R"
+    },
+    {
+      "id": "t18",
+      "from": "s11",
+      "to": "s12",
+      "symbol": "⊔",
+      "write": "b",
+      "dir": "R"
+    },
+    {
+      "id": "t19",
+      "from": "s10",
+      "to": "s10",
+      "symbol": "a",
+      "write": "a",
+      "dir": "R"
+    },
+    {
+      "id": "t20",
+      "from": "s10",
+      "to": "s10",
+      "symbol": "b",
+      "write": "b",
+      "dir": "R"
+    },
+    {
+      "id": "t21",
+      "from": "s10",
+      "to": "s12",
+      "symbol": "⊔",
+      "write": "b",
+      "dir": "R"
+    },
+    {
+      "id": "t22",
+      "from": "s12",
+      "to": "s9",
+      "symbol": "⊔",
+      "write": "b",
+      "dir": "L"
+    },
+    {
+      "id": "t23",
+      "from": "s9",
+      "to": "s9",
+      "symbol": "a",
+      "write": "a",
+      "dir": "L"
+    },
+    {
+      "id": "t24",
+      "from": "s9",
+      "to": "s9",
+      "symbol": "b",
+      "write": "b",
+      "dir": "L"
+    },
+    {
+      "id": "t25",
+      "from": "s9",
+      "to": "s9",
+      "symbol": "#",
+      "write": "#",
+      "dir": "L"
+    },
+    {
+      "id": "t26",
+      "from": "s9",
+      "to": "s1",
+      "symbol": "X",
+      "write": "X",
+      "dir": "R"
+    },
+    {
+      "id": "t27",
+      "from": "s9",
+      "to": "s1",
+      "symbol": "Y",
+      "write": "Y",
+      "dir": "R"
+    },
+    {
+      "id": "t28",
+      "from": "s4",
+      "to": "s4",
+      "symbol": "X",
+      "write": "⊔",
+      "dir": "L"
+    },
+    {
+      "id": "t29",
+      "from": "s4",
+      "to": "s4",
+      "symbol": "Y",
+      "write": "⊔",
+      "dir": "L"
+    },
+    {
+      "id": "t30",
+      "from": "s4",
+      "to": "s5",
+      "symbol": "⊔",
+      "write": "⊔",
+      "dir": "S"
+    }
+  ],
+  "startId": "s1",
+  "accepts": [
+    "s5"
+  ],
+  "notes": [],
+  "dividers": [],
+  "blocks": [],
+  "meta": {
+    "title": "Say every letter twice",
+    "blurb": "ab becomes aabb. There is no room to insert a letter in place, so the machine builds the answer beyond a # at the right: for each letter, mark it, carry it to the end and write it twice. Then it wipes out the original and the # — what is left is the doubled word.",
+    "inputs": [
+      {
+        "w": "",
+        "expect": "accept"
+      },
+      {
+        "w": "aabba",
+        "expect": "accept"
+      },
+      {
+        "w": "a",
+        "expect": "accept"
+      },
+      {
+        "w": "aaaaaabba",
+        "expect": "accept"
+      }
+    ],
+    "library": {
+      "author": {
+        "login": "thethinkmachine"
+      },
+      "license": "CC-BY-4.0",
+      "tags": [
+        "computing-a-function",
+        "copying",
+        "markers"
+      ],
+      "difficulty": "intermediate"
+    }
+  }
+}

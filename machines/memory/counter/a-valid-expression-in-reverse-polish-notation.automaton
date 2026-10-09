@@ -1,0 +1,153 @@
+{
+  "format": "automata-studio/workspace",
+  "schema": 1,
+  "app": "dev",
+  "machine": "Counter",
+  "config": {
+    "sym": {
+      "eps": "ε",
+      "any": "Σ",
+      "blank": "⊔",
+      "leftMarker": "⊢",
+      "rightMarker": "⊣",
+      "stackBottom": "Z",
+      "lambda": "λ"
+    },
+    "pdaParadigm": "explicit"
+  },
+  "sigma": [
+    "n",
+    "o"
+  ],
+  "stackAlpha": [
+    "Z",
+    "1"
+  ],
+  "outputAlpha": [],
+  "tapeCount": 1,
+  "states": [
+    {
+      "id": "s1",
+      "x": 140,
+      "y": 208,
+      "name": "s"
+    },
+    {
+      "id": "s2",
+      "x": 319,
+      "y": 255,
+      "name": "need"
+    },
+    {
+      "id": "s3",
+      "x": 319,
+      "y": 160,
+      "name": "last"
+    },
+    {
+      "id": "s4",
+      "x": 498,
+      "y": 208,
+      "name": "done"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "t1",
+      "from": "s1",
+      "to": "s1",
+      "symbol": "n",
+      "pop": "ε",
+      "push": "1"
+    },
+    {
+      "id": "t2",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "o",
+      "pop": "1",
+      "push": "ε"
+    },
+    {
+      "id": "t3",
+      "from": "s2",
+      "to": "s1",
+      "symbol": "ε",
+      "pop": "1",
+      "push": "1"
+    },
+    {
+      "id": "t4",
+      "from": "s1",
+      "to": "s3",
+      "symbol": "ε",
+      "pop": "1",
+      "push": "ε"
+    },
+    {
+      "id": "t5",
+      "from": "s3",
+      "to": "s4",
+      "symbol": "ε",
+      "pop": "Z",
+      "push": "Z"
+    }
+  ],
+  "startId": "s1",
+  "accepts": [
+    "s4"
+  ],
+  "notes": [],
+  "dividers": [],
+  "blocks": [],
+  "meta": {
+    "title": "A valid expression in reverse Polish notation",
+    "blurb": "n pushes an operand; o, a binary operator, takes two and leaves one. The counter is the depth of the evaluation stack: an operator needs at least two, and a valid expression ends with exactly one. A calculator’s stack, reduced to its height.",
+    "inputs": [
+      {
+        "w": "n",
+        "expect": "accept"
+      },
+      {
+        "w": "nno",
+        "expect": "accept"
+      },
+      {
+        "w": "nnono",
+        "expect": "accept"
+      },
+      {
+        "w": "nnnoo",
+        "expect": "accept"
+      },
+      {
+        "w": "nonn",
+        "expect": "reject"
+      },
+      {
+        "w": "nn",
+        "expect": "reject"
+      },
+      {
+        "w": "o",
+        "expect": "reject"
+      },
+      {
+        "w": "nnooo",
+        "expect": "reject"
+      }
+    ],
+    "library": {
+      "author": {
+        "login": "thethinkmachine"
+      },
+      "license": "CC-BY-4.0",
+      "tags": [
+        "rpn",
+        "expressions",
+        "stack-depth"
+      ],
+      "difficulty": "intermediate"
+    }
+  }
+}

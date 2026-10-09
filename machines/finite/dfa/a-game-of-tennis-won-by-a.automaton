@@ -1,0 +1,417 @@
+{
+  "format": "automata-studio/workspace",
+  "schema": 1,
+  "app": "dev",
+  "machine": "DFA",
+  "config": {
+    "sym": {
+      "eps": "ε",
+      "any": "Σ",
+      "blank": "⊔",
+      "leftMarker": "⊢",
+      "rightMarker": "⊣",
+      "stackBottom": "Z",
+      "lambda": "λ"
+    }
+  },
+  "sigma": [
+    "a",
+    "b"
+  ],
+  "stackAlpha": [],
+  "outputAlpha": [],
+  "tapeCount": 1,
+  "states": [
+    {
+      "id": "s1",
+      "x": 140,
+      "y": 350,
+      "name": "0–0"
+    },
+    {
+      "id": "s2",
+      "x": 319,
+      "y": 398,
+      "name": "15–0"
+    },
+    {
+      "id": "s3",
+      "x": 319,
+      "y": 303,
+      "name": "0–15"
+    },
+    {
+      "id": "s4",
+      "x": 498,
+      "y": 445,
+      "name": "30–0"
+    },
+    {
+      "id": "s5",
+      "x": 498,
+      "y": 350,
+      "name": "15–15"
+    },
+    {
+      "id": "s6",
+      "x": 498,
+      "y": 255,
+      "name": "0–30"
+    },
+    {
+      "id": "s7",
+      "x": 677,
+      "y": 493,
+      "name": "40–0"
+    },
+    {
+      "id": "s8",
+      "x": 677,
+      "y": 398,
+      "name": "30–15"
+    },
+    {
+      "id": "s9",
+      "x": 677,
+      "y": 303,
+      "name": "15–30"
+    },
+    {
+      "id": "s10",
+      "x": 677,
+      "y": 208,
+      "name": "0–40"
+    },
+    {
+      "id": "s11",
+      "x": 856,
+      "y": 540,
+      "name": "A_wins"
+    },
+    {
+      "id": "s12",
+      "x": 856,
+      "y": 445,
+      "name": "40–15"
+    },
+    {
+      "id": "s13",
+      "x": 856,
+      "y": 350,
+      "name": "30–30"
+    },
+    {
+      "id": "s14",
+      "x": 856,
+      "y": 255,
+      "name": "15–40"
+    },
+    {
+      "id": "s15",
+      "x": 856,
+      "y": 160,
+      "name": "B_wins"
+    },
+    {
+      "id": "s16",
+      "x": 1035,
+      "y": 398,
+      "name": "40–30"
+    },
+    {
+      "id": "s17",
+      "x": 1035,
+      "y": 303,
+      "name": "30–40"
+    },
+    {
+      "id": "s18",
+      "x": 1214,
+      "y": 350,
+      "name": "deuce"
+    },
+    {
+      "id": "s19",
+      "x": 1393,
+      "y": 398,
+      "name": "adv_A"
+    },
+    {
+      "id": "s20",
+      "x": 1393,
+      "y": 303,
+      "name": "adv_B"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "t1",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "a"
+    },
+    {
+      "id": "t2",
+      "from": "s1",
+      "to": "s3",
+      "symbol": "b"
+    },
+    {
+      "id": "t3",
+      "from": "s2",
+      "to": "s4",
+      "symbol": "a"
+    },
+    {
+      "id": "t4",
+      "from": "s2",
+      "to": "s5",
+      "symbol": "b"
+    },
+    {
+      "id": "t5",
+      "from": "s3",
+      "to": "s5",
+      "symbol": "a"
+    },
+    {
+      "id": "t6",
+      "from": "s3",
+      "to": "s6",
+      "symbol": "b"
+    },
+    {
+      "id": "t7",
+      "from": "s4",
+      "to": "s7",
+      "symbol": "a"
+    },
+    {
+      "id": "t8",
+      "from": "s4",
+      "to": "s8",
+      "symbol": "b"
+    },
+    {
+      "id": "t9",
+      "from": "s5",
+      "to": "s8",
+      "symbol": "a"
+    },
+    {
+      "id": "t10",
+      "from": "s5",
+      "to": "s9",
+      "symbol": "b"
+    },
+    {
+      "id": "t11",
+      "from": "s6",
+      "to": "s9",
+      "symbol": "a"
+    },
+    {
+      "id": "t12",
+      "from": "s6",
+      "to": "s10",
+      "symbol": "b"
+    },
+    {
+      "id": "t13",
+      "from": "s7",
+      "to": "s11",
+      "symbol": "a"
+    },
+    {
+      "id": "t14",
+      "from": "s7",
+      "to": "s12",
+      "symbol": "b"
+    },
+    {
+      "id": "t15",
+      "from": "s8",
+      "to": "s12",
+      "symbol": "a"
+    },
+    {
+      "id": "t16",
+      "from": "s8",
+      "to": "s13",
+      "symbol": "b"
+    },
+    {
+      "id": "t17",
+      "from": "s9",
+      "to": "s13",
+      "symbol": "a"
+    },
+    {
+      "id": "t18",
+      "from": "s9",
+      "to": "s14",
+      "symbol": "b"
+    },
+    {
+      "id": "t19",
+      "from": "s10",
+      "to": "s14",
+      "symbol": "a"
+    },
+    {
+      "id": "t20",
+      "from": "s10",
+      "to": "s15",
+      "symbol": "b"
+    },
+    {
+      "id": "t21",
+      "from": "s12",
+      "to": "s11",
+      "symbol": "a"
+    },
+    {
+      "id": "t22",
+      "from": "s12",
+      "to": "s16",
+      "symbol": "b"
+    },
+    {
+      "id": "t23",
+      "from": "s13",
+      "to": "s16",
+      "symbol": "a"
+    },
+    {
+      "id": "t24",
+      "from": "s13",
+      "to": "s17",
+      "symbol": "b"
+    },
+    {
+      "id": "t25",
+      "from": "s14",
+      "to": "s17",
+      "symbol": "a"
+    },
+    {
+      "id": "t26",
+      "from": "s14",
+      "to": "s15",
+      "symbol": "b"
+    },
+    {
+      "id": "t27",
+      "from": "s16",
+      "to": "s11",
+      "symbol": "a"
+    },
+    {
+      "id": "t28",
+      "from": "s16",
+      "to": "s18",
+      "symbol": "b"
+    },
+    {
+      "id": "t29",
+      "from": "s17",
+      "to": "s18",
+      "symbol": "a"
+    },
+    {
+      "id": "t30",
+      "from": "s17",
+      "to": "s15",
+      "symbol": "b"
+    },
+    {
+      "id": "t31",
+      "from": "s18",
+      "to": "s19",
+      "symbol": "a"
+    },
+    {
+      "id": "t32",
+      "from": "s18",
+      "to": "s20",
+      "symbol": "b"
+    },
+    {
+      "id": "t33",
+      "from": "s19",
+      "to": "s11",
+      "symbol": "a"
+    },
+    {
+      "id": "t34",
+      "from": "s19",
+      "to": "s18",
+      "symbol": "b"
+    },
+    {
+      "id": "t35",
+      "from": "s20",
+      "to": "s18",
+      "symbol": "a"
+    },
+    {
+      "id": "t36",
+      "from": "s20",
+      "to": "s15",
+      "symbol": "b"
+    }
+  ],
+  "startId": "s1",
+  "accepts": [
+    "s11"
+  ],
+  "notes": [],
+  "dividers": [],
+  "blocks": [],
+  "meta": {
+    "title": "A game of tennis, won by A",
+    "blurb": "Each symbol is a point, a or b. The states are the scores as an umpire calls them, and the run stops when someone wins. It is not minimal — 30–30 behaves exactly like deuce, and 40–30 like advantage A — which the minimal DFA notices and an umpire never would.",
+    "inputs": [
+      {
+        "w": "aaaa",
+        "expect": "accept"
+      },
+      {
+        "w": "ababaa",
+        "expect": "accept"
+      },
+      {
+        "w": "bbbaaaaa",
+        "expect": "accept"
+      },
+      {
+        "w": "abababaa",
+        "expect": "accept"
+      },
+      {
+        "w": "aaab",
+        "expect": "reject"
+      },
+      {
+        "w": "bbbb",
+        "expect": "reject"
+      },
+      {
+        "w": "aaaab",
+        "expect": "reject"
+      }
+    ],
+    "library": {
+      "author": {
+        "login": "thethinkmachine"
+      },
+      "license": "CC-BY-4.0",
+      "tags": [
+        "games",
+        "sports",
+        "minimisation"
+      ],
+      "difficulty": "intermediate"
+    }
+  }
+}

@@ -1,0 +1,218 @@
+{
+  "format": "automata-studio/workspace",
+  "schema": 1,
+  "app": "dev",
+  "machine": "NFA",
+  "config": {
+    "sym": {
+      "eps": "ε",
+      "any": "Σ",
+      "blank": "⊔",
+      "leftMarker": "⊢",
+      "rightMarker": "⊣",
+      "stackBottom": "Z",
+      "lambda": "λ"
+    }
+  },
+  "sigma": [
+    "w",
+    "e",
+    "b",
+    "a",
+    "y",
+    "x"
+  ],
+  "stackAlpha": [],
+  "outputAlpha": [],
+  "tapeCount": 1,
+  "states": [
+    {
+      "id": "s1",
+      "x": 140,
+      "y": 279,
+      "name": "1"
+    },
+    {
+      "id": "s2",
+      "x": 310,
+      "y": 160,
+      "name": "2"
+    },
+    {
+      "id": "s3",
+      "x": 480,
+      "y": 160,
+      "name": "3"
+    },
+    {
+      "id": "s4",
+      "x": 650,
+      "y": 160,
+      "name": "4"
+    },
+    {
+      "id": "s5",
+      "x": 310,
+      "y": 398,
+      "name": "5"
+    },
+    {
+      "id": "s6",
+      "x": 480,
+      "y": 398,
+      "name": "6"
+    },
+    {
+      "id": "s7",
+      "x": 650,
+      "y": 398,
+      "name": "7"
+    },
+    {
+      "id": "s8",
+      "x": 820,
+      "y": 398,
+      "name": "8"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "t1",
+      "from": "s1",
+      "to": "s1",
+      "symbol": "w"
+    },
+    {
+      "id": "t2",
+      "from": "s1",
+      "to": "s1",
+      "symbol": "e"
+    },
+    {
+      "id": "t3",
+      "from": "s1",
+      "to": "s1",
+      "symbol": "b"
+    },
+    {
+      "id": "t4",
+      "from": "s1",
+      "to": "s1",
+      "symbol": "a"
+    },
+    {
+      "id": "t5",
+      "from": "s1",
+      "to": "s1",
+      "symbol": "y"
+    },
+    {
+      "id": "t6",
+      "from": "s1",
+      "to": "s1",
+      "symbol": "x"
+    },
+    {
+      "id": "t7",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "w"
+    },
+    {
+      "id": "t8",
+      "from": "s2",
+      "to": "s3",
+      "symbol": "e"
+    },
+    {
+      "id": "t9",
+      "from": "s3",
+      "to": "s4",
+      "symbol": "b"
+    },
+    {
+      "id": "t10",
+      "from": "s1",
+      "to": "s5",
+      "symbol": "e"
+    },
+    {
+      "id": "t11",
+      "from": "s5",
+      "to": "s6",
+      "symbol": "b"
+    },
+    {
+      "id": "t12",
+      "from": "s6",
+      "to": "s7",
+      "symbol": "a"
+    },
+    {
+      "id": "t13",
+      "from": "s7",
+      "to": "s8",
+      "symbol": "y"
+    }
+  ],
+  "startId": "s1",
+  "accepts": [
+    "s4",
+    "s8"
+  ],
+  "notes": [],
+  "dividers": [],
+  "blocks": [],
+  "meta": {
+    "title": "Finding “web” or “ebay”",
+    "blurb": "Keyword search as an NFA: the start state loops on everything and, at each position, may guess that a keyword starts here. It accepts the texts that end in a keyword, so a search tool running it reports a hit each time it passes through an accepting state. x stands for any other letter.",
+    "inputs": [
+      {
+        "w": "web",
+        "expect": "accept"
+      },
+      {
+        "w": "ebay",
+        "expect": "accept"
+      },
+      {
+        "w": "xxweb",
+        "expect": "accept"
+      },
+      {
+        "w": "webebay",
+        "expect": "accept"
+      },
+      {
+        "w": "webx",
+        "expect": "reject"
+      },
+      {
+        "w": "ebxay",
+        "expect": "reject"
+      },
+      {
+        "w": "wbe",
+        "expect": "reject"
+      },
+      {
+        "w": "eba",
+        "expect": "reject"
+      }
+    ],
+    "library": {
+      "author": {
+        "login": "thethinkmachine"
+      },
+      "license": "CC-BY-4.0",
+      "tags": [
+        "textbook",
+        "hopcroft",
+        "text-search",
+        "keywords"
+      ],
+      "difficulty": "intro",
+      "chapter": "Hopcroft, Motwani & Ullman, §2.4 (text search)"
+    }
+  }
+}

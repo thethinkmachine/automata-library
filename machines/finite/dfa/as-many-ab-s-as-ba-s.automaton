@@ -1,0 +1,177 @@
+{
+  "format": "automata-studio/workspace",
+  "schema": 1,
+  "app": "dev",
+  "machine": "DFA",
+  "config": {
+    "sym": {
+      "eps": "ε",
+      "any": "Σ",
+      "blank": "⊔",
+      "leftMarker": "⊢",
+      "rightMarker": "⊣",
+      "stackBottom": "Z",
+      "lambda": "λ"
+    }
+  },
+  "sigma": [
+    "a",
+    "b"
+  ],
+  "stackAlpha": [],
+  "outputAlpha": [],
+  "tapeCount": 1,
+  "states": [
+    {
+      "id": "s1",
+      "x": 140,
+      "y": 208,
+      "name": "start"
+    },
+    {
+      "id": "s2",
+      "x": 319,
+      "y": 255,
+      "name": "a..a"
+    },
+    {
+      "id": "s3",
+      "x": 319,
+      "y": 160,
+      "name": "b..b"
+    },
+    {
+      "id": "s4",
+      "x": 498,
+      "y": 255,
+      "name": "a..b"
+    },
+    {
+      "id": "s5",
+      "x": 498,
+      "y": 160,
+      "name": "b..a"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "t1",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "a"
+    },
+    {
+      "id": "t2",
+      "from": "s1",
+      "to": "s3",
+      "symbol": "b"
+    },
+    {
+      "id": "t3",
+      "from": "s2",
+      "to": "s2",
+      "symbol": "a"
+    },
+    {
+      "id": "t4",
+      "from": "s2",
+      "to": "s4",
+      "symbol": "b"
+    },
+    {
+      "id": "t5",
+      "from": "s4",
+      "to": "s4",
+      "symbol": "b"
+    },
+    {
+      "id": "t6",
+      "from": "s4",
+      "to": "s2",
+      "symbol": "a"
+    },
+    {
+      "id": "t7",
+      "from": "s3",
+      "to": "s3",
+      "symbol": "b"
+    },
+    {
+      "id": "t8",
+      "from": "s3",
+      "to": "s5",
+      "symbol": "a"
+    },
+    {
+      "id": "t9",
+      "from": "s5",
+      "to": "s5",
+      "symbol": "a"
+    },
+    {
+      "id": "t10",
+      "from": "s5",
+      "to": "s3",
+      "symbol": "b"
+    }
+  ],
+  "startId": "s1",
+  "accepts": [
+    "s1",
+    "s2",
+    "s3"
+  ],
+  "notes": [],
+  "dividers": [],
+  "blocks": [],
+  "meta": {
+    "title": "As many ab’s as ba’s",
+    "blurb": "Counting two kinds of substring sounds like it needs a counter. It does not: every switch from a to b is followed by a switch back or by the end, so the counts are equal exactly when the word starts and ends with the same letter.",
+    "inputs": [
+      {
+        "w": "",
+        "expect": "accept"
+      },
+      {
+        "w": "aabba",
+        "expect": "accept"
+      },
+      {
+        "w": "a",
+        "expect": "accept"
+      },
+      {
+        "w": "aaaaaaabba",
+        "expect": "accept"
+      },
+      {
+        "w": "babba",
+        "expect": "reject"
+      },
+      {
+        "w": "ba",
+        "expect": "reject"
+      },
+      {
+        "w": "baaaaaabba",
+        "expect": "reject"
+      },
+      {
+        "w": "ab",
+        "expect": "reject"
+      }
+    ],
+    "library": {
+      "author": {
+        "login": "thethinkmachine"
+      },
+      "license": "CC-BY-4.0",
+      "tags": [
+        "counting",
+        "surprise",
+        "substrings"
+      ],
+      "difficulty": "intermediate"
+    }
+  }
+}

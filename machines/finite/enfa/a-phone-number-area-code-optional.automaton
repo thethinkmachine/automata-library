@@ -1,0 +1,247 @@
+{
+  "format": "automata-studio/workspace",
+  "schema": 1,
+  "app": "dev",
+  "machine": "ε-NFA",
+  "config": {
+    "sym": {
+      "eps": "ε",
+      "any": "Σ",
+      "blank": "⊔",
+      "leftMarker": "⊢",
+      "rightMarker": "⊣",
+      "stackBottom": "Z",
+      "lambda": "λ"
+    }
+  },
+  "sigma": [
+    "d",
+    "(",
+    ")",
+    "-"
+  ],
+  "stackAlpha": [],
+  "outputAlpha": [],
+  "tapeCount": 1,
+  "states": [
+    {
+      "id": "s1",
+      "x": 140,
+      "y": 208,
+      "name": "start"
+    },
+    {
+      "id": "s2",
+      "x": 319,
+      "y": 160,
+      "name": "p0"
+    },
+    {
+      "id": "s3",
+      "x": 498,
+      "y": 160,
+      "name": "p1"
+    },
+    {
+      "id": "s4",
+      "x": 677,
+      "y": 160,
+      "name": "p2"
+    },
+    {
+      "id": "s5",
+      "x": 856,
+      "y": 160,
+      "name": "p3"
+    },
+    {
+      "id": "s6",
+      "x": 319,
+      "y": 255,
+      "name": "local"
+    },
+    {
+      "id": "s7",
+      "x": 498,
+      "y": 255,
+      "name": "l1"
+    },
+    {
+      "id": "s8",
+      "x": 677,
+      "y": 255,
+      "name": "l2"
+    },
+    {
+      "id": "s9",
+      "x": 856,
+      "y": 255,
+      "name": "l3"
+    },
+    {
+      "id": "s10",
+      "x": 1035,
+      "y": 208,
+      "name": "dash"
+    },
+    {
+      "id": "s11",
+      "x": 1214,
+      "y": 208,
+      "name": "m1"
+    },
+    {
+      "id": "s12",
+      "x": 1393,
+      "y": 208,
+      "name": "m2"
+    },
+    {
+      "id": "s13",
+      "x": 1572,
+      "y": 208,
+      "name": "m3"
+    },
+    {
+      "id": "s14",
+      "x": 1751,
+      "y": 208,
+      "name": "done"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "t1",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "("
+    },
+    {
+      "id": "t2",
+      "from": "s2",
+      "to": "s3",
+      "symbol": "d"
+    },
+    {
+      "id": "t3",
+      "from": "s3",
+      "to": "s4",
+      "symbol": "d"
+    },
+    {
+      "id": "t4",
+      "from": "s4",
+      "to": "s5",
+      "symbol": "d"
+    },
+    {
+      "id": "t5",
+      "from": "s5",
+      "to": "s6",
+      "symbol": ")"
+    },
+    {
+      "id": "t6",
+      "from": "s1",
+      "to": "s6",
+      "symbol": "ε"
+    },
+    {
+      "id": "t7",
+      "from": "s6",
+      "to": "s7",
+      "symbol": "d"
+    },
+    {
+      "id": "t8",
+      "from": "s7",
+      "to": "s8",
+      "symbol": "d"
+    },
+    {
+      "id": "t9",
+      "from": "s8",
+      "to": "s9",
+      "symbol": "d"
+    },
+    {
+      "id": "t10",
+      "from": "s9",
+      "to": "s10",
+      "symbol": "-"
+    },
+    {
+      "id": "t11",
+      "from": "s10",
+      "to": "s11",
+      "symbol": "d"
+    },
+    {
+      "id": "t12",
+      "from": "s11",
+      "to": "s12",
+      "symbol": "d"
+    },
+    {
+      "id": "t13",
+      "from": "s12",
+      "to": "s13",
+      "symbol": "d"
+    },
+    {
+      "id": "t14",
+      "from": "s13",
+      "to": "s14",
+      "symbol": "d"
+    }
+  ],
+  "startId": "s1",
+  "accepts": [
+    "s14"
+  ],
+  "notes": [],
+  "dividers": [],
+  "blocks": [],
+  "meta": {
+    "title": "A phone number, area code optional",
+    "blurb": "ddd-dddd, optionally preceded by an area code in parentheses: d stands for any digit. The ε-move is the word “optionally” — it lets the machine skip the area-code branch without reading anything.",
+    "inputs": [
+      {
+        "w": "ddd-dddd",
+        "expect": "accept"
+      },
+      {
+        "w": "(ddd)ddd-dddd",
+        "expect": "accept"
+      },
+      {
+        "w": "ddddddd",
+        "expect": "reject"
+      },
+      {
+        "w": "(dd)ddd-dddd",
+        "expect": "reject"
+      },
+      {
+        "w": "ddd-ddd",
+        "expect": "reject"
+      },
+      {
+        "w": "(ddd)-ddd-dddd",
+        "expect": "reject"
+      }
+    ],
+    "library": {
+      "author": {
+        "login": "thethinkmachine"
+      },
+      "license": "CC-BY-4.0",
+      "tags": [
+        "validation",
+        "format",
+        "optional"
+      ],
+      "difficulty": "intro"
+    }
+  }
+}

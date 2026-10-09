@@ -1,0 +1,708 @@
+{
+  "format": "automata-studio/workspace",
+  "schema": 1,
+  "app": "dev",
+  "machine": "DFA",
+  "config": {
+    "sym": {
+      "eps": "ε",
+      "any": "Σ",
+      "blank": "⊔",
+      "leftMarker": "⊢",
+      "rightMarker": "⊣",
+      "stackBottom": "Z",
+      "lambda": "λ"
+    }
+  },
+  "sigma": [
+    "AB",
+    "AC",
+    "BA",
+    "BC",
+    "CA",
+    "CB"
+  ],
+  "stackAlpha": [],
+  "outputAlpha": [],
+  "tapeCount": 1,
+  "states": [
+    {
+      "id": "s1",
+      "x": 602,
+      "y": 160,
+      "name": "AAA"
+    },
+    {
+      "id": "s2",
+      "x": 536,
+      "y": 274,
+      "name": "AAB"
+    },
+    {
+      "id": "s3",
+      "x": 668,
+      "y": 274,
+      "name": "AAC"
+    },
+    {
+      "id": "s4",
+      "x": 470,
+      "y": 389,
+      "name": "ACB"
+    },
+    {
+      "id": "s5",
+      "x": 734,
+      "y": 389,
+      "name": "ABC"
+    },
+    {
+      "id": "s6",
+      "x": 536,
+      "y": 503,
+      "name": "ACA"
+    },
+    {
+      "id": "s7",
+      "x": 404,
+      "y": 503,
+      "name": "ACC"
+    },
+    {
+      "id": "s8",
+      "x": 668,
+      "y": 503,
+      "name": "ABA"
+    },
+    {
+      "id": "s9",
+      "x": 800,
+      "y": 503,
+      "name": "ABB"
+    },
+    {
+      "id": "s10",
+      "x": 338,
+      "y": 617,
+      "name": "BCC"
+    },
+    {
+      "id": "s11",
+      "x": 866,
+      "y": 617,
+      "name": "CBB"
+    },
+    {
+      "id": "s12",
+      "x": 272,
+      "y": 732,
+      "name": "BCA"
+    },
+    {
+      "id": "s13",
+      "x": 404,
+      "y": 732,
+      "name": "BCB"
+    },
+    {
+      "id": "s14",
+      "x": 932,
+      "y": 732,
+      "name": "CBA"
+    },
+    {
+      "id": "s15",
+      "x": 800,
+      "y": 732,
+      "name": "CBC"
+    },
+    {
+      "id": "s16",
+      "x": 206,
+      "y": 846,
+      "name": "BBA"
+    },
+    {
+      "id": "s17",
+      "x": 470,
+      "y": 846,
+      "name": "BAB"
+    },
+    {
+      "id": "s18",
+      "x": 998,
+      "y": 846,
+      "name": "CCA"
+    },
+    {
+      "id": "s19",
+      "x": 734,
+      "y": 846,
+      "name": "CAC"
+    },
+    {
+      "id": "s20",
+      "x": 140,
+      "y": 960,
+      "name": "BBB"
+    },
+    {
+      "id": "s21",
+      "x": 272,
+      "y": 960,
+      "name": "BBC"
+    },
+    {
+      "id": "s22",
+      "x": 536,
+      "y": 960,
+      "name": "BAA"
+    },
+    {
+      "id": "s23",
+      "x": 404,
+      "y": 960,
+      "name": "BAC"
+    },
+    {
+      "id": "s24",
+      "x": 932,
+      "y": 960,
+      "name": "CCB"
+    },
+    {
+      "id": "s25",
+      "x": 1064,
+      "y": 960,
+      "name": "CCC"
+    },
+    {
+      "id": "s26",
+      "x": 668,
+      "y": 960,
+      "name": "CAA"
+    },
+    {
+      "id": "s27",
+      "x": 800,
+      "y": 960,
+      "name": "CAB"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "t1",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "AB"
+    },
+    {
+      "id": "t2",
+      "from": "s1",
+      "to": "s3",
+      "symbol": "AC"
+    },
+    {
+      "id": "t3",
+      "from": "s2",
+      "to": "s4",
+      "symbol": "AC"
+    },
+    {
+      "id": "t4",
+      "from": "s2",
+      "to": "s1",
+      "symbol": "BA"
+    },
+    {
+      "id": "t5",
+      "from": "s2",
+      "to": "s3",
+      "symbol": "BC"
+    },
+    {
+      "id": "t6",
+      "from": "s3",
+      "to": "s5",
+      "symbol": "AB"
+    },
+    {
+      "id": "t7",
+      "from": "s3",
+      "to": "s1",
+      "symbol": "CA"
+    },
+    {
+      "id": "t8",
+      "from": "s3",
+      "to": "s2",
+      "symbol": "CB"
+    },
+    {
+      "id": "t9",
+      "from": "s4",
+      "to": "s6",
+      "symbol": "BA"
+    },
+    {
+      "id": "t10",
+      "from": "s4",
+      "to": "s7",
+      "symbol": "BC"
+    },
+    {
+      "id": "t11",
+      "from": "s4",
+      "to": "s2",
+      "symbol": "CA"
+    },
+    {
+      "id": "t12",
+      "from": "s5",
+      "to": "s3",
+      "symbol": "BA"
+    },
+    {
+      "id": "t13",
+      "from": "s5",
+      "to": "s8",
+      "symbol": "CA"
+    },
+    {
+      "id": "t14",
+      "from": "s5",
+      "to": "s9",
+      "symbol": "CB"
+    },
+    {
+      "id": "t15",
+      "from": "s6",
+      "to": "s4",
+      "symbol": "AB"
+    },
+    {
+      "id": "t16",
+      "from": "s6",
+      "to": "s7",
+      "symbol": "AC"
+    },
+    {
+      "id": "t17",
+      "from": "s6",
+      "to": "s8",
+      "symbol": "CB"
+    },
+    {
+      "id": "t18",
+      "from": "s7",
+      "to": "s10",
+      "symbol": "AB"
+    },
+    {
+      "id": "t19",
+      "from": "s7",
+      "to": "s6",
+      "symbol": "CA"
+    },
+    {
+      "id": "t20",
+      "from": "s7",
+      "to": "s4",
+      "symbol": "CB"
+    },
+    {
+      "id": "t21",
+      "from": "s8",
+      "to": "s9",
+      "symbol": "AB"
+    },
+    {
+      "id": "t22",
+      "from": "s8",
+      "to": "s5",
+      "symbol": "AC"
+    },
+    {
+      "id": "t23",
+      "from": "s8",
+      "to": "s6",
+      "symbol": "BC"
+    },
+    {
+      "id": "t24",
+      "from": "s9",
+      "to": "s11",
+      "symbol": "AC"
+    },
+    {
+      "id": "t25",
+      "from": "s9",
+      "to": "s8",
+      "symbol": "BA"
+    },
+    {
+      "id": "t26",
+      "from": "s9",
+      "to": "s5",
+      "symbol": "BC"
+    },
+    {
+      "id": "t27",
+      "from": "s10",
+      "to": "s7",
+      "symbol": "BA"
+    },
+    {
+      "id": "t28",
+      "from": "s10",
+      "to": "s12",
+      "symbol": "CA"
+    },
+    {
+      "id": "t29",
+      "from": "s10",
+      "to": "s13",
+      "symbol": "CB"
+    },
+    {
+      "id": "t30",
+      "from": "s11",
+      "to": "s14",
+      "symbol": "BA"
+    },
+    {
+      "id": "t31",
+      "from": "s11",
+      "to": "s15",
+      "symbol": "BC"
+    },
+    {
+      "id": "t32",
+      "from": "s11",
+      "to": "s9",
+      "symbol": "CA"
+    },
+    {
+      "id": "t33",
+      "from": "s12",
+      "to": "s13",
+      "symbol": "AB"
+    },
+    {
+      "id": "t34",
+      "from": "s12",
+      "to": "s10",
+      "symbol": "AC"
+    },
+    {
+      "id": "t35",
+      "from": "s12",
+      "to": "s16",
+      "symbol": "CB"
+    },
+    {
+      "id": "t36",
+      "from": "s13",
+      "to": "s12",
+      "symbol": "BA"
+    },
+    {
+      "id": "t37",
+      "from": "s13",
+      "to": "s10",
+      "symbol": "BC"
+    },
+    {
+      "id": "t38",
+      "from": "s13",
+      "to": "s17",
+      "symbol": "CA"
+    },
+    {
+      "id": "t39",
+      "from": "s14",
+      "to": "s11",
+      "symbol": "AB"
+    },
+    {
+      "id": "t40",
+      "from": "s14",
+      "to": "s15",
+      "symbol": "AC"
+    },
+    {
+      "id": "t41",
+      "from": "s14",
+      "to": "s18",
+      "symbol": "BC"
+    },
+    {
+      "id": "t42",
+      "from": "s15",
+      "to": "s19",
+      "symbol": "BA"
+    },
+    {
+      "id": "t43",
+      "from": "s15",
+      "to": "s14",
+      "symbol": "CA"
+    },
+    {
+      "id": "t44",
+      "from": "s15",
+      "to": "s11",
+      "symbol": "CB"
+    },
+    {
+      "id": "t45",
+      "from": "s16",
+      "to": "s20",
+      "symbol": "AB"
+    },
+    {
+      "id": "t46",
+      "from": "s16",
+      "to": "s21",
+      "symbol": "AC"
+    },
+    {
+      "id": "t47",
+      "from": "s16",
+      "to": "s12",
+      "symbol": "BC"
+    },
+    {
+      "id": "t48",
+      "from": "s17",
+      "to": "s13",
+      "symbol": "AC"
+    },
+    {
+      "id": "t49",
+      "from": "s17",
+      "to": "s22",
+      "symbol": "BA"
+    },
+    {
+      "id": "t50",
+      "from": "s17",
+      "to": "s23",
+      "symbol": "BC"
+    },
+    {
+      "id": "t51",
+      "from": "s18",
+      "to": "s24",
+      "symbol": "AB"
+    },
+    {
+      "id": "t52",
+      "from": "s18",
+      "to": "s25",
+      "symbol": "AC"
+    },
+    {
+      "id": "t53",
+      "from": "s18",
+      "to": "s14",
+      "symbol": "CB"
+    },
+    {
+      "id": "t54",
+      "from": "s19",
+      "to": "s15",
+      "symbol": "AB"
+    },
+    {
+      "id": "t55",
+      "from": "s19",
+      "to": "s26",
+      "symbol": "CA"
+    },
+    {
+      "id": "t56",
+      "from": "s19",
+      "to": "s27",
+      "symbol": "CB"
+    },
+    {
+      "id": "t57",
+      "from": "s20",
+      "to": "s16",
+      "symbol": "BA"
+    },
+    {
+      "id": "t58",
+      "from": "s20",
+      "to": "s21",
+      "symbol": "BC"
+    },
+    {
+      "id": "t59",
+      "from": "s21",
+      "to": "s23",
+      "symbol": "BA"
+    },
+    {
+      "id": "t60",
+      "from": "s21",
+      "to": "s16",
+      "symbol": "CA"
+    },
+    {
+      "id": "t61",
+      "from": "s21",
+      "to": "s20",
+      "symbol": "CB"
+    },
+    {
+      "id": "t62",
+      "from": "s22",
+      "to": "s17",
+      "symbol": "AB"
+    },
+    {
+      "id": "t63",
+      "from": "s22",
+      "to": "s23",
+      "symbol": "AC"
+    },
+    {
+      "id": "t64",
+      "from": "s22",
+      "to": "s26",
+      "symbol": "BC"
+    },
+    {
+      "id": "t65",
+      "from": "s23",
+      "to": "s21",
+      "symbol": "AB"
+    },
+    {
+      "id": "t66",
+      "from": "s23",
+      "to": "s22",
+      "symbol": "CA"
+    },
+    {
+      "id": "t67",
+      "from": "s23",
+      "to": "s17",
+      "symbol": "CB"
+    },
+    {
+      "id": "t68",
+      "from": "s24",
+      "to": "s18",
+      "symbol": "BA"
+    },
+    {
+      "id": "t69",
+      "from": "s24",
+      "to": "s25",
+      "symbol": "BC"
+    },
+    {
+      "id": "t70",
+      "from": "s24",
+      "to": "s27",
+      "symbol": "CA"
+    },
+    {
+      "id": "t71",
+      "from": "s25",
+      "to": "s18",
+      "symbol": "CA"
+    },
+    {
+      "id": "t72",
+      "from": "s25",
+      "to": "s24",
+      "symbol": "CB"
+    },
+    {
+      "id": "t73",
+      "from": "s26",
+      "to": "s27",
+      "symbol": "AB"
+    },
+    {
+      "id": "t74",
+      "from": "s26",
+      "to": "s19",
+      "symbol": "AC"
+    },
+    {
+      "id": "t75",
+      "from": "s26",
+      "to": "s22",
+      "symbol": "CB"
+    },
+    {
+      "id": "t76",
+      "from": "s27",
+      "to": "s24",
+      "symbol": "AC"
+    },
+    {
+      "id": "t77",
+      "from": "s27",
+      "to": "s26",
+      "symbol": "BA"
+    },
+    {
+      "id": "t78",
+      "from": "s27",
+      "to": "s19",
+      "symbol": "BC"
+    }
+  ],
+  "startId": "s1",
+  "accepts": [
+    "s25"
+  ],
+  "notes": [],
+  "dividers": [],
+  "blocks": [],
+  "meta": {
+    "title": "Towers of Hanoi, three disks",
+    "blurb": "Each symbol moves the top disk from one peg to another; an illegal move has no edge. The 27 states are every legal arrangement, and drawn by where the disks sit they form a Sierpiński triangle. The shortest solution is 2³ − 1 = 7 moves.",
+    "inputs": [
+      {
+        "w": "AC AB CB AC BA BC AC",
+        "expect": "accept"
+      },
+      {
+        "w": "AC AB CB AC BA BC AB CA",
+        "expect": "reject"
+      },
+      {
+        "w": "AC AB CB AC BA BC",
+        "expect": "reject"
+      },
+      {
+        "w": "AC AC",
+        "expect": "reject"
+      },
+      {
+        "w": "AB AC CB AC BA BC AC",
+        "expect": "reject"
+      }
+    ],
+    "library": {
+      "author": {
+        "login": "thethinkmachine"
+      },
+      "license": "CC-BY-4.0",
+      "tags": [
+        "puzzles",
+        "hanoi",
+        "state-space-search",
+        "fractals"
+      ],
+      "difficulty": "advanced"
+    }
+  }
+}

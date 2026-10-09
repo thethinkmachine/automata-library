@@ -1,0 +1,130 @@
+{
+  "format": "automata-studio/workspace",
+  "schema": 1,
+  "app": "dev",
+  "machine": "Moore",
+  "config": {
+    "sym": {
+      "eps": "ε",
+      "any": "Σ",
+      "blank": "⊔",
+      "leftMarker": "⊢",
+      "rightMarker": "⊣",
+      "stackBottom": "Z",
+      "lambda": "λ"
+    },
+    "transducerAccepts": false
+  },
+  "sigma": [
+    "c",
+    "k",
+    "h"
+  ],
+  "stackAlpha": [],
+  "outputAlpha": [
+    "0",
+    "1"
+  ],
+  "tapeCount": 1,
+  "states": [
+    {
+      "id": "s1",
+      "x": 140,
+      "y": 160,
+      "name": "off",
+      "output": "0"
+    },
+    {
+      "id": "s2",
+      "x": 319,
+      "y": 160,
+      "name": "on",
+      "output": "1"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "t1",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "c"
+    },
+    {
+      "id": "t2",
+      "from": "s1",
+      "to": "s1",
+      "symbol": "k"
+    },
+    {
+      "id": "t3",
+      "from": "s1",
+      "to": "s1",
+      "symbol": "h"
+    },
+    {
+      "id": "t4",
+      "from": "s2",
+      "to": "s1",
+      "symbol": "h"
+    },
+    {
+      "id": "t5",
+      "from": "s2",
+      "to": "s2",
+      "symbol": "c"
+    },
+    {
+      "id": "t6",
+      "from": "s2",
+      "to": "s2",
+      "symbol": "k"
+    }
+  ],
+  "startId": "s1",
+  "accepts": [],
+  "notes": [],
+  "dividers": [],
+  "blocks": [],
+  "meta": {
+    "title": "A thermostat with hysteresis",
+    "blurb": "Readings are c (too cold), k (comfortable) and h (too hot); the output is the heater, 1 or 0. It switches on when cold and off when hot, and a comfortable reading leaves it as it was — so the heater does not flicker around a single set point. Memory of one bit is the whole design.",
+    "inputs": [
+      {
+        "w": "c",
+        "out": "01"
+      },
+      {
+        "w": "h",
+        "out": "00"
+      },
+      {
+        "w": "cc",
+        "out": "011"
+      },
+      {
+        "w": "ch",
+        "out": "010"
+      },
+      {
+        "w": "ccc",
+        "out": "0111"
+      },
+      {
+        "w": "kkkhcchkhckcchhc",
+        "out": "00000110001111001"
+      }
+    ],
+    "library": {
+      "author": {
+        "login": "thethinkmachine"
+      },
+      "license": "CC-BY-4.0",
+      "tags": [
+        "control",
+        "hysteresis",
+        "hardware"
+      ],
+      "difficulty": "intro"
+    }
+  }
+}

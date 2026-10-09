@@ -1,0 +1,213 @@
+{
+  "format": "automata-studio/workspace",
+  "schema": 1,
+  "app": "dev",
+  "machine": "NPDA",
+  "config": {
+    "sym": {
+      "eps": "ε",
+      "any": "Σ",
+      "blank": "⊔",
+      "leftMarker": "⊢",
+      "rightMarker": "⊣",
+      "stackBottom": "Z",
+      "lambda": "λ"
+    },
+    "pdaParadigm": "explicit"
+  },
+  "sigma": [
+    "a",
+    "b"
+  ],
+  "stackAlpha": [
+    "Z",
+    "X"
+  ],
+  "outputAlpha": [],
+  "tapeCount": 1,
+  "states": [
+    {
+      "id": "s1",
+      "x": 140,
+      "y": 255,
+      "name": "start"
+    },
+    {
+      "id": "s2",
+      "x": 319,
+      "y": 255,
+      "name": "one"
+    },
+    {
+      "id": "s3",
+      "x": 319,
+      "y": 160,
+      "name": "two"
+    },
+    {
+      "id": "s4",
+      "x": 498,
+      "y": 303,
+      "name": "ob"
+    },
+    {
+      "id": "s5",
+      "x": 319,
+      "y": 350,
+      "name": "done"
+    },
+    {
+      "id": "s6",
+      "x": 498,
+      "y": 208,
+      "name": "tb"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "t1",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "ε",
+      "pop": "ε",
+      "push": "ε"
+    },
+    {
+      "id": "t2",
+      "from": "s1",
+      "to": "s3",
+      "symbol": "ε",
+      "pop": "ε",
+      "push": "ε"
+    },
+    {
+      "id": "t3",
+      "from": "s2",
+      "to": "s2",
+      "symbol": "a",
+      "pop": "ε",
+      "push": "X"
+    },
+    {
+      "id": "t4",
+      "from": "s2",
+      "to": "s4",
+      "symbol": "b",
+      "pop": "X",
+      "push": "ε"
+    },
+    {
+      "id": "t5",
+      "from": "s4",
+      "to": "s4",
+      "symbol": "b",
+      "pop": "X",
+      "push": "ε"
+    },
+    {
+      "id": "t6",
+      "from": "s4",
+      "to": "s5",
+      "symbol": "ε",
+      "pop": "Z",
+      "push": "Z"
+    },
+    {
+      "id": "t7",
+      "from": "s3",
+      "to": "s3",
+      "symbol": "a",
+      "pop": "ε",
+      "push": "XX"
+    },
+    {
+      "id": "t8",
+      "from": "s3",
+      "to": "s6",
+      "symbol": "b",
+      "pop": "X",
+      "push": "ε"
+    },
+    {
+      "id": "t9",
+      "from": "s6",
+      "to": "s6",
+      "symbol": "b",
+      "pop": "X",
+      "push": "ε"
+    },
+    {
+      "id": "t10",
+      "from": "s6",
+      "to": "s5",
+      "symbol": "ε",
+      "pop": "Z",
+      "push": "Z"
+    },
+    {
+      "id": "t11",
+      "from": "s1",
+      "to": "s5",
+      "symbol": "ε",
+      "pop": "Z",
+      "push": "Z"
+    }
+  ],
+  "startId": "s1",
+  "accepts": [
+    "s5"
+  ],
+  "notes": [],
+  "dividers": [],
+  "blocks": [],
+  "meta": {
+    "title": "aⁿbⁿ or aⁿb²ⁿ",
+    "blurb": "Each half is deterministic, but their union is not: having read aⁿbⁿ, a deterministic machine cannot both accept and keep counting for the other n b’s. Nondeterminism postpones the choice — the standard proof that DPDAs are weaker than NPDAs.",
+    "inputs": [
+      {
+        "w": "",
+        "expect": "accept"
+      },
+      {
+        "w": "aabb",
+        "expect": "accept"
+      },
+      {
+        "w": "ab",
+        "expect": "accept"
+      },
+      {
+        "w": "aaaaaaabbbbbbb",
+        "expect": "accept"
+      },
+      {
+        "w": "a",
+        "expect": "reject"
+      },
+      {
+        "w": "babb",
+        "expect": "reject"
+      },
+      {
+        "w": "bb",
+        "expect": "reject"
+      },
+      {
+        "w": "baaaaaabbbbbbb",
+        "expect": "reject"
+      }
+    ],
+    "library": {
+      "author": {
+        "login": "thethinkmachine"
+      },
+      "license": "CC-BY-4.0",
+      "tags": [
+        "union",
+        "deterministic-vs-nondeterministic",
+        "guessing"
+      ],
+      "difficulty": "advanced"
+    }
+  }
+}

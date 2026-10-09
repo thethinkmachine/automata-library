@@ -1,0 +1,127 @@
+{
+  "format": "automata-studio/workspace",
+  "schema": 1,
+  "app": "dev",
+  "machine": "DPDA",
+  "config": {
+    "sym": {
+      "eps": "ε",
+      "any": "Σ",
+      "blank": "⊔",
+      "leftMarker": "⊢",
+      "rightMarker": "⊣",
+      "stackBottom": "Z",
+      "lambda": "λ"
+    },
+    "pdaParadigm": "explicit"
+  },
+  "sigma": [
+    "i",
+    "e"
+  ],
+  "stackAlpha": [
+    "Z",
+    "X"
+  ],
+  "outputAlpha": [],
+  "tapeCount": 1,
+  "states": [
+    {
+      "id": "s1",
+      "x": 140,
+      "y": 160,
+      "name": "q"
+    },
+    {
+      "id": "s2",
+      "x": 319,
+      "y": 160,
+      "name": "f"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "t1",
+      "from": "s1",
+      "to": "s1",
+      "symbol": "i",
+      "pop": "ε",
+      "push": "X"
+    },
+    {
+      "id": "t2",
+      "from": "s1",
+      "to": "s1",
+      "symbol": "e",
+      "pop": "X",
+      "push": "ε"
+    },
+    {
+      "id": "t3",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "e",
+      "pop": "Z",
+      "push": "Z"
+    }
+  ],
+  "startId": "s1",
+  "accepts": [
+    "s2"
+  ],
+  "notes": [],
+  "dividers": [],
+  "blocks": [],
+  "meta": {
+    "title": "One else too many",
+    "blurb": "Hopcroft, Motwani and Ullman’s if/else example: i is an if, e an else, and the machine stops at the first else that has no if to match. It accepts exactly the strings where that happens at the last symbol — in the book by emptying its stack, here by moving to a final state when it would have.",
+    "inputs": [
+      {
+        "w": "e",
+        "expect": "accept"
+      },
+      {
+        "w": "iee",
+        "expect": "accept"
+      },
+      {
+        "w": "ieiieee",
+        "expect": "accept"
+      },
+      {
+        "w": "ieieiieee",
+        "expect": "accept"
+      },
+      {
+        "w": "i",
+        "expect": "reject"
+      },
+      {
+        "w": "eee",
+        "expect": "reject"
+      },
+      {
+        "w": "eeiieee",
+        "expect": "reject"
+      },
+      {
+        "w": "eeieiieee",
+        "expect": "reject"
+      }
+    ],
+    "library": {
+      "author": {
+        "login": "thethinkmachine"
+      },
+      "license": "CC-BY-4.0",
+      "tags": [
+        "textbook",
+        "hopcroft",
+        "empty-stack",
+        "parsing"
+      ],
+      "difficulty": "intermediate",
+      "chapter": "Hopcroft, Motwani & Ullman, §6.2 (if and else)"
+    }
+  }
+}

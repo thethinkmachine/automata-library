@@ -1,0 +1,121 @@
+{
+  "format": "automata-studio/workspace",
+  "schema": 1,
+  "app": "dev",
+  "machine": "DFA",
+  "config": {
+    "sym": {
+      "eps": "ε",
+      "any": "Σ",
+      "blank": "⊔",
+      "leftMarker": "⊢",
+      "rightMarker": "⊣",
+      "stackBottom": "Z",
+      "lambda": "λ"
+    }
+  },
+  "sigma": [
+    "0",
+    "1"
+  ],
+  "stackAlpha": [],
+  "outputAlpha": [],
+  "tapeCount": 1,
+  "states": [
+    {
+      "id": "s1",
+      "x": 140,
+      "y": 160,
+      "name": "even"
+    },
+    {
+      "id": "s2",
+      "x": 319,
+      "y": 160,
+      "name": "odd"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "t1",
+      "from": "s1",
+      "to": "s1",
+      "symbol": "0"
+    },
+    {
+      "id": "t2",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "1"
+    },
+    {
+      "id": "t3",
+      "from": "s2",
+      "to": "s2",
+      "symbol": "0"
+    },
+    {
+      "id": "t4",
+      "from": "s2",
+      "to": "s1",
+      "symbol": "1"
+    }
+  ],
+  "startId": "s1",
+  "accepts": [
+    "s1"
+  ],
+  "notes": [],
+  "dividers": [],
+  "blocks": [],
+  "meta": {
+    "title": "An even number of 1s",
+    "blurb": "The first DFA in most courses, and the reason it comes first: the machine’s whole memory is one bit — has it seen an even or an odd number of 1s — and the two states are exactly those two answers. A 0 changes nothing.",
+    "inputs": [
+      {
+        "w": "",
+        "expect": "accept"
+      },
+      {
+        "w": "00110",
+        "expect": "accept"
+      },
+      {
+        "w": "0",
+        "expect": "accept"
+      },
+      {
+        "w": "0000000110",
+        "expect": "accept"
+      },
+      {
+        "w": "1",
+        "expect": "reject"
+      },
+      {
+        "w": "10110",
+        "expect": "reject"
+      },
+      {
+        "w": "10",
+        "expect": "reject"
+      },
+      {
+        "w": "1000000110",
+        "expect": "reject"
+      }
+    ],
+    "library": {
+      "author": {
+        "login": "thethinkmachine"
+      },
+      "license": "CC-BY-4.0",
+      "tags": [
+        "parity",
+        "counting",
+        "first-example"
+      ],
+      "difficulty": "intro"
+    }
+  }
+}

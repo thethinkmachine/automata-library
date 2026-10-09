@@ -1,0 +1,168 @@
+{
+  "format": "automata-studio/workspace",
+  "schema": 1,
+  "app": "dev",
+  "machine": "DPDA",
+  "config": {
+    "sym": {
+      "eps": "ε",
+      "any": "Σ",
+      "blank": "⊔",
+      "leftMarker": "⊢",
+      "rightMarker": "⊣",
+      "stackBottom": "Z",
+      "lambda": "λ"
+    },
+    "pdaParadigm": "explicit"
+  },
+  "sigma": [
+    "a",
+    "b"
+  ],
+  "stackAlpha": [
+    "Z",
+    "A"
+  ],
+  "outputAlpha": [],
+  "tapeCount": 1,
+  "states": [
+    {
+      "id": "s1",
+      "x": 140,
+      "y": 208,
+      "name": "start"
+    },
+    {
+      "id": "s2",
+      "x": 319,
+      "y": 208,
+      "name": "as"
+    },
+    {
+      "id": "s3",
+      "x": 498,
+      "y": 208,
+      "name": "check"
+    },
+    {
+      "id": "s4",
+      "x": 677,
+      "y": 255,
+      "name": "ahead"
+    },
+    {
+      "id": "s5",
+      "x": 677,
+      "y": 160,
+      "name": "even"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "t1",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "a",
+      "pop": "Z",
+      "push": "AZ"
+    },
+    {
+      "id": "t2",
+      "from": "s2",
+      "to": "s2",
+      "symbol": "a",
+      "pop": "A",
+      "push": "AA"
+    },
+    {
+      "id": "t3",
+      "from": "s2",
+      "to": "s3",
+      "symbol": "b",
+      "pop": "A",
+      "push": "ε"
+    },
+    {
+      "id": "t4",
+      "from": "s3",
+      "to": "s4",
+      "symbol": "ε",
+      "pop": "A",
+      "push": "A"
+    },
+    {
+      "id": "t5",
+      "from": "s3",
+      "to": "s5",
+      "symbol": "ε",
+      "pop": "Z",
+      "push": "Z"
+    },
+    {
+      "id": "t6",
+      "from": "s4",
+      "to": "s3",
+      "symbol": "b",
+      "pop": "A",
+      "push": "ε"
+    }
+  ],
+  "startId": "s1",
+  "accepts": [
+    "s2",
+    "s4"
+  ],
+  "notes": [],
+  "dividers": [],
+  "blocks": [],
+  "meta": {
+    "title": "More a’s than b’s: aⁿbᵐ, n > m",
+    "blurb": "Push the a’s, pop one per b, and accept while an A is still left. A deterministic machine cannot look at its stack and keep reading in the same breath, so after each pop it steps aside to check the top and moves to “ahead” or “even” — the accepting state is a fact about the stack, carried in the control.",
+    "inputs": [
+      {
+        "w": "a",
+        "expect": "accept"
+      },
+      {
+        "w": "aab",
+        "expect": "accept"
+      },
+      {
+        "w": "aaabb",
+        "expect": "accept"
+      },
+      {
+        "w": "aaaaaaaabbbbb",
+        "expect": "accept"
+      },
+      {
+        "w": "b",
+        "expect": "reject"
+      },
+      {
+        "w": "bab",
+        "expect": "reject"
+      },
+      {
+        "w": "baabb",
+        "expect": "reject"
+      },
+      {
+        "w": "baaaaaaabbbbb",
+        "expect": "reject"
+      }
+    ],
+    "library": {
+      "author": {
+        "login": "thethinkmachine"
+      },
+      "license": "CC-BY-4.0",
+      "tags": [
+        "counting",
+        "deterministic-cfl",
+        "comparison"
+      ],
+      "difficulty": "intermediate"
+    }
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "title": "Puzzles and games",
+  "blurb": "A puzzle with finitely many positions is a finite automaton: its states are the positions and its words are the move sequences. Solving it is finding an accepted word, and the drawing is often the clearest picture of why the puzzle works.",
+  "curator": "thethinkmachine",
+  "entries": [
+    "finite/dfa/wolf-goat-and-cabbage",
+    "finite/dfa/towers-of-hanoi-three-disks",
+    "finite/dfa/lights-out-on-a-2-2-board",
+    "finite/dfa/shuffling-three-cards",
+    "finite/dfa/rolling-a-die-until-6-is-on-top",
+    "finite/dfa/a-robot-that-comes-home",
+    "finite/dfa/a-game-of-tennis-won-by-a",
+    "finite/dfa/missionaries-and-cannibals",
+    "finite/dfa/measuring-4-litres-with-3-and-5-litre-jugs",
+    "finite/dfa/nim-with-five-sticks",
+    "finite/dfa/a-knight-on-a-3-3-board",
+    "finite/dfa/penney-s-game-hht-before-htt",
+    "finite/dfa/a-2-2-sliding-puzzle"
+  ]
+}

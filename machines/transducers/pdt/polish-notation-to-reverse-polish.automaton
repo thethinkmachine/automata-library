@@ -1,0 +1,189 @@
+{
+  "format": "automata-studio/workspace",
+  "schema": 1,
+  "app": "dev",
+  "machine": "PDT",
+  "config": {
+    "sym": {
+      "eps": "ε",
+      "any": "Σ",
+      "blank": "⊔",
+      "leftMarker": "⊢",
+      "rightMarker": "⊣",
+      "stackBottom": "Z",
+      "lambda": "λ"
+    },
+    "pdaParadigm": "explicit",
+    "transducerAccepts": true
+  },
+  "sigma": [
+    "x",
+    "+",
+    "*"
+  ],
+  "stackAlpha": [
+    "Z",
+    "P",
+    "M",
+    "Q",
+    "N"
+  ],
+  "outputAlpha": [
+    "x",
+    "+",
+    "*"
+  ],
+  "tapeCount": 1,
+  "states": [
+    {
+      "id": "s1",
+      "x": 140,
+      "y": 160,
+      "name": "read"
+    },
+    {
+      "id": "s2",
+      "x": 319,
+      "y": 160,
+      "name": "one"
+    },
+    {
+      "id": "s3",
+      "x": 498,
+      "y": 160,
+      "name": "end"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "t1",
+      "from": "s1",
+      "to": "s1",
+      "symbol": "+",
+      "pop": "ε",
+      "push": "P",
+      "output": ""
+    },
+    {
+      "id": "t2",
+      "from": "s1",
+      "to": "s1",
+      "symbol": "*",
+      "pop": "ε",
+      "push": "M",
+      "output": ""
+    },
+    {
+      "id": "t3",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "x",
+      "pop": "ε",
+      "push": "ε",
+      "output": "x"
+    },
+    {
+      "id": "t4",
+      "from": "s2",
+      "to": "s1",
+      "symbol": "ε",
+      "pop": "P",
+      "push": "Q",
+      "output": ""
+    },
+    {
+      "id": "t5",
+      "from": "s2",
+      "to": "s1",
+      "symbol": "ε",
+      "pop": "M",
+      "push": "N",
+      "output": ""
+    },
+    {
+      "id": "t6",
+      "from": "s2",
+      "to": "s2",
+      "symbol": "ε",
+      "pop": "Q",
+      "push": "ε",
+      "output": "+"
+    },
+    {
+      "id": "t7",
+      "from": "s2",
+      "to": "s2",
+      "symbol": "ε",
+      "pop": "N",
+      "push": "ε",
+      "output": "*"
+    },
+    {
+      "id": "t8",
+      "from": "s2",
+      "to": "s3",
+      "symbol": "ε",
+      "pop": "Z",
+      "push": "Z",
+      "output": ""
+    }
+  ],
+  "startId": "s1",
+  "accepts": [
+    "s3"
+  ],
+  "notes": [],
+  "dividers": [],
+  "blocks": [],
+  "meta": {
+    "title": "Polish notation to reverse Polish",
+    "blurb": "Prefix to postfix: +x*xx becomes xxx*+. Each operator waits on the stack, remembering how many of its operands are complete; an x completes one, and an operator whose second operand completes is printed and itself counts as an operand for the one below. Łukasiewicz’s notation, turned round.",
+    "inputs": [
+      {
+        "w": "x",
+        "out": "x",
+        "expect": "accept"
+      },
+      {
+        "w": "+xx",
+        "out": "xx+",
+        "expect": "accept"
+      },
+      {
+        "w": "+x*xx",
+        "out": "xxx*+",
+        "expect": "accept"
+      },
+      {
+        "w": "*+xxx",
+        "out": "xx+x*",
+        "expect": "accept"
+      },
+      {
+        "w": "+*xx*xx",
+        "out": "xx*xx*+",
+        "expect": "accept"
+      },
+      {
+        "w": "+x",
+        "expect": "reject"
+      },
+      {
+        "w": "xx",
+        "expect": "reject"
+      }
+    ],
+    "library": {
+      "author": {
+        "login": "thethinkmachine"
+      },
+      "license": "CC-BY-4.0",
+      "tags": [
+        "expressions",
+        "notation",
+        "compilers"
+      ],
+      "difficulty": "intermediate"
+    }
+  }
+}

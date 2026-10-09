@@ -1,0 +1,134 @@
+{
+  "format": "automata-studio/workspace",
+  "schema": 1,
+  "app": "dev",
+  "machine": "ε-NFA",
+  "config": {
+    "sym": {
+      "eps": "ε",
+      "any": "Σ",
+      "blank": "⊔",
+      "leftMarker": "⊢",
+      "rightMarker": "⊣",
+      "stackBottom": "Z",
+      "lambda": "λ"
+    }
+  },
+  "sigma": [
+    "a",
+    "b",
+    "c"
+  ],
+  "stackAlpha": [],
+  "outputAlpha": [],
+  "tapeCount": 1,
+  "states": [
+    {
+      "id": "s1",
+      "x": 140,
+      "y": 160,
+      "name": "As"
+    },
+    {
+      "id": "s2",
+      "x": 310,
+      "y": 160,
+      "name": "Bs"
+    },
+    {
+      "id": "s3",
+      "x": 480,
+      "y": 160,
+      "name": "Cs"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "t1",
+      "from": "s1",
+      "to": "s1",
+      "symbol": "a"
+    },
+    {
+      "id": "t2",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "ε"
+    },
+    {
+      "id": "t3",
+      "from": "s2",
+      "to": "s2",
+      "symbol": "b"
+    },
+    {
+      "id": "t4",
+      "from": "s2",
+      "to": "s3",
+      "symbol": "ε"
+    },
+    {
+      "id": "t5",
+      "from": "s3",
+      "to": "s3",
+      "symbol": "c"
+    }
+  ],
+  "startId": "s1",
+  "accepts": [
+    "s3"
+  ],
+  "notes": [],
+  "dividers": [],
+  "blocks": [],
+  "meta": {
+    "title": "a’s, then b’s, then c’s",
+    "blurb": "a*b*c* as three loops chained by ε-moves. The ε-closure of the start state is all three states, so the empty word, a lone b and a lone c are all accepted without the machine ever reading an a.",
+    "inputs": [
+      {
+        "w": "",
+        "expect": "accept"
+      },
+      {
+        "w": "abc",
+        "expect": "accept"
+      },
+      {
+        "w": "aacc",
+        "expect": "accept"
+      },
+      {
+        "w": "ccccccc",
+        "expect": "accept"
+      },
+      {
+        "w": "cbc",
+        "expect": "reject"
+      },
+      {
+        "w": "bacc",
+        "expect": "reject"
+      },
+      {
+        "w": "caccccc",
+        "expect": "reject"
+      },
+      {
+        "w": "ba",
+        "expect": "reject"
+      }
+    ],
+    "library": {
+      "author": {
+        "login": "thethinkmachine"
+      },
+      "license": "CC-BY-4.0",
+      "tags": [
+        "concatenation",
+        "kleene-star",
+        "epsilon-closure"
+      ],
+      "difficulty": "intro"
+    }
+  }
+}

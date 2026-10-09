@@ -141,7 +141,8 @@
         "showcase",
         "npda"
       ],
-      "difficulty": "intermediate"
+      "difficulty": "intermediate",
+      "chapter": "Hopcroft, Motwani & Ullman, §6.1; Sipser, §2.2"
     }
   },
   "format": "automata-studio/workspace",

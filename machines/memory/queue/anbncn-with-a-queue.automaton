@@ -1,0 +1,146 @@
+{
+  "format": "automata-studio/workspace",
+  "schema": 1,
+  "app": "dev",
+  "machine": "QA",
+  "config": {
+    "sym": {
+      "eps": "ε",
+      "any": "Σ",
+      "blank": "⊔",
+      "leftMarker": "⊢",
+      "rightMarker": "⊣",
+      "stackBottom": "Z",
+      "lambda": "λ"
+    },
+    "pdaParadigm": "empty"
+  },
+  "sigma": [
+    "a",
+    "b",
+    "c"
+  ],
+  "stackAlpha": [
+    "A",
+    "B"
+  ],
+  "outputAlpha": [],
+  "tapeCount": 1,
+  "states": [
+    {
+      "id": "s1",
+      "x": 140,
+      "y": 160,
+      "name": "as"
+    },
+    {
+      "id": "s2",
+      "x": 319,
+      "y": 160,
+      "name": "bs"
+    },
+    {
+      "id": "s3",
+      "x": 498,
+      "y": 160,
+      "name": "cs"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "t1",
+      "from": "s1",
+      "to": "s1",
+      "symbol": "a",
+      "pop": "ε",
+      "push": "A"
+    },
+    {
+      "id": "t2",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "b",
+      "pop": "A",
+      "push": "B"
+    },
+    {
+      "id": "t3",
+      "from": "s2",
+      "to": "s2",
+      "symbol": "b",
+      "pop": "A",
+      "push": "B"
+    },
+    {
+      "id": "t4",
+      "from": "s2",
+      "to": "s3",
+      "symbol": "c",
+      "pop": "B",
+      "push": "ε"
+    },
+    {
+      "id": "t5",
+      "from": "s3",
+      "to": "s3",
+      "symbol": "c",
+      "pop": "B",
+      "push": "ε"
+    }
+  ],
+  "startId": "s1",
+  "accepts": [],
+  "notes": [],
+  "dividers": [],
+  "blocks": [],
+  "meta": {
+    "title": "aⁿbⁿcⁿ with a queue",
+    "blurb": "Each a joins the queue as A. Each b takes an A from the front and sends a B to the back; each c takes a B. The queue processes the counts in the order they arrive, which is exactly what aⁿbⁿcⁿ needs and what a stack gets backwards.",
+    "inputs": [
+      {
+        "w": "",
+        "expect": "accept"
+      },
+      {
+        "w": "abc",
+        "expect": "accept"
+      },
+      {
+        "w": "aabbcc",
+        "expect": "accept"
+      },
+      {
+        "w": "aaaabbbbcccc",
+        "expect": "accept"
+      },
+      {
+        "w": "a",
+        "expect": "reject"
+      },
+      {
+        "w": "bbc",
+        "expect": "reject"
+      },
+      {
+        "w": "babbcc",
+        "expect": "reject"
+      },
+      {
+        "w": "baaabbbbcccc",
+        "expect": "reject"
+      }
+    ],
+    "library": {
+      "author": {
+        "login": "thethinkmachine"
+      },
+      "license": "CC-BY-4.0",
+      "tags": [
+        "queues",
+        "counting",
+        "beyond-context-free"
+      ],
+      "difficulty": "intermediate"
+    }
+  }
+}

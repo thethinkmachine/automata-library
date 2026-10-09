@@ -1,0 +1,193 @@
+{
+  "format": "automata-studio/workspace",
+  "schema": 1,
+  "app": "dev",
+  "machine": "DPDA",
+  "config": {
+    "sym": {
+      "eps": "ε",
+      "any": "Σ",
+      "blank": "⊔",
+      "leftMarker": "⊢",
+      "rightMarker": "⊣",
+      "stackBottom": "Z",
+      "lambda": "λ"
+    },
+    "pdaParadigm": "explicit"
+  },
+  "sigma": [
+    "a",
+    "b",
+    "c"
+  ],
+  "stackAlpha": [
+    "Z",
+    "X"
+  ],
+  "outputAlpha": [],
+  "tapeCount": 1,
+  "states": [
+    {
+      "id": "s1",
+      "x": 140,
+      "y": 208,
+      "name": "start"
+    },
+    {
+      "id": "s2",
+      "x": 319,
+      "y": 160,
+      "name": "as"
+    },
+    {
+      "id": "s3",
+      "x": 319,
+      "y": 255,
+      "name": "bs"
+    },
+    {
+      "id": "s4",
+      "x": 498,
+      "y": 208,
+      "name": "cs"
+    },
+    {
+      "id": "s5",
+      "x": 677,
+      "y": 208,
+      "name": "done"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "t1",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "a",
+      "pop": "Z",
+      "push": "XZ"
+    },
+    {
+      "id": "t2",
+      "from": "s1",
+      "to": "s3",
+      "symbol": "b",
+      "pop": "Z",
+      "push": "XZ"
+    },
+    {
+      "id": "t3",
+      "from": "s2",
+      "to": "s2",
+      "symbol": "a",
+      "pop": "X",
+      "push": "XX"
+    },
+    {
+      "id": "t4",
+      "from": "s2",
+      "to": "s3",
+      "symbol": "b",
+      "pop": "X",
+      "push": "XX"
+    },
+    {
+      "id": "t5",
+      "from": "s2",
+      "to": "s4",
+      "symbol": "c",
+      "pop": "X",
+      "push": "ε"
+    },
+    {
+      "id": "t6",
+      "from": "s3",
+      "to": "s3",
+      "symbol": "b",
+      "pop": "X",
+      "push": "XX"
+    },
+    {
+      "id": "t7",
+      "from": "s3",
+      "to": "s4",
+      "symbol": "c",
+      "pop": "X",
+      "push": "ε"
+    },
+    {
+      "id": "t8",
+      "from": "s4",
+      "to": "s4",
+      "symbol": "c",
+      "pop": "X",
+      "push": "ε"
+    },
+    {
+      "id": "t9",
+      "from": "s4",
+      "to": "s5",
+      "symbol": "ε",
+      "pop": "Z",
+      "push": "Z"
+    }
+  ],
+  "startId": "s1",
+  "accepts": [
+    "s1",
+    "s5"
+  ],
+  "notes": [],
+  "dividers": [],
+  "blocks": [],
+  "meta": {
+    "title": "Unary addition: aⁱbʲcⁱ⁺ʲ",
+    "blurb": "Every a and every b pushes an X; every c pops one. The c’s balance exactly when there are as many of them as a’s and b’s together — addition, done by stacking.",
+    "inputs": [
+      {
+        "w": "",
+        "expect": "accept"
+      },
+      {
+        "w": "abcc",
+        "expect": "accept"
+      },
+      {
+        "w": "ac",
+        "expect": "accept"
+      },
+      {
+        "w": "aaabbbbccccccc",
+        "expect": "accept"
+      },
+      {
+        "w": "a",
+        "expect": "reject"
+      },
+      {
+        "w": "cbcc",
+        "expect": "reject"
+      },
+      {
+        "w": "cc",
+        "expect": "reject"
+      },
+      {
+        "w": "baabbbbccccccc",
+        "expect": "reject"
+      }
+    ],
+    "library": {
+      "author": {
+        "login": "thethinkmachine"
+      },
+      "license": "CC-BY-4.0",
+      "tags": [
+        "arithmetic",
+        "unary",
+        "counting"
+      ],
+      "difficulty": "intro"
+    }
+  }
+}

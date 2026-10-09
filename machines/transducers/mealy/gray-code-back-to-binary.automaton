@@ -1,0 +1,119 @@
+{
+  "format": "automata-studio/workspace",
+  "schema": 1,
+  "app": "dev",
+  "machine": "Mealy",
+  "config": {
+    "sym": {
+      "eps": "ε",
+      "any": "Σ",
+      "blank": "⊔",
+      "leftMarker": "⊢",
+      "rightMarker": "⊣",
+      "stackBottom": "Z",
+      "lambda": "λ"
+    },
+    "transducerAccepts": false
+  },
+  "sigma": [
+    "0",
+    "1"
+  ],
+  "stackAlpha": [],
+  "outputAlpha": [
+    "0",
+    "1"
+  ],
+  "tapeCount": 1,
+  "states": [
+    {
+      "id": "s1",
+      "x": 140,
+      "y": 160,
+      "name": "was0"
+    },
+    {
+      "id": "s2",
+      "x": 319,
+      "y": 160,
+      "name": "was1"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "t1",
+      "from": "s1",
+      "to": "s1",
+      "symbol": "0",
+      "output": "0"
+    },
+    {
+      "id": "t2",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "1",
+      "output": "1"
+    },
+    {
+      "id": "t3",
+      "from": "s2",
+      "to": "s2",
+      "symbol": "0",
+      "output": "1"
+    },
+    {
+      "id": "t4",
+      "from": "s2",
+      "to": "s1",
+      "symbol": "1",
+      "output": "0"
+    }
+  ],
+  "startId": "s1",
+  "accepts": [],
+  "notes": [],
+  "dividers": [],
+  "blocks": [],
+  "meta": {
+    "title": "Gray code back to binary",
+    "blurb": "The inverse of the binary-to-Gray transducer, reading most significant bit first: each binary bit is the previous binary bit XOR the current Gray bit. So the state is the last bit printed, and a 1 in the Gray code flips it.",
+    "inputs": [
+      {
+        "w": "0",
+        "out": "0"
+      },
+      {
+        "w": "1",
+        "out": "1"
+      },
+      {
+        "w": "00",
+        "out": "00"
+      },
+      {
+        "w": "01",
+        "out": "01"
+      },
+      {
+        "w": "000",
+        "out": "000"
+      },
+      {
+        "w": "1111101100011000",
+        "out": "1010110111101111"
+      }
+    ],
+    "library": {
+      "author": {
+        "login": "thethinkmachine"
+      },
+      "license": "CC-BY-4.0",
+      "tags": [
+        "gray-code",
+        "encoding",
+        "binary-numbers"
+      ],
+      "difficulty": "intro"
+    }
+  }
+}

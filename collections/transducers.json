@@ -1,14 +1,32 @@
 {
   "title": "Machines that write",
-  "blurb": "Moore and Mealy machines, finite-state and pushdown transducers, and a two-way transducer that copies its input.",
+  "blurb": "Moore machines print on states, Mealy machines on edges; finite-state transducers may print any string, or guess; pushdown and two-way transducers can reverse. From a thermostat to the shunting-yard algorithm.",
   "curator": "thethinkmachine",
   "entries": [
+    "transducers/moore/the-running-remainder-mod-3",
+    "transducers/moore/a-thermostat-with-hysteresis",
+    "transducers/moore/a-switch-debouncer",
     "transducers/moore/combination-lock-1101",
-    "transducers/moore/traffic-light",
     "transducers/mealy/serial-binary-adder",
-    "transducers/mealy/report-each-bit",
+    "transducers/mealy/two-s-complement-least-significant-bit-first",
+    "transducers/mealy/dividing-by-3-most-significant-bit-first",
+    "transducers/mealy/a-vigenere-cipher-with-the-key-bc",
     "transducers/fst/binary-gray-code",
+    "transducers/fst/hdlc-bit-stuffing",
+    "transducers/fst/morse-code-for-e-t-a-n-i-m-s-and-o",
+    "transducers/fst/thousands-separators",
+    "transducers/pdt/infix-to-postfix-the-shunting-yard-algorithm",
     "transducers/pdt/reverse-the-input",
-    "transducers/twodft/copy-twice-w-ww"
+    "transducers/twodft/a-word-and-its-mirror-w-wwr",
+    "transducers/twodft/copy-twice-w-ww",
+    "transducers/pdt/polish-notation-to-reverse-polish",
+    "transducers/pdt/what-is-left-after-cancelling",
+    "transducers/moore/a-coin-operated-turnstile",
+    "transducers/fst/run-length-decoding",
+    "transducers/twodft/rotate-move-the-first-letter-to-the-end",
+    "transducers/moore/a-traffic-light-with-a-pedestrian-button",
+    "transducers/fst/strip-comments",
+    "transducers/moore/a-garage-door-with-a-safety-sensor",
+    "transducers/fst/a-vending-machine-that-gives-change"
   ]
 }

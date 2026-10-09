@@ -1,0 +1,175 @@
+{
+  "format": "automata-studio/workspace",
+  "schema": 1,
+  "app": "dev",
+  "machine": "NFA",
+  "config": {
+    "sym": {
+      "eps": "ε",
+      "any": "Σ",
+      "blank": "⊔",
+      "leftMarker": "⊢",
+      "rightMarker": "⊣",
+      "stackBottom": "Z",
+      "lambda": "λ"
+    }
+  },
+  "sigma": [
+    "a",
+    "b"
+  ],
+  "stackAlpha": [],
+  "outputAlpha": [],
+  "tapeCount": 1,
+  "states": [
+    {
+      "id": "s1",
+      "x": 140,
+      "y": 160,
+      "name": "wait"
+    },
+    {
+      "id": "s2",
+      "x": 310,
+      "y": 160,
+      "name": "d0"
+    },
+    {
+      "id": "s3",
+      "x": 480,
+      "y": 160,
+      "name": "d1"
+    },
+    {
+      "id": "s4",
+      "x": 650,
+      "y": 160,
+      "name": "d2"
+    },
+    {
+      "id": "s5",
+      "x": 820,
+      "y": 160,
+      "name": "found"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "t1",
+      "from": "s1",
+      "to": "s1",
+      "symbol": "a"
+    },
+    {
+      "id": "t2",
+      "from": "s1",
+      "to": "s1",
+      "symbol": "b"
+    },
+    {
+      "id": "t3",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "a"
+    },
+    {
+      "id": "t4",
+      "from": "s2",
+      "to": "s3",
+      "symbol": "a"
+    },
+    {
+      "id": "t5",
+      "from": "s2",
+      "to": "s3",
+      "symbol": "b"
+    },
+    {
+      "id": "t6",
+      "from": "s3",
+      "to": "s4",
+      "symbol": "a"
+    },
+    {
+      "id": "t7",
+      "from": "s3",
+      "to": "s4",
+      "symbol": "b"
+    },
+    {
+      "id": "t8",
+      "from": "s4",
+      "to": "s5",
+      "symbol": "a"
+    },
+    {
+      "id": "t9",
+      "from": "s5",
+      "to": "s5",
+      "symbol": "a"
+    },
+    {
+      "id": "t10",
+      "from": "s5",
+      "to": "s5",
+      "symbol": "b"
+    }
+  ],
+  "startId": "s1",
+  "accepts": [
+    "s5"
+  ],
+  "notes": [],
+  "dividers": [],
+  "blocks": [],
+  "meta": {
+    "title": "Two a’s exactly three apart",
+    "blurb": "Somewhere in the word, an a followed by any two symbols and then another a. The NFA waits, guesses the first a, and counts three; a DFA would have to remember the positions of the a’s among the last three symbols.",
+    "inputs": [
+      {
+        "w": "aaaa",
+        "expect": "accept"
+      },
+      {
+        "w": "aabba",
+        "expect": "accept"
+      },
+      {
+        "w": "aaaaaa",
+        "expect": "accept"
+      },
+      {
+        "w": "aaaaaaabba",
+        "expect": "accept"
+      },
+      {
+        "w": "baaa",
+        "expect": "reject"
+      },
+      {
+        "w": "abbba",
+        "expect": "reject"
+      },
+      {
+        "w": "",
+        "expect": "reject"
+      },
+      {
+        "w": "baabb",
+        "expect": "reject"
+      }
+    ],
+    "library": {
+      "author": {
+        "login": "thethinkmachine"
+      },
+      "license": "CC-BY-4.0",
+      "tags": [
+        "guessing",
+        "distance",
+        "pattern-matching"
+      ],
+      "difficulty": "intro"
+    }
+  }
+}

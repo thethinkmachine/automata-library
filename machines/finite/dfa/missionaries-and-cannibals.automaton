@@ -1,0 +1,376 @@
+{
+  "format": "automata-studio/workspace",
+  "schema": 1,
+  "app": "dev",
+  "machine": "DFA",
+  "config": {
+    "sym": {
+      "eps": "ε",
+      "any": "Σ",
+      "blank": "⊔",
+      "leftMarker": "⊢",
+      "rightMarker": "⊣",
+      "stackBottom": "Z",
+      "lambda": "λ"
+    }
+  },
+  "sigma": [
+    "M",
+    "MM",
+    "C",
+    "CC",
+    "MC"
+  ],
+  "stackAlpha": [],
+  "outputAlpha": [],
+  "tapeCount": 1,
+  "states": [
+    {
+      "id": "s1",
+      "x": 140,
+      "y": 160,
+      "name": "33L"
+    },
+    {
+      "id": "s2",
+      "x": 217,
+      "y": 377,
+      "name": "32R"
+    },
+    {
+      "id": "s3",
+      "x": 217,
+      "y": 531,
+      "name": "31R"
+    },
+    {
+      "id": "s4",
+      "x": 399,
+      "y": 377,
+      "name": "22R"
+    },
+    {
+      "id": "s5",
+      "x": 140,
+      "y": 314,
+      "name": "32L"
+    },
+    {
+      "id": "s6",
+      "x": 217,
+      "y": 685,
+      "name": "30R"
+    },
+    {
+      "id": "s7",
+      "x": 140,
+      "y": 468,
+      "name": "31L"
+    },
+    {
+      "id": "s8",
+      "x": 581,
+      "y": 531,
+      "name": "11R"
+    },
+    {
+      "id": "s9",
+      "x": 322,
+      "y": 314,
+      "name": "22L"
+    },
+    {
+      "id": "s10",
+      "x": 763,
+      "y": 377,
+      "name": "02R"
+    },
+    {
+      "id": "s11",
+      "x": 686,
+      "y": 160,
+      "name": "03L"
+    },
+    {
+      "id": "s12",
+      "x": 763,
+      "y": 531,
+      "name": "01R"
+    },
+    {
+      "id": "s13",
+      "x": 504,
+      "y": 468,
+      "name": "11L"
+    },
+    {
+      "id": "s14",
+      "x": 686,
+      "y": 314,
+      "name": "02L"
+    },
+    {
+      "id": "s15",
+      "x": 763,
+      "y": 685,
+      "name": "00R"
+    },
+    {
+      "id": "s16",
+      "x": 686,
+      "y": 468,
+      "name": "01L"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "t1",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "C"
+    },
+    {
+      "id": "t2",
+      "from": "s1",
+      "to": "s3",
+      "symbol": "CC"
+    },
+    {
+      "id": "t3",
+      "from": "s1",
+      "to": "s4",
+      "symbol": "MC"
+    },
+    {
+      "id": "t4",
+      "from": "s2",
+      "to": "s1",
+      "symbol": "C"
+    },
+    {
+      "id": "t5",
+      "from": "s3",
+      "to": "s5",
+      "symbol": "C"
+    },
+    {
+      "id": "t6",
+      "from": "s3",
+      "to": "s1",
+      "symbol": "CC"
+    },
+    {
+      "id": "t7",
+      "from": "s4",
+      "to": "s5",
+      "symbol": "M"
+    },
+    {
+      "id": "t8",
+      "from": "s4",
+      "to": "s1",
+      "symbol": "MC"
+    },
+    {
+      "id": "t9",
+      "from": "s5",
+      "to": "s4",
+      "symbol": "M"
+    },
+    {
+      "id": "t10",
+      "from": "s5",
+      "to": "s3",
+      "symbol": "C"
+    },
+    {
+      "id": "t11",
+      "from": "s5",
+      "to": "s6",
+      "symbol": "CC"
+    },
+    {
+      "id": "t12",
+      "from": "s6",
+      "to": "s7",
+      "symbol": "C"
+    },
+    {
+      "id": "t13",
+      "from": "s6",
+      "to": "s5",
+      "symbol": "CC"
+    },
+    {
+      "id": "t14",
+      "from": "s7",
+      "to": "s8",
+      "symbol": "MM"
+    },
+    {
+      "id": "t15",
+      "from": "s7",
+      "to": "s6",
+      "symbol": "C"
+    },
+    {
+      "id": "t16",
+      "from": "s8",
+      "to": "s7",
+      "symbol": "MM"
+    },
+    {
+      "id": "t17",
+      "from": "s8",
+      "to": "s9",
+      "symbol": "MC"
+    },
+    {
+      "id": "t18",
+      "from": "s9",
+      "to": "s10",
+      "symbol": "MM"
+    },
+    {
+      "id": "t19",
+      "from": "s9",
+      "to": "s8",
+      "symbol": "MC"
+    },
+    {
+      "id": "t20",
+      "from": "s10",
+      "to": "s9",
+      "symbol": "MM"
+    },
+    {
+      "id": "t21",
+      "from": "s10",
+      "to": "s11",
+      "symbol": "C"
+    },
+    {
+      "id": "t22",
+      "from": "s11",
+      "to": "s10",
+      "symbol": "C"
+    },
+    {
+      "id": "t23",
+      "from": "s11",
+      "to": "s12",
+      "symbol": "CC"
+    },
+    {
+      "id": "t24",
+      "from": "s12",
+      "to": "s13",
+      "symbol": "M"
+    },
+    {
+      "id": "t25",
+      "from": "s12",
+      "to": "s14",
+      "symbol": "C"
+    },
+    {
+      "id": "t26",
+      "from": "s12",
+      "to": "s11",
+      "symbol": "CC"
+    },
+    {
+      "id": "t27",
+      "from": "s13",
+      "to": "s12",
+      "symbol": "M"
+    },
+    {
+      "id": "t28",
+      "from": "s13",
+      "to": "s15",
+      "symbol": "MC"
+    },
+    {
+      "id": "t29",
+      "from": "s14",
+      "to": "s12",
+      "symbol": "C"
+    },
+    {
+      "id": "t30",
+      "from": "s14",
+      "to": "s15",
+      "symbol": "CC"
+    },
+    {
+      "id": "t31",
+      "from": "s15",
+      "to": "s16",
+      "symbol": "C"
+    },
+    {
+      "id": "t32",
+      "from": "s15",
+      "to": "s14",
+      "symbol": "CC"
+    },
+    {
+      "id": "t33",
+      "from": "s15",
+      "to": "s13",
+      "symbol": "MC"
+    },
+    {
+      "id": "t34",
+      "from": "s16",
+      "to": "s15",
+      "symbol": "C"
+    }
+  ],
+  "startId": "s1",
+  "accepts": [
+    "s15"
+  ],
+  "notes": [],
+  "dividers": [],
+  "blocks": [],
+  "meta": {
+    "title": "Missionaries and cannibals",
+    "blurb": "Three missionaries and three cannibals must cross a river in a boat that holds two, and the cannibals may never outnumber the missionaries on either bank. A state is how many of each are still on the starting side and where the boat is; the shortest accepted word is the classic eleven-crossing solution.",
+    "inputs": [
+      {
+        "w": "CC C CC C MM MC MM C CC C CC",
+        "expect": "accept"
+      },
+      {
+        "w": "MC M CC C MM MC MM C CC M MC",
+        "expect": "accept"
+      },
+      {
+        "w": "CC C CC C MM MC MM C CC C",
+        "expect": "reject"
+      },
+      {
+        "w": "MM M",
+        "expect": "reject"
+      },
+      {
+        "w": "CC CC",
+        "expect": "reject"
+      }
+    ],
+    "library": {
+      "author": {
+        "login": "thethinkmachine"
+      },
+      "license": "CC-BY-4.0",
+      "tags": [
+        "puzzles",
+        "state-space-search",
+        "ai"
+      ],
+      "difficulty": "intermediate"
+    }
+  }
+}

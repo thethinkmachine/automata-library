@@ -1,0 +1,398 @@
+{
+  "format": "automata-studio/workspace",
+  "schema": 1,
+  "app": "dev",
+  "machine": "NPDA",
+  "config": {
+    "sym": {
+      "eps": "ε",
+      "any": "Σ",
+      "blank": "⊔",
+      "leftMarker": "⊢",
+      "rightMarker": "⊣",
+      "stackBottom": "Z",
+      "lambda": "λ"
+    },
+    "pdaParadigm": "explicit"
+  },
+  "sigma": [
+    "a",
+    "b",
+    "#"
+  ],
+  "stackAlpha": [
+    "Z",
+    "X"
+  ],
+  "outputAlpha": [],
+  "tapeCount": 1,
+  "states": [
+    {
+      "id": "s1",
+      "x": 140,
+      "y": 303,
+      "name": "start"
+    },
+    {
+      "id": "s2",
+      "x": 319,
+      "y": 350,
+      "name": "len"
+    },
+    {
+      "id": "s3",
+      "x": 319,
+      "y": 255,
+      "name": "pos"
+    },
+    {
+      "id": "s4",
+      "x": 498,
+      "y": 398,
+      "name": "ylen"
+    },
+    {
+      "id": "s5",
+      "x": 677,
+      "y": 445,
+      "name": "shorter"
+    },
+    {
+      "id": "s6",
+      "x": 677,
+      "y": 350,
+      "name": "longer"
+    },
+    {
+      "id": "s7",
+      "x": 498,
+      "y": 303,
+      "name": "sawA"
+    },
+    {
+      "id": "s8",
+      "x": 498,
+      "y": 208,
+      "name": "sawB"
+    },
+    {
+      "id": "s9",
+      "x": 677,
+      "y": 255,
+      "name": "yA"
+    },
+    {
+      "id": "s10",
+      "x": 677,
+      "y": 160,
+      "name": "yB"
+    },
+    {
+      "id": "s11",
+      "x": 856,
+      "y": 303,
+      "name": "differ"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "t1",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "ε",
+      "pop": "ε",
+      "push": "ε"
+    },
+    {
+      "id": "t2",
+      "from": "s1",
+      "to": "s3",
+      "symbol": "ε",
+      "pop": "ε",
+      "push": "ε"
+    },
+    {
+      "id": "t3",
+      "from": "s2",
+      "to": "s2",
+      "symbol": "a",
+      "pop": "ε",
+      "push": "X"
+    },
+    {
+      "id": "t4",
+      "from": "s2",
+      "to": "s2",
+      "symbol": "b",
+      "pop": "ε",
+      "push": "X"
+    },
+    {
+      "id": "t5",
+      "from": "s2",
+      "to": "s4",
+      "symbol": "#",
+      "pop": "ε",
+      "push": "ε"
+    },
+    {
+      "id": "t6",
+      "from": "s4",
+      "to": "s4",
+      "symbol": "a",
+      "pop": "X",
+      "push": "ε"
+    },
+    {
+      "id": "t7",
+      "from": "s4",
+      "to": "s4",
+      "symbol": "b",
+      "pop": "X",
+      "push": "ε"
+    },
+    {
+      "id": "t8",
+      "from": "s4",
+      "to": "s5",
+      "symbol": "ε",
+      "pop": "X",
+      "push": "X"
+    },
+    {
+      "id": "t9",
+      "from": "s4",
+      "to": "s6",
+      "symbol": "a",
+      "pop": "Z",
+      "push": "Z"
+    },
+    {
+      "id": "t10",
+      "from": "s4",
+      "to": "s6",
+      "symbol": "b",
+      "pop": "Z",
+      "push": "Z"
+    },
+    {
+      "id": "t11",
+      "from": "s6",
+      "to": "s6",
+      "symbol": "a",
+      "pop": "ε",
+      "push": "ε"
+    },
+    {
+      "id": "t12",
+      "from": "s6",
+      "to": "s6",
+      "symbol": "b",
+      "pop": "ε",
+      "push": "ε"
+    },
+    {
+      "id": "t13",
+      "from": "s3",
+      "to": "s3",
+      "symbol": "a",
+      "pop": "ε",
+      "push": "X"
+    },
+    {
+      "id": "t14",
+      "from": "s3",
+      "to": "s3",
+      "symbol": "b",
+      "pop": "ε",
+      "push": "X"
+    },
+    {
+      "id": "t15",
+      "from": "s3",
+      "to": "s7",
+      "symbol": "a",
+      "pop": "ε",
+      "push": "ε"
+    },
+    {
+      "id": "t16",
+      "from": "s3",
+      "to": "s8",
+      "symbol": "b",
+      "pop": "ε",
+      "push": "ε"
+    },
+    {
+      "id": "t17",
+      "from": "s7",
+      "to": "s7",
+      "symbol": "a",
+      "pop": "ε",
+      "push": "ε"
+    },
+    {
+      "id": "t18",
+      "from": "s7",
+      "to": "s7",
+      "symbol": "b",
+      "pop": "ε",
+      "push": "ε"
+    },
+    {
+      "id": "t19",
+      "from": "s7",
+      "to": "s9",
+      "symbol": "#",
+      "pop": "ε",
+      "push": "ε"
+    },
+    {
+      "id": "t20",
+      "from": "s8",
+      "to": "s8",
+      "symbol": "a",
+      "pop": "ε",
+      "push": "ε"
+    },
+    {
+      "id": "t21",
+      "from": "s8",
+      "to": "s8",
+      "symbol": "b",
+      "pop": "ε",
+      "push": "ε"
+    },
+    {
+      "id": "t22",
+      "from": "s8",
+      "to": "s10",
+      "symbol": "#",
+      "pop": "ε",
+      "push": "ε"
+    },
+    {
+      "id": "t23",
+      "from": "s9",
+      "to": "s9",
+      "symbol": "a",
+      "pop": "X",
+      "push": "ε"
+    },
+    {
+      "id": "t24",
+      "from": "s9",
+      "to": "s9",
+      "symbol": "b",
+      "pop": "X",
+      "push": "ε"
+    },
+    {
+      "id": "t25",
+      "from": "s9",
+      "to": "s11",
+      "symbol": "b",
+      "pop": "Z",
+      "push": "Z"
+    },
+    {
+      "id": "t26",
+      "from": "s10",
+      "to": "s10",
+      "symbol": "a",
+      "pop": "X",
+      "push": "ε"
+    },
+    {
+      "id": "t27",
+      "from": "s10",
+      "to": "s10",
+      "symbol": "b",
+      "pop": "X",
+      "push": "ε"
+    },
+    {
+      "id": "t28",
+      "from": "s10",
+      "to": "s11",
+      "symbol": "a",
+      "pop": "Z",
+      "push": "Z"
+    },
+    {
+      "id": "t29",
+      "from": "s11",
+      "to": "s11",
+      "symbol": "a",
+      "pop": "ε",
+      "push": "ε"
+    },
+    {
+      "id": "t30",
+      "from": "s11",
+      "to": "s11",
+      "symbol": "b",
+      "pop": "ε",
+      "push": "ε"
+    }
+  ],
+  "startId": "s1",
+  "accepts": [
+    "s6",
+    "s5",
+    "s11"
+  ],
+  "notes": [],
+  "dividers": [],
+  "blocks": [],
+  "meta": {
+    "title": "Two different words: x#y with x ≠ y",
+    "blurb": "Equal words x#x are beyond a stack, but different ones are not. Either the lengths differ, which a stack measures, or there is a position where they disagree: guess it, push one marker per letter before it, remember the letter, and pop the markers off against y to reach the same position there.",
+    "inputs": [
+      {
+        "w": "#a",
+        "expect": "accept"
+      },
+      {
+        "w": "a#baabb",
+        "expect": "accept"
+      },
+      {
+        "w": "ab#",
+        "expect": "accept"
+      },
+      {
+        "w": "aaaaaba#bbb",
+        "expect": "accept"
+      },
+      {
+        "w": "aa",
+        "expect": "reject"
+      },
+      {
+        "w": "##baabb",
+        "expect": "reject"
+      },
+      {
+        "w": "#b#",
+        "expect": "reject"
+      },
+      {
+        "w": "#aaaaba#bbb",
+        "expect": "reject"
+      }
+    ],
+    "library": {
+      "author": {
+        "login": "thethinkmachine"
+      },
+      "license": "CC-BY-4.0",
+      "tags": [
+        "guessing",
+        "complement",
+        "copy-language"
+      ],
+      "difficulty": "advanced"
+    }
+  }
+}

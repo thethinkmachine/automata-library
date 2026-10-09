@@ -1,0 +1,241 @@
+{
+  "format": "automata-studio/workspace",
+  "schema": 1,
+  "app": "dev",
+  "machine": "DFA",
+  "config": {
+    "sym": {
+      "eps": "ε",
+      "any": "Σ",
+      "blank": "⊔",
+      "leftMarker": "⊢",
+      "rightMarker": "⊣",
+      "stackBottom": "Z",
+      "lambda": "λ"
+    }
+  },
+  "sigma": [
+    "0",
+    "7",
+    "9",
+    "x",
+    "f"
+  ],
+  "stackAlpha": [],
+  "outputAlpha": [],
+  "tapeCount": 1,
+  "states": [
+    {
+      "id": "s1",
+      "x": 140,
+      "y": 208,
+      "name": "s"
+    },
+    {
+      "id": "s2",
+      "x": 319,
+      "y": 255,
+      "name": "zero"
+    },
+    {
+      "id": "s3",
+      "x": 319,
+      "y": 160,
+      "name": "dec"
+    },
+    {
+      "id": "s4",
+      "x": 498,
+      "y": 255,
+      "name": "oct"
+    },
+    {
+      "id": "s5",
+      "x": 498,
+      "y": 160,
+      "name": "hx"
+    },
+    {
+      "id": "s6",
+      "x": 677,
+      "y": 208,
+      "name": "hex"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "t1",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "0"
+    },
+    {
+      "id": "t2",
+      "from": "s1",
+      "to": "s3",
+      "symbol": "7"
+    },
+    {
+      "id": "t3",
+      "from": "s1",
+      "to": "s3",
+      "symbol": "9"
+    },
+    {
+      "id": "t4",
+      "from": "s3",
+      "to": "s3",
+      "symbol": "0"
+    },
+    {
+      "id": "t5",
+      "from": "s3",
+      "to": "s3",
+      "symbol": "7"
+    },
+    {
+      "id": "t6",
+      "from": "s3",
+      "to": "s3",
+      "symbol": "9"
+    },
+    {
+      "id": "t7",
+      "from": "s2",
+      "to": "s4",
+      "symbol": "0"
+    },
+    {
+      "id": "t8",
+      "from": "s2",
+      "to": "s4",
+      "symbol": "7"
+    },
+    {
+      "id": "t9",
+      "from": "s4",
+      "to": "s4",
+      "symbol": "0"
+    },
+    {
+      "id": "t10",
+      "from": "s4",
+      "to": "s4",
+      "symbol": "7"
+    },
+    {
+      "id": "t11",
+      "from": "s2",
+      "to": "s5",
+      "symbol": "x"
+    },
+    {
+      "id": "t12",
+      "from": "s5",
+      "to": "s6",
+      "symbol": "0"
+    },
+    {
+      "id": "t13",
+      "from": "s5",
+      "to": "s6",
+      "symbol": "7"
+    },
+    {
+      "id": "t14",
+      "from": "s5",
+      "to": "s6",
+      "symbol": "9"
+    },
+    {
+      "id": "t15",
+      "from": "s5",
+      "to": "s6",
+      "symbol": "f"
+    },
+    {
+      "id": "t16",
+      "from": "s6",
+      "to": "s6",
+      "symbol": "0"
+    },
+    {
+      "id": "t17",
+      "from": "s6",
+      "to": "s6",
+      "symbol": "7"
+    },
+    {
+      "id": "t18",
+      "from": "s6",
+      "to": "s6",
+      "symbol": "9"
+    },
+    {
+      "id": "t19",
+      "from": "s6",
+      "to": "s6",
+      "symbol": "f"
+    }
+  ],
+  "startId": "s1",
+  "accepts": [
+    "s2",
+    "s3",
+    "s4",
+    "s6"
+  ],
+  "notes": [],
+  "dividers": [],
+  "blocks": [],
+  "meta": {
+    "title": "A C integer literal: decimal, octal or hex",
+    "blurb": "A leading 0 means octal, 0x means hexadecimal, any other digit means decimal. The symbols are classes: 0, 7 for the digits 1–7, 9 for 8 and 9, x, and f for the letters a–f. A lone 0 is a valid octal literal, which is why “zero” is accepting.",
+    "inputs": [
+      {
+        "w": "0",
+        "expect": "accept"
+      },
+      {
+        "w": "0x79f",
+        "expect": "accept"
+      },
+      {
+        "w": "0x07f90",
+        "expect": "accept"
+      },
+      {
+        "w": "0x709079",
+        "expect": "accept"
+      },
+      {
+        "w": "x",
+        "expect": "reject"
+      },
+      {
+        "w": "7x79f",
+        "expect": "reject"
+      },
+      {
+        "w": "7x07f90",
+        "expect": "reject"
+      },
+      {
+        "w": "7x709079",
+        "expect": "reject"
+      }
+    ],
+    "library": {
+      "author": {
+        "login": "thethinkmachine"
+      },
+      "license": "CC-BY-4.0",
+      "tags": [
+        "lexing",
+        "number-bases",
+        "c-language"
+      ],
+      "difficulty": "intermediate"
+    }
+  }
+}

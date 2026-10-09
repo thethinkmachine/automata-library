@@ -1,0 +1,140 @@
+{
+  "format": "automata-studio/workspace",
+  "schema": 1,
+  "app": "dev",
+  "machine": "DFA",
+  "config": {
+    "sym": {
+      "eps": "ε",
+      "any": "Σ",
+      "blank": "⊔",
+      "leftMarker": "⊢",
+      "rightMarker": "⊣",
+      "stackBottom": "Z",
+      "lambda": "λ"
+    }
+  },
+  "sigma": [
+    "0",
+    "1"
+  ],
+  "stackAlpha": [],
+  "outputAlpha": [],
+  "tapeCount": 1,
+  "states": [
+    {
+      "id": "s1",
+      "x": 140,
+      "y": 160,
+      "name": "q1"
+    },
+    {
+      "id": "s2",
+      "x": 319,
+      "y": 160,
+      "name": "q2"
+    },
+    {
+      "id": "s3",
+      "x": 498,
+      "y": 160,
+      "name": "q3"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "t1",
+      "from": "s1",
+      "to": "s1",
+      "symbol": "0"
+    },
+    {
+      "id": "t2",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "1"
+    },
+    {
+      "id": "t3",
+      "from": "s2",
+      "to": "s2",
+      "symbol": "1"
+    },
+    {
+      "id": "t4",
+      "from": "s2",
+      "to": "s3",
+      "symbol": "0"
+    },
+    {
+      "id": "t5",
+      "from": "s3",
+      "to": "s2",
+      "symbol": "0"
+    },
+    {
+      "id": "t6",
+      "from": "s3",
+      "to": "s2",
+      "symbol": "1"
+    }
+  ],
+  "startId": "s1",
+  "accepts": [
+    "s2"
+  ],
+  "notes": [],
+  "dividers": [],
+  "blocks": [],
+  "meta": {
+    "title": "Sipser’s M1: a 1, then an even number of 0s",
+    "blurb": "The first finite automaton in Sipser’s book. It accepts a string when it contains at least one 1 and an even number of 0s follow the last 1. Three states: no 1 yet, an even run of 0s since the last 1, and an odd one.",
+    "inputs": [
+      {
+        "w": "1",
+        "expect": "accept"
+      },
+      {
+        "w": "01100",
+        "expect": "accept"
+      },
+      {
+        "w": "01",
+        "expect": "accept"
+      },
+      {
+        "w": "0000001011",
+        "expect": "accept"
+      },
+      {
+        "w": "0",
+        "expect": "reject"
+      },
+      {
+        "w": "01000",
+        "expect": "reject"
+      },
+      {
+        "w": "00",
+        "expect": "reject"
+      },
+      {
+        "w": "0000001010",
+        "expect": "reject"
+      }
+    ],
+    "library": {
+      "author": {
+        "login": "thethinkmachine"
+      },
+      "license": "CC-BY-4.0",
+      "tags": [
+        "textbook",
+        "sipser",
+        "first-example"
+      ],
+      "difficulty": "intro",
+      "chapter": "Sipser, Introduction to the Theory of Computation, §1.1 (M1)"
+    }
+  }
+}

@@ -1,0 +1,142 @@
+{
+  "format": "automata-studio/workspace",
+  "schema": 1,
+  "app": "dev",
+  "machine": "DFA",
+  "config": {
+    "sym": {
+      "eps": "ε",
+      "any": "Σ",
+      "blank": "⊔",
+      "leftMarker": "⊢",
+      "rightMarker": "⊣",
+      "stackBottom": "Z",
+      "lambda": "λ"
+    }
+  },
+  "sigma": [
+    "0",
+    "1",
+    "2"
+  ],
+  "stackAlpha": [],
+  "outputAlpha": [],
+  "tapeCount": 1,
+  "states": [
+    {
+      "id": "s1",
+      "x": 140,
+      "y": 160,
+      "name": "even"
+    },
+    {
+      "id": "s2",
+      "x": 319,
+      "y": 160,
+      "name": "odd"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "t1",
+      "from": "s1",
+      "to": "s1",
+      "symbol": "0"
+    },
+    {
+      "id": "t2",
+      "from": "s1",
+      "to": "s1",
+      "symbol": "2"
+    },
+    {
+      "id": "t3",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "1"
+    },
+    {
+      "id": "t4",
+      "from": "s2",
+      "to": "s2",
+      "symbol": "0"
+    },
+    {
+      "id": "t5",
+      "from": "s2",
+      "to": "s2",
+      "symbol": "2"
+    },
+    {
+      "id": "t6",
+      "from": "s2",
+      "to": "s1",
+      "symbol": "1"
+    }
+  ],
+  "startId": "s1",
+  "accepts": [
+    "s1"
+  ],
+  "notes": [],
+  "dividers": [],
+  "blocks": [],
+  "meta": {
+    "title": "Even numbers in base 3",
+    "blurb": "In base 10 the last digit says whether a number is even. In base 3 it does not: 3 is odd, so every power of 3 is odd, and a number is even exactly when its digit sum is. Two states count the 1s.",
+    "inputs": [
+      {
+        "w": "2",
+        "expect": "accept",
+        "label": "2"
+      },
+      {
+        "w": "1001121",
+        "expect": "accept",
+        "label": "772"
+      },
+      {
+        "w": "2022",
+        "expect": "accept",
+        "label": "62"
+      },
+      {
+        "w": "1000222021112",
+        "expect": "accept",
+        "label": "550598"
+      },
+      {
+        "w": "1",
+        "expect": "reject",
+        "label": "1"
+      },
+      {
+        "w": "2001121",
+        "expect": "reject",
+        "label": "1501"
+      },
+      {
+        "w": "1022",
+        "expect": "reject",
+        "label": "35"
+      },
+      {
+        "w": "2000222021112",
+        "expect": "reject",
+        "label": "1082039"
+      }
+    ],
+    "library": {
+      "author": {
+        "login": "thethinkmachine"
+      },
+      "license": "CC-BY-4.0",
+      "tags": [
+        "parity",
+        "base-3",
+        "number-bases"
+      ],
+      "difficulty": "intro"
+    }
+  }
+}

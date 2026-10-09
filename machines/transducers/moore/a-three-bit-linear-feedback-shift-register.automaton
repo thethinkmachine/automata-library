@@ -1,0 +1,169 @@
+{
+  "format": "automata-studio/workspace",
+  "schema": 1,
+  "app": "dev",
+  "machine": "Moore",
+  "config": {
+    "sym": {
+      "eps": "ε",
+      "any": "Σ",
+      "blank": "⊔",
+      "leftMarker": "⊢",
+      "rightMarker": "⊣",
+      "stackBottom": "Z",
+      "lambda": "λ"
+    },
+    "transducerAccepts": false
+  },
+  "sigma": [
+    "t"
+  ],
+  "stackAlpha": [],
+  "outputAlpha": [
+    "0",
+    "1"
+  ],
+  "tapeCount": 1,
+  "states": [
+    {
+      "id": "s1",
+      "x": 247,
+      "y": 160,
+      "name": "s001",
+      "output": "0"
+    },
+    {
+      "id": "s2",
+      "x": 332,
+      "y": 201,
+      "name": "s010",
+      "output": "0"
+    },
+    {
+      "id": "s3",
+      "x": 353,
+      "y": 294,
+      "name": "s101",
+      "output": "1"
+    },
+    {
+      "id": "s4",
+      "x": 294,
+      "y": 368,
+      "name": "s011",
+      "output": "0"
+    },
+    {
+      "id": "s5",
+      "x": 199,
+      "y": 368,
+      "name": "s111",
+      "output": "1"
+    },
+    {
+      "id": "s6",
+      "x": 140,
+      "y": 294,
+      "name": "s110",
+      "output": "1"
+    },
+    {
+      "id": "s7",
+      "x": 161,
+      "y": 201,
+      "name": "s100",
+      "output": "1"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "t1",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "t"
+    },
+    {
+      "id": "t2",
+      "from": "s2",
+      "to": "s3",
+      "symbol": "t"
+    },
+    {
+      "id": "t3",
+      "from": "s3",
+      "to": "s4",
+      "symbol": "t"
+    },
+    {
+      "id": "t4",
+      "from": "s4",
+      "to": "s5",
+      "symbol": "t"
+    },
+    {
+      "id": "t5",
+      "from": "s5",
+      "to": "s6",
+      "symbol": "t"
+    },
+    {
+      "id": "t6",
+      "from": "s6",
+      "to": "s7",
+      "symbol": "t"
+    },
+    {
+      "id": "t7",
+      "from": "s7",
+      "to": "s1",
+      "symbol": "t"
+    }
+  ],
+  "startId": "s1",
+  "accepts": [],
+  "notes": [],
+  "dividers": [],
+  "blocks": [],
+  "meta": {
+    "title": "A three-bit linear-feedback shift register",
+    "blurb": "Each tick t shifts the register and feeds back the XOR of two of its bits; the output is the bit shifted out. Seeded with 001 it runs through all seven non-zero states before repeating — a maximal-length sequence, the cheapest pseudo-random generator in hardware, and a Moore machine with one input letter.",
+    "inputs": [
+      {
+        "w": "t",
+        "out": "00"
+      },
+      {
+        "w": "tt",
+        "out": "001"
+      },
+      {
+        "w": "ttt",
+        "out": "0010"
+      },
+      {
+        "w": "tttt",
+        "out": "00101"
+      },
+      {
+        "w": "ttttt",
+        "out": "001011"
+      },
+      {
+        "w": "tttttttttttttttt",
+        "out": "00101110010111001"
+      }
+    ],
+    "library": {
+      "author": {
+        "login": "thethinkmachine"
+      },
+      "license": "CC-BY-4.0",
+      "tags": [
+        "hardware",
+        "pseudo-random",
+        "lfsr"
+      ],
+      "difficulty": "intermediate"
+    }
+  }
+}

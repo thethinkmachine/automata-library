@@ -1,0 +1,253 @@
+{
+  "format": "automata-studio/workspace",
+  "schema": 1,
+  "app": "dev",
+  "machine": "MTM",
+  "config": {
+    "sym": {
+      "eps": "ε",
+      "any": "Σ",
+      "blank": "⊔",
+      "leftMarker": "⊢",
+      "rightMarker": "⊣",
+      "stackBottom": "Z",
+      "lambda": "λ"
+    }
+  },
+  "sigma": [
+    "(",
+    ")"
+  ],
+  "stackAlpha": [
+    "(",
+    ")",
+    "⊔",
+    ">",
+    "X"
+  ],
+  "outputAlpha": [],
+  "tapeCount": 2,
+  "states": [
+    {
+      "id": "s1",
+      "x": 140,
+      "y": 208,
+      "name": "q0"
+    },
+    {
+      "id": "s2",
+      "x": 319,
+      "y": 208,
+      "name": "run"
+    },
+    {
+      "id": "s3",
+      "x": 498,
+      "y": 255,
+      "name": "pop"
+    },
+    {
+      "id": "s4",
+      "x": 677,
+      "y": 255,
+      "name": "popped"
+    },
+    {
+      "id": "s5",
+      "x": 498,
+      "y": 160,
+      "name": "end"
+    },
+    {
+      "id": "s6",
+      "x": 677,
+      "y": 160,
+      "name": "acc"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "t1",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "Σ",
+      "tapeSyms": [
+        "Σ",
+        "⊔"
+      ],
+      "tapeWrites": [
+        "Σ",
+        ">"
+      ],
+      "tapeDirs": [
+        "S",
+        "R"
+      ]
+    },
+    {
+      "id": "t2",
+      "from": "s2",
+      "to": "s2",
+      "symbol": "(",
+      "tapeSyms": [
+        "(",
+        "⊔"
+      ],
+      "tapeWrites": [
+        "(",
+        "X"
+      ],
+      "tapeDirs": [
+        "R",
+        "R"
+      ]
+    },
+    {
+      "id": "t3",
+      "from": "s2",
+      "to": "s3",
+      "symbol": ")",
+      "tapeSyms": [
+        ")",
+        "⊔"
+      ],
+      "tapeWrites": [
+        ")",
+        "⊔"
+      ],
+      "tapeDirs": [
+        "S",
+        "L"
+      ]
+    },
+    {
+      "id": "t4",
+      "from": "s3",
+      "to": "s4",
+      "symbol": "Σ",
+      "tapeSyms": [
+        "Σ",
+        "X"
+      ],
+      "tapeWrites": [
+        "Σ",
+        "⊔"
+      ],
+      "tapeDirs": [
+        "S",
+        "S"
+      ]
+    },
+    {
+      "id": "t5",
+      "from": "s4",
+      "to": "s2",
+      "symbol": ")",
+      "tapeSyms": [
+        ")",
+        "⊔"
+      ],
+      "tapeWrites": [
+        ")",
+        "⊔"
+      ],
+      "tapeDirs": [
+        "R",
+        "S"
+      ]
+    },
+    {
+      "id": "t6",
+      "from": "s2",
+      "to": "s5",
+      "symbol": "⊔",
+      "tapeSyms": [
+        "⊔",
+        "⊔"
+      ],
+      "tapeWrites": [
+        "⊔",
+        "⊔"
+      ],
+      "tapeDirs": [
+        "S",
+        "L"
+      ]
+    },
+    {
+      "id": "t7",
+      "from": "s5",
+      "to": "s6",
+      "symbol": "⊔",
+      "tapeSyms": [
+        "⊔",
+        ">"
+      ],
+      "tapeWrites": [
+        "⊔",
+        ">"
+      ],
+      "tapeDirs": [
+        "S",
+        "S"
+      ]
+    }
+  ],
+  "startId": "s1",
+  "accepts": [
+    "s6"
+  ],
+  "notes": [],
+  "dividers": [],
+  "blocks": [],
+  "meta": {
+    "title": "Balanced parentheses, with a second tape for a stack",
+    "blurb": "A Turing machine has no stack, but a second tape is one: write a mark and step right for each (, step left and erase for each ). One pass, against the one-tape machine’s walking back and forth to find each partner.",
+    "inputs": [
+      {
+        "w": "",
+        "expect": "accept"
+      },
+      {
+        "w": "(())",
+        "expect": "accept"
+      },
+      {
+        "w": "(()())",
+        "expect": "accept"
+      },
+      {
+        "w": "(()())(()())",
+        "expect": "accept"
+      },
+      {
+        "w": "(",
+        "expect": "reject"
+      },
+      {
+        "w": ")())",
+        "expect": "reject"
+      },
+      {
+        "w": ")()())",
+        "expect": "reject"
+      },
+      {
+        "w": ")()())(()())",
+        "expect": "reject"
+      }
+    ],
+    "library": {
+      "author": {
+        "login": "thethinkmachine"
+      },
+      "license": "CC-BY-4.0",
+      "tags": [
+        "multi-tape",
+        "parentheses",
+        "stack"
+      ],
+      "difficulty": "intro"
+    }
+  }
+}

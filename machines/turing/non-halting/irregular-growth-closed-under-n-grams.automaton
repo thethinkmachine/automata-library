@@ -1,0 +1,134 @@
+{
+  "format": "automata-studio/workspace",
+  "schema": 1,
+  "app": "dev",
+  "machine": "ITM",
+  "config": {
+    "twoWayTape": true,
+    "sym": {
+      "eps": "ε",
+      "any": "Σ",
+      "blank": "⊔",
+      "leftMarker": "⊢",
+      "rightMarker": "⊣",
+      "stackBottom": "Z",
+      "lambda": "λ"
+    }
+  },
+  "sigma": [
+    "1"
+  ],
+  "stackAlpha": [
+    "1",
+    "⊔"
+  ],
+  "outputAlpha": [],
+  "tapeCount": 1,
+  "states": [
+    {
+      "id": "s1",
+      "name": "A",
+      "x": 0,
+      "y": 0
+    },
+    {
+      "id": "s2",
+      "name": "B",
+      "x": 179,
+      "y": 0
+    },
+    {
+      "id": "s3",
+      "name": "C",
+      "x": 358,
+      "y": 0
+    },
+    {
+      "id": "s4",
+      "name": "D",
+      "x": 537,
+      "y": 0
+    }
+  ],
+  "transitions": [
+    {
+      "id": "t1",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "⊔",
+      "write": "⊔",
+      "dir": "R"
+    },
+    {
+      "id": "t2",
+      "from": "s2",
+      "to": "s3",
+      "symbol": "⊔",
+      "write": "⊔",
+      "dir": "R"
+    },
+    {
+      "id": "t3",
+      "from": "s2",
+      "to": "s3",
+      "symbol": "1",
+      "write": "1",
+      "dir": "L"
+    },
+    {
+      "id": "t4",
+      "from": "s3",
+      "to": "s4",
+      "symbol": "⊔",
+      "write": "1",
+      "dir": "R"
+    },
+    {
+      "id": "t5",
+      "from": "s3",
+      "to": "s1",
+      "symbol": "1",
+      "write": "1",
+      "dir": "R"
+    },
+    {
+      "id": "t6",
+      "from": "s4",
+      "to": "s2",
+      "symbol": "⊔",
+      "write": "1",
+      "dir": "L"
+    },
+    {
+      "id": "t7",
+      "from": "s4",
+      "to": "s4",
+      "symbol": "1",
+      "write": "⊔",
+      "dir": "L"
+    }
+  ],
+  "startId": "s1",
+  "accepts": [],
+  "notes": [],
+  "dividers": [],
+  "blocks": [],
+  "meta": {
+    "title": "Irregular growth, closed under n-grams",
+    "blurb": "Four states that grow their tape in an uneven, almost fractal pattern. The n-gram method from the Coq proof of BB(5) collects every short window of tape that can appear on either side of the head, closes that set under the machine’s moves, and finds no window in which the halting transition can fire.",
+    "library": {
+      "author": {
+        "login": "thethinkmachine"
+      },
+      "license": "CC-BY-4.0",
+      "tags": [
+        "standard-format",
+        "non-halting",
+        "proof",
+        "n-gram-cps",
+        "coq-bb5"
+      ],
+      "difficulty": "advanced"
+    }
+  }
+}

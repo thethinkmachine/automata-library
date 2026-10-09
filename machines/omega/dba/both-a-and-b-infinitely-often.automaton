@@ -1,0 +1,158 @@
+{
+  "format": "automata-studio/workspace",
+  "schema": 1,
+  "app": "dev",
+  "machine": "DBA",
+  "config": {
+    "sym": {
+      "eps": "ε",
+      "any": "Σ",
+      "blank": "⊔",
+      "leftMarker": "⊢",
+      "rightMarker": "⊣",
+      "stackBottom": "Z",
+      "lambda": "λ"
+    }
+  },
+  "sigma": [
+    "a",
+    "b",
+    "c"
+  ],
+  "stackAlpha": [],
+  "outputAlpha": [],
+  "tapeCount": 1,
+  "states": [
+    {
+      "id": "s1",
+      "x": 140,
+      "y": 160,
+      "name": "wantA"
+    },
+    {
+      "id": "s2",
+      "x": 319,
+      "y": 160,
+      "name": "wantB"
+    },
+    {
+      "id": "s3",
+      "x": 498,
+      "y": 160,
+      "name": "both"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "t1",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "a"
+    },
+    {
+      "id": "t2",
+      "from": "s1",
+      "to": "s1",
+      "symbol": "b"
+    },
+    {
+      "id": "t3",
+      "from": "s1",
+      "to": "s1",
+      "symbol": "c"
+    },
+    {
+      "id": "t4",
+      "from": "s2",
+      "to": "s3",
+      "symbol": "b"
+    },
+    {
+      "id": "t5",
+      "from": "s2",
+      "to": "s2",
+      "symbol": "a"
+    },
+    {
+      "id": "t6",
+      "from": "s2",
+      "to": "s2",
+      "symbol": "c"
+    },
+    {
+      "id": "t7",
+      "from": "s3",
+      "to": "s2",
+      "symbol": "a"
+    },
+    {
+      "id": "t8",
+      "from": "s3",
+      "to": "s1",
+      "symbol": "b"
+    },
+    {
+      "id": "t9",
+      "from": "s3",
+      "to": "s1",
+      "symbol": "c"
+    }
+  ],
+  "startId": "s1",
+  "accepts": [
+    "s3"
+  ],
+  "notes": [],
+  "dividers": [],
+  "blocks": [],
+  "meta": {
+    "title": "Both a and b, infinitely often",
+    "blurb": "GF a ∧ GF b. Büchi acceptance names one set to visit infinitely often, so two conditions are chained: wait for an a, then for a b, and pass through the accepting state each time both have happened. The same trick turns any generalised Büchi condition into an ordinary one.",
+    "inputs": [
+      {
+        "w": "(ab)",
+        "expect": "accept"
+      },
+      {
+        "w": "(ba)",
+        "expect": "accept"
+      },
+      {
+        "w": "(aab)",
+        "expect": "accept"
+      },
+      {
+        "w": "(aba)",
+        "expect": "accept"
+      },
+      {
+        "w": "(a)",
+        "expect": "reject"
+      },
+      {
+        "w": "(b)",
+        "expect": "reject"
+      },
+      {
+        "w": "(c)",
+        "expect": "reject"
+      },
+      {
+        "w": "a(a)",
+        "expect": "reject"
+      }
+    ],
+    "library": {
+      "author": {
+        "login": "thethinkmachine"
+      },
+      "license": "CC-BY-4.0",
+      "tags": [
+        "ltl",
+        "generalised-buchi",
+        "fairness"
+      ],
+      "difficulty": "intermediate"
+    }
+  }
+}

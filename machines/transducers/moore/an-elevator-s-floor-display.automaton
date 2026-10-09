@@ -1,0 +1,157 @@
+{
+  "format": "automata-studio/workspace",
+  "schema": 1,
+  "app": "dev",
+  "machine": "Moore",
+  "config": {
+    "sym": {
+      "eps": "ε",
+      "any": "Σ",
+      "blank": "⊔",
+      "leftMarker": "⊢",
+      "rightMarker": "⊣",
+      "stackBottom": "Z",
+      "lambda": "λ"
+    },
+    "transducerAccepts": false
+  },
+  "sigma": [
+    "u",
+    "d"
+  ],
+  "stackAlpha": [],
+  "outputAlpha": [
+    "0",
+    "1",
+    "2",
+    "3"
+  ],
+  "tapeCount": 1,
+  "states": [
+    {
+      "id": "s1",
+      "x": 140,
+      "y": 520,
+      "name": "f0",
+      "output": "0"
+    },
+    {
+      "id": "s2",
+      "x": 140,
+      "y": 400,
+      "name": "f1",
+      "output": "1"
+    },
+    {
+      "id": "s3",
+      "x": 140,
+      "y": 280,
+      "name": "f2",
+      "output": "2"
+    },
+    {
+      "id": "s4",
+      "x": 140,
+      "y": 160,
+      "name": "f3",
+      "output": "3"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "t1",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "u"
+    },
+    {
+      "id": "t2",
+      "from": "s1",
+      "to": "s1",
+      "symbol": "d"
+    },
+    {
+      "id": "t3",
+      "from": "s2",
+      "to": "s3",
+      "symbol": "u"
+    },
+    {
+      "id": "t4",
+      "from": "s2",
+      "to": "s1",
+      "symbol": "d"
+    },
+    {
+      "id": "t5",
+      "from": "s3",
+      "to": "s4",
+      "symbol": "u"
+    },
+    {
+      "id": "t6",
+      "from": "s3",
+      "to": "s2",
+      "symbol": "d"
+    },
+    {
+      "id": "t7",
+      "from": "s4",
+      "to": "s4",
+      "symbol": "u"
+    },
+    {
+      "id": "t8",
+      "from": "s4",
+      "to": "s3",
+      "symbol": "d"
+    }
+  ],
+  "startId": "s1",
+  "accepts": [],
+  "notes": [],
+  "dividers": [],
+  "blocks": [],
+  "meta": {
+    "title": "An elevator’s floor display",
+    "blurb": "u and d move the car up and down between floors 0 and 3; a press at the top or bottom does nothing. The display shows the floor after every move. A bounded counter, saturating at both ends — the states are the floors.",
+    "inputs": [
+      {
+        "w": "d",
+        "out": "00"
+      },
+      {
+        "w": "u",
+        "out": "01"
+      },
+      {
+        "w": "dd",
+        "out": "000"
+      },
+      {
+        "w": "du",
+        "out": "001"
+      },
+      {
+        "w": "ddd",
+        "out": "0000"
+      },
+      {
+        "w": "uudduuuddddduudd",
+        "out": "01210123210001210"
+      }
+    ],
+    "library": {
+      "author": {
+        "login": "thethinkmachine"
+      },
+      "license": "CC-BY-4.0",
+      "tags": [
+        "counters",
+        "saturation",
+        "control"
+      ],
+      "difficulty": "intro"
+    }
+  }
+}

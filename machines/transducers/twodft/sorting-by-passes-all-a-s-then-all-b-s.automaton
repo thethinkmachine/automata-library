@@ -1,0 +1,197 @@
+{
+  "format": "automata-studio/workspace",
+  "schema": 1,
+  "app": "dev",
+  "machine": "2DFT",
+  "config": {
+    "sym": {
+      "eps": "ε",
+      "any": "Σ",
+      "blank": "⊔",
+      "leftMarker": "⊢",
+      "rightMarker": "⊣",
+      "stackBottom": "Z",
+      "lambda": "λ"
+    },
+    "transducerAccepts": true
+  },
+  "sigma": [
+    "a",
+    "b"
+  ],
+  "stackAlpha": [],
+  "outputAlpha": [
+    "a",
+    "b"
+  ],
+  "tapeCount": 1,
+  "states": [
+    {
+      "id": "s1",
+      "x": 140,
+      "y": 160,
+      "name": "start"
+    },
+    {
+      "id": "s2",
+      "x": 319,
+      "y": 160,
+      "name": "as"
+    },
+    {
+      "id": "s3",
+      "x": 498,
+      "y": 160,
+      "name": "back"
+    },
+    {
+      "id": "s4",
+      "x": 677,
+      "y": 160,
+      "name": "bs"
+    },
+    {
+      "id": "s5",
+      "x": 856,
+      "y": 160,
+      "name": "done"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "t1",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "⊢",
+      "dir": "R",
+      "output": ""
+    },
+    {
+      "id": "t2",
+      "from": "s2",
+      "to": "s2",
+      "symbol": "a",
+      "dir": "R",
+      "output": "a"
+    },
+    {
+      "id": "t3",
+      "from": "s2",
+      "to": "s2",
+      "symbol": "b",
+      "dir": "R",
+      "output": ""
+    },
+    {
+      "id": "t4",
+      "from": "s2",
+      "to": "s3",
+      "symbol": "⊣",
+      "dir": "L",
+      "output": ""
+    },
+    {
+      "id": "t5",
+      "from": "s3",
+      "to": "s3",
+      "symbol": "a",
+      "dir": "L",
+      "output": ""
+    },
+    {
+      "id": "t6",
+      "from": "s3",
+      "to": "s3",
+      "symbol": "b",
+      "dir": "L",
+      "output": ""
+    },
+    {
+      "id": "t7",
+      "from": "s3",
+      "to": "s4",
+      "symbol": "⊢",
+      "dir": "R",
+      "output": ""
+    },
+    {
+      "id": "t8",
+      "from": "s4",
+      "to": "s4",
+      "symbol": "a",
+      "dir": "R",
+      "output": ""
+    },
+    {
+      "id": "t9",
+      "from": "s4",
+      "to": "s4",
+      "symbol": "b",
+      "dir": "R",
+      "output": "b"
+    },
+    {
+      "id": "t10",
+      "from": "s4",
+      "to": "s5",
+      "symbol": "⊣",
+      "dir": "S",
+      "output": ""
+    }
+  ],
+  "startId": "s1",
+  "accepts": [
+    "s5"
+  ],
+  "notes": [],
+  "dividers": [],
+  "blocks": [],
+  "meta": {
+    "title": "Sorting by passes: all a’s, then all b’s",
+    "blurb": "Two passes over the input: the first prints only the a’s, the second only the b’s. The output is the input sorted — counting sort, where the transducer’s head does the counting by reading the input twice.",
+    "inputs": [
+      {
+        "w": "a",
+        "out": "a",
+        "expect": "accept"
+      },
+      {
+        "w": "b",
+        "out": "b",
+        "expect": "accept"
+      },
+      {
+        "w": "aa",
+        "out": "aa",
+        "expect": "accept"
+      },
+      {
+        "w": "ab",
+        "out": "ab",
+        "expect": "accept"
+      },
+      {
+        "w": "aaa",
+        "out": "aaa",
+        "expect": "accept"
+      },
+      {
+        "w": "bbbbbabbaaabbaaa",
+        "out": "aaaaaaabbbbbbbbb",
+        "expect": "accept"
+      }
+    ],
+    "library": {
+      "author": {
+        "login": "thethinkmachine"
+      },
+      "license": "CC-BY-4.0",
+      "tags": [
+        "sorting",
+        "two-way",
+        "multiple-passes"
+      ],
+      "difficulty": "intro"
+    }
+  }
+}

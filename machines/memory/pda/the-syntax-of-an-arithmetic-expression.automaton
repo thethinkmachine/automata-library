@@ -1,0 +1,196 @@
+{
+  "format": "automata-studio/workspace",
+  "schema": 1,
+  "app": "dev",
+  "machine": "DPDA",
+  "config": {
+    "sym": {
+      "eps": "ε",
+      "any": "Σ",
+      "blank": "⊔",
+      "leftMarker": "⊢",
+      "rightMarker": "⊣",
+      "stackBottom": "Z",
+      "lambda": "λ"
+    },
+    "pdaParadigm": "explicit"
+  },
+  "sigma": [
+    "n",
+    "+",
+    "*",
+    "(",
+    ")"
+  ],
+  "stackAlpha": [
+    "Z",
+    "P"
+  ],
+  "outputAlpha": [],
+  "tapeCount": 1,
+  "states": [
+    {
+      "id": "s1",
+      "x": 140,
+      "y": 208,
+      "name": "operand"
+    },
+    {
+      "id": "s2",
+      "x": 319,
+      "y": 208,
+      "name": "check"
+    },
+    {
+      "id": "s3",
+      "x": 498,
+      "y": 255,
+      "name": "top"
+    },
+    {
+      "id": "s4",
+      "x": 498,
+      "y": 160,
+      "name": "inner"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "t1",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "n",
+      "pop": "ε",
+      "push": "ε"
+    },
+    {
+      "id": "t2",
+      "from": "s1",
+      "to": "s1",
+      "symbol": "(",
+      "pop": "ε",
+      "push": "P"
+    },
+    {
+      "id": "t3",
+      "from": "s2",
+      "to": "s3",
+      "symbol": "ε",
+      "pop": "Z",
+      "push": "Z"
+    },
+    {
+      "id": "t4",
+      "from": "s2",
+      "to": "s4",
+      "symbol": "ε",
+      "pop": "P",
+      "push": "P"
+    },
+    {
+      "id": "t5",
+      "from": "s3",
+      "to": "s1",
+      "symbol": "+",
+      "pop": "ε",
+      "push": "ε"
+    },
+    {
+      "id": "t6",
+      "from": "s3",
+      "to": "s1",
+      "symbol": "*",
+      "pop": "ε",
+      "push": "ε"
+    },
+    {
+      "id": "t7",
+      "from": "s4",
+      "to": "s1",
+      "symbol": "+",
+      "pop": "ε",
+      "push": "ε"
+    },
+    {
+      "id": "t8",
+      "from": "s4",
+      "to": "s1",
+      "symbol": "*",
+      "pop": "ε",
+      "push": "ε"
+    },
+    {
+      "id": "t9",
+      "from": "s4",
+      "to": "s2",
+      "symbol": ")",
+      "pop": "P",
+      "push": "ε"
+    }
+  ],
+  "startId": "s1",
+  "accepts": [
+    "s3"
+  ],
+  "notes": [],
+  "dividers": [],
+  "blocks": [],
+  "meta": {
+    "title": "The syntax of an arithmetic expression",
+    "blurb": "Tokens n, +, *, ( and ): is this a well-formed expression? The machine alternates between expecting an operand and expecting an operator, and the stack holds one P per open parenthesis. A parser’s first job, without the parse tree.",
+    "inputs": [
+      {
+        "w": "n",
+        "expect": "accept"
+      },
+      {
+        "w": "n+n*n",
+        "expect": "accept"
+      },
+      {
+        "w": "(n+n)*n",
+        "expect": "accept"
+      },
+      {
+        "w": "((n))",
+        "expect": "accept"
+      },
+      {
+        "w": "n*(n+(n*n))",
+        "expect": "accept"
+      },
+      {
+        "w": "n+",
+        "expect": "reject"
+      },
+      {
+        "w": "(n",
+        "expect": "reject"
+      },
+      {
+        "w": "n)(n",
+        "expect": "reject"
+      },
+      {
+        "w": "()",
+        "expect": "reject"
+      },
+      {
+        "w": "nn",
+        "expect": "reject"
+      }
+    ],
+    "library": {
+      "author": {
+        "login": "thethinkmachine"
+      },
+      "license": "CC-BY-4.0",
+      "tags": [
+        "parsing",
+        "expressions",
+        "compilers"
+      ],
+      "difficulty": "intermediate"
+    }
+  }
+}

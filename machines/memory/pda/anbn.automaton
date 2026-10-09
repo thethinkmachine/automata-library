@@ -1,98 +1,155 @@
 {
-  "machine": "PDA",
+  "format": "automata-studio/workspace",
+  "schema": 1,
+  "app": "dev",
+  "machine": "DPDA",
+  "config": {
+    "sym": {
+      "eps": "ε",
+      "any": "Σ",
+      "blank": "⊔",
+      "leftMarker": "⊢",
+      "rightMarker": "⊣",
+      "stackBottom": "Z",
+      "lambda": "λ"
+    },
+    "pdaParadigm": "explicit"
+  },
   "sigma": [
     "a",
     "b"
   ],
   "stackAlpha": [
-    "A",
-    "Z"
+    "Z",
+    "X"
   ],
+  "outputAlpha": [],
+  "tapeCount": 1,
   "states": [
     {
       "id": "s1",
-      "x": 120,
-      "y": 200,
-      "name": "push-a"
+      "x": 140,
+      "y": 160,
+      "name": "start"
     },
     {
       "id": "s2",
-      "x": 360,
-      "y": 200,
-      "name": "pop-b"
+      "x": 319,
+      "y": 160,
+      "name": "as"
     },
     {
       "id": "s3",
-      "x": 600,
-      "y": 200,
-      "name": "acc"
+      "x": 498,
+      "y": 160,
+      "name": "bs"
+    },
+    {
+      "id": "s4",
+      "x": 677,
+      "y": 160,
+      "name": "done"
     }
-  ],
-  "startId": "s1",
-  "accepts": [
-    "s3"
   ],
   "transitions": [
     {
       "id": "t1",
       "from": "s1",
-      "to": "s1",
+      "to": "s2",
       "symbol": "a",
       "pop": "Z",
-      "push": "AZ"
+      "push": "XZ"
     },
     {
       "id": "t2",
-      "from": "s1",
-      "to": "s1",
+      "from": "s2",
+      "to": "s2",
       "symbol": "a",
-      "pop": "A",
-      "push": "AA"
+      "pop": "X",
+      "push": "XX"
     },
     {
       "id": "t3",
-      "from": "s1",
-      "to": "s2",
+      "from": "s2",
+      "to": "s3",
       "symbol": "b",
-      "pop": "A",
+      "pop": "X",
       "push": "ε"
     },
     {
       "id": "t4",
-      "from": "s2",
-      "to": "s2",
+      "from": "s3",
+      "to": "s3",
       "symbol": "b",
-      "pop": "A",
+      "pop": "X",
       "push": "ε"
     },
     {
       "id": "t5",
-      "from": "s2",
-      "to": "s3",
+      "from": "s3",
+      "to": "s4",
       "symbol": "ε",
       "pop": "Z",
       "push": "Z"
     }
   ],
-  "config": {
-    "pdaParadigm": "explicit"
-  },
-  "format": "automata-studio/workspace",
-  "schema": 1,
-  "app": "dev",
+  "startId": "s1",
+  "accepts": [
+    "s1",
+    "s4"
+  ],
+  "notes": [],
+  "dividers": [],
+  "blocks": [],
   "meta": {
     "title": "aⁿbⁿ",
-    "blurb": "The textbook Deterministic Pushdown Automaton example.",
+    "blurb": "The language that is not regular: no finite memory can count the a’s, and a stack can. Push one X per a, pop one per b, and accept when the bottom marker comes back into view exactly as the input runs out.",
+    "inputs": [
+      {
+        "w": "",
+        "expect": "accept"
+      },
+      {
+        "w": "aabb",
+        "expect": "accept"
+      },
+      {
+        "w": "ab",
+        "expect": "accept"
+      },
+      {
+        "w": "aaaaaaabbbbbbb",
+        "expect": "accept"
+      },
+      {
+        "w": "a",
+        "expect": "reject"
+      },
+      {
+        "w": "babb",
+        "expect": "reject"
+      },
+      {
+        "w": "bb",
+        "expect": "reject"
+      },
+      {
+        "w": "baaaaaabbbbbbb",
+        "expect": "reject"
+      }
+    ],
     "library": {
       "author": {
         "login": "thethinkmachine"
       },
       "license": "CC-BY-4.0",
       "tags": [
-        "textbook",
-        "dpda"
+        "canonical",
+        "counting",
+        "non-regular"
       ],
-      "difficulty": "intro"
+      "difficulty": "intro",
+      "chapter": "Sipser, Introduction to the Theory of Computation, §2.2 (as 0ⁿ1ⁿ)"
     }
   }
 }

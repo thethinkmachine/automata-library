@@ -1,0 +1,127 @@
+{
+  "format": "automata-studio/workspace",
+  "schema": 1,
+  "app": "dev",
+  "machine": "NFA",
+  "config": {
+    "sym": {
+      "eps": "ε",
+      "any": "Σ",
+      "blank": "⊔",
+      "leftMarker": "⊢",
+      "rightMarker": "⊣",
+      "stackBottom": "Z",
+      "lambda": "λ"
+    }
+  },
+  "sigma": [
+    "a",
+    "b"
+  ],
+  "stackAlpha": [],
+  "outputAlpha": [],
+  "tapeCount": 1,
+  "states": [
+    {
+      "id": "s1",
+      "x": 140,
+      "y": 160,
+      "name": "q0"
+    },
+    {
+      "id": "s2",
+      "x": 319,
+      "y": 160,
+      "name": "q1"
+    },
+    {
+      "id": "s3",
+      "x": 498,
+      "y": 160,
+      "name": "q2"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "t1",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "a"
+    },
+    {
+      "id": "t2",
+      "from": "s2",
+      "to": "s1",
+      "symbol": "b"
+    },
+    {
+      "id": "t3",
+      "from": "s2",
+      "to": "s3",
+      "symbol": "b"
+    },
+    {
+      "id": "t4",
+      "from": "s3",
+      "to": "s1",
+      "symbol": "a"
+    }
+  ],
+  "startId": "s1",
+  "accepts": [
+    "s1"
+  ],
+  "notes": [],
+  "dividers": [],
+  "blocks": [],
+  "meta": {
+    "title": "(ab ∪ aba)*",
+    "blurb": "Three states, and one choice: after ab, is that the end of a block, or will an a finish an aba? The NFA keeps both possibilities alive. The textbook example where an NFA is easier to draw than to determinise.",
+    "inputs": [
+      {
+        "w": "",
+        "expect": "accept"
+      },
+      {
+        "w": "aba",
+        "expect": "accept"
+      },
+      {
+        "w": "abaab",
+        "expect": "accept"
+      },
+      {
+        "w": "abaabaabab",
+        "expect": "accept"
+      },
+      {
+        "w": "a",
+        "expect": "reject"
+      },
+      {
+        "w": "bba",
+        "expect": "reject"
+      },
+      {
+        "w": "bbaab",
+        "expect": "reject"
+      },
+      {
+        "w": "bbaabaabab",
+        "expect": "reject"
+      }
+    ],
+    "library": {
+      "author": {
+        "login": "thethinkmachine"
+      },
+      "license": "CC-BY-4.0",
+      "tags": [
+        "kleene-star",
+        "textbook",
+        "regular-expressions"
+      ],
+      "difficulty": "intro"
+    }
+  }
+}

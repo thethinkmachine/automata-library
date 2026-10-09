@@ -1,0 +1,198 @@
+{
+  "format": "automata-studio/workspace",
+  "schema": 1,
+  "app": "dev",
+  "machine": "2DFA",
+  "config": {
+    "sym": {
+      "eps": "ε",
+      "any": "Σ",
+      "blank": "⊔",
+      "leftMarker": "⊢",
+      "rightMarker": "⊣",
+      "stackBottom": "Z",
+      "lambda": "λ"
+    }
+  },
+  "sigma": [
+    "0",
+    "1"
+  ],
+  "stackAlpha": [],
+  "outputAlpha": [],
+  "tapeCount": 1,
+  "states": [
+    {
+      "id": "s1",
+      "x": 140,
+      "y": 160,
+      "name": "run"
+    },
+    {
+      "id": "s2",
+      "x": 319,
+      "y": 160,
+      "name": "b1"
+    },
+    {
+      "id": "s3",
+      "x": 498,
+      "y": 160,
+      "name": "b2"
+    },
+    {
+      "id": "s4",
+      "x": 677,
+      "y": 160,
+      "name": "b3"
+    },
+    {
+      "id": "s5",
+      "x": 856,
+      "y": 160,
+      "name": "b4"
+    },
+    {
+      "id": "s6",
+      "x": 1035,
+      "y": 160,
+      "name": "yes"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "t1",
+      "from": "s1",
+      "to": "s1",
+      "symbol": "⊢",
+      "dir": "R"
+    },
+    {
+      "id": "t2",
+      "from": "s1",
+      "to": "s1",
+      "symbol": "0",
+      "dir": "R"
+    },
+    {
+      "id": "t3",
+      "from": "s1",
+      "to": "s1",
+      "symbol": "1",
+      "dir": "R"
+    },
+    {
+      "id": "t4",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "⊣",
+      "dir": "L"
+    },
+    {
+      "id": "t5",
+      "from": "s2",
+      "to": "s3",
+      "symbol": "0",
+      "dir": "L"
+    },
+    {
+      "id": "t6",
+      "from": "s2",
+      "to": "s3",
+      "symbol": "1",
+      "dir": "L"
+    },
+    {
+      "id": "t7",
+      "from": "s3",
+      "to": "s4",
+      "symbol": "0",
+      "dir": "L"
+    },
+    {
+      "id": "t8",
+      "from": "s3",
+      "to": "s4",
+      "symbol": "1",
+      "dir": "L"
+    },
+    {
+      "id": "t9",
+      "from": "s4",
+      "to": "s5",
+      "symbol": "0",
+      "dir": "L"
+    },
+    {
+      "id": "t10",
+      "from": "s4",
+      "to": "s5",
+      "symbol": "1",
+      "dir": "L"
+    },
+    {
+      "id": "t11",
+      "from": "s5",
+      "to": "s6",
+      "symbol": "1",
+      "dir": "S"
+    }
+  ],
+  "startId": "s1",
+  "accepts": [
+    "s6"
+  ],
+  "notes": [],
+  "dividers": [],
+  "blocks": [],
+  "meta": {
+    "title": "The fourth symbol from the end, by walking back",
+    "blurb": "A one-way DFA for “the 4th symbol from the end is a 1” needs 16 states, one per possible last-four window. A two-way DFA runs to the right end marker and steps back four cells: six states. Two-way heads add no power, but they can save exponentially many states.",
+    "inputs": [
+      {
+        "w": "1000",
+        "expect": "accept"
+      },
+      {
+        "w": "01011",
+        "expect": "accept"
+      },
+      {
+        "w": "001000",
+        "expect": "accept"
+      },
+      {
+        "w": "0000001011",
+        "expect": "accept"
+      },
+      {
+        "w": "0000",
+        "expect": "reject"
+      },
+      {
+        "w": "00011",
+        "expect": "reject"
+      },
+      {
+        "w": "000000",
+        "expect": "reject"
+      },
+      {
+        "w": "0000000011",
+        "expect": "reject"
+      }
+    ],
+    "library": {
+      "author": {
+        "login": "thethinkmachine"
+      },
+      "license": "CC-BY-4.0",
+      "tags": [
+        "two-way",
+        "state-complexity",
+        "suffix"
+      ],
+      "difficulty": "intermediate"
+    }
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "title": "Formats and lexers",
+  "blurb": "What a lexer or a form validator does, one machine at a time: identifiers, numbers, comments, string literals, clock times, IP octets, Roman numerals, keywords — and, one step up, the syntax of an expression.",
+  "curator": "thethinkmachine",
+  "entries": [
+    "finite/dfa/an-identifier",
+    "finite/dfa/a-number-in-scientific-notation",
+    "finite/dfa/a-c-comment",
+    "finite/dfa/a-string-literal-with-escapes",
+    "finite/dfa/a-keyword-if-in-int-or-for",
+    "finite/dfa/a-24-hour-clock-time-hh-mm",
+    "finite/dfa/a-byte-in-decimal-0-to-255",
+    "finite/dfa/roman-numerals-from-i-to-mmmcmxcix",
+    "finite/enfa/a-phone-number-area-code-optional",
+    "finite/enfa/within-one-typo-of-cat",
+    "memory/pda/the-syntax-of-an-arithmetic-expression",
+    "finite/dfa/well-formed-utf-8",
+    "finite/dfa/base64-length-and-padding",
+    "finite/dfa/a-c-integer-literal-decimal-octal-or-hex",
+    "finite/dfa/a-csv-record-with-quoted-fields",
+    "finite/dfa/an-iso-date-yyyy-mm-dd",
+    "finite/dfa/a-full-ipv4-address",
+    "finite/dfa/an-email-address-roughly",
+    "finite/dfa/a-hex-colour-rgb-or-rrggbb",
+    "memory/pda/a-nested-list-x-x-x"
+  ]
+}

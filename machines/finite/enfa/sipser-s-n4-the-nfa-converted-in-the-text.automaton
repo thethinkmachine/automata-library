@@ -1,0 +1,137 @@
+{
+  "format": "automata-studio/workspace",
+  "schema": 1,
+  "app": "dev",
+  "machine": "ε-NFA",
+  "config": {
+    "sym": {
+      "eps": "ε",
+      "any": "Σ",
+      "blank": "⊔",
+      "leftMarker": "⊢",
+      "rightMarker": "⊣",
+      "stackBottom": "Z",
+      "lambda": "λ"
+    }
+  },
+  "sigma": [
+    "a",
+    "b"
+  ],
+  "stackAlpha": [],
+  "outputAlpha": [],
+  "tapeCount": 1,
+  "states": [
+    {
+      "id": "s1",
+      "x": 225,
+      "y": 160,
+      "name": "1"
+    },
+    {
+      "id": "s2",
+      "x": 140,
+      "y": 330,
+      "name": "2"
+    },
+    {
+      "id": "s3",
+      "x": 310,
+      "y": 330,
+      "name": "3"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "t1",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "b"
+    },
+    {
+      "id": "t2",
+      "from": "s1",
+      "to": "s3",
+      "symbol": "ε"
+    },
+    {
+      "id": "t3",
+      "from": "s2",
+      "to": "s2",
+      "symbol": "a"
+    },
+    {
+      "id": "t4",
+      "from": "s2",
+      "to": "s3",
+      "symbol": "a"
+    },
+    {
+      "id": "t5",
+      "from": "s2",
+      "to": "s3",
+      "symbol": "b"
+    },
+    {
+      "id": "t6",
+      "from": "s3",
+      "to": "s1",
+      "symbol": "a"
+    }
+  ],
+  "startId": "s1",
+  "accepts": [
+    "s1"
+  ],
+  "notes": [],
+  "dividers": [],
+  "blocks": [],
+  "meta": {
+    "title": "Sipser’s N4: the NFA converted in the text",
+    "blurb": "The three-state machine Sipser turns into a DFA to show the subset construction, ε-closures included. It accepts ε, a, baa and baba and rejects b, bb and babba. As a regular expression its language is (a ∪ ba*(a ∪ b)a)*.",
+    "inputs": [
+      {
+        "w": "",
+        "expect": "accept"
+      },
+      {
+        "w": "a",
+        "expect": "accept"
+      },
+      {
+        "w": "baa",
+        "expect": "accept"
+      },
+      {
+        "w": "baba",
+        "expect": "accept"
+      },
+      {
+        "w": "b",
+        "expect": "reject"
+      },
+      {
+        "w": "bb",
+        "expect": "reject"
+      },
+      {
+        "w": "babba",
+        "expect": "reject"
+      }
+    ],
+    "library": {
+      "author": {
+        "login": "thethinkmachine"
+      },
+      "license": "CC-BY-4.0",
+      "tags": [
+        "textbook",
+        "sipser",
+        "subset-construction",
+        "epsilon-closure"
+      ],
+      "difficulty": "intermediate",
+      "chapter": "Sipser, Introduction to the Theory of Computation, §1.2 (N4)"
+    }
+  }
+}

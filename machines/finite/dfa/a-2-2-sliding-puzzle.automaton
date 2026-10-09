@@ -1,0 +1,303 @@
+{
+  "format": "automata-studio/workspace",
+  "schema": 1,
+  "app": "dev",
+  "machine": "DFA",
+  "config": {
+    "sym": {
+      "eps": "ε",
+      "any": "Σ",
+      "blank": "⊔",
+      "leftMarker": "⊢",
+      "rightMarker": "⊣",
+      "stackBottom": "Z",
+      "lambda": "λ"
+    }
+  },
+  "sigma": [
+    "U",
+    "D",
+    "L",
+    "R"
+  ],
+  "stackAlpha": [],
+  "outputAlpha": [],
+  "tapeCount": 1,
+  "states": [
+    {
+      "id": "s1",
+      "x": 820,
+      "y": 500,
+      "name": "123_"
+    },
+    {
+      "id": "s2",
+      "x": 774,
+      "y": 670,
+      "name": "1_32"
+    },
+    {
+      "id": "s3",
+      "x": 650,
+      "y": 794,
+      "name": "12_3"
+    },
+    {
+      "id": "s4",
+      "x": 480,
+      "y": 840,
+      "name": "_132"
+    },
+    {
+      "id": "s5",
+      "x": 310,
+      "y": 794,
+      "name": "_213"
+    },
+    {
+      "id": "s6",
+      "x": 186,
+      "y": 670,
+      "name": "31_2"
+    },
+    {
+      "id": "s7",
+      "x": 140,
+      "y": 500,
+      "name": "2_13"
+    },
+    {
+      "id": "s8",
+      "x": 186,
+      "y": 330,
+      "name": "312_"
+    },
+    {
+      "id": "s9",
+      "x": 310,
+      "y": 206,
+      "name": "231_"
+    },
+    {
+      "id": "s10",
+      "x": 480,
+      "y": 160,
+      "name": "3_21"
+    },
+    {
+      "id": "s11",
+      "x": 650,
+      "y": 206,
+      "name": "23_1"
+    },
+    {
+      "id": "s12",
+      "x": 774,
+      "y": 330,
+      "name": "_321"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "t1",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "U"
+    },
+    {
+      "id": "t2",
+      "from": "s1",
+      "to": "s3",
+      "symbol": "L"
+    },
+    {
+      "id": "t3",
+      "from": "s2",
+      "to": "s1",
+      "symbol": "D"
+    },
+    {
+      "id": "t4",
+      "from": "s2",
+      "to": "s4",
+      "symbol": "L"
+    },
+    {
+      "id": "t5",
+      "from": "s3",
+      "to": "s5",
+      "symbol": "U"
+    },
+    {
+      "id": "t6",
+      "from": "s3",
+      "to": "s1",
+      "symbol": "R"
+    },
+    {
+      "id": "t7",
+      "from": "s4",
+      "to": "s6",
+      "symbol": "D"
+    },
+    {
+      "id": "t8",
+      "from": "s4",
+      "to": "s2",
+      "symbol": "R"
+    },
+    {
+      "id": "t9",
+      "from": "s5",
+      "to": "s3",
+      "symbol": "D"
+    },
+    {
+      "id": "t10",
+      "from": "s5",
+      "to": "s7",
+      "symbol": "R"
+    },
+    {
+      "id": "t11",
+      "from": "s6",
+      "to": "s4",
+      "symbol": "U"
+    },
+    {
+      "id": "t12",
+      "from": "s6",
+      "to": "s8",
+      "symbol": "R"
+    },
+    {
+      "id": "t13",
+      "from": "s7",
+      "to": "s9",
+      "symbol": "D"
+    },
+    {
+      "id": "t14",
+      "from": "s7",
+      "to": "s5",
+      "symbol": "L"
+    },
+    {
+      "id": "t15",
+      "from": "s8",
+      "to": "s10",
+      "symbol": "U"
+    },
+    {
+      "id": "t16",
+      "from": "s8",
+      "to": "s6",
+      "symbol": "L"
+    },
+    {
+      "id": "t17",
+      "from": "s9",
+      "to": "s7",
+      "symbol": "U"
+    },
+    {
+      "id": "t18",
+      "from": "s9",
+      "to": "s11",
+      "symbol": "L"
+    },
+    {
+      "id": "t19",
+      "from": "s10",
+      "to": "s8",
+      "symbol": "D"
+    },
+    {
+      "id": "t20",
+      "from": "s10",
+      "to": "s12",
+      "symbol": "L"
+    },
+    {
+      "id": "t21",
+      "from": "s11",
+      "to": "s12",
+      "symbol": "U"
+    },
+    {
+      "id": "t22",
+      "from": "s11",
+      "to": "s9",
+      "symbol": "R"
+    },
+    {
+      "id": "t23",
+      "from": "s12",
+      "to": "s11",
+      "symbol": "D"
+    },
+    {
+      "id": "t24",
+      "from": "s12",
+      "to": "s10",
+      "symbol": "R"
+    }
+  ],
+  "startId": "s1",
+  "accepts": [
+    "s1"
+  ],
+  "notes": [],
+  "dividers": [],
+  "blocks": [],
+  "meta": {
+    "title": "A 2 × 2 sliding puzzle",
+    "blurb": "Three tiles and a gap; a move slides the gap up, down, left or right. Of the 24 ways to place three tiles and a gap, only 12 can be reached — and that is the 15-puzzle’s famous parity argument in miniature: every move is a swap, and the gap returns to its corner only after an even number of them.",
+    "inputs": [
+      {
+        "w": "",
+        "expect": "accept"
+      },
+      {
+        "w": "LRUD",
+        "expect": "accept"
+      },
+      {
+        "w": "LUDR",
+        "expect": "accept"
+      },
+      {
+        "w": "ULRD",
+        "expect": "accept"
+      },
+      {
+        "w": "U",
+        "expect": "reject"
+      },
+      {
+        "w": "URUD",
+        "expect": "reject"
+      },
+      {
+        "w": "UUDR",
+        "expect": "reject"
+      },
+      {
+        "w": "DLRD",
+        "expect": "reject"
+      }
+    ],
+    "library": {
+      "author": {
+        "login": "thethinkmachine"
+      },
+      "license": "CC-BY-4.0",
+      "tags": [
+        "puzzles",
+        "parity",
+        "permutations"
+      ],
+      "difficulty": "intermediate"
+    }
+  }
+}

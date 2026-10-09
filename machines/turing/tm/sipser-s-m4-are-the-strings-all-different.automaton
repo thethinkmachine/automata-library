@@ -1,0 +1,839 @@
+{
+  "format": "automata-studio/workspace",
+  "schema": 1,
+  "app": "dev",
+  "machine": "TM",
+  "config": {
+    "sym": {
+      "eps": "ε",
+      "any": "Σ",
+      "blank": "⊔",
+      "leftMarker": "⊢",
+      "rightMarker": "⊣",
+      "stackBottom": "Z",
+      "lambda": "λ"
+    }
+  },
+  "sigma": [
+    "0",
+    "1",
+    "#"
+  ],
+  "stackAlpha": [
+    "0",
+    "1",
+    "#",
+    "x",
+    "⊔",
+    "y",
+    "o",
+    "i"
+  ],
+  "outputAlpha": [],
+  "tapeCount": 1,
+  "states": [
+    {
+      "id": "s1",
+      "x": 140,
+      "y": 160,
+      "name": "s"
+    },
+    {
+      "id": "s2",
+      "x": 300,
+      "y": 160,
+      "name": "m2"
+    },
+    {
+      "id": "s3",
+      "x": 1100,
+      "y": 160,
+      "name": "acc"
+    },
+    {
+      "id": "s4",
+      "x": 300,
+      "y": 368,
+      "name": "c0"
+    },
+    {
+      "id": "s5",
+      "x": 460,
+      "y": 368,
+      "name": "c1"
+    },
+    {
+      "id": "s6",
+      "x": 620,
+      "y": 272,
+      "name": "g0"
+    },
+    {
+      "id": "s7",
+      "x": 620,
+      "y": 464,
+      "name": "g1"
+    },
+    {
+      "id": "s8",
+      "x": 460,
+      "y": 592,
+      "name": "ld"
+    },
+    {
+      "id": "s9",
+      "x": 620,
+      "y": 592,
+      "name": "lr"
+    },
+    {
+      "id": "s10",
+      "x": 780,
+      "y": 272,
+      "name": "h0"
+    },
+    {
+      "id": "s11",
+      "x": 940,
+      "y": 448,
+      "name": "rs"
+    },
+    {
+      "id": "s12",
+      "x": 780,
+      "y": 464,
+      "name": "h1"
+    },
+    {
+      "id": "s13",
+      "x": 1020,
+      "y": 640,
+      "name": "adv"
+    },
+    {
+      "id": "s14",
+      "x": 860,
+      "y": 736,
+      "name": "adv2"
+    },
+    {
+      "id": "s15",
+      "x": 684,
+      "y": 784,
+      "name": "adv3"
+    },
+    {
+      "id": "s16",
+      "x": 508,
+      "y": 784,
+      "name": "adv4"
+    },
+    {
+      "id": "s17",
+      "x": 332,
+      "y": 720,
+      "name": "adv5"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "t1",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "#",
+      "write": "x",
+      "dir": "R"
+    },
+    {
+      "id": "t2",
+      "from": "s1",
+      "to": "s3",
+      "symbol": "⊔",
+      "write": "⊔",
+      "dir": "S"
+    },
+    {
+      "id": "t3",
+      "from": "s2",
+      "to": "s2",
+      "symbol": "0",
+      "write": "0",
+      "dir": "R"
+    },
+    {
+      "id": "t4",
+      "from": "s2",
+      "to": "s2",
+      "symbol": "1",
+      "write": "1",
+      "dir": "R"
+    },
+    {
+      "id": "t5",
+      "from": "s2",
+      "to": "s4",
+      "symbol": "#",
+      "write": "y",
+      "dir": "L"
+    },
+    {
+      "id": "t6",
+      "from": "s2",
+      "to": "s3",
+      "symbol": "⊔",
+      "write": "⊔",
+      "dir": "S"
+    },
+    {
+      "id": "t7",
+      "from": "s4",
+      "to": "s4",
+      "symbol": "0",
+      "write": "0",
+      "dir": "L"
+    },
+    {
+      "id": "t8",
+      "from": "s4",
+      "to": "s4",
+      "symbol": "1",
+      "write": "1",
+      "dir": "L"
+    },
+    {
+      "id": "t9",
+      "from": "s4",
+      "to": "s4",
+      "symbol": "o",
+      "write": "o",
+      "dir": "L"
+    },
+    {
+      "id": "t10",
+      "from": "s4",
+      "to": "s4",
+      "symbol": "i",
+      "write": "i",
+      "dir": "L"
+    },
+    {
+      "id": "t11",
+      "from": "s4",
+      "to": "s4",
+      "symbol": "#",
+      "write": "#",
+      "dir": "L"
+    },
+    {
+      "id": "t12",
+      "from": "s4",
+      "to": "s4",
+      "symbol": "y",
+      "write": "y",
+      "dir": "L"
+    },
+    {
+      "id": "t13",
+      "from": "s4",
+      "to": "s5",
+      "symbol": "x",
+      "write": "x",
+      "dir": "R"
+    },
+    {
+      "id": "t14",
+      "from": "s5",
+      "to": "s5",
+      "symbol": "o",
+      "write": "o",
+      "dir": "R"
+    },
+    {
+      "id": "t15",
+      "from": "s5",
+      "to": "s5",
+      "symbol": "i",
+      "write": "i",
+      "dir": "R"
+    },
+    {
+      "id": "t16",
+      "from": "s5",
+      "to": "s6",
+      "symbol": "0",
+      "write": "o",
+      "dir": "R"
+    },
+    {
+      "id": "t17",
+      "from": "s5",
+      "to": "s7",
+      "symbol": "1",
+      "write": "i",
+      "dir": "R"
+    },
+    {
+      "id": "t18",
+      "from": "s5",
+      "to": "s8",
+      "symbol": "#",
+      "write": "#",
+      "dir": "R"
+    },
+    {
+      "id": "t19",
+      "from": "s5",
+      "to": "s9",
+      "symbol": "y",
+      "write": "y",
+      "dir": "R"
+    },
+    {
+      "id": "t20",
+      "from": "s6",
+      "to": "s6",
+      "symbol": "0",
+      "write": "0",
+      "dir": "R"
+    },
+    {
+      "id": "t21",
+      "from": "s6",
+      "to": "s6",
+      "symbol": "1",
+      "write": "1",
+      "dir": "R"
+    },
+    {
+      "id": "t22",
+      "from": "s6",
+      "to": "s6",
+      "symbol": "o",
+      "write": "o",
+      "dir": "R"
+    },
+    {
+      "id": "t23",
+      "from": "s6",
+      "to": "s6",
+      "symbol": "i",
+      "write": "i",
+      "dir": "R"
+    },
+    {
+      "id": "t24",
+      "from": "s6",
+      "to": "s6",
+      "symbol": "#",
+      "write": "#",
+      "dir": "R"
+    },
+    {
+      "id": "t25",
+      "from": "s6",
+      "to": "s10",
+      "symbol": "y",
+      "write": "y",
+      "dir": "R"
+    },
+    {
+      "id": "t26",
+      "from": "s10",
+      "to": "s10",
+      "symbol": "o",
+      "write": "o",
+      "dir": "R"
+    },
+    {
+      "id": "t27",
+      "from": "s10",
+      "to": "s10",
+      "symbol": "i",
+      "write": "i",
+      "dir": "R"
+    },
+    {
+      "id": "t28",
+      "from": "s10",
+      "to": "s4",
+      "symbol": "0",
+      "write": "o",
+      "dir": "L"
+    },
+    {
+      "id": "t29",
+      "from": "s10",
+      "to": "s11",
+      "symbol": "1",
+      "write": "1",
+      "dir": "L"
+    },
+    {
+      "id": "t30",
+      "from": "s10",
+      "to": "s11",
+      "symbol": "#",
+      "write": "#",
+      "dir": "L"
+    },
+    {
+      "id": "t31",
+      "from": "s10",
+      "to": "s11",
+      "symbol": "⊔",
+      "write": "⊔",
+      "dir": "L"
+    },
+    {
+      "id": "t32",
+      "from": "s7",
+      "to": "s7",
+      "symbol": "0",
+      "write": "0",
+      "dir": "R"
+    },
+    {
+      "id": "t33",
+      "from": "s7",
+      "to": "s7",
+      "symbol": "1",
+      "write": "1",
+      "dir": "R"
+    },
+    {
+      "id": "t34",
+      "from": "s7",
+      "to": "s7",
+      "symbol": "o",
+      "write": "o",
+      "dir": "R"
+    },
+    {
+      "id": "t35",
+      "from": "s7",
+      "to": "s7",
+      "symbol": "i",
+      "write": "i",
+      "dir": "R"
+    },
+    {
+      "id": "t36",
+      "from": "s7",
+      "to": "s7",
+      "symbol": "#",
+      "write": "#",
+      "dir": "R"
+    },
+    {
+      "id": "t37",
+      "from": "s7",
+      "to": "s12",
+      "symbol": "y",
+      "write": "y",
+      "dir": "R"
+    },
+    {
+      "id": "t38",
+      "from": "s12",
+      "to": "s12",
+      "symbol": "o",
+      "write": "o",
+      "dir": "R"
+    },
+    {
+      "id": "t39",
+      "from": "s12",
+      "to": "s12",
+      "symbol": "i",
+      "write": "i",
+      "dir": "R"
+    },
+    {
+      "id": "t40",
+      "from": "s12",
+      "to": "s4",
+      "symbol": "1",
+      "write": "i",
+      "dir": "L"
+    },
+    {
+      "id": "t41",
+      "from": "s12",
+      "to": "s11",
+      "symbol": "0",
+      "write": "0",
+      "dir": "L"
+    },
+    {
+      "id": "t42",
+      "from": "s12",
+      "to": "s11",
+      "symbol": "#",
+      "write": "#",
+      "dir": "L"
+    },
+    {
+      "id": "t43",
+      "from": "s12",
+      "to": "s11",
+      "symbol": "⊔",
+      "write": "⊔",
+      "dir": "L"
+    },
+    {
+      "id": "t44",
+      "from": "s8",
+      "to": "s8",
+      "symbol": "0",
+      "write": "0",
+      "dir": "R"
+    },
+    {
+      "id": "t45",
+      "from": "s8",
+      "to": "s8",
+      "symbol": "1",
+      "write": "1",
+      "dir": "R"
+    },
+    {
+      "id": "t46",
+      "from": "s8",
+      "to": "s8",
+      "symbol": "o",
+      "write": "o",
+      "dir": "R"
+    },
+    {
+      "id": "t47",
+      "from": "s8",
+      "to": "s8",
+      "symbol": "i",
+      "write": "i",
+      "dir": "R"
+    },
+    {
+      "id": "t48",
+      "from": "s8",
+      "to": "s8",
+      "symbol": "#",
+      "write": "#",
+      "dir": "R"
+    },
+    {
+      "id": "t49",
+      "from": "s8",
+      "to": "s9",
+      "symbol": "y",
+      "write": "y",
+      "dir": "R"
+    },
+    {
+      "id": "t50",
+      "from": "s9",
+      "to": "s9",
+      "symbol": "o",
+      "write": "o",
+      "dir": "R"
+    },
+    {
+      "id": "t51",
+      "from": "s9",
+      "to": "s9",
+      "symbol": "i",
+      "write": "i",
+      "dir": "R"
+    },
+    {
+      "id": "t52",
+      "from": "s9",
+      "to": "s11",
+      "symbol": "0",
+      "write": "0",
+      "dir": "L"
+    },
+    {
+      "id": "t53",
+      "from": "s9",
+      "to": "s11",
+      "symbol": "1",
+      "write": "1",
+      "dir": "L"
+    },
+    {
+      "id": "t54",
+      "from": "s11",
+      "to": "s11",
+      "symbol": "o",
+      "write": "0",
+      "dir": "L"
+    },
+    {
+      "id": "t55",
+      "from": "s11",
+      "to": "s11",
+      "symbol": "i",
+      "write": "1",
+      "dir": "L"
+    },
+    {
+      "id": "t56",
+      "from": "s11",
+      "to": "s11",
+      "symbol": "0",
+      "write": "0",
+      "dir": "L"
+    },
+    {
+      "id": "t57",
+      "from": "s11",
+      "to": "s11",
+      "symbol": "1",
+      "write": "1",
+      "dir": "L"
+    },
+    {
+      "id": "t58",
+      "from": "s11",
+      "to": "s11",
+      "symbol": "#",
+      "write": "#",
+      "dir": "L"
+    },
+    {
+      "id": "t59",
+      "from": "s11",
+      "to": "s11",
+      "symbol": "y",
+      "write": "y",
+      "dir": "L"
+    },
+    {
+      "id": "t60",
+      "from": "s11",
+      "to": "s11",
+      "symbol": "⊔",
+      "write": "⊔",
+      "dir": "L"
+    },
+    {
+      "id": "t61",
+      "from": "s11",
+      "to": "s13",
+      "symbol": "x",
+      "write": "x",
+      "dir": "R"
+    },
+    {
+      "id": "t62",
+      "from": "s13",
+      "to": "s13",
+      "symbol": "0",
+      "write": "0",
+      "dir": "R"
+    },
+    {
+      "id": "t63",
+      "from": "s13",
+      "to": "s13",
+      "symbol": "1",
+      "write": "1",
+      "dir": "R"
+    },
+    {
+      "id": "t64",
+      "from": "s13",
+      "to": "s13",
+      "symbol": "#",
+      "write": "#",
+      "dir": "R"
+    },
+    {
+      "id": "t65",
+      "from": "s13",
+      "to": "s14",
+      "symbol": "y",
+      "write": "#",
+      "dir": "R"
+    },
+    {
+      "id": "t66",
+      "from": "s14",
+      "to": "s14",
+      "symbol": "0",
+      "write": "0",
+      "dir": "R"
+    },
+    {
+      "id": "t67",
+      "from": "s14",
+      "to": "s14",
+      "symbol": "1",
+      "write": "1",
+      "dir": "R"
+    },
+    {
+      "id": "t68",
+      "from": "s14",
+      "to": "s4",
+      "symbol": "#",
+      "write": "y",
+      "dir": "L"
+    },
+    {
+      "id": "t69",
+      "from": "s14",
+      "to": "s15",
+      "symbol": "⊔",
+      "write": "⊔",
+      "dir": "L"
+    },
+    {
+      "id": "t70",
+      "from": "s15",
+      "to": "s15",
+      "symbol": "0",
+      "write": "0",
+      "dir": "L"
+    },
+    {
+      "id": "t71",
+      "from": "s15",
+      "to": "s15",
+      "symbol": "1",
+      "write": "1",
+      "dir": "L"
+    },
+    {
+      "id": "t72",
+      "from": "s15",
+      "to": "s15",
+      "symbol": "#",
+      "write": "#",
+      "dir": "L"
+    },
+    {
+      "id": "t73",
+      "from": "s15",
+      "to": "s16",
+      "symbol": "x",
+      "write": "#",
+      "dir": "R"
+    },
+    {
+      "id": "t74",
+      "from": "s16",
+      "to": "s16",
+      "symbol": "0",
+      "write": "0",
+      "dir": "R"
+    },
+    {
+      "id": "t75",
+      "from": "s16",
+      "to": "s16",
+      "symbol": "1",
+      "write": "1",
+      "dir": "R"
+    },
+    {
+      "id": "t76",
+      "from": "s16",
+      "to": "s17",
+      "symbol": "#",
+      "write": "x",
+      "dir": "R"
+    },
+    {
+      "id": "t77",
+      "from": "s17",
+      "to": "s17",
+      "symbol": "0",
+      "write": "0",
+      "dir": "R"
+    },
+    {
+      "id": "t78",
+      "from": "s17",
+      "to": "s17",
+      "symbol": "1",
+      "write": "1",
+      "dir": "R"
+    },
+    {
+      "id": "t79",
+      "from": "s17",
+      "to": "s4",
+      "symbol": "#",
+      "write": "y",
+      "dir": "L"
+    },
+    {
+      "id": "t80",
+      "from": "s17",
+      "to": "s3",
+      "symbol": "⊔",
+      "write": "⊔",
+      "dir": "S"
+    }
+  ],
+  "startId": "s1",
+  "accepts": [
+    "s3"
+  ],
+  "notes": [],
+  "dividers": [],
+  "blocks": [],
+  "meta": {
+    "title": "Sipser’s M4: are the strings all different?",
+    "blurb": "Input #x₁#x₂…#xₗ, each xᵢ a binary string; accept if no two are equal. Two of the #s carry marks (x and y) naming the pair being compared; the machine compares the strings after them by zigzagging, then moves the marks on to the next pair, until every pair has been checked.",
+    "inputs": [
+      {
+        "w": "#0#1",
+        "expect": "accept"
+      },
+      {
+        "w": "#01#10#11",
+        "expect": "accept"
+      },
+      {
+        "w": "#0#01#1",
+        "expect": "accept"
+      },
+      {
+        "w": "#1#1",
+        "expect": "reject"
+      },
+      {
+        "w": "#0#1#0",
+        "expect": "reject"
+      },
+      {
+        "w": "##",
+        "expect": "reject"
+      },
+      {
+        "w": "#",
+        "expect": "accept"
+      },
+      {
+        "w": "#10#10#0",
+        "expect": "reject"
+      }
+    ],
+    "library": {
+      "author": {
+        "login": "thethinkmachine"
+      },
+      "license": "CC-BY-4.0",
+      "tags": [
+        "textbook",
+        "sipser",
+        "element-distinctness",
+        "zigzag"
+      ],
+      "difficulty": "advanced",
+      "chapter": "Sipser, Introduction to the Theory of Computation, §3.1 (M4)"
+    }
+  }
+}

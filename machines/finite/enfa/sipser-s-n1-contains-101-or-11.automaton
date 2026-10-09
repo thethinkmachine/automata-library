@@ -1,0 +1,159 @@
+{
+  "format": "automata-studio/workspace",
+  "schema": 1,
+  "app": "dev",
+  "machine": "ε-NFA",
+  "config": {
+    "sym": {
+      "eps": "ε",
+      "any": "Σ",
+      "blank": "⊔",
+      "leftMarker": "⊢",
+      "rightMarker": "⊣",
+      "stackBottom": "Z",
+      "lambda": "λ"
+    }
+  },
+  "sigma": [
+    "0",
+    "1"
+  ],
+  "stackAlpha": [],
+  "outputAlpha": [],
+  "tapeCount": 1,
+  "states": [
+    {
+      "id": "s1",
+      "x": 140,
+      "y": 160,
+      "name": "q1"
+    },
+    {
+      "id": "s2",
+      "x": 310,
+      "y": 160,
+      "name": "q2"
+    },
+    {
+      "id": "s3",
+      "x": 480,
+      "y": 160,
+      "name": "q3"
+    },
+    {
+      "id": "s4",
+      "x": 650,
+      "y": 160,
+      "name": "q4"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "t1",
+      "from": "s1",
+      "to": "s1",
+      "symbol": "0"
+    },
+    {
+      "id": "t2",
+      "from": "s1",
+      "to": "s1",
+      "symbol": "1"
+    },
+    {
+      "id": "t3",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "1"
+    },
+    {
+      "id": "t4",
+      "from": "s2",
+      "to": "s3",
+      "symbol": "0"
+    },
+    {
+      "id": "t5",
+      "from": "s2",
+      "to": "s3",
+      "symbol": "ε"
+    },
+    {
+      "id": "t6",
+      "from": "s3",
+      "to": "s4",
+      "symbol": "1"
+    },
+    {
+      "id": "t7",
+      "from": "s4",
+      "to": "s4",
+      "symbol": "0"
+    },
+    {
+      "id": "t8",
+      "from": "s4",
+      "to": "s4",
+      "symbol": "1"
+    }
+  ],
+  "startId": "s1",
+  "accepts": [
+    "s4"
+  ],
+  "notes": [],
+  "dividers": [],
+  "blocks": [],
+  "meta": {
+    "title": "Sipser’s N1: contains 101 or 11",
+    "blurb": "The NFA Sipser uses to introduce nondeterminism. In q1 it may stay or guess that this 1 starts the pattern; from q2 the ε-move lets the middle 0 be skipped, so the same three edges match both 101 and 11.",
+    "inputs": [
+      {
+        "w": "11",
+        "expect": "accept"
+      },
+      {
+        "w": "101",
+        "expect": "accept"
+      },
+      {
+        "w": "0011",
+        "expect": "accept"
+      },
+      {
+        "w": "0000000110",
+        "expect": "accept"
+      },
+      {
+        "w": "01",
+        "expect": "reject"
+      },
+      {
+        "w": "001",
+        "expect": "reject"
+      },
+      {
+        "w": "0001",
+        "expect": "reject"
+      },
+      {
+        "w": "0000000010",
+        "expect": "reject"
+      }
+    ],
+    "library": {
+      "author": {
+        "login": "thethinkmachine"
+      },
+      "license": "CC-BY-4.0",
+      "tags": [
+        "textbook",
+        "sipser",
+        "nondeterminism",
+        "substrings"
+      ],
+      "difficulty": "intro",
+      "chapter": "Sipser, Introduction to the Theory of Computation, §1.2 (N1)"
+    }
+  }
+}

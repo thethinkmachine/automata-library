@@ -1,0 +1,206 @@
+{
+  "format": "automata-studio/workspace",
+  "schema": 1,
+  "app": "dev",
+  "machine": "DFA",
+  "config": {
+    "sym": {
+      "eps": "ε",
+      "any": "Σ",
+      "blank": "⊔",
+      "leftMarker": "⊢",
+      "rightMarker": "⊣",
+      "stackBottom": "Z",
+      "lambda": "λ"
+    }
+  },
+  "sigma": [
+    "n",
+    "d",
+    "q"
+  ],
+  "stackAlpha": [],
+  "outputAlpha": [],
+  "tapeCount": 1,
+  "states": [
+    {
+      "id": "s1",
+      "x": 140,
+      "y": 255,
+      "name": "0¢"
+    },
+    {
+      "id": "s2",
+      "x": 319,
+      "y": 255,
+      "name": "5¢"
+    },
+    {
+      "id": "s3",
+      "x": 319,
+      "y": 160,
+      "name": "10¢"
+    },
+    {
+      "id": "s4",
+      "x": 319,
+      "y": 350,
+      "name": "25¢"
+    },
+    {
+      "id": "s5",
+      "x": 498,
+      "y": 255,
+      "name": "15¢"
+    },
+    {
+      "id": "s6",
+      "x": 498,
+      "y": 350,
+      "name": "30¢"
+    },
+    {
+      "id": "s7",
+      "x": 498,
+      "y": 160,
+      "name": "20¢"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "t1",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "n"
+    },
+    {
+      "id": "t2",
+      "from": "s1",
+      "to": "s3",
+      "symbol": "d"
+    },
+    {
+      "id": "t3",
+      "from": "s1",
+      "to": "s4",
+      "symbol": "q"
+    },
+    {
+      "id": "t4",
+      "from": "s2",
+      "to": "s3",
+      "symbol": "n"
+    },
+    {
+      "id": "t5",
+      "from": "s2",
+      "to": "s5",
+      "symbol": "d"
+    },
+    {
+      "id": "t6",
+      "from": "s2",
+      "to": "s6",
+      "symbol": "q"
+    },
+    {
+      "id": "t7",
+      "from": "s3",
+      "to": "s5",
+      "symbol": "n"
+    },
+    {
+      "id": "t8",
+      "from": "s3",
+      "to": "s7",
+      "symbol": "d"
+    },
+    {
+      "id": "t9",
+      "from": "s4",
+      "to": "s6",
+      "symbol": "n"
+    },
+    {
+      "id": "t10",
+      "from": "s5",
+      "to": "s7",
+      "symbol": "n"
+    },
+    {
+      "id": "t11",
+      "from": "s5",
+      "to": "s4",
+      "symbol": "d"
+    },
+    {
+      "id": "t12",
+      "from": "s7",
+      "to": "s4",
+      "symbol": "n"
+    },
+    {
+      "id": "t13",
+      "from": "s7",
+      "to": "s6",
+      "symbol": "d"
+    }
+  ],
+  "startId": "s1",
+  "accepts": [
+    "s6"
+  ],
+  "notes": [],
+  "dividers": [],
+  "blocks": [],
+  "meta": {
+    "title": "Exact change: 30¢ in nickels, dimes and quarters",
+    "blurb": "n is 5¢, d is 10¢, q is 25¢. The machine accepts the coin sequences that add up to exactly 30¢ — the states are the running total, and overpaying has nowhere to go.",
+    "inputs": [
+      {
+        "w": "nq",
+        "expect": "accept"
+      },
+      {
+        "w": "ddnn",
+        "expect": "accept"
+      },
+      {
+        "w": "ndnnn",
+        "expect": "accept"
+      },
+      {
+        "w": "nnnnnn",
+        "expect": "accept"
+      },
+      {
+        "w": "dq",
+        "expect": "reject"
+      },
+      {
+        "w": "ndnn",
+        "expect": "reject"
+      },
+      {
+        "w": "ddnnn",
+        "expect": "reject"
+      },
+      {
+        "w": "dnnnnn",
+        "expect": "reject"
+      }
+    ],
+    "library": {
+      "author": {
+        "login": "thethinkmachine"
+      },
+      "license": "CC-BY-4.0",
+      "tags": [
+        "vending-machine",
+        "counting",
+        "partial-dfa"
+      ],
+      "difficulty": "intro"
+    }
+  }
+}

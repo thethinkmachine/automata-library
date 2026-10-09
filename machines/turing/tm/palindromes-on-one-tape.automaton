@@ -1,0 +1,259 @@
+{
+  "format": "automata-studio/workspace",
+  "schema": 1,
+  "app": "dev",
+  "machine": "TM",
+  "config": {
+    "sym": {
+      "eps": "ε",
+      "any": "Σ",
+      "blank": "⊔",
+      "leftMarker": "⊢",
+      "rightMarker": "⊣",
+      "stackBottom": "Z",
+      "lambda": "λ"
+    }
+  },
+  "sigma": [
+    "a",
+    "b"
+  ],
+  "stackAlpha": [
+    "a",
+    "b",
+    "⊔"
+  ],
+  "outputAlpha": [],
+  "tapeCount": 1,
+  "states": [
+    {
+      "id": "s1",
+      "x": 140,
+      "y": 255,
+      "name": "first"
+    },
+    {
+      "id": "s2",
+      "x": 319,
+      "y": 255,
+      "name": "runA"
+    },
+    {
+      "id": "s3",
+      "x": 319,
+      "y": 160,
+      "name": "runB"
+    },
+    {
+      "id": "s4",
+      "x": 319,
+      "y": 350,
+      "name": "acc"
+    },
+    {
+      "id": "s5",
+      "x": 498,
+      "y": 303,
+      "name": "lastA"
+    },
+    {
+      "id": "s6",
+      "x": 498,
+      "y": 208,
+      "name": "lastB"
+    },
+    {
+      "id": "s7",
+      "x": 677,
+      "y": 255,
+      "name": "back"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "t1",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "a",
+      "write": "⊔",
+      "dir": "R"
+    },
+    {
+      "id": "t2",
+      "from": "s1",
+      "to": "s3",
+      "symbol": "b",
+      "write": "⊔",
+      "dir": "R"
+    },
+    {
+      "id": "t3",
+      "from": "s1",
+      "to": "s4",
+      "symbol": "⊔",
+      "write": "⊔",
+      "dir": "S"
+    },
+    {
+      "id": "t4",
+      "from": "s2",
+      "to": "s2",
+      "symbol": "a",
+      "write": "a",
+      "dir": "R"
+    },
+    {
+      "id": "t5",
+      "from": "s2",
+      "to": "s2",
+      "symbol": "b",
+      "write": "b",
+      "dir": "R"
+    },
+    {
+      "id": "t6",
+      "from": "s2",
+      "to": "s5",
+      "symbol": "⊔",
+      "write": "⊔",
+      "dir": "L"
+    },
+    {
+      "id": "t7",
+      "from": "s3",
+      "to": "s3",
+      "symbol": "a",
+      "write": "a",
+      "dir": "R"
+    },
+    {
+      "id": "t8",
+      "from": "s3",
+      "to": "s3",
+      "symbol": "b",
+      "write": "b",
+      "dir": "R"
+    },
+    {
+      "id": "t9",
+      "from": "s3",
+      "to": "s6",
+      "symbol": "⊔",
+      "write": "⊔",
+      "dir": "L"
+    },
+    {
+      "id": "t10",
+      "from": "s5",
+      "to": "s7",
+      "symbol": "a",
+      "write": "⊔",
+      "dir": "L"
+    },
+    {
+      "id": "t11",
+      "from": "s5",
+      "to": "s4",
+      "symbol": "⊔",
+      "write": "⊔",
+      "dir": "S"
+    },
+    {
+      "id": "t12",
+      "from": "s6",
+      "to": "s7",
+      "symbol": "b",
+      "write": "⊔",
+      "dir": "L"
+    },
+    {
+      "id": "t13",
+      "from": "s6",
+      "to": "s4",
+      "symbol": "⊔",
+      "write": "⊔",
+      "dir": "S"
+    },
+    {
+      "id": "t14",
+      "from": "s7",
+      "to": "s7",
+      "symbol": "a",
+      "write": "a",
+      "dir": "L"
+    },
+    {
+      "id": "t15",
+      "from": "s7",
+      "to": "s7",
+      "symbol": "b",
+      "write": "b",
+      "dir": "L"
+    },
+    {
+      "id": "t16",
+      "from": "s7",
+      "to": "s1",
+      "symbol": "⊔",
+      "write": "⊔",
+      "dir": "R"
+    }
+  ],
+  "startId": "s1",
+  "accepts": [
+    "s4"
+  ],
+  "notes": [],
+  "dividers": [],
+  "blocks": [],
+  "meta": {
+    "title": "Palindromes on one tape",
+    "blurb": "Erase the first symbol, remember it, run to the far end and erase the last symbol if it matches; repeat from the new first symbol. About n²/2 steps for a word of length n — and no one-tape machine can do fundamentally better, which is what the two-tape palindrome machine is for.",
+    "inputs": [
+      {
+        "w": "",
+        "expect": "accept"
+      },
+      {
+        "w": "abba",
+        "expect": "accept"
+      },
+      {
+        "w": "aa",
+        "expect": "accept"
+      },
+      {
+        "w": "aaabbbaaa",
+        "expect": "accept"
+      },
+      {
+        "w": "bbba",
+        "expect": "reject"
+      },
+      {
+        "w": "ba",
+        "expect": "reject"
+      },
+      {
+        "w": "baabbbaaa",
+        "expect": "reject"
+      },
+      {
+        "w": "ab",
+        "expect": "reject"
+      }
+    ],
+    "library": {
+      "author": {
+        "login": "thethinkmachine"
+      },
+      "license": "CC-BY-4.0",
+      "tags": [
+        "palindromes",
+        "zigzag",
+        "time-complexity"
+      ],
+      "difficulty": "intro"
+    }
+  }
+}

@@ -1,0 +1,178 @@
+{
+  "format": "automata-studio/workspace",
+  "schema": 1,
+  "app": "dev",
+  "machine": "DPDA",
+  "config": {
+    "sym": {
+      "eps": "ε",
+      "any": "Σ",
+      "blank": "⊔",
+      "leftMarker": "⊢",
+      "rightMarker": "⊣",
+      "stackBottom": "Z",
+      "lambda": "λ"
+    },
+    "pdaParadigm": "explicit"
+  },
+  "sigma": [
+    "(",
+    ")"
+  ],
+  "stackAlpha": [
+    "Z",
+    "P"
+  ],
+  "outputAlpha": [],
+  "tapeCount": 1,
+  "states": [
+    {
+      "id": "s1",
+      "x": 140,
+      "y": 208,
+      "name": "even"
+    },
+    {
+      "id": "s2",
+      "x": 319,
+      "y": 255,
+      "name": "open"
+    },
+    {
+      "id": "s3",
+      "x": 319,
+      "y": 160,
+      "name": "broken"
+    },
+    {
+      "id": "s4",
+      "x": 498,
+      "y": 208,
+      "name": "check"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "t1",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "(",
+      "pop": "Z",
+      "push": "PZ"
+    },
+    {
+      "id": "t2",
+      "from": "s1",
+      "to": "s3",
+      "symbol": ")",
+      "pop": "Z",
+      "push": "Z"
+    },
+    {
+      "id": "t3",
+      "from": "s2",
+      "to": "s2",
+      "symbol": "(",
+      "pop": "P",
+      "push": "PP"
+    },
+    {
+      "id": "t4",
+      "from": "s2",
+      "to": "s4",
+      "symbol": ")",
+      "pop": "P",
+      "push": "ε"
+    },
+    {
+      "id": "t5",
+      "from": "s4",
+      "to": "s2",
+      "symbol": "ε",
+      "pop": "P",
+      "push": "P"
+    },
+    {
+      "id": "t6",
+      "from": "s4",
+      "to": "s1",
+      "symbol": "ε",
+      "pop": "Z",
+      "push": "Z"
+    },
+    {
+      "id": "t7",
+      "from": "s3",
+      "to": "s3",
+      "symbol": "(",
+      "pop": "ε",
+      "push": "ε"
+    },
+    {
+      "id": "t8",
+      "from": "s3",
+      "to": "s3",
+      "symbol": ")",
+      "pop": "ε",
+      "push": "ε"
+    }
+  ],
+  "startId": "s1",
+  "accepts": [
+    "s2",
+    "s3"
+  ],
+  "notes": [],
+  "dividers": [],
+  "blocks": [],
+  "meta": {
+    "title": "Unbalanced parentheses",
+    "blurb": "Deterministic context-free languages are closed under complement — unlike context-free languages in general — and this is what that looks like. Run the bracket checker; if a ) ever finds nothing to match, or the input ends with a ( still open, accept instead of reject.",
+    "inputs": [
+      {
+        "w": "(",
+        "expect": "accept"
+      },
+      {
+        "w": "(())(",
+        "expect": "accept"
+      },
+      {
+        "w": "((",
+        "expect": "accept"
+      },
+      {
+        "w": "((((((())(",
+        "expect": "accept"
+      },
+      {
+        "w": "",
+        "expect": "reject"
+      },
+      {
+        "w": "(())",
+        "expect": "reject"
+      },
+      {
+        "w": "()",
+        "expect": "reject"
+      },
+      {
+        "w": "(()())",
+        "expect": "reject"
+      }
+    ],
+    "library": {
+      "author": {
+        "login": "thethinkmachine"
+      },
+      "license": "CC-BY-4.0",
+      "tags": [
+        "complement",
+        "parentheses",
+        "closure-properties"
+      ],
+      "difficulty": "intermediate"
+    }
+  }
+}

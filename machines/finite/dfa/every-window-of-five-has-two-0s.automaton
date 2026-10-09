@@ -1,0 +1,334 @@
+{
+  "format": "automata-studio/workspace",
+  "schema": 1,
+  "app": "dev",
+  "machine": "DFA",
+  "config": {
+    "sym": {
+      "eps": "ε",
+      "any": "Σ",
+      "blank": "⊔",
+      "leftMarker": "⊢",
+      "rightMarker": "⊣",
+      "stackBottom": "Z",
+      "lambda": "λ"
+    }
+  },
+  "sigma": [
+    "0",
+    "1"
+  ],
+  "stackAlpha": [],
+  "outputAlpha": [],
+  "tapeCount": 1,
+  "states": [
+    {
+      "id": "s1",
+      "x": 140,
+      "y": 350,
+      "name": "start"
+    },
+    {
+      "id": "s2",
+      "x": 319,
+      "y": 398,
+      "name": "0"
+    },
+    {
+      "id": "s3",
+      "x": 319,
+      "y": 303,
+      "name": "1"
+    },
+    {
+      "id": "s4",
+      "x": 498,
+      "y": 445,
+      "name": "01"
+    },
+    {
+      "id": "s5",
+      "x": 498,
+      "y": 350,
+      "name": "10"
+    },
+    {
+      "id": "s6",
+      "x": 498,
+      "y": 255,
+      "name": "11"
+    },
+    {
+      "id": "s7",
+      "x": 677,
+      "y": 493,
+      "name": "011"
+    },
+    {
+      "id": "s8",
+      "x": 677,
+      "y": 398,
+      "name": "101"
+    },
+    {
+      "id": "s9",
+      "x": 677,
+      "y": 303,
+      "name": "110"
+    },
+    {
+      "id": "s10",
+      "x": 677,
+      "y": 208,
+      "name": "111"
+    },
+    {
+      "id": "s11",
+      "x": 856,
+      "y": 540,
+      "name": "0111"
+    },
+    {
+      "id": "s12",
+      "x": 856,
+      "y": 445,
+      "name": "1011"
+    },
+    {
+      "id": "s13",
+      "x": 856,
+      "y": 350,
+      "name": "1101"
+    },
+    {
+      "id": "s14",
+      "x": 856,
+      "y": 255,
+      "name": "1110"
+    },
+    {
+      "id": "s15",
+      "x": 856,
+      "y": 160,
+      "name": "1111"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "t1",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "0"
+    },
+    {
+      "id": "t2",
+      "from": "s1",
+      "to": "s3",
+      "symbol": "1"
+    },
+    {
+      "id": "t3",
+      "from": "s2",
+      "to": "s2",
+      "symbol": "0"
+    },
+    {
+      "id": "t4",
+      "from": "s2",
+      "to": "s4",
+      "symbol": "1"
+    },
+    {
+      "id": "t5",
+      "from": "s3",
+      "to": "s5",
+      "symbol": "0"
+    },
+    {
+      "id": "t6",
+      "from": "s3",
+      "to": "s6",
+      "symbol": "1"
+    },
+    {
+      "id": "t7",
+      "from": "s4",
+      "to": "s5",
+      "symbol": "0"
+    },
+    {
+      "id": "t8",
+      "from": "s4",
+      "to": "s7",
+      "symbol": "1"
+    },
+    {
+      "id": "t9",
+      "from": "s5",
+      "to": "s2",
+      "symbol": "0"
+    },
+    {
+      "id": "t10",
+      "from": "s5",
+      "to": "s8",
+      "symbol": "1"
+    },
+    {
+      "id": "t11",
+      "from": "s6",
+      "to": "s9",
+      "symbol": "0"
+    },
+    {
+      "id": "t12",
+      "from": "s6",
+      "to": "s10",
+      "symbol": "1"
+    },
+    {
+      "id": "t13",
+      "from": "s7",
+      "to": "s9",
+      "symbol": "0"
+    },
+    {
+      "id": "t14",
+      "from": "s7",
+      "to": "s11",
+      "symbol": "1"
+    },
+    {
+      "id": "t15",
+      "from": "s8",
+      "to": "s5",
+      "symbol": "0"
+    },
+    {
+      "id": "t16",
+      "from": "s8",
+      "to": "s12",
+      "symbol": "1"
+    },
+    {
+      "id": "t17",
+      "from": "s9",
+      "to": "s2",
+      "symbol": "0"
+    },
+    {
+      "id": "t18",
+      "from": "s9",
+      "to": "s13",
+      "symbol": "1"
+    },
+    {
+      "id": "t19",
+      "from": "s10",
+      "to": "s14",
+      "symbol": "0"
+    },
+    {
+      "id": "t20",
+      "from": "s10",
+      "to": "s15",
+      "symbol": "1"
+    },
+    {
+      "id": "t21",
+      "from": "s11",
+      "to": "s14",
+      "symbol": "0"
+    },
+    {
+      "id": "t22",
+      "from": "s12",
+      "to": "s9",
+      "symbol": "0"
+    },
+    {
+      "id": "t23",
+      "from": "s13",
+      "to": "s5",
+      "symbol": "0"
+    },
+    {
+      "id": "t24",
+      "from": "s14",
+      "to": "s2",
+      "symbol": "0"
+    }
+  ],
+  "startId": "s1",
+  "accepts": [
+    "s1",
+    "s2",
+    "s3",
+    "s4",
+    "s5",
+    "s6",
+    "s7",
+    "s8",
+    "s9",
+    "s10",
+    "s11",
+    "s12",
+    "s13",
+    "s14",
+    "s15"
+  ],
+  "notes": [],
+  "dividers": [],
+  "blocks": [],
+  "meta": {
+    "title": "Every window of five has two 0s",
+    "blurb": "Every block of five consecutive symbols contains at least two 0s. A sliding-window property: the machine need only remember the last four symbols, and in fact fewer distinctions than that — minimised, it has fifteen states rather than the sixteen windows, because two windows behave alike.",
+    "inputs": [
+      {
+        "w": "",
+        "expect": "accept"
+      },
+      {
+        "w": "00110",
+        "expect": "accept"
+      },
+      {
+        "w": "0",
+        "expect": "accept"
+      },
+      {
+        "w": "0000000110",
+        "expect": "accept"
+      },
+      {
+        "w": "01111",
+        "expect": "reject"
+      },
+      {
+        "w": "111100",
+        "expect": "reject"
+      },
+      {
+        "w": "0001111",
+        "expect": "reject"
+      },
+      {
+        "w": "00001111",
+        "expect": "reject"
+      }
+    ],
+    "library": {
+      "author": {
+        "login": "thethinkmachine"
+      },
+      "license": "CC-BY-4.0",
+      "tags": [
+        "textbook",
+        "hopcroft",
+        "sliding-window"
+      ],
+      "difficulty": "intermediate",
+      "chapter": "Hopcroft, Motwani & Ullman, exercises to §2.2"
+    }
+  }
+}

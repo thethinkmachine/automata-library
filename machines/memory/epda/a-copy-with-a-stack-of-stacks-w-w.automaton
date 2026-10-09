@@ -1,0 +1,222 @@
+{
+  "format": "automata-studio/workspace",
+  "schema": 1,
+  "app": "dev",
+  "machine": "EPDA",
+  "config": {
+    "sym": {
+      "eps": "ε",
+      "any": "Σ",
+      "blank": "⊔",
+      "leftMarker": "⊢",
+      "rightMarker": "⊣",
+      "stackBottom": "Z",
+      "lambda": "λ"
+    },
+    "pdaParadigm": "explicit"
+  },
+  "sigma": [
+    "a",
+    "b",
+    "#"
+  ],
+  "stackAlpha": [
+    "Z",
+    "E",
+    "A",
+    "B"
+  ],
+  "outputAlpha": [],
+  "tapeCount": 1,
+  "states": [
+    {
+      "id": "s1",
+      "x": 140,
+      "y": 160,
+      "name": "q0"
+    },
+    {
+      "id": "s2",
+      "x": 319,
+      "y": 160,
+      "name": "read"
+    },
+    {
+      "id": "s3",
+      "x": 498,
+      "y": 160,
+      "name": "park"
+    },
+    {
+      "id": "s4",
+      "x": 677,
+      "y": 160,
+      "name": "match"
+    },
+    {
+      "id": "s5",
+      "x": 856,
+      "y": 160,
+      "name": "done"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "t1",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "ε",
+      "pop": "ε",
+      "push": "ε",
+      "below": "E",
+      "above": "ε"
+    },
+    {
+      "id": "t2",
+      "from": "s2",
+      "to": "s2",
+      "symbol": "a",
+      "pop": "ε",
+      "push": "A",
+      "below": "ε",
+      "above": "ε"
+    },
+    {
+      "id": "t3",
+      "from": "s2",
+      "to": "s2",
+      "symbol": "b",
+      "pop": "ε",
+      "push": "B",
+      "below": "ε",
+      "above": "ε"
+    },
+    {
+      "id": "t4",
+      "from": "s2",
+      "to": "s3",
+      "symbol": "#",
+      "pop": "ε",
+      "push": "ε",
+      "below": "ε",
+      "above": "ε"
+    },
+    {
+      "id": "t5",
+      "from": "s3",
+      "to": "s3",
+      "symbol": "ε",
+      "pop": "A",
+      "push": "ε",
+      "below": "A",
+      "above": "ε"
+    },
+    {
+      "id": "t6",
+      "from": "s3",
+      "to": "s3",
+      "symbol": "ε",
+      "pop": "B",
+      "push": "ε",
+      "below": "B",
+      "above": "ε"
+    },
+    {
+      "id": "t7",
+      "from": "s3",
+      "to": "s4",
+      "symbol": "ε",
+      "pop": "Z",
+      "push": "ε",
+      "below": "ε",
+      "above": "ε"
+    },
+    {
+      "id": "t8",
+      "from": "s4",
+      "to": "s4",
+      "symbol": "a",
+      "pop": "A",
+      "push": "ε",
+      "below": "ε",
+      "above": "ε"
+    },
+    {
+      "id": "t9",
+      "from": "s4",
+      "to": "s4",
+      "symbol": "b",
+      "pop": "B",
+      "push": "ε",
+      "below": "ε",
+      "above": "ε"
+    },
+    {
+      "id": "t10",
+      "from": "s4",
+      "to": "s5",
+      "symbol": "ε",
+      "pop": "E",
+      "push": "ε",
+      "below": "ε",
+      "above": "ε"
+    }
+  ],
+  "startId": "s1",
+  "accepts": [
+    "s5"
+  ],
+  "notes": [],
+  "dividers": [],
+  "blocks": [],
+  "meta": {
+    "title": "A copy, with a stack of stacks: w#w",
+    "blurb": "One stack reverses w, which is useless for a copy. But popping it again, and parking each symbol on a stack of its own beneath the working one, reverses it a second time — so when the working stack runs out, the parked stacks come back in reading order, one per symbol of the copy.",
+    "inputs": [
+      {
+        "w": "#",
+        "expect": "accept"
+      },
+      {
+        "w": "ab#ab",
+        "expect": "accept"
+      },
+      {
+        "w": "bba#bba",
+        "expect": "accept"
+      },
+      {
+        "w": "abab#abab",
+        "expect": "accept"
+      },
+      {
+        "w": "a",
+        "expect": "reject"
+      },
+      {
+        "w": "bb#ab",
+        "expect": "reject"
+      },
+      {
+        "w": "aba#bba",
+        "expect": "reject"
+      },
+      {
+        "w": "bbab#abab",
+        "expect": "reject"
+      }
+    ],
+    "library": {
+      "author": {
+        "login": "thethinkmachine"
+      },
+      "license": "CC-BY-4.0",
+      "tags": [
+        "tree-adjoining",
+        "copy-language",
+        "reversal"
+      ],
+      "difficulty": "intermediate"
+    }
+  }
+}

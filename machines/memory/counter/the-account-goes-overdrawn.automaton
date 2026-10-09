@@ -1,0 +1,141 @@
+{
+  "format": "automata-studio/workspace",
+  "schema": 1,
+  "app": "dev",
+  "machine": "Counter",
+  "config": {
+    "sym": {
+      "eps": "ε",
+      "any": "Σ",
+      "blank": "⊔",
+      "leftMarker": "⊢",
+      "rightMarker": "⊣",
+      "stackBottom": "Z",
+      "lambda": "λ"
+    },
+    "pdaParadigm": "explicit"
+  },
+  "sigma": [
+    "+",
+    "-"
+  ],
+  "stackAlpha": [
+    "Z",
+    "1"
+  ],
+  "outputAlpha": [],
+  "tapeCount": 1,
+  "states": [
+    {
+      "id": "s1",
+      "x": 140,
+      "y": 160,
+      "name": "ok"
+    },
+    {
+      "id": "s2",
+      "x": 319,
+      "y": 160,
+      "name": "over"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "t1",
+      "from": "s1",
+      "to": "s1",
+      "symbol": "+",
+      "pop": "ε",
+      "push": "1"
+    },
+    {
+      "id": "t2",
+      "from": "s1",
+      "to": "s1",
+      "symbol": "-",
+      "pop": "1",
+      "push": "ε"
+    },
+    {
+      "id": "t3",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "-",
+      "pop": "Z",
+      "push": "Z"
+    },
+    {
+      "id": "t4",
+      "from": "s2",
+      "to": "s2",
+      "symbol": "+",
+      "pop": "ε",
+      "push": "ε"
+    },
+    {
+      "id": "t5",
+      "from": "s2",
+      "to": "s2",
+      "symbol": "-",
+      "pop": "ε",
+      "push": "ε"
+    }
+  ],
+  "startId": "s1",
+  "accepts": [
+    "s2"
+  ],
+  "notes": [],
+  "dividers": [],
+  "blocks": [],
+  "meta": {
+    "title": "The account goes overdrawn",
+    "blurb": "Deposits + and withdrawals −: accept if the balance is negative at some moment, whatever happens afterwards. The counter holds the balance; the first withdrawal it cannot cover moves the machine to a state that accepts everything. It is not the complement of “never overdrawn”: a history that stays in credit without ending at zero belongs to neither.",
+    "inputs": [
+      {
+        "w": "-",
+        "expect": "accept"
+      },
+      {
+        "w": "+--++",
+        "expect": "accept"
+      },
+      {
+        "w": "-+",
+        "expect": "accept"
+      },
+      {
+        "w": "++++-----+",
+        "expect": "accept"
+      },
+      {
+        "w": "+",
+        "expect": "reject"
+      },
+      {
+        "w": "++-++",
+        "expect": "reject"
+      },
+      {
+        "w": "++",
+        "expect": "reject"
+      },
+      {
+        "w": "+++++----+",
+        "expect": "reject"
+      }
+    ],
+    "library": {
+      "author": {
+        "login": "thethinkmachine"
+      },
+      "license": "CC-BY-4.0",
+      "tags": [
+        "one-counter",
+        "safety",
+        "banking"
+      ],
+      "difficulty": "intro"
+    }
+  }
+}

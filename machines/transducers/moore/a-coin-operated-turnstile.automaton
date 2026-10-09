@@ -1,0 +1,117 @@
+{
+  "format": "automata-studio/workspace",
+  "schema": 1,
+  "app": "dev",
+  "machine": "Moore",
+  "config": {
+    "sym": {
+      "eps": "ε",
+      "any": "Σ",
+      "blank": "⊔",
+      "leftMarker": "⊢",
+      "rightMarker": "⊣",
+      "stackBottom": "Z",
+      "lambda": "λ"
+    },
+    "transducerAccepts": false
+  },
+  "sigma": [
+    "c",
+    "p"
+  ],
+  "stackAlpha": [],
+  "outputAlpha": [
+    "L",
+    "U"
+  ],
+  "tapeCount": 1,
+  "states": [
+    {
+      "id": "s1",
+      "x": 140,
+      "y": 160,
+      "name": "locked",
+      "output": "L"
+    },
+    {
+      "id": "s2",
+      "x": 319,
+      "y": 160,
+      "name": "unlocked",
+      "output": "U"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "t1",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "c"
+    },
+    {
+      "id": "t2",
+      "from": "s1",
+      "to": "s1",
+      "symbol": "p"
+    },
+    {
+      "id": "t3",
+      "from": "s2",
+      "to": "s1",
+      "symbol": "p"
+    },
+    {
+      "id": "t4",
+      "from": "s2",
+      "to": "s2",
+      "symbol": "c"
+    }
+  ],
+  "startId": "s1",
+  "accepts": [],
+  "notes": [],
+  "dividers": [],
+  "blocks": [],
+  "meta": {
+    "title": "A coin-operated turnstile",
+    "blurb": "The software-engineering classic: c inserts a coin, p pushes the arm. Locked, a coin unlocks it and a push does nothing; unlocked, a push lets someone through and locks it again, and another coin is wasted. The output is the lock — L or U — after every event.",
+    "inputs": [
+      {
+        "w": "c",
+        "out": "LU"
+      },
+      {
+        "w": "p",
+        "out": "LL"
+      },
+      {
+        "w": "cc",
+        "out": "LUU"
+      },
+      {
+        "w": "cp",
+        "out": "LUL"
+      },
+      {
+        "w": "ccc",
+        "out": "LUUU"
+      },
+      {
+        "w": "pppppcppcccppccc",
+        "out": "LLLLLLULLUUULLUUU"
+      }
+    ],
+    "library": {
+      "author": {
+        "login": "thethinkmachine"
+      },
+      "license": "CC-BY-4.0",
+      "tags": [
+        "state-machines",
+        "software-engineering",
+        "control"
+      ],
+      "difficulty": "intro"
+    }
+  }
+}

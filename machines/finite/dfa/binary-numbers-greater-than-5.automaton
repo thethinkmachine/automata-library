@@ -1,0 +1,183 @@
+{
+  "format": "automata-studio/workspace",
+  "schema": 1,
+  "app": "dev",
+  "machine": "DFA",
+  "config": {
+    "sym": {
+      "eps": "ε",
+      "any": "Σ",
+      "blank": "⊔",
+      "leftMarker": "⊢",
+      "rightMarker": "⊣",
+      "stackBottom": "Z",
+      "lambda": "λ"
+    }
+  },
+  "sigma": [
+    "0",
+    "1"
+  ],
+  "stackAlpha": [],
+  "outputAlpha": [],
+  "tapeCount": 1,
+  "states": [
+    {
+      "id": "s1",
+      "x": 140,
+      "y": 208,
+      "name": "v0"
+    },
+    {
+      "id": "s2",
+      "x": 319,
+      "y": 208,
+      "name": "v1"
+    },
+    {
+      "id": "s3",
+      "x": 498,
+      "y": 160,
+      "name": "v2"
+    },
+    {
+      "id": "s4",
+      "x": 498,
+      "y": 255,
+      "name": "v3"
+    },
+    {
+      "id": "s5",
+      "x": 677,
+      "y": 208,
+      "name": "big"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "t1",
+      "from": "s1",
+      "to": "s1",
+      "symbol": "0"
+    },
+    {
+      "id": "t2",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "1"
+    },
+    {
+      "id": "t3",
+      "from": "s2",
+      "to": "s3",
+      "symbol": "0"
+    },
+    {
+      "id": "t4",
+      "from": "s2",
+      "to": "s4",
+      "symbol": "1"
+    },
+    {
+      "id": "t5",
+      "from": "s3",
+      "to": "s4",
+      "symbol": "0"
+    },
+    {
+      "id": "t6",
+      "from": "s3",
+      "to": "s4",
+      "symbol": "1"
+    },
+    {
+      "id": "t7",
+      "from": "s4",
+      "to": "s5",
+      "symbol": "0"
+    },
+    {
+      "id": "t8",
+      "from": "s4",
+      "to": "s5",
+      "symbol": "1"
+    },
+    {
+      "id": "t9",
+      "from": "s5",
+      "to": "s5",
+      "symbol": "0"
+    },
+    {
+      "id": "t10",
+      "from": "s5",
+      "to": "s5",
+      "symbol": "1"
+    }
+  ],
+  "startId": "s1",
+  "accepts": [
+    "s5"
+  ],
+  "notes": [],
+  "dividers": [],
+  "blocks": [],
+  "meta": {
+    "title": "Binary numbers greater than 5",
+    "blurb": "Once the value read so far is at least 3, any further bit pushes it past 5 for good, so 3, 4 and 5 are one state. A threshold needs a state for each value below it that can still behave differently — here 0, 1, 2 and \"at least 3\".",
+    "inputs": [
+      {
+        "w": "110",
+        "expect": "accept",
+        "label": "6"
+      },
+      {
+        "w": "1001",
+        "expect": "accept",
+        "label": "9"
+      },
+      {
+        "w": "10000",
+        "expect": "accept",
+        "label": "16"
+      },
+      {
+        "w": "1000000011",
+        "expect": "accept",
+        "label": "515"
+      },
+      {
+        "w": "100",
+        "expect": "reject",
+        "label": "4"
+      },
+      {
+        "w": "101",
+        "expect": "reject",
+        "label": "5"
+      },
+      {
+        "w": "1",
+        "expect": "reject",
+        "label": "1"
+      },
+      {
+        "w": "11",
+        "expect": "reject",
+        "label": "3"
+      }
+    ],
+    "library": {
+      "author": {
+        "login": "thethinkmachine"
+      },
+      "license": "CC-BY-4.0",
+      "tags": [
+        "threshold",
+        "binary-numbers",
+        "comparison"
+      ],
+      "difficulty": "intro"
+    }
+  }
+}

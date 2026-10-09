@@ -1,0 +1,151 @@
+{
+  "format": "automata-studio/workspace",
+  "schema": 1,
+  "app": "dev",
+  "machine": "Mealy",
+  "config": {
+    "sym": {
+      "eps": "ε",
+      "any": "Σ",
+      "blank": "⊔",
+      "leftMarker": "⊢",
+      "rightMarker": "⊣",
+      "stackBottom": "Z",
+      "lambda": "λ"
+    },
+    "transducerAccepts": false
+  },
+  "sigma": [
+    "a",
+    "b",
+    "c",
+    "d"
+  ],
+  "stackAlpha": [],
+  "outputAlpha": [
+    "b",
+    "c",
+    "d",
+    "a"
+  ],
+  "tapeCount": 1,
+  "states": [
+    {
+      "id": "s1",
+      "x": 140,
+      "y": 160,
+      "name": "k1"
+    },
+    {
+      "id": "s2",
+      "x": 319,
+      "y": 160,
+      "name": "k2"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "t1",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "a",
+      "output": "b"
+    },
+    {
+      "id": "t2",
+      "from": "s2",
+      "to": "s1",
+      "symbol": "a",
+      "output": "c"
+    },
+    {
+      "id": "t3",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "b",
+      "output": "c"
+    },
+    {
+      "id": "t4",
+      "from": "s2",
+      "to": "s1",
+      "symbol": "b",
+      "output": "d"
+    },
+    {
+      "id": "t5",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "c",
+      "output": "d"
+    },
+    {
+      "id": "t6",
+      "from": "s2",
+      "to": "s1",
+      "symbol": "c",
+      "output": "a"
+    },
+    {
+      "id": "t7",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "d",
+      "output": "a"
+    },
+    {
+      "id": "t8",
+      "from": "s2",
+      "to": "s1",
+      "symbol": "d",
+      "output": "b"
+    }
+  ],
+  "startId": "s1",
+  "accepts": [],
+  "notes": [],
+  "dividers": [],
+  "blocks": [],
+  "meta": {
+    "title": "A Vigenère cipher with the key “bc”",
+    "blurb": "Over the alphabet a–d, shift the 1st, 3rd, 5th … letter by 1 and the others by 2. A Caesar cipher has one state; a Vigenère cipher has one per letter of its key, because the only thing it must remember is where in the key it is.",
+    "inputs": [
+      {
+        "w": "a",
+        "out": "b"
+      },
+      {
+        "w": "b",
+        "out": "c"
+      },
+      {
+        "w": "aa",
+        "out": "bc"
+      },
+      {
+        "w": "ab",
+        "out": "bd"
+      },
+      {
+        "w": "aaa",
+        "out": "bcb"
+      },
+      {
+        "w": "ddacdcdcaaacccb",
+        "out": "abbaaaaabcbadac"
+      }
+    ],
+    "library": {
+      "author": {
+        "login": "thethinkmachine"
+      },
+      "license": "CC-BY-4.0",
+      "tags": [
+        "cryptography",
+        "ciphers",
+        "substitution"
+      ],
+      "difficulty": "intro"
+    }
+  }
+}

@@ -1,0 +1,151 @@
+{
+  "format": "automata-studio/workspace",
+  "schema": 1,
+  "app": "dev",
+  "machine": "DFA",
+  "config": {
+    "sym": {
+      "eps": "ε",
+      "any": "Σ",
+      "blank": "⊔",
+      "leftMarker": "⊢",
+      "rightMarker": "⊣",
+      "stackBottom": "Z",
+      "lambda": "λ"
+    }
+  },
+  "sigma": [
+    "admit",
+    "dispatch",
+    "timeout",
+    "wait",
+    "io_done",
+    "exit"
+  ],
+  "stackAlpha": [],
+  "outputAlpha": [],
+  "tapeCount": 1,
+  "states": [
+    {
+      "id": "s1",
+      "x": 140,
+      "y": 160,
+      "name": "new"
+    },
+    {
+      "id": "s2",
+      "x": 310,
+      "y": 160,
+      "name": "ready"
+    },
+    {
+      "id": "s3",
+      "x": 514,
+      "y": 160,
+      "name": "running"
+    },
+    {
+      "id": "s4",
+      "x": 412,
+      "y": 330,
+      "name": "waiting"
+    },
+    {
+      "id": "s5",
+      "x": 718,
+      "y": 160,
+      "name": "terminated"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "t1",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "admit"
+    },
+    {
+      "id": "t2",
+      "from": "s2",
+      "to": "s3",
+      "symbol": "dispatch"
+    },
+    {
+      "id": "t3",
+      "from": "s3",
+      "to": "s2",
+      "symbol": "timeout"
+    },
+    {
+      "id": "t4",
+      "from": "s3",
+      "to": "s4",
+      "symbol": "wait"
+    },
+    {
+      "id": "t5",
+      "from": "s3",
+      "to": "s5",
+      "symbol": "exit"
+    },
+    {
+      "id": "t6",
+      "from": "s4",
+      "to": "s2",
+      "symbol": "io_done"
+    }
+  ],
+  "startId": "s1",
+  "accepts": [
+    "s5"
+  ],
+  "notes": [],
+  "dividers": [],
+  "blocks": [],
+  "meta": {
+    "title": "The life of a process",
+    "blurb": "The five-state process model from operating-systems courses: new, ready, running, waiting, terminated. Each event is a scheduler or device action, and the accepted words are the complete histories of a process — admitted, dispatched, perhaps preempted or blocked, and finally exited.",
+    "inputs": [
+      {
+        "w": "admit dispatch exit",
+        "expect": "accept"
+      },
+      {
+        "w": "admit dispatch timeout dispatch exit",
+        "expect": "accept"
+      },
+      {
+        "w": "admit dispatch wait io_done dispatch exit",
+        "expect": "accept"
+      },
+      {
+        "w": "admit exit",
+        "expect": "reject"
+      },
+      {
+        "w": "dispatch exit",
+        "expect": "reject"
+      },
+      {
+        "w": "admit dispatch wait dispatch exit",
+        "expect": "reject"
+      },
+      {
+        "w": "admit dispatch",
+        "expect": "reject"
+      }
+    ],
+    "library": {
+      "author": {
+        "login": "thethinkmachine"
+      },
+      "license": "CC-BY-4.0",
+      "tags": [
+        "operating-systems",
+        "scheduling",
+        "protocols"
+      ],
+      "difficulty": "intro"
+    }
+  }
+}

@@ -1,0 +1,163 @@
+{
+  "format": "automata-studio/workspace",
+  "schema": 1,
+  "app": "dev",
+  "machine": "PDT",
+  "config": {
+    "sym": {
+      "eps": "ε",
+      "any": "Σ",
+      "blank": "⊔",
+      "leftMarker": "⊢",
+      "rightMarker": "⊣",
+      "stackBottom": "Z",
+      "lambda": "λ"
+    },
+    "pdaParadigm": "explicit",
+    "transducerAccepts": true
+  },
+  "sigma": [
+    "(",
+    ")"
+  ],
+  "stackAlpha": [
+    "Z",
+    "P"
+  ],
+  "outputAlpha": [
+    "(",
+    ")"
+  ],
+  "tapeCount": 1,
+  "states": [
+    {
+      "id": "s1",
+      "x": 140,
+      "y": 160,
+      "name": "read"
+    },
+    {
+      "id": "s2",
+      "x": 319,
+      "y": 160,
+      "name": "flush"
+    },
+    {
+      "id": "s3",
+      "x": 498,
+      "y": 160,
+      "name": "done"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "t1",
+      "from": "s1",
+      "to": "s1",
+      "symbol": "(",
+      "pop": "ε",
+      "push": "P",
+      "output": ""
+    },
+    {
+      "id": "t2",
+      "from": "s1",
+      "to": "s1",
+      "symbol": ")",
+      "pop": "P",
+      "push": "ε",
+      "output": ""
+    },
+    {
+      "id": "t3",
+      "from": "s1",
+      "to": "s1",
+      "symbol": ")",
+      "pop": "Z",
+      "push": "Z",
+      "output": ")"
+    },
+    {
+      "id": "t4",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "ε",
+      "pop": "ε",
+      "push": "ε",
+      "output": ""
+    },
+    {
+      "id": "t5",
+      "from": "s2",
+      "to": "s2",
+      "symbol": "ε",
+      "pop": "P",
+      "push": "ε",
+      "output": "("
+    },
+    {
+      "id": "t6",
+      "from": "s2",
+      "to": "s3",
+      "symbol": "ε",
+      "pop": "Z",
+      "push": "Z",
+      "output": ""
+    }
+  ],
+  "startId": "s1",
+  "accepts": [
+    "s3"
+  ],
+  "notes": [],
+  "dividers": [],
+  "blocks": [],
+  "meta": {
+    "title": "What is left after cancelling ()",
+    "blurb": "Cancel every matched pair of parentheses and print what remains. It always has the form )…)(…( — some closers nothing opened, then some openers nothing closed. Unmatched closers are printed as they arrive; openers wait on the stack and are printed at the end only if nothing cancelled them.",
+    "inputs": [
+      {
+        "w": "(",
+        "out": "(",
+        "expect": "accept"
+      },
+      {
+        "w": ")",
+        "out": ")",
+        "expect": "accept"
+      },
+      {
+        "w": "((",
+        "out": "((",
+        "expect": "accept"
+      },
+      {
+        "w": "()",
+        "out": "",
+        "expect": "accept"
+      },
+      {
+        "w": "(((",
+        "out": "(((",
+        "expect": "accept"
+      },
+      {
+        "w": ")))())(()(())(((",
+        "out": "))))((((",
+        "expect": "accept"
+      }
+    ],
+    "library": {
+      "author": {
+        "login": "thethinkmachine"
+      },
+      "license": "CC-BY-4.0",
+      "tags": [
+        "parentheses",
+        "normal-form",
+        "dyck"
+      ],
+      "difficulty": "intermediate"
+    }
+  }
+}

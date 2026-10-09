@@ -1,0 +1,217 @@
+{
+  "format": "automata-studio/workspace",
+  "schema": 1,
+  "app": "dev",
+  "machine": "QA",
+  "config": {
+    "sym": {
+      "eps": "ε",
+      "any": "Σ",
+      "blank": "⊔",
+      "leftMarker": "⊢",
+      "rightMarker": "⊣",
+      "stackBottom": "Z",
+      "lambda": "λ"
+    },
+    "pdaParadigm": "explicit"
+  },
+  "sigma": [
+    "a",
+    "b",
+    "#"
+  ],
+  "stackAlpha": [
+    "Z",
+    "A",
+    "B"
+  ],
+  "outputAlpha": [],
+  "tapeCount": 1,
+  "states": [
+    {
+      "id": "s1",
+      "x": 140,
+      "y": 160,
+      "name": "load"
+    },
+    {
+      "id": "s2",
+      "x": 319,
+      "y": 160,
+      "name": "spin"
+    },
+    {
+      "id": "s3",
+      "x": 498,
+      "y": 160,
+      "name": "check"
+    },
+    {
+      "id": "s4",
+      "x": 677,
+      "y": 160,
+      "name": "wrap"
+    },
+    {
+      "id": "s5",
+      "x": 856,
+      "y": 160,
+      "name": "done"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "t1",
+      "from": "s1",
+      "to": "s1",
+      "symbol": "a",
+      "pop": "ε",
+      "push": "A"
+    },
+    {
+      "id": "t2",
+      "from": "s1",
+      "to": "s1",
+      "symbol": "b",
+      "pop": "ε",
+      "push": "B"
+    },
+    {
+      "id": "t3",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "#",
+      "pop": "Z",
+      "push": "Z"
+    },
+    {
+      "id": "t4",
+      "from": "s2",
+      "to": "s2",
+      "symbol": "ε",
+      "pop": "A",
+      "push": "A"
+    },
+    {
+      "id": "t5",
+      "from": "s2",
+      "to": "s2",
+      "symbol": "ε",
+      "pop": "B",
+      "push": "B"
+    },
+    {
+      "id": "t6",
+      "from": "s2",
+      "to": "s3",
+      "symbol": "ε",
+      "pop": "ε",
+      "push": "ε"
+    },
+    {
+      "id": "t7",
+      "from": "s3",
+      "to": "s3",
+      "symbol": "a",
+      "pop": "A",
+      "push": "ε"
+    },
+    {
+      "id": "t8",
+      "from": "s3",
+      "to": "s3",
+      "symbol": "b",
+      "pop": "B",
+      "push": "ε"
+    },
+    {
+      "id": "t9",
+      "from": "s3",
+      "to": "s4",
+      "symbol": "ε",
+      "pop": "Z",
+      "push": "Z"
+    },
+    {
+      "id": "t10",
+      "from": "s4",
+      "to": "s4",
+      "symbol": "a",
+      "pop": "A",
+      "push": "ε"
+    },
+    {
+      "id": "t11",
+      "from": "s4",
+      "to": "s4",
+      "symbol": "b",
+      "pop": "B",
+      "push": "ε"
+    },
+    {
+      "id": "t12",
+      "from": "s4",
+      "to": "s5",
+      "symbol": "ε",
+      "pop": "Z",
+      "push": "Z"
+    }
+  ],
+  "startId": "s1",
+  "accepts": [
+    "s5"
+  ],
+  "notes": [],
+  "dividers": [],
+  "blocks": [],
+  "meta": {
+    "title": "Is v a rotation of w? w#v",
+    "blurb": "Enqueue w, then rotate: take the front symbol and put it at the back, as many times as the machine likes. Then check that v is what the queue holds. abc has rotations abc, bca and cab — a stack cannot rotate, a queue does it in one move.",
+    "inputs": [
+      {
+        "w": "#",
+        "expect": "accept"
+      },
+      {
+        "w": "ab#ba",
+        "expect": "accept"
+      },
+      {
+        "w": "a#a",
+        "expect": "accept"
+      },
+      {
+        "w": "aabb#abba",
+        "expect": "accept"
+      },
+      {
+        "w": "a",
+        "expect": "reject"
+      },
+      {
+        "w": "bb#ba",
+        "expect": "reject"
+      },
+      {
+        "w": "b#a",
+        "expect": "reject"
+      },
+      {
+        "w": "babb#abba",
+        "expect": "reject"
+      }
+    ],
+    "library": {
+      "author": {
+        "login": "thethinkmachine"
+      },
+      "license": "CC-BY-4.0",
+      "tags": [
+        "queues",
+        "rotation",
+        "guessing"
+      ],
+      "difficulty": "advanced"
+    }
+  }
+}

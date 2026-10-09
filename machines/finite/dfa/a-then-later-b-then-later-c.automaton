@@ -1,0 +1,181 @@
+{
+  "format": "automata-studio/workspace",
+  "schema": 1,
+  "app": "dev",
+  "machine": "DFA",
+  "config": {
+    "sym": {
+      "eps": "ε",
+      "any": "Σ",
+      "blank": "⊔",
+      "leftMarker": "⊢",
+      "rightMarker": "⊣",
+      "stackBottom": "Z",
+      "lambda": "λ"
+    }
+  },
+  "sigma": [
+    "a",
+    "b",
+    "c"
+  ],
+  "stackAlpha": [],
+  "outputAlpha": [],
+  "tapeCount": 1,
+  "states": [
+    {
+      "id": "s1",
+      "x": 140,
+      "y": 160,
+      "name": "none"
+    },
+    {
+      "id": "s2",
+      "x": 319,
+      "y": 160,
+      "name": "a"
+    },
+    {
+      "id": "s3",
+      "x": 498,
+      "y": 160,
+      "name": "ab"
+    },
+    {
+      "id": "s4",
+      "x": 677,
+      "y": 160,
+      "name": "abc"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "t1",
+      "from": "s1",
+      "to": "s1",
+      "symbol": "b"
+    },
+    {
+      "id": "t2",
+      "from": "s1",
+      "to": "s1",
+      "symbol": "c"
+    },
+    {
+      "id": "t3",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "a"
+    },
+    {
+      "id": "t4",
+      "from": "s2",
+      "to": "s2",
+      "symbol": "a"
+    },
+    {
+      "id": "t5",
+      "from": "s2",
+      "to": "s2",
+      "symbol": "c"
+    },
+    {
+      "id": "t6",
+      "from": "s2",
+      "to": "s3",
+      "symbol": "b"
+    },
+    {
+      "id": "t7",
+      "from": "s3",
+      "to": "s3",
+      "symbol": "a"
+    },
+    {
+      "id": "t8",
+      "from": "s3",
+      "to": "s3",
+      "symbol": "b"
+    },
+    {
+      "id": "t9",
+      "from": "s3",
+      "to": "s4",
+      "symbol": "c"
+    },
+    {
+      "id": "t10",
+      "from": "s4",
+      "to": "s4",
+      "symbol": "a"
+    },
+    {
+      "id": "t11",
+      "from": "s4",
+      "to": "s4",
+      "symbol": "b"
+    },
+    {
+      "id": "t12",
+      "from": "s4",
+      "to": "s4",
+      "symbol": "c"
+    }
+  ],
+  "startId": "s1",
+  "accepts": [
+    "s4"
+  ],
+  "notes": [],
+  "dividers": [],
+  "blocks": [],
+  "meta": {
+    "title": "a, then later b, then later c",
+    "blurb": "abc as a subsequence: the letters must appear in that order, but anything may come between them. A substring search falls back on a mismatch; a subsequence search never has to, since a wrong letter is just skipped. Four states, each a self-loop on everything it is not waiting for.",
+    "inputs": [
+      {
+        "w": "abc",
+        "expect": "accept"
+      },
+      {
+        "w": "bbaaccacbc",
+        "expect": "accept"
+      },
+      {
+        "w": "aabc",
+        "expect": "accept"
+      },
+      {
+        "w": "abbcaababcaccb",
+        "expect": "accept"
+      },
+      {
+        "w": "bbc",
+        "expect": "reject"
+      },
+      {
+        "w": "bbaaccacac",
+        "expect": "reject"
+      },
+      {
+        "w": "aaac",
+        "expect": "reject"
+      },
+      {
+        "w": "",
+        "expect": "reject"
+      }
+    ],
+    "library": {
+      "author": {
+        "login": "thethinkmachine"
+      },
+      "license": "CC-BY-4.0",
+      "tags": [
+        "subsequences",
+        "patterns"
+      ],
+      "difficulty": "intro"
+    }
+  }
+}

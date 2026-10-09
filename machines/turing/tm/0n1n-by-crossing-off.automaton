@@ -1,0 +1,202 @@
+{
+  "format": "automata-studio/workspace",
+  "schema": 1,
+  "app": "dev",
+  "machine": "TM",
+  "config": {
+    "sym": {
+      "eps": "ε",
+      "any": "Σ",
+      "blank": "⊔",
+      "leftMarker": "⊢",
+      "rightMarker": "⊣",
+      "stackBottom": "Z",
+      "lambda": "λ"
+    }
+  },
+  "sigma": [
+    "0",
+    "1"
+  ],
+  "stackAlpha": [
+    "0",
+    "1",
+    "X",
+    "Y",
+    "⊔"
+  ],
+  "outputAlpha": [],
+  "tapeCount": 1,
+  "states": [
+    {
+      "id": "s1",
+      "x": 140,
+      "y": 208,
+      "name": "q0"
+    },
+    {
+      "id": "s2",
+      "x": 319,
+      "y": 255,
+      "name": "q1"
+    },
+    {
+      "id": "s3",
+      "x": 319,
+      "y": 160,
+      "name": "q3"
+    },
+    {
+      "id": "s4",
+      "x": 498,
+      "y": 255,
+      "name": "q2"
+    },
+    {
+      "id": "s5",
+      "x": 498,
+      "y": 160,
+      "name": "q4"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "t1",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "0",
+      "write": "X",
+      "dir": "R"
+    },
+    {
+      "id": "t2",
+      "from": "s1",
+      "to": "s3",
+      "symbol": "Y",
+      "write": "Y",
+      "dir": "R"
+    },
+    {
+      "id": "t3",
+      "from": "s2",
+      "to": "s2",
+      "symbol": "0",
+      "write": "0",
+      "dir": "R"
+    },
+    {
+      "id": "t4",
+      "from": "s2",
+      "to": "s2",
+      "symbol": "Y",
+      "write": "Y",
+      "dir": "R"
+    },
+    {
+      "id": "t5",
+      "from": "s2",
+      "to": "s4",
+      "symbol": "1",
+      "write": "Y",
+      "dir": "L"
+    },
+    {
+      "id": "t6",
+      "from": "s4",
+      "to": "s4",
+      "symbol": "0",
+      "write": "0",
+      "dir": "L"
+    },
+    {
+      "id": "t7",
+      "from": "s4",
+      "to": "s4",
+      "symbol": "Y",
+      "write": "Y",
+      "dir": "L"
+    },
+    {
+      "id": "t8",
+      "from": "s4",
+      "to": "s1",
+      "symbol": "X",
+      "write": "X",
+      "dir": "R"
+    },
+    {
+      "id": "t9",
+      "from": "s3",
+      "to": "s3",
+      "symbol": "Y",
+      "write": "Y",
+      "dir": "R"
+    },
+    {
+      "id": "t10",
+      "from": "s3",
+      "to": "s5",
+      "symbol": "⊔",
+      "write": "⊔",
+      "dir": "R"
+    }
+  ],
+  "startId": "s1",
+  "accepts": [
+    "s5"
+  ],
+  "notes": [],
+  "dividers": [],
+  "blocks": [],
+  "meta": {
+    "title": "0ⁿ1ⁿ by crossing off",
+    "blurb": "The Turing machine Hopcroft, Motwani and Ullman build first: change the leftmost 0 to X, walk right to the leftmost 1 and change it to Y, walk back, repeat. When the 0s run out, only Y’s may remain before the blank.",
+    "inputs": [
+      {
+        "w": "01",
+        "expect": "accept"
+      },
+      {
+        "w": "0011",
+        "expect": "accept"
+      },
+      {
+        "w": "000111",
+        "expect": "accept"
+      },
+      {
+        "w": "00000001111111",
+        "expect": "accept"
+      },
+      {
+        "w": "11",
+        "expect": "reject"
+      },
+      {
+        "w": "1011",
+        "expect": "reject"
+      },
+      {
+        "w": "100111",
+        "expect": "reject"
+      },
+      {
+        "w": "10000001111111",
+        "expect": "reject"
+      }
+    ],
+    "library": {
+      "author": {
+        "login": "thethinkmachine"
+      },
+      "license": "CC-BY-4.0",
+      "tags": [
+        "textbook",
+        "hopcroft",
+        "crossing-off"
+      ],
+      "difficulty": "intro",
+      "chapter": "Hopcroft, Motwani & Ullman, §8.2"
+    }
+  }
+}

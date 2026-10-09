@@ -1,0 +1,18 @@
+Two books have taught most of the people who know this subject. Michael Sipser's *Introduction to the Theory of Computation* is the shorter and more conversational; John Hopcroft, Rajeev Motwani and Jeffrey Ullman's *Introduction to Automata Theory, Languages, and Computation* — descended from Hopcroft and Ullman's 1979 book — is the fuller reference. Both open with the same journey, from finite automata through pushdown automata to Turing machines, and both teach it through small machines the reader is meant to trace by hand.
+
+This collection is those machines, with their state names as the books give them, so that the diagram on the page and the one you can run here match. Each card says where in the book it comes from; section numbers rather than example numbers, since those move between editions. The descriptions are ours.
+
+## Reading alongside the book
+
+> [!tip] Trace before you run
+> Each machine accepts a few words on its card and rejects a few. Trace one of each by hand, then press *Try it* and compare. The run on the diagram is the textbook's “sequence of states”, drawn.
+
+**Sipser, chapter 1** begins with [M1](lib:finite/dfa/sipser-s-m1-a-1-then-an-even-number-of-0s), whose language takes a moment to see — a 1, then an even number of 0s after the last one — and goes on through [M2](lib:finite/dfa/sipser-s-m2-ends-in-1) and [M3](lib:finite/dfa/sipser-s-m3-empty-or-ends-in-0), which differ only in which state accepts, to [M5](lib:finite/dfa/sipser-s-m5-a-running-sum-mod-3-with-reset), a running sum with a reset button. The NFAs [N1](lib:finite/enfa/sipser-s-n1-contains-101-or-11) and [N4](lib:finite/enfa/sipser-s-n4-the-nfa-converted-in-the-text) are the ones the chapter determinises, and the app's *Subset construction* reproduces the book's result for N4: the states {1,3}, {2}, {2,3}, {3} and {1,2,3} — all but the empty set, which the app leaves out, drawing a missing edge instead.
+
+**Hopcroft, Motwani and Ullman, chapter 2** opens with [a DFA for 01](lib:finite/dfa/contains-01) and [even 0s and even 1s](lib:finite/dfa/an-even-number-of-0s-and-an-even-number-of-1s), then introduces nondeterminism with [ends in 01](lib:finite/nfa/ends-in-01-by-guessing) and applies it to [text search](lib:finite/nfa/finding-web-or-ebay). Its [decimal-number ε-NFA](lib:finite/enfa/a-decimal-number-with-moves) is the standard picture of an ε-move doing the work of “optionally”.
+
+**Pushdown automata** are represented by [aⁿbⁿ](lib:memory/pda/anbn), [the palindromes](lib:memory/npda/palindromes-guess-the-middle) both books use to introduce nondeterministic PDAs, Sipser's [i = j or i = k](lib:memory/npda/aibjck-with-i-j-or-i-k), and Hopcroft, Motwani and Ullman's [if/else](lib:memory/pda/one-else-too-many), their example of the difference between accepting by final state and by empty stack.
+
+**Turing machines**: Sipser's [M1](lib:turing/tm/two-equal-halves-w-w), [M2](lib:turing/tm/sipser-s-m2-0s-whose-number-is-a-power-of-2) and [M3](lib:turing/tm/multiplication-checked-aibjck-with-k-i-j), and Hopcroft, Motwani and Ullman's [0ⁿ1ⁿ](lib:turing/tm/0n1n-by-crossing-off) and [proper subtraction](lib:turing/tm/proper-subtraction-m-n). Every one of them crosses symbols off and walks back and forth — the technique that makes a single tape do everything.
+
+The dragon book — Aho, Lam, Sethi and Ullman's *Compilers* — contributes one more: [Thompson’s construction of `(a|b)*abb`](lib:finite/enfa/thompson-s-construction-of-a-b-abb), the ε-NFA from which its lexing chapter builds a DFA by the subset construction — five states, A to E — and then minimises it to four.

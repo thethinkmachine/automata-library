@@ -1,0 +1,209 @@
+{
+  "format": "automata-studio/workspace",
+  "schema": 1,
+  "app": "dev",
+  "machine": "NPDA",
+  "config": {
+    "sym": {
+      "eps": "ε",
+      "any": "Σ",
+      "blank": "⊔",
+      "leftMarker": "⊢",
+      "rightMarker": "⊣",
+      "stackBottom": "Z",
+      "lambda": "λ"
+    },
+    "pdaParadigm": "explicit"
+  },
+  "sigma": [
+    "a",
+    "b",
+    "c"
+  ],
+  "stackAlpha": [
+    "Z",
+    "X"
+  ],
+  "outputAlpha": [],
+  "tapeCount": 1,
+  "states": [
+    {
+      "id": "s1",
+      "x": 140,
+      "y": 208,
+      "name": "s"
+    },
+    {
+      "id": "s2",
+      "x": 319,
+      "y": 255,
+      "name": "p1"
+    },
+    {
+      "id": "s3",
+      "x": 319,
+      "y": 160,
+      "name": "p2"
+    },
+    {
+      "id": "s4",
+      "x": 498,
+      "y": 255,
+      "name": "c1"
+    },
+    {
+      "id": "s5",
+      "x": 498,
+      "y": 160,
+      "name": "r2"
+    },
+    {
+      "id": "s6",
+      "x": 677,
+      "y": 208,
+      "name": "f2"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "t1",
+      "from": "s1",
+      "to": "s1",
+      "symbol": "a",
+      "pop": "ε",
+      "push": "X"
+    },
+    {
+      "id": "t2",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "ε",
+      "pop": "ε",
+      "push": "ε"
+    },
+    {
+      "id": "t3",
+      "from": "s1",
+      "to": "s3",
+      "symbol": "ε",
+      "pop": "ε",
+      "push": "ε"
+    },
+    {
+      "id": "t4",
+      "from": "s2",
+      "to": "s2",
+      "symbol": "b",
+      "pop": "X",
+      "push": "ε"
+    },
+    {
+      "id": "t5",
+      "from": "s2",
+      "to": "s4",
+      "symbol": "ε",
+      "pop": "Z",
+      "push": "Z"
+    },
+    {
+      "id": "t6",
+      "from": "s4",
+      "to": "s4",
+      "symbol": "c",
+      "pop": "ε",
+      "push": "ε"
+    },
+    {
+      "id": "t7",
+      "from": "s3",
+      "to": "s3",
+      "symbol": "b",
+      "pop": "ε",
+      "push": "ε"
+    },
+    {
+      "id": "t8",
+      "from": "s3",
+      "to": "s5",
+      "symbol": "ε",
+      "pop": "ε",
+      "push": "ε"
+    },
+    {
+      "id": "t9",
+      "from": "s5",
+      "to": "s5",
+      "symbol": "c",
+      "pop": "X",
+      "push": "ε"
+    },
+    {
+      "id": "t10",
+      "from": "s5",
+      "to": "s6",
+      "symbol": "ε",
+      "pop": "Z",
+      "push": "Z"
+    }
+  ],
+  "startId": "s1",
+  "accepts": [
+    "s4",
+    "s6"
+  ],
+  "notes": [],
+  "dividers": [],
+  "blocks": [],
+  "meta": {
+    "title": "aⁱbʲcᵏ with i = j or i = k",
+    "blurb": "Sipser’s example of a language that needs nondeterminism. Push the a’s; then guess whether they will be matched by the b’s or by the c’s, and skip the other block. Not to be confused with i = j or j = k, which has its own entry.",
+    "inputs": [
+      {
+        "w": "",
+        "expect": "accept"
+      },
+      {
+        "w": "abc",
+        "expect": "accept"
+      },
+      {
+        "w": "aacc",
+        "expect": "accept"
+      },
+      {
+        "w": "aaabbccc",
+        "expect": "accept"
+      },
+      {
+        "w": "a",
+        "expect": "reject"
+      },
+      {
+        "w": "bbc",
+        "expect": "reject"
+      },
+      {
+        "w": "bacc",
+        "expect": "reject"
+      },
+      {
+        "w": "baabbccc",
+        "expect": "reject"
+      }
+    ],
+    "library": {
+      "author": {
+        "login": "thethinkmachine"
+      },
+      "license": "CC-BY-4.0",
+      "tags": [
+        "textbook",
+        "sipser",
+        "guessing",
+        "union"
+      ],
+      "difficulty": "intermediate",
+      "chapter": "Sipser, Introduction to the Theory of Computation, §2.2"
+    }
+  }
+}

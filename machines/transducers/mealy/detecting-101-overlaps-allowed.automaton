@@ -1,0 +1,139 @@
+{
+  "format": "automata-studio/workspace",
+  "schema": 1,
+  "app": "dev",
+  "machine": "Mealy",
+  "config": {
+    "sym": {
+      "eps": "ε",
+      "any": "Σ",
+      "blank": "⊔",
+      "leftMarker": "⊢",
+      "rightMarker": "⊣",
+      "stackBottom": "Z",
+      "lambda": "λ"
+    },
+    "transducerAccepts": false
+  },
+  "sigma": [
+    "0",
+    "1"
+  ],
+  "stackAlpha": [],
+  "outputAlpha": [
+    "0",
+    "1"
+  ],
+  "tapeCount": 1,
+  "states": [
+    {
+      "id": "s1",
+      "x": 140,
+      "y": 160,
+      "name": "none"
+    },
+    {
+      "id": "s2",
+      "x": 319,
+      "y": 160,
+      "name": "one"
+    },
+    {
+      "id": "s3",
+      "x": 498,
+      "y": 160,
+      "name": "one0"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "t1",
+      "from": "s1",
+      "to": "s1",
+      "symbol": "0",
+      "output": "0"
+    },
+    {
+      "id": "t2",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "1",
+      "output": "0"
+    },
+    {
+      "id": "t3",
+      "from": "s2",
+      "to": "s2",
+      "symbol": "1",
+      "output": "0"
+    },
+    {
+      "id": "t4",
+      "from": "s2",
+      "to": "s3",
+      "symbol": "0",
+      "output": "0"
+    },
+    {
+      "id": "t5",
+      "from": "s3",
+      "to": "s2",
+      "symbol": "1",
+      "output": "1"
+    },
+    {
+      "id": "t6",
+      "from": "s3",
+      "to": "s1",
+      "symbol": "0",
+      "output": "0"
+    }
+  ],
+  "startId": "s1",
+  "accepts": [],
+  "notes": [],
+  "dividers": [],
+  "blocks": [],
+  "meta": {
+    "title": "Detecting 101, overlaps allowed",
+    "blurb": "Print 1 at each position where the last three bits read were 101, and 0 elsewhere. After a match the final 1 can start the next one, so 10101 has two. The textbook sequence detector, in its Mealy form: it answers on the very bit that completes the pattern.",
+    "inputs": [
+      {
+        "w": "0",
+        "out": "0"
+      },
+      {
+        "w": "1",
+        "out": "0"
+      },
+      {
+        "w": "00",
+        "out": "00"
+      },
+      {
+        "w": "01",
+        "out": "00"
+      },
+      {
+        "w": "000",
+        "out": "000"
+      },
+      {
+        "w": "1111101100011000",
+        "out": "0000001000000000"
+      }
+    ],
+    "library": {
+      "author": {
+        "login": "thethinkmachine"
+      },
+      "license": "CC-BY-4.0",
+      "tags": [
+        "sequence-detection",
+        "hardware",
+        "pattern-matching"
+      ],
+      "difficulty": "intro"
+    }
+  }
+}

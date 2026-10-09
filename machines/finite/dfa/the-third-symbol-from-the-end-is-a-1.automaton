@@ -1,0 +1,232 @@
+{
+  "format": "automata-studio/workspace",
+  "schema": 1,
+  "app": "dev",
+  "machine": "DFA",
+  "config": {
+    "sym": {
+      "eps": "ε",
+      "any": "Σ",
+      "blank": "⊔",
+      "leftMarker": "⊢",
+      "rightMarker": "⊣",
+      "stackBottom": "Z",
+      "lambda": "λ"
+    }
+  },
+  "sigma": [
+    "0",
+    "1"
+  ],
+  "stackAlpha": [],
+  "outputAlpha": [],
+  "tapeCount": 1,
+  "states": [
+    {
+      "id": "s1",
+      "x": 140,
+      "y": 160,
+      "name": "000"
+    },
+    {
+      "id": "s2",
+      "x": 310,
+      "y": 160,
+      "name": "001"
+    },
+    {
+      "id": "s3",
+      "x": 480,
+      "y": 160,
+      "name": "010"
+    },
+    {
+      "id": "s4",
+      "x": 650,
+      "y": 160,
+      "name": "011"
+    },
+    {
+      "id": "s5",
+      "x": 140,
+      "y": 364,
+      "name": "100"
+    },
+    {
+      "id": "s6",
+      "x": 310,
+      "y": 364,
+      "name": "101"
+    },
+    {
+      "id": "s7",
+      "x": 480,
+      "y": 364,
+      "name": "110"
+    },
+    {
+      "id": "s8",
+      "x": 650,
+      "y": 364,
+      "name": "111"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "t1",
+      "from": "s1",
+      "to": "s1",
+      "symbol": "0"
+    },
+    {
+      "id": "t2",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "1"
+    },
+    {
+      "id": "t3",
+      "from": "s2",
+      "to": "s3",
+      "symbol": "0"
+    },
+    {
+      "id": "t4",
+      "from": "s2",
+      "to": "s4",
+      "symbol": "1"
+    },
+    {
+      "id": "t5",
+      "from": "s3",
+      "to": "s5",
+      "symbol": "0"
+    },
+    {
+      "id": "t6",
+      "from": "s3",
+      "to": "s6",
+      "symbol": "1"
+    },
+    {
+      "id": "t7",
+      "from": "s4",
+      "to": "s7",
+      "symbol": "0"
+    },
+    {
+      "id": "t8",
+      "from": "s4",
+      "to": "s8",
+      "symbol": "1"
+    },
+    {
+      "id": "t9",
+      "from": "s5",
+      "to": "s1",
+      "symbol": "0"
+    },
+    {
+      "id": "t10",
+      "from": "s5",
+      "to": "s2",
+      "symbol": "1"
+    },
+    {
+      "id": "t11",
+      "from": "s6",
+      "to": "s3",
+      "symbol": "0"
+    },
+    {
+      "id": "t12",
+      "from": "s6",
+      "to": "s4",
+      "symbol": "1"
+    },
+    {
+      "id": "t13",
+      "from": "s7",
+      "to": "s5",
+      "symbol": "0"
+    },
+    {
+      "id": "t14",
+      "from": "s7",
+      "to": "s6",
+      "symbol": "1"
+    },
+    {
+      "id": "t15",
+      "from": "s8",
+      "to": "s7",
+      "symbol": "0"
+    },
+    {
+      "id": "t16",
+      "from": "s8",
+      "to": "s8",
+      "symbol": "1"
+    }
+  ],
+  "startId": "s1",
+  "accepts": [
+    "s5",
+    "s6",
+    "s7",
+    "s8"
+  ],
+  "notes": [],
+  "dividers": [],
+  "blocks": [],
+  "meta": {
+    "title": "The third symbol from the end is a 1",
+    "blurb": "An NFA guesses where the end is and needs four states. A DFA cannot guess: it must remember the last three symbols, all eight combinations of them. This is the language family where determinising costs 2ⁿ.",
+    "inputs": [
+      {
+        "w": "100",
+        "expect": "accept"
+      },
+      {
+        "w": "0110",
+        "expect": "accept"
+      },
+      {
+        "w": "00100",
+        "expect": "accept"
+      },
+      {
+        "w": "0000000110",
+        "expect": "accept"
+      },
+      {
+        "w": "000",
+        "expect": "reject"
+      },
+      {
+        "w": "0010",
+        "expect": "reject"
+      },
+      {
+        "w": "00000",
+        "expect": "reject"
+      },
+      {
+        "w": "0000000010",
+        "expect": "reject"
+      }
+    ],
+    "library": {
+      "author": {
+        "login": "thethinkmachine"
+      },
+      "license": "CC-BY-4.0",
+      "tags": [
+        "subset-construction",
+        "state-blowup",
+        "suffix"
+      ],
+      "difficulty": "intermediate"
+    }
+  }
+}

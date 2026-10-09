@@ -1,0 +1,468 @@
+{
+  "format": "automata-studio/workspace",
+  "schema": 1,
+  "app": "dev",
+  "machine": "ITM",
+  "config": {
+    "sym": {
+      "eps": "ε",
+      "any": "Σ",
+      "blank": "⊔",
+      "leftMarker": "⊢",
+      "rightMarker": "⊣",
+      "stackBottom": "Z",
+      "lambda": "λ"
+    }
+  },
+  "sigma": [
+    "1",
+    "#"
+  ],
+  "stackAlpha": [
+    "1",
+    "#",
+    "w",
+    " ",
+    "=",
+    ">",
+    "{",
+    "c",
+    "o",
+    "n",
+    "s",
+    "t",
+    "[",
+    "a",
+    ",",
+    "b",
+    "]",
+    ".",
+    "p",
+    "l",
+    "i",
+    "(",
+    "'",
+    ")",
+    "m",
+    "x",
+    "e",
+    "g",
+    "h",
+    ";",
+    "r",
+    "u",
+    "%",
+    "}",
+    "⊔",
+    "z",
+    "y"
+  ],
+  "outputAlpha": [],
+  "tapeCount": 1,
+  "states": [
+    {
+      "id": "s1",
+      "x": 140,
+      "y": 160,
+      "name": "s0"
+    },
+    {
+      "id": "s2",
+      "x": 332,
+      "y": 160,
+      "name": "s1"
+    },
+    {
+      "id": "s3",
+      "x": 524,
+      "y": 160,
+      "name": "sb"
+    },
+    {
+      "id": "s4",
+      "x": 716,
+      "y": 160,
+      "name": "s2"
+    },
+    {
+      "id": "s5",
+      "x": 300,
+      "y": 400,
+      "name": "findb"
+    },
+    {
+      "id": "s6",
+      "x": 620,
+      "y": 400,
+      "name": "inb"
+    },
+    {
+      "id": "s7",
+      "x": 620,
+      "y": 608,
+      "name": "finda"
+    },
+    {
+      "id": "s8",
+      "x": 876,
+      "y": 448,
+      "name": "round"
+    },
+    {
+      "id": "s9",
+      "x": 300,
+      "y": 608,
+      "name": "ina"
+    },
+    {
+      "id": "s10",
+      "x": 140,
+      "y": 800,
+      "name": "rem"
+    },
+    {
+      "id": "s11",
+      "x": 876,
+      "y": 672,
+      "name": "conv"
+    },
+    {
+      "id": "s12",
+      "x": 396,
+      "y": 800,
+      "name": "done"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "t1",
+      "from": "s1",
+      "to": "s1",
+      "symbol": "1",
+      "write": "1",
+      "dir": "R"
+    },
+    {
+      "id": "t2",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "#",
+      "write": "#",
+      "dir": "R"
+    },
+    {
+      "id": "t3",
+      "from": "s2",
+      "to": "s3",
+      "symbol": "1",
+      "write": "1",
+      "dir": "R"
+    },
+    {
+      "id": "t4",
+      "from": "s3",
+      "to": "s3",
+      "symbol": "1",
+      "write": "1",
+      "dir": "R"
+    },
+    {
+      "id": "t5",
+      "from": "s3",
+      "to": "s4",
+      "symbol": "⊔",
+      "write": "⊔",
+      "dir": "L"
+    },
+    {
+      "id": "t6",
+      "from": "s4",
+      "to": "s4",
+      "symbol": "1",
+      "write": "1",
+      "dir": "L"
+    },
+    {
+      "id": "t7",
+      "from": "s4",
+      "to": "s4",
+      "symbol": "#",
+      "write": "#",
+      "dir": "L"
+    },
+    {
+      "id": "t8",
+      "from": "s4",
+      "to": "s5",
+      "symbol": "⊔",
+      "write": "⊔",
+      "dir": "R"
+    },
+    {
+      "id": "t9",
+      "from": "s5",
+      "to": "s5",
+      "symbol": "1",
+      "write": "1",
+      "dir": "R"
+    },
+    {
+      "id": "t10",
+      "from": "s5",
+      "to": "s5",
+      "symbol": "x",
+      "write": "x",
+      "dir": "R"
+    },
+    {
+      "id": "t11",
+      "from": "s5",
+      "to": "s5",
+      "symbol": "z",
+      "write": "z",
+      "dir": "R"
+    },
+    {
+      "id": "t12",
+      "from": "s5",
+      "to": "s6",
+      "symbol": "#",
+      "write": "#",
+      "dir": "R"
+    },
+    {
+      "id": "t13",
+      "from": "s6",
+      "to": "s6",
+      "symbol": "y",
+      "write": "y",
+      "dir": "R"
+    },
+    {
+      "id": "t14",
+      "from": "s6",
+      "to": "s7",
+      "symbol": "1",
+      "write": "y",
+      "dir": "L"
+    },
+    {
+      "id": "t15",
+      "from": "s6",
+      "to": "s8",
+      "symbol": "⊔",
+      "write": "⊔",
+      "dir": "L"
+    },
+    {
+      "id": "t16",
+      "from": "s7",
+      "to": "s7",
+      "symbol": "y",
+      "write": "y",
+      "dir": "L"
+    },
+    {
+      "id": "t17",
+      "from": "s7",
+      "to": "s9",
+      "symbol": "#",
+      "write": "#",
+      "dir": "L"
+    },
+    {
+      "id": "t18",
+      "from": "s9",
+      "to": "s9",
+      "symbol": "z",
+      "write": "z",
+      "dir": "L"
+    },
+    {
+      "id": "t19",
+      "from": "s9",
+      "to": "s9",
+      "symbol": "x",
+      "write": "x",
+      "dir": "L"
+    },
+    {
+      "id": "t20",
+      "from": "s9",
+      "to": "s5",
+      "symbol": "1",
+      "write": "z",
+      "dir": "R"
+    },
+    {
+      "id": "t21",
+      "from": "s9",
+      "to": "s10",
+      "symbol": "⊔",
+      "write": "⊔",
+      "dir": "R"
+    },
+    {
+      "id": "t22",
+      "from": "s8",
+      "to": "s8",
+      "symbol": "y",
+      "write": "1",
+      "dir": "L"
+    },
+    {
+      "id": "t23",
+      "from": "s8",
+      "to": "s11",
+      "symbol": "#",
+      "write": "#",
+      "dir": "L"
+    },
+    {
+      "id": "t24",
+      "from": "s11",
+      "to": "s11",
+      "symbol": "x",
+      "write": "x",
+      "dir": "L"
+    },
+    {
+      "id": "t25",
+      "from": "s11",
+      "to": "s11",
+      "symbol": "z",
+      "write": "x",
+      "dir": "L"
+    },
+    {
+      "id": "t26",
+      "from": "s11",
+      "to": "s5",
+      "symbol": "1",
+      "write": "1",
+      "dir": "R"
+    },
+    {
+      "id": "t27",
+      "from": "s11",
+      "to": "s5",
+      "symbol": "⊔",
+      "write": "⊔",
+      "dir": "R"
+    },
+    {
+      "id": "t28",
+      "from": "s10",
+      "to": "s10",
+      "symbol": "z",
+      "write": "1",
+      "dir": "R"
+    },
+    {
+      "id": "t29",
+      "from": "s10",
+      "to": "s10",
+      "symbol": "x",
+      "write": "⊔",
+      "dir": "R"
+    },
+    {
+      "id": "t30",
+      "from": "s10",
+      "to": "s10",
+      "symbol": "#",
+      "write": "⊔",
+      "dir": "R"
+    },
+    {
+      "id": "t31",
+      "from": "s10",
+      "to": "s10",
+      "symbol": "y",
+      "write": "⊔",
+      "dir": "R"
+    },
+    {
+      "id": "t32",
+      "from": "s10",
+      "to": "s10",
+      "symbol": "1",
+      "write": "⊔",
+      "dir": "R"
+    },
+    {
+      "id": "t33",
+      "from": "s10",
+      "to": "s12",
+      "symbol": "⊔",
+      "write": "⊔",
+      "dir": "S"
+    }
+  ],
+  "startId": "s1",
+  "accepts": [
+    "s12"
+  ],
+  "notes": [],
+  "dividers": [],
+  "blocks": [],
+  "meta": {
+    "title": "Unary remainder: a mod b",
+    "blurb": "Input 1ᵃ#1ᵇ; output 1^(a mod b). Each round crosses off b ones of a, pairing them one at a time with the ones of b; a completed round is subtraction, and b is restored for the next. When a runs out in the middle of a round, the ones crossed in that round are the remainder.",
+    "inputs": [
+      {
+        "w": "#1",
+        "expect": "accept",
+        "label": "0 mod 1"
+      },
+      {
+        "w": "1#11",
+        "expect": "accept",
+        "label": "1 mod 2"
+      },
+      {
+        "w": "#11",
+        "expect": "accept",
+        "label": "0 mod 2"
+      },
+      {
+        "w": "1#1111111",
+        "expect": "accept",
+        "label": "1 mod 7"
+      },
+      {
+        "w": "11",
+        "expect": "reject",
+        "label": ""
+      },
+      {
+        "w": "##11",
+        "expect": "reject",
+        "label": ""
+      },
+      {
+        "w": "111",
+        "expect": "reject",
+        "label": ""
+      },
+      {
+        "w": "##1111111",
+        "expect": "reject",
+        "label": ""
+      }
+    ],
+    "library": {
+      "author": {
+        "login": "thethinkmachine"
+      },
+      "license": "CC-BY-4.0",
+      "tags": [
+        "arithmetic",
+        "unary",
+        "division",
+        "computing-a-function"
+      ],
+      "difficulty": "advanced"
+    }
+  }
+}

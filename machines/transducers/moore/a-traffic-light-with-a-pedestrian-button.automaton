@@ -1,0 +1,156 @@
+{
+  "format": "automata-studio/workspace",
+  "schema": 1,
+  "app": "dev",
+  "machine": "Moore",
+  "config": {
+    "sym": {
+      "eps": "ε",
+      "any": "Σ",
+      "blank": "⊔",
+      "leftMarker": "⊢",
+      "rightMarker": "⊣",
+      "stackBottom": "Z",
+      "lambda": "λ"
+    },
+    "transducerAccepts": false
+  },
+  "sigma": [
+    "t",
+    "p"
+  ],
+  "stackAlpha": [],
+  "outputAlpha": [
+    "G",
+    "Y",
+    "R"
+  ],
+  "tapeCount": 1,
+  "states": [
+    {
+      "id": "s1",
+      "x": 140,
+      "y": 160,
+      "name": "G",
+      "output": "G"
+    },
+    {
+      "id": "s2",
+      "x": 319,
+      "y": 160,
+      "name": "Gp",
+      "output": "G"
+    },
+    {
+      "id": "s3",
+      "x": 498,
+      "y": 160,
+      "name": "Y",
+      "output": "Y"
+    },
+    {
+      "id": "s4",
+      "x": 677,
+      "y": 160,
+      "name": "R",
+      "output": "R"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "t1",
+      "from": "s1",
+      "to": "s1",
+      "symbol": "t"
+    },
+    {
+      "id": "t2",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "p"
+    },
+    {
+      "id": "t3",
+      "from": "s2",
+      "to": "s3",
+      "symbol": "t"
+    },
+    {
+      "id": "t4",
+      "from": "s2",
+      "to": "s2",
+      "symbol": "p"
+    },
+    {
+      "id": "t5",
+      "from": "s3",
+      "to": "s4",
+      "symbol": "t"
+    },
+    {
+      "id": "t6",
+      "from": "s3",
+      "to": "s3",
+      "symbol": "p"
+    },
+    {
+      "id": "t7",
+      "from": "s4",
+      "to": "s1",
+      "symbol": "t"
+    },
+    {
+      "id": "t8",
+      "from": "s4",
+      "to": "s4",
+      "symbol": "p"
+    }
+  ],
+  "startId": "s1",
+  "accepts": [],
+  "notes": [],
+  "dividers": [],
+  "blocks": [],
+  "meta": {
+    "title": "A traffic light with a pedestrian button",
+    "blurb": "Each t is a tick of the controller’s clock and p a press of the crossing button. The light stays green until someone presses, then goes yellow and red on the next ticks and returns to green. The press is remembered in the state — a green light with a request waiting is a different state from a plain green one, even though both show G.",
+    "inputs": [
+      {
+        "w": "p",
+        "out": "GG"
+      },
+      {
+        "w": "t",
+        "out": "GG"
+      },
+      {
+        "w": "pp",
+        "out": "GGG"
+      },
+      {
+        "w": "pt",
+        "out": "GGY"
+      },
+      {
+        "w": "ppp",
+        "out": "GGGG"
+      },
+      {
+        "w": "ttpptttpppppttpp",
+        "out": "GGGGGYRGGGGGGYRRR"
+      }
+    ],
+    "library": {
+      "author": {
+        "login": "thethinkmachine"
+      },
+      "license": "CC-BY-4.0",
+      "tags": [
+        "control",
+        "embedded-systems",
+        "state-machines"
+      ],
+      "difficulty": "intro"
+    }
+  }
+}

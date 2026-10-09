@@ -1,0 +1,155 @@
+{
+  "format": "automata-studio/workspace",
+  "schema": 1,
+  "app": "dev",
+  "machine": "NPDA",
+  "config": {
+    "sym": {
+      "eps": "ε",
+      "any": "Σ",
+      "blank": "⊔",
+      "leftMarker": "⊢",
+      "rightMarker": "⊣",
+      "stackBottom": "Z",
+      "lambda": "λ"
+    },
+    "pdaParadigm": "explicit"
+  },
+  "sigma": [
+    "a",
+    "b"
+  ],
+  "stackAlpha": [
+    "Z",
+    "X"
+  ],
+  "outputAlpha": [],
+  "tapeCount": 1,
+  "states": [
+    {
+      "id": "s1",
+      "x": 140,
+      "y": 208,
+      "name": "as"
+    },
+    {
+      "id": "s2",
+      "x": 319,
+      "y": 255,
+      "name": "done"
+    },
+    {
+      "id": "s3",
+      "x": 319,
+      "y": 160,
+      "name": "bs"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "t1",
+      "from": "s1",
+      "to": "s1",
+      "symbol": "a",
+      "pop": "ε",
+      "push": "X"
+    },
+    {
+      "id": "t2",
+      "from": "s1",
+      "to": "s1",
+      "symbol": "a",
+      "pop": "ε",
+      "push": "XX"
+    },
+    {
+      "id": "t3",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "ε",
+      "pop": "Z",
+      "push": "Z"
+    },
+    {
+      "id": "t4",
+      "from": "s1",
+      "to": "s3",
+      "symbol": "b",
+      "pop": "X",
+      "push": "ε"
+    },
+    {
+      "id": "t5",
+      "from": "s3",
+      "to": "s3",
+      "symbol": "b",
+      "pop": "X",
+      "push": "ε"
+    },
+    {
+      "id": "t6",
+      "from": "s3",
+      "to": "s2",
+      "symbol": "ε",
+      "pop": "Z",
+      "push": "Z"
+    }
+  ],
+  "startId": "s1",
+  "accepts": [
+    "s2"
+  ],
+  "notes": [],
+  "dividers": [],
+  "blocks": [],
+  "meta": {
+    "title": "Between n and 2n b’s: aⁿbᵐ, n ≤ m ≤ 2n",
+    "blurb": "For each a the machine pushes one X or two — its guess about how many b’s that a will pay for. Some sequence of guesses balances exactly when m lies between n and 2n.",
+    "inputs": [
+      {
+        "w": "",
+        "expect": "accept"
+      },
+      {
+        "w": "aabb",
+        "expect": "accept"
+      },
+      {
+        "w": "ab",
+        "expect": "accept"
+      },
+      {
+        "w": "aaaaabbbbbbbbb",
+        "expect": "accept"
+      },
+      {
+        "w": "a",
+        "expect": "reject"
+      },
+      {
+        "w": "babb",
+        "expect": "reject"
+      },
+      {
+        "w": "bb",
+        "expect": "reject"
+      },
+      {
+        "w": "baaaabbbbbbbbb",
+        "expect": "reject"
+      }
+    ],
+    "library": {
+      "author": {
+        "login": "thethinkmachine"
+      },
+      "license": "CC-BY-4.0",
+      "tags": [
+        "guessing",
+        "counting",
+        "ranges"
+      ],
+      "difficulty": "intermediate"
+    }
+  }
+}

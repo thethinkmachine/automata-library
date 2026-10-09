@@ -1,0 +1,154 @@
+{
+  "format": "automata-studio/workspace",
+  "schema": 1,
+  "app": "dev",
+  "machine": "DPDA",
+  "config": {
+    "sym": {
+      "eps": "ε",
+      "any": "Σ",
+      "blank": "⊔",
+      "leftMarker": "⊢",
+      "rightMarker": "⊣",
+      "stackBottom": "Z",
+      "lambda": "λ"
+    },
+    "pdaParadigm": "explicit"
+  },
+  "sigma": [
+    "a",
+    "b"
+  ],
+  "stackAlpha": [
+    "Z",
+    "X"
+  ],
+  "outputAlpha": [],
+  "tapeCount": 1,
+  "states": [
+    {
+      "id": "s1",
+      "x": 140,
+      "y": 160,
+      "name": "start"
+    },
+    {
+      "id": "s2",
+      "x": 319,
+      "y": 160,
+      "name": "as"
+    },
+    {
+      "id": "s3",
+      "x": 498,
+      "y": 160,
+      "name": "bs"
+    },
+    {
+      "id": "s4",
+      "x": 677,
+      "y": 160,
+      "name": "done"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "t1",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "a",
+      "pop": "Z",
+      "push": "XXZ"
+    },
+    {
+      "id": "t2",
+      "from": "s2",
+      "to": "s2",
+      "symbol": "a",
+      "pop": "X",
+      "push": "XXX"
+    },
+    {
+      "id": "t3",
+      "from": "s2",
+      "to": "s3",
+      "symbol": "b",
+      "pop": "X",
+      "push": "ε"
+    },
+    {
+      "id": "t4",
+      "from": "s3",
+      "to": "s3",
+      "symbol": "b",
+      "pop": "X",
+      "push": "ε"
+    },
+    {
+      "id": "t5",
+      "from": "s3",
+      "to": "s4",
+      "symbol": "ε",
+      "pop": "Z",
+      "push": "Z"
+    }
+  ],
+  "startId": "s1",
+  "accepts": [
+    "s1",
+    "s4"
+  ],
+  "notes": [],
+  "dividers": [],
+  "blocks": [],
+  "meta": {
+    "title": "Twice as many b’s: aⁿb²ⁿ",
+    "blurb": "Push two X’s for every a and pop one for every b. A change of exchange rate is all it takes — the same machine as aⁿbⁿ with a different push.",
+    "inputs": [
+      {
+        "w": "",
+        "expect": "accept"
+      },
+      {
+        "w": "abb",
+        "expect": "accept"
+      },
+      {
+        "w": "aabbbb",
+        "expect": "accept"
+      },
+      {
+        "w": "aaaabbbbbbbb",
+        "expect": "accept"
+      },
+      {
+        "w": "a",
+        "expect": "reject"
+      },
+      {
+        "w": "bbb",
+        "expect": "reject"
+      },
+      {
+        "w": "babbbb",
+        "expect": "reject"
+      },
+      {
+        "w": "baaabbbbbbbb",
+        "expect": "reject"
+      }
+    ],
+    "library": {
+      "author": {
+        "login": "thethinkmachine"
+      },
+      "license": "CC-BY-4.0",
+      "tags": [
+        "counting",
+        "ratio",
+        "non-regular"
+      ],
+      "difficulty": "intro"
+    }
+  }
+}

@@ -1,0 +1,158 @@
+{
+  "format": "automata-studio/workspace",
+  "schema": 1,
+  "app": "dev",
+  "machine": "DFA",
+  "config": {
+    "sym": {
+      "eps": "ε",
+      "any": "Σ",
+      "blank": "⊔",
+      "leftMarker": "⊢",
+      "rightMarker": "⊣",
+      "stackBottom": "Z",
+      "lambda": "λ"
+    }
+  },
+  "sigma": [
+    "0",
+    "1"
+  ],
+  "stackAlpha": [],
+  "outputAlpha": [],
+  "tapeCount": 1,
+  "states": [
+    {
+      "id": "s1",
+      "x": 140,
+      "y": 160,
+      "name": "q"
+    },
+    {
+      "id": "s2",
+      "x": 319,
+      "y": 160,
+      "name": "q0"
+    },
+    {
+      "id": "s3",
+      "x": 498,
+      "y": 160,
+      "name": "q00"
+    },
+    {
+      "id": "s4",
+      "x": 677,
+      "y": 160,
+      "name": "q001"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "t1",
+      "from": "s1",
+      "to": "s1",
+      "symbol": "1"
+    },
+    {
+      "id": "t2",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "0"
+    },
+    {
+      "id": "t3",
+      "from": "s2",
+      "to": "s1",
+      "symbol": "1"
+    },
+    {
+      "id": "t4",
+      "from": "s2",
+      "to": "s3",
+      "symbol": "0"
+    },
+    {
+      "id": "t5",
+      "from": "s3",
+      "to": "s3",
+      "symbol": "0"
+    },
+    {
+      "id": "t6",
+      "from": "s3",
+      "to": "s4",
+      "symbol": "1"
+    },
+    {
+      "id": "t7",
+      "from": "s4",
+      "to": "s4",
+      "symbol": "0"
+    },
+    {
+      "id": "t8",
+      "from": "s4",
+      "to": "s4",
+      "symbol": "1"
+    }
+  ],
+  "startId": "s1",
+  "accepts": [
+    "s4"
+  ],
+  "notes": [],
+  "dividers": [],
+  "blocks": [],
+  "meta": {
+    "title": "Contains 001",
+    "blurb": "Sipser’s worked example of designing a DFA by asking what to remember: nothing useful yet, a 0, 00, or the whole pattern. After 00 a further 0 changes nothing — the last two symbols are still 00.",
+    "inputs": [
+      {
+        "w": "001",
+        "expect": "accept"
+      },
+      {
+        "w": "00110",
+        "expect": "accept"
+      },
+      {
+        "w": "0001",
+        "expect": "accept"
+      },
+      {
+        "w": "0000000110",
+        "expect": "accept"
+      },
+      {
+        "w": "101",
+        "expect": "reject"
+      },
+      {
+        "w": "10110",
+        "expect": "reject"
+      },
+      {
+        "w": "0101",
+        "expect": "reject"
+      },
+      {
+        "w": "",
+        "expect": "reject"
+      }
+    ],
+    "library": {
+      "author": {
+        "login": "thethinkmachine"
+      },
+      "license": "CC-BY-4.0",
+      "tags": [
+        "textbook",
+        "sipser",
+        "substrings"
+      ],
+      "difficulty": "intro",
+      "chapter": "Sipser, Introduction to the Theory of Computation, §1.1 (designing a DFA)"
+    }
+  }
+}

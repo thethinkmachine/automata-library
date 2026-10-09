@@ -1,0 +1,136 @@
+{
+  "format": "automata-studio/workspace",
+  "schema": 1,
+  "app": "dev",
+  "machine": "DFA",
+  "config": {
+    "sym": {
+      "eps": "ε",
+      "any": "Σ",
+      "blank": "⊔",
+      "leftMarker": "⊢",
+      "rightMarker": "⊣",
+      "stackBottom": "Z",
+      "lambda": "λ"
+    }
+  },
+  "sigma": [
+    "o",
+    "c",
+    "s",
+    "x"
+  ],
+  "stackAlpha": [],
+  "outputAlpha": [],
+  "tapeCount": 1,
+  "states": [
+    {
+      "id": "s1",
+      "x": 140,
+      "y": 208,
+      "name": "closed"
+    },
+    {
+      "id": "s2",
+      "x": 319,
+      "y": 255,
+      "name": "open"
+    },
+    {
+      "id": "s3",
+      "x": 319,
+      "y": 160,
+      "name": "running"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "t1",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "o"
+    },
+    {
+      "id": "t2",
+      "from": "s2",
+      "to": "s1",
+      "symbol": "c"
+    },
+    {
+      "id": "t3",
+      "from": "s1",
+      "to": "s3",
+      "symbol": "s"
+    },
+    {
+      "id": "t4",
+      "from": "s3",
+      "to": "s1",
+      "symbol": "x"
+    },
+    {
+      "id": "t5",
+      "from": "s3",
+      "to": "s2",
+      "symbol": "o"
+    }
+  ],
+  "startId": "s1",
+  "accepts": [
+    "s1",
+    "s2"
+  ],
+  "notes": [],
+  "dividers": [],
+  "blocks": [],
+  "meta": {
+    "title": "A microwave oven’s door interlock",
+    "blurb": "o and c open and close the door, s starts the oven, x is the timer running out. Starting is only possible with the door closed, and opening the door stops the oven. There is no state for “running with the door open” — the safety property is the missing state.",
+    "inputs": [
+      {
+        "w": "",
+        "expect": "accept"
+      },
+      {
+        "w": "ocsx",
+        "expect": "accept"
+      },
+      {
+        "w": "sococ",
+        "expect": "accept"
+      },
+      {
+        "w": "sococo",
+        "expect": "accept"
+      },
+      {
+        "w": "c",
+        "expect": "reject"
+      },
+      {
+        "w": "ccsx",
+        "expect": "reject"
+      },
+      {
+        "w": "oococ",
+        "expect": "reject"
+      },
+      {
+        "w": "oococo",
+        "expect": "reject"
+      }
+    ],
+    "library": {
+      "author": {
+        "login": "thethinkmachine"
+      },
+      "license": "CC-BY-4.0",
+      "tags": [
+        "safety",
+        "embedded-systems",
+        "interlocks"
+      ],
+      "difficulty": "intro"
+    }
+  }
+}

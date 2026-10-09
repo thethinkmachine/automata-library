@@ -1,0 +1,259 @@
+{
+  "format": "automata-studio/workspace",
+  "schema": 1,
+  "app": "dev",
+  "machine": "DFA",
+  "config": {
+    "sym": {
+      "eps": "ε",
+      "any": "Σ",
+      "blank": "⊔",
+      "leftMarker": "⊢",
+      "rightMarker": "⊣",
+      "stackBottom": "Z",
+      "lambda": "λ"
+    }
+  },
+  "sigma": [
+    "f",
+    "w",
+    "g",
+    "c"
+  ],
+  "stackAlpha": [],
+  "outputAlpha": [],
+  "tapeCount": 1,
+  "states": [
+    {
+      "id": "s1",
+      "x": 140,
+      "y": 208,
+      "name": "FWGC|·"
+    },
+    {
+      "id": "s2",
+      "x": 319,
+      "y": 208,
+      "name": "WC|FG"
+    },
+    {
+      "id": "s3",
+      "x": 498,
+      "y": 208,
+      "name": "FWC|G"
+    },
+    {
+      "id": "s4",
+      "x": 677,
+      "y": 160,
+      "name": "C|FWG"
+    },
+    {
+      "id": "s5",
+      "x": 677,
+      "y": 255,
+      "name": "W|FGC"
+    },
+    {
+      "id": "s6",
+      "x": 856,
+      "y": 160,
+      "name": "FGC|W"
+    },
+    {
+      "id": "s7",
+      "x": 856,
+      "y": 255,
+      "name": "FWG|C"
+    },
+    {
+      "id": "s8",
+      "x": 1035,
+      "y": 208,
+      "name": "G|FWC"
+    },
+    {
+      "id": "s9",
+      "x": 1214,
+      "y": 208,
+      "name": "FG|WC"
+    },
+    {
+      "id": "s10",
+      "x": 1393,
+      "y": 208,
+      "name": "·|FWGC"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "t1",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "g"
+    },
+    {
+      "id": "t2",
+      "from": "s2",
+      "to": "s3",
+      "symbol": "f"
+    },
+    {
+      "id": "t3",
+      "from": "s2",
+      "to": "s1",
+      "symbol": "g"
+    },
+    {
+      "id": "t4",
+      "from": "s3",
+      "to": "s2",
+      "symbol": "f"
+    },
+    {
+      "id": "t5",
+      "from": "s3",
+      "to": "s4",
+      "symbol": "w"
+    },
+    {
+      "id": "t6",
+      "from": "s3",
+      "to": "s5",
+      "symbol": "c"
+    },
+    {
+      "id": "t7",
+      "from": "s4",
+      "to": "s3",
+      "symbol": "w"
+    },
+    {
+      "id": "t8",
+      "from": "s4",
+      "to": "s6",
+      "symbol": "g"
+    },
+    {
+      "id": "t9",
+      "from": "s5",
+      "to": "s7",
+      "symbol": "g"
+    },
+    {
+      "id": "t10",
+      "from": "s5",
+      "to": "s3",
+      "symbol": "c"
+    },
+    {
+      "id": "t11",
+      "from": "s6",
+      "to": "s4",
+      "symbol": "g"
+    },
+    {
+      "id": "t12",
+      "from": "s6",
+      "to": "s8",
+      "symbol": "c"
+    },
+    {
+      "id": "t13",
+      "from": "s7",
+      "to": "s8",
+      "symbol": "w"
+    },
+    {
+      "id": "t14",
+      "from": "s7",
+      "to": "s5",
+      "symbol": "g"
+    },
+    {
+      "id": "t15",
+      "from": "s8",
+      "to": "s9",
+      "symbol": "f"
+    },
+    {
+      "id": "t16",
+      "from": "s8",
+      "to": "s7",
+      "symbol": "w"
+    },
+    {
+      "id": "t17",
+      "from": "s8",
+      "to": "s6",
+      "symbol": "c"
+    },
+    {
+      "id": "t18",
+      "from": "s9",
+      "to": "s8",
+      "symbol": "f"
+    },
+    {
+      "id": "t19",
+      "from": "s9",
+      "to": "s10",
+      "symbol": "g"
+    },
+    {
+      "id": "t20",
+      "from": "s10",
+      "to": "s9",
+      "symbol": "g"
+    }
+  ],
+  "startId": "s1",
+  "accepts": [
+    "s10"
+  ],
+  "notes": [],
+  "dividers": [],
+  "blocks": [],
+  "meta": {
+    "title": "Wolf, goat and cabbage",
+    "blurb": "A farmer must ferry a wolf, a goat and a cabbage across a river, one at a time, never leaving the wolf with the goat or the goat with the cabbage. f crosses alone; w, g, c take that passenger. The accepted words are the solutions; the two shortest take seven crossings.",
+    "inputs": [
+      {
+        "w": "gfwgcfg",
+        "expect": "accept"
+      },
+      {
+        "w": "gfcgwfg",
+        "expect": "accept"
+      },
+      {
+        "w": "gfwgcfgfg",
+        "expect": "reject"
+      },
+      {
+        "w": "gfwfg",
+        "expect": "reject"
+      },
+      {
+        "w": "fgwgcfg",
+        "expect": "reject"
+      },
+      {
+        "w": "wfgcfwg",
+        "expect": "reject"
+      }
+    ],
+    "library": {
+      "author": {
+        "login": "thethinkmachine"
+      },
+      "license": "CC-BY-4.0",
+      "tags": [
+        "puzzles",
+        "state-space-search",
+        "partial-dfa"
+      ],
+      "difficulty": "intermediate"
+    }
+  }
+}

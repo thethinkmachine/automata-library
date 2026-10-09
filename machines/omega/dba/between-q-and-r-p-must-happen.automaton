@@ -1,0 +1,174 @@
+{
+  "format": "automata-studio/workspace",
+  "schema": 1,
+  "app": "dev",
+  "machine": "DBA",
+  "config": {
+    "sym": {
+      "eps": "ε",
+      "any": "Σ",
+      "blank": "⊔",
+      "leftMarker": "⊢",
+      "rightMarker": "⊣",
+      "stackBottom": "Z",
+      "lambda": "λ"
+    }
+  },
+  "sigma": [
+    "p",
+    "q",
+    "r",
+    "n"
+  ],
+  "stackAlpha": [],
+  "outputAlpha": [],
+  "tapeCount": 1,
+  "states": [
+    {
+      "id": "s1",
+      "x": 140,
+      "y": 160,
+      "name": "out"
+    },
+    {
+      "id": "s2",
+      "x": 319,
+      "y": 160,
+      "name": "open"
+    },
+    {
+      "id": "s3",
+      "x": 498,
+      "y": 160,
+      "name": "done"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "t1",
+      "from": "s1",
+      "to": "s1",
+      "symbol": "p"
+    },
+    {
+      "id": "t2",
+      "from": "s1",
+      "to": "s1",
+      "symbol": "r"
+    },
+    {
+      "id": "t3",
+      "from": "s1",
+      "to": "s1",
+      "symbol": "n"
+    },
+    {
+      "id": "t4",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "q"
+    },
+    {
+      "id": "t5",
+      "from": "s2",
+      "to": "s2",
+      "symbol": "q"
+    },
+    {
+      "id": "t6",
+      "from": "s2",
+      "to": "s2",
+      "symbol": "n"
+    },
+    {
+      "id": "t7",
+      "from": "s2",
+      "to": "s3",
+      "symbol": "p"
+    },
+    {
+      "id": "t8",
+      "from": "s3",
+      "to": "s3",
+      "symbol": "p"
+    },
+    {
+      "id": "t9",
+      "from": "s3",
+      "to": "s3",
+      "symbol": "q"
+    },
+    {
+      "id": "t10",
+      "from": "s3",
+      "to": "s3",
+      "symbol": "n"
+    },
+    {
+      "id": "t11",
+      "from": "s3",
+      "to": "s1",
+      "symbol": "r"
+    }
+  ],
+  "startId": "s1",
+  "accepts": [
+    "s1",
+    "s2",
+    "s3"
+  ],
+  "notes": [],
+  "dividers": [],
+  "blocks": [],
+  "meta": {
+    "title": "Between q and r, p must happen",
+    "blurb": "Existence between q and r: whenever q opens an interval, p must occur before the r that closes it. An interval left open forever imposes nothing — the pattern’s usual scope. The state remembers whether an interval is open and whether p has been seen in it.",
+    "inputs": [
+      {
+        "w": "(n)",
+        "expect": "accept"
+      },
+      {
+        "w": "(p)",
+        "expect": "accept"
+      },
+      {
+        "w": "(q)",
+        "expect": "accept"
+      },
+      {
+        "w": "(r)",
+        "expect": "accept"
+      },
+      {
+        "w": "q(r)",
+        "expect": "reject"
+      },
+      {
+        "w": "(qr)",
+        "expect": "reject"
+      },
+      {
+        "w": "(rq)",
+        "expect": "reject"
+      },
+      {
+        "w": "nq(r)",
+        "expect": "reject"
+      }
+    ],
+    "library": {
+      "author": {
+        "login": "thethinkmachine"
+      },
+      "license": "CC-BY-4.0",
+      "tags": [
+        "ltl",
+        "existence",
+        "scopes",
+        "specification-patterns"
+      ],
+      "difficulty": "intermediate"
+    }
+  }
+}

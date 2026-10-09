@@ -1,0 +1,159 @@
+{
+  "format": "automata-studio/workspace",
+  "schema": 1,
+  "app": "dev",
+  "machine": "DFA",
+  "config": {
+    "sym": {
+      "eps": "ε",
+      "any": "Σ",
+      "blank": "⊔",
+      "leftMarker": "⊢",
+      "rightMarker": "⊣",
+      "stackBottom": "Z",
+      "lambda": "λ"
+    }
+  },
+  "sigma": [
+    "0",
+    "1"
+  ],
+  "stackAlpha": [],
+  "outputAlpha": [],
+  "tapeCount": 1,
+  "states": [
+    {
+      "id": "s1",
+      "x": 140,
+      "y": 160,
+      "name": "q0"
+    },
+    {
+      "id": "s2",
+      "x": 310,
+      "y": 160,
+      "name": "q1"
+    },
+    {
+      "id": "s3",
+      "x": 140,
+      "y": 330,
+      "name": "q2"
+    },
+    {
+      "id": "s4",
+      "x": 310,
+      "y": 330,
+      "name": "q3"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "t1",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "1"
+    },
+    {
+      "id": "t2",
+      "from": "s2",
+      "to": "s1",
+      "symbol": "1"
+    },
+    {
+      "id": "t3",
+      "from": "s3",
+      "to": "s4",
+      "symbol": "1"
+    },
+    {
+      "id": "t4",
+      "from": "s4",
+      "to": "s3",
+      "symbol": "1"
+    },
+    {
+      "id": "t5",
+      "from": "s1",
+      "to": "s3",
+      "symbol": "0"
+    },
+    {
+      "id": "t6",
+      "from": "s3",
+      "to": "s1",
+      "symbol": "0"
+    },
+    {
+      "id": "t7",
+      "from": "s2",
+      "to": "s4",
+      "symbol": "0"
+    },
+    {
+      "id": "t8",
+      "from": "s4",
+      "to": "s2",
+      "symbol": "0"
+    }
+  ],
+  "startId": "s1",
+  "accepts": [
+    "s1"
+  ],
+  "notes": [],
+  "dividers": [],
+  "blocks": [],
+  "meta": {
+    "title": "An even number of 0s and an even number of 1s",
+    "blurb": "Four states, one for each pair of parities, drawn as a square: a 0 moves across it, a 1 moves up or down. The accepting corner is where both parities are even.",
+    "inputs": [
+      {
+        "w": "",
+        "expect": "accept"
+      },
+      {
+        "w": "0011",
+        "expect": "accept"
+      },
+      {
+        "w": "000101",
+        "expect": "accept"
+      },
+      {
+        "w": "0000000110",
+        "expect": "accept"
+      },
+      {
+        "w": "0",
+        "expect": "reject"
+      },
+      {
+        "w": "1011",
+        "expect": "reject"
+      },
+      {
+        "w": "100101",
+        "expect": "reject"
+      },
+      {
+        "w": "1000000110",
+        "expect": "reject"
+      }
+    ],
+    "library": {
+      "author": {
+        "login": "thethinkmachine"
+      },
+      "license": "CC-BY-4.0",
+      "tags": [
+        "textbook",
+        "hopcroft",
+        "parity",
+        "product-construction"
+      ],
+      "difficulty": "intro",
+      "chapter": "Hopcroft, Motwani & Ullman, §2.2"
+    }
+  }
+}

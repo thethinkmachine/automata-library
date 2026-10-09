@@ -1,0 +1,136 @@
+{
+  "format": "automata-studio/workspace",
+  "schema": 1,
+  "app": "dev",
+  "machine": "DBA",
+  "config": {
+    "sym": {
+      "eps": "ε",
+      "any": "Σ",
+      "blank": "⊔",
+      "leftMarker": "⊢",
+      "rightMarker": "⊣",
+      "stackBottom": "Z",
+      "lambda": "λ"
+    }
+  },
+  "sigma": [
+    "r",
+    "n"
+  ],
+  "stackAlpha": [],
+  "outputAlpha": [],
+  "tapeCount": 1,
+  "states": [
+    {
+      "id": "s1",
+      "x": 140,
+      "y": 160,
+      "name": "none"
+    },
+    {
+      "id": "s2",
+      "x": 319,
+      "y": 160,
+      "name": "one"
+    },
+    {
+      "id": "s3",
+      "x": 498,
+      "y": 160,
+      "name": "two"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "t1",
+      "from": "s1",
+      "to": "s1",
+      "symbol": "n"
+    },
+    {
+      "id": "t2",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "r"
+    },
+    {
+      "id": "t3",
+      "from": "s2",
+      "to": "s2",
+      "symbol": "n"
+    },
+    {
+      "id": "t4",
+      "from": "s2",
+      "to": "s3",
+      "symbol": "r"
+    },
+    {
+      "id": "t5",
+      "from": "s3",
+      "to": "s3",
+      "symbol": "n"
+    }
+  ],
+  "startId": "s1",
+  "accepts": [
+    "s1",
+    "s2",
+    "s3"
+  ],
+  "notes": [],
+  "dividers": [],
+  "blocks": [],
+  "meta": {
+    "title": "At most two requests, ever",
+    "blurb": "Bounded existence, in Dwyer’s catalogue of specification patterns: r may happen, but no more than twice in the whole infinite run. A safety property, so every state accepts and a third r is simply a missing edge.",
+    "inputs": [
+      {
+        "w": "(n)",
+        "expect": "accept"
+      },
+      {
+        "w": "(nn)",
+        "expect": "accept"
+      },
+      {
+        "w": "(nnn)",
+        "expect": "accept"
+      },
+      {
+        "w": "nnn(n)",
+        "expect": "accept"
+      },
+      {
+        "w": "(r)",
+        "expect": "reject"
+      },
+      {
+        "w": "(nr)",
+        "expect": "reject"
+      },
+      {
+        "w": "(rn)",
+        "expect": "reject"
+      },
+      {
+        "w": "(rr)",
+        "expect": "reject"
+      }
+    ],
+    "library": {
+      "author": {
+        "login": "thethinkmachine"
+      },
+      "license": "CC-BY-4.0",
+      "tags": [
+        "ltl",
+        "bounded-existence",
+        "safety",
+        "specification-patterns"
+      ],
+      "difficulty": "intro"
+    }
+  }
+}

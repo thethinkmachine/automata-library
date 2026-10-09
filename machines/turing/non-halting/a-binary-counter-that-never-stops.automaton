@@ -1,0 +1,113 @@
+{
+  "format": "automata-studio/workspace",
+  "schema": 1,
+  "app": "dev",
+  "machine": "ITM",
+  "config": {
+    "twoWayTape": true,
+    "sym": {
+      "eps": "ε",
+      "any": "Σ",
+      "blank": "⊔",
+      "leftMarker": "⊢",
+      "rightMarker": "⊣",
+      "stackBottom": "Z",
+      "lambda": "λ"
+    }
+  },
+  "sigma": [
+    "1"
+  ],
+  "stackAlpha": [
+    "1",
+    "⊔"
+  ],
+  "outputAlpha": [],
+  "tapeCount": 1,
+  "states": [
+    {
+      "id": "s1",
+      "name": "A",
+      "x": 0,
+      "y": 0
+    },
+    {
+      "id": "s2",
+      "name": "B",
+      "x": 179,
+      "y": 0
+    },
+    {
+      "id": "s3",
+      "name": "C",
+      "x": 358,
+      "y": 0
+    }
+  ],
+  "transitions": [
+    {
+      "id": "t1",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "⊔",
+      "write": "⊔",
+      "dir": "R"
+    },
+    {
+      "id": "t2",
+      "from": "s1",
+      "to": "s1",
+      "symbol": "1",
+      "write": "⊔",
+      "dir": "L"
+    },
+    {
+      "id": "t3",
+      "from": "s2",
+      "to": "s3",
+      "symbol": "⊔",
+      "write": "1",
+      "dir": "R"
+    },
+    {
+      "id": "t4",
+      "from": "s3",
+      "to": "s1",
+      "symbol": "⊔",
+      "write": "1",
+      "dir": "L"
+    },
+    {
+      "id": "t5",
+      "from": "s3",
+      "to": "s2",
+      "symbol": "1",
+      "write": "1",
+      "dir": "R"
+    }
+  ],
+  "startId": "s1",
+  "accepts": [],
+  "notes": [],
+  "dividers": [],
+  "blocks": [],
+  "meta": {
+    "title": "A binary counter that never stops",
+    "blurb": "It counts in binary on its tape, so its blocks double in width and its run never repeats — the classic shape no cycle detector can settle. The finite automata reduction proves it: it finds a regular language that contains every configuration from which the machine could halt and is closed under stepping backwards, and the blank tape is not in it.",
+    "library": {
+      "author": {
+        "login": "thethinkmachine"
+      },
+      "license": "CC-BY-4.0",
+      "tags": [
+        "standard-format",
+        "non-halting",
+        "proof",
+        "finite-automata-reduction",
+        "counters",
+        "bbchallenge"
+      ],
+      "difficulty": "advanced"
+    }
+  }
+}

@@ -1,0 +1,178 @@
+{
+  "format": "automata-studio/workspace",
+  "schema": 1,
+  "app": "dev",
+  "machine": "DFA",
+  "config": {
+    "sym": {
+      "eps": "ε",
+      "any": "Σ",
+      "blank": "⊔",
+      "leftMarker": "⊢",
+      "rightMarker": "⊣",
+      "stackBottom": "Z",
+      "lambda": "λ"
+    }
+  },
+  "sigma": [
+    "0",
+    "1",
+    "2",
+    "R"
+  ],
+  "stackAlpha": [],
+  "outputAlpha": [],
+  "tapeCount": 1,
+  "states": [
+    {
+      "id": "s1",
+      "x": 209,
+      "y": 160,
+      "name": "q0"
+    },
+    {
+      "id": "s2",
+      "x": 279,
+      "y": 280,
+      "name": "q1"
+    },
+    {
+      "id": "s3",
+      "x": 140,
+      "y": 280,
+      "name": "q2"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "t1",
+      "from": "s1",
+      "to": "s1",
+      "symbol": "0"
+    },
+    {
+      "id": "t2",
+      "from": "s1",
+      "to": "s1",
+      "symbol": "R"
+    },
+    {
+      "id": "t3",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "1"
+    },
+    {
+      "id": "t4",
+      "from": "s1",
+      "to": "s3",
+      "symbol": "2"
+    },
+    {
+      "id": "t5",
+      "from": "s2",
+      "to": "s2",
+      "symbol": "0"
+    },
+    {
+      "id": "t6",
+      "from": "s2",
+      "to": "s3",
+      "symbol": "1"
+    },
+    {
+      "id": "t7",
+      "from": "s2",
+      "to": "s1",
+      "symbol": "2"
+    },
+    {
+      "id": "t8",
+      "from": "s2",
+      "to": "s1",
+      "symbol": "R"
+    },
+    {
+      "id": "t9",
+      "from": "s3",
+      "to": "s3",
+      "symbol": "0"
+    },
+    {
+      "id": "t10",
+      "from": "s3",
+      "to": "s1",
+      "symbol": "1"
+    },
+    {
+      "id": "t11",
+      "from": "s3",
+      "to": "s1",
+      "symbol": "R"
+    },
+    {
+      "id": "t12",
+      "from": "s3",
+      "to": "s2",
+      "symbol": "2"
+    }
+  ],
+  "startId": "s1",
+  "accepts": [
+    "s1"
+  ],
+  "notes": [],
+  "dividers": [],
+  "blocks": [],
+  "meta": {
+    "title": "Sipser’s M5: a running sum mod 3, with reset",
+    "blurb": "The symbols are 0, 1, 2 and R (Sipser’s ⟨RESET⟩). The machine keeps the sum of the numbers since the last reset, mod 3, and accepts when it is 0. A reset is one more edge out of every state, all landing at the start.",
+    "inputs": [
+      {
+        "w": "",
+        "expect": "accept"
+      },
+      {
+        "w": "012R",
+        "expect": "accept"
+      },
+      {
+        "w": "0020R10221",
+        "expect": "accept"
+      },
+      {
+        "w": "01R00RR0211221",
+        "expect": "accept"
+      },
+      {
+        "w": "1",
+        "expect": "reject"
+      },
+      {
+        "w": "0121",
+        "expect": "reject"
+      },
+      {
+        "w": "0020010221",
+        "expect": "reject"
+      },
+      {
+        "w": "01R00R10211221",
+        "expect": "reject"
+      }
+    ],
+    "library": {
+      "author": {
+        "login": "thethinkmachine"
+      },
+      "license": "CC-BY-4.0",
+      "tags": [
+        "textbook",
+        "sipser",
+        "modular-arithmetic"
+      ],
+      "difficulty": "intro",
+      "chapter": "Sipser, Introduction to the Theory of Computation, §1.1 (M5)"
+    }
+  }
+}

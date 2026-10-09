@@ -1,0 +1,177 @@
+{
+  "format": "automata-studio/workspace",
+  "schema": 1,
+  "app": "dev",
+  "machine": "DFA",
+  "config": {
+    "sym": {
+      "eps": "ε",
+      "any": "Σ",
+      "blank": "⊔",
+      "leftMarker": "⊢",
+      "rightMarker": "⊣",
+      "stackBottom": "Z",
+      "lambda": "λ"
+    }
+  },
+  "sigma": [
+    "a",
+    "b"
+  ],
+  "stackAlpha": [],
+  "outputAlpha": [],
+  "tapeCount": 1,
+  "states": [
+    {
+      "id": "s1",
+      "x": 140,
+      "y": 330,
+      "name": "s"
+    },
+    {
+      "id": "s2",
+      "x": 310,
+      "y": 160,
+      "name": "q1"
+    },
+    {
+      "id": "s3",
+      "x": 310,
+      "y": 500,
+      "name": "r1"
+    },
+    {
+      "id": "s4",
+      "x": 480,
+      "y": 160,
+      "name": "q2"
+    },
+    {
+      "id": "s5",
+      "x": 480,
+      "y": 500,
+      "name": "r2"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "t1",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "a"
+    },
+    {
+      "id": "t2",
+      "from": "s1",
+      "to": "s3",
+      "symbol": "b"
+    },
+    {
+      "id": "t3",
+      "from": "s2",
+      "to": "s2",
+      "symbol": "a"
+    },
+    {
+      "id": "t4",
+      "from": "s2",
+      "to": "s4",
+      "symbol": "b"
+    },
+    {
+      "id": "t5",
+      "from": "s4",
+      "to": "s4",
+      "symbol": "b"
+    },
+    {
+      "id": "t6",
+      "from": "s4",
+      "to": "s2",
+      "symbol": "a"
+    },
+    {
+      "id": "t7",
+      "from": "s3",
+      "to": "s3",
+      "symbol": "b"
+    },
+    {
+      "id": "t8",
+      "from": "s3",
+      "to": "s5",
+      "symbol": "a"
+    },
+    {
+      "id": "t9",
+      "from": "s5",
+      "to": "s5",
+      "symbol": "a"
+    },
+    {
+      "id": "t10",
+      "from": "s5",
+      "to": "s3",
+      "symbol": "b"
+    }
+  ],
+  "startId": "s1",
+  "accepts": [
+    "s2",
+    "s3"
+  ],
+  "notes": [],
+  "dividers": [],
+  "blocks": [],
+  "meta": {
+    "title": "Sipser’s M4: starts and ends with the same symbol",
+    "blurb": "The first symbol picks one of two separate halves of the machine, and each half then remembers only whether the last symbol matched the first. Nothing is ever shared between the halves. Compare “As many ab’s as ba’s”, which is the same language plus the empty string.",
+    "inputs": [
+      {
+        "w": "a",
+        "expect": "accept"
+      },
+      {
+        "w": "aabba",
+        "expect": "accept"
+      },
+      {
+        "w": "aa",
+        "expect": "accept"
+      },
+      {
+        "w": "aaaaaaabba",
+        "expect": "accept"
+      },
+      {
+        "w": "",
+        "expect": "reject"
+      },
+      {
+        "w": "babba",
+        "expect": "reject"
+      },
+      {
+        "w": "ba",
+        "expect": "reject"
+      },
+      {
+        "w": "baaaaaabba",
+        "expect": "reject"
+      }
+    ],
+    "library": {
+      "author": {
+        "login": "thethinkmachine"
+      },
+      "license": "CC-BY-4.0",
+      "tags": [
+        "textbook",
+        "sipser",
+        "branching"
+      ],
+      "difficulty": "intro",
+      "chapter": "Sipser, Introduction to the Theory of Computation, §1.1 (M4)"
+    }
+  }
+}

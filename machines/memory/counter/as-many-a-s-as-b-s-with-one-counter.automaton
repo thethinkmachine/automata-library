@@ -1,0 +1,199 @@
+{
+  "format": "automata-studio/workspace",
+  "schema": 1,
+  "app": "dev",
+  "machine": "Counter",
+  "config": {
+    "sym": {
+      "eps": "ε",
+      "any": "Σ",
+      "blank": "⊔",
+      "leftMarker": "⊢",
+      "rightMarker": "⊣",
+      "stackBottom": "Z",
+      "lambda": "λ"
+    },
+    "pdaParadigm": "explicit"
+  },
+  "sigma": [
+    "a",
+    "b"
+  ],
+  "stackAlpha": [
+    "Z",
+    "1"
+  ],
+  "outputAlpha": [],
+  "tapeCount": 1,
+  "states": [
+    {
+      "id": "s1",
+      "x": 140,
+      "y": 208,
+      "name": "even"
+    },
+    {
+      "id": "s2",
+      "x": 319,
+      "y": 255,
+      "name": "aAhead"
+    },
+    {
+      "id": "s3",
+      "x": 319,
+      "y": 160,
+      "name": "bAhead"
+    },
+    {
+      "id": "s4",
+      "x": 498,
+      "y": 255,
+      "name": "aCheck"
+    },
+    {
+      "id": "s5",
+      "x": 498,
+      "y": 160,
+      "name": "bCheck"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "t1",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "a",
+      "pop": "Z",
+      "push": "1Z"
+    },
+    {
+      "id": "t2",
+      "from": "s1",
+      "to": "s3",
+      "symbol": "b",
+      "pop": "Z",
+      "push": "1Z"
+    },
+    {
+      "id": "t3",
+      "from": "s2",
+      "to": "s2",
+      "symbol": "a",
+      "pop": "1",
+      "push": "11"
+    },
+    {
+      "id": "t4",
+      "from": "s2",
+      "to": "s4",
+      "symbol": "b",
+      "pop": "1",
+      "push": "ε"
+    },
+    {
+      "id": "t5",
+      "from": "s4",
+      "to": "s2",
+      "symbol": "ε",
+      "pop": "1",
+      "push": "1"
+    },
+    {
+      "id": "t6",
+      "from": "s4",
+      "to": "s1",
+      "symbol": "ε",
+      "pop": "Z",
+      "push": "Z"
+    },
+    {
+      "id": "t7",
+      "from": "s3",
+      "to": "s3",
+      "symbol": "b",
+      "pop": "1",
+      "push": "11"
+    },
+    {
+      "id": "t8",
+      "from": "s3",
+      "to": "s5",
+      "symbol": "a",
+      "pop": "1",
+      "push": "ε"
+    },
+    {
+      "id": "t9",
+      "from": "s5",
+      "to": "s3",
+      "symbol": "ε",
+      "pop": "1",
+      "push": "1"
+    },
+    {
+      "id": "t10",
+      "from": "s5",
+      "to": "s1",
+      "symbol": "ε",
+      "pop": "Z",
+      "push": "Z"
+    }
+  ],
+  "startId": "s1",
+  "accepts": [
+    "s1"
+  ],
+  "notes": [],
+  "dividers": [],
+  "blocks": [],
+  "meta": {
+    "title": "As many a’s as b’s, with one counter",
+    "blurb": "A counter holds a single number, so it cannot store which letter is ahead — but the control can. The states remember the sign of #a − #b and the counter its size; reaching zero sends the machine back to the accepting state. The same language as the stack machine for it, with half the memory.",
+    "inputs": [
+      {
+        "w": "",
+        "expect": "accept"
+      },
+      {
+        "w": "aabb",
+        "expect": "accept"
+      },
+      {
+        "w": "ba",
+        "expect": "accept"
+      },
+      {
+        "w": "baabbaabbaab",
+        "expect": "accept"
+      },
+      {
+        "w": "a",
+        "expect": "reject"
+      },
+      {
+        "w": "babb",
+        "expect": "reject"
+      },
+      {
+        "w": "aa",
+        "expect": "reject"
+      },
+      {
+        "w": "aaabbaabbaab",
+        "expect": "reject"
+      }
+    ],
+    "library": {
+      "author": {
+        "login": "thethinkmachine"
+      },
+      "license": "CC-BY-4.0",
+      "tags": [
+        "one-counter",
+        "balance",
+        "sign-in-state"
+      ],
+      "difficulty": "intermediate"
+    }
+  }
+}

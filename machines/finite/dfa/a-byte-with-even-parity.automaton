@@ -1,0 +1,385 @@
+{
+  "format": "automata-studio/workspace",
+  "schema": 1,
+  "app": "dev",
+  "machine": "DFA",
+  "config": {
+    "sym": {
+      "eps": "ε",
+      "any": "Σ",
+      "blank": "⊔",
+      "leftMarker": "⊢",
+      "rightMarker": "⊣",
+      "stackBottom": "Z",
+      "lambda": "λ"
+    }
+  },
+  "sigma": [
+    "0",
+    "1"
+  ],
+  "stackAlpha": [],
+  "outputAlpha": [],
+  "tapeCount": 1,
+  "states": [
+    {
+      "id": "s1",
+      "x": 140,
+      "y": 160,
+      "name": "0even"
+    },
+    {
+      "id": "s2",
+      "x": 259,
+      "y": 160,
+      "name": "1even"
+    },
+    {
+      "id": "s3",
+      "x": 259,
+      "y": 330,
+      "name": "1odd"
+    },
+    {
+      "id": "s4",
+      "x": 378,
+      "y": 160,
+      "name": "2even"
+    },
+    {
+      "id": "s5",
+      "x": 378,
+      "y": 330,
+      "name": "2odd"
+    },
+    {
+      "id": "s6",
+      "x": 497,
+      "y": 160,
+      "name": "3even"
+    },
+    {
+      "id": "s7",
+      "x": 497,
+      "y": 330,
+      "name": "3odd"
+    },
+    {
+      "id": "s8",
+      "x": 616,
+      "y": 160,
+      "name": "4even"
+    },
+    {
+      "id": "s9",
+      "x": 616,
+      "y": 330,
+      "name": "4odd"
+    },
+    {
+      "id": "s10",
+      "x": 735,
+      "y": 160,
+      "name": "5even"
+    },
+    {
+      "id": "s11",
+      "x": 735,
+      "y": 330,
+      "name": "5odd"
+    },
+    {
+      "id": "s12",
+      "x": 854,
+      "y": 160,
+      "name": "6even"
+    },
+    {
+      "id": "s13",
+      "x": 854,
+      "y": 330,
+      "name": "6odd"
+    },
+    {
+      "id": "s14",
+      "x": 973,
+      "y": 160,
+      "name": "7even"
+    },
+    {
+      "id": "s15",
+      "x": 973,
+      "y": 330,
+      "name": "7odd"
+    },
+    {
+      "id": "s16",
+      "x": 1092,
+      "y": 160,
+      "name": "8even"
+    },
+    {
+      "id": "s17",
+      "x": 1092,
+      "y": 330,
+      "name": "8odd"
+    },
+    {
+      "id": "s18",
+      "x": 1211,
+      "y": 160,
+      "name": "9even"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "t1",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "0"
+    },
+    {
+      "id": "t2",
+      "from": "s1",
+      "to": "s3",
+      "symbol": "1"
+    },
+    {
+      "id": "t3",
+      "from": "s2",
+      "to": "s4",
+      "symbol": "0"
+    },
+    {
+      "id": "t4",
+      "from": "s2",
+      "to": "s5",
+      "symbol": "1"
+    },
+    {
+      "id": "t5",
+      "from": "s3",
+      "to": "s5",
+      "symbol": "0"
+    },
+    {
+      "id": "t6",
+      "from": "s3",
+      "to": "s4",
+      "symbol": "1"
+    },
+    {
+      "id": "t7",
+      "from": "s4",
+      "to": "s6",
+      "symbol": "0"
+    },
+    {
+      "id": "t8",
+      "from": "s4",
+      "to": "s7",
+      "symbol": "1"
+    },
+    {
+      "id": "t9",
+      "from": "s5",
+      "to": "s7",
+      "symbol": "0"
+    },
+    {
+      "id": "t10",
+      "from": "s5",
+      "to": "s6",
+      "symbol": "1"
+    },
+    {
+      "id": "t11",
+      "from": "s6",
+      "to": "s8",
+      "symbol": "0"
+    },
+    {
+      "id": "t12",
+      "from": "s6",
+      "to": "s9",
+      "symbol": "1"
+    },
+    {
+      "id": "t13",
+      "from": "s7",
+      "to": "s9",
+      "symbol": "0"
+    },
+    {
+      "id": "t14",
+      "from": "s7",
+      "to": "s8",
+      "symbol": "1"
+    },
+    {
+      "id": "t15",
+      "from": "s8",
+      "to": "s10",
+      "symbol": "0"
+    },
+    {
+      "id": "t16",
+      "from": "s8",
+      "to": "s11",
+      "symbol": "1"
+    },
+    {
+      "id": "t17",
+      "from": "s9",
+      "to": "s11",
+      "symbol": "0"
+    },
+    {
+      "id": "t18",
+      "from": "s9",
+      "to": "s10",
+      "symbol": "1"
+    },
+    {
+      "id": "t19",
+      "from": "s10",
+      "to": "s12",
+      "symbol": "0"
+    },
+    {
+      "id": "t20",
+      "from": "s10",
+      "to": "s13",
+      "symbol": "1"
+    },
+    {
+      "id": "t21",
+      "from": "s11",
+      "to": "s13",
+      "symbol": "0"
+    },
+    {
+      "id": "t22",
+      "from": "s11",
+      "to": "s12",
+      "symbol": "1"
+    },
+    {
+      "id": "t23",
+      "from": "s12",
+      "to": "s14",
+      "symbol": "0"
+    },
+    {
+      "id": "t24",
+      "from": "s12",
+      "to": "s15",
+      "symbol": "1"
+    },
+    {
+      "id": "t25",
+      "from": "s13",
+      "to": "s15",
+      "symbol": "0"
+    },
+    {
+      "id": "t26",
+      "from": "s13",
+      "to": "s14",
+      "symbol": "1"
+    },
+    {
+      "id": "t27",
+      "from": "s14",
+      "to": "s16",
+      "symbol": "0"
+    },
+    {
+      "id": "t28",
+      "from": "s14",
+      "to": "s17",
+      "symbol": "1"
+    },
+    {
+      "id": "t29",
+      "from": "s15",
+      "to": "s17",
+      "symbol": "0"
+    },
+    {
+      "id": "t30",
+      "from": "s15",
+      "to": "s16",
+      "symbol": "1"
+    },
+    {
+      "id": "t31",
+      "from": "s16",
+      "to": "s18",
+      "symbol": "0"
+    },
+    {
+      "id": "t32",
+      "from": "s17",
+      "to": "s18",
+      "symbol": "1"
+    }
+  ],
+  "startId": "s1",
+  "accepts": [
+    "s18"
+  ],
+  "notes": [],
+  "dividers": [],
+  "blocks": [],
+  "meta": {
+    "title": "A byte with even parity",
+    "blurb": "Eight data bits and a parity bit, nine in all, with an even number of 1s. The states are a grid: how many bits have been read, and the parity so far. Fixed length and counting, in one picture.",
+    "inputs": [
+      {
+        "w": "000000000",
+        "expect": "accept"
+      },
+      {
+        "w": "000000110",
+        "expect": "accept"
+      },
+      {
+        "w": "000001100",
+        "expect": "accept"
+      },
+      {
+        "w": "000000011",
+        "expect": "accept"
+      },
+      {
+        "w": "100000000",
+        "expect": "reject"
+      },
+      {
+        "w": "100000110",
+        "expect": "reject"
+      },
+      {
+        "w": "100001100",
+        "expect": "reject"
+      },
+      {
+        "w": "100000011",
+        "expect": "reject"
+      }
+    ],
+    "library": {
+      "author": {
+        "login": "thethinkmachine"
+      },
+      "license": "CC-BY-4.0",
+      "tags": [
+        "parity",
+        "error-detection",
+        "fixed-length"
+      ],
+      "difficulty": "intro"
+    }
+  }
+}

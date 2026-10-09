@@ -1,0 +1,185 @@
+{
+  "format": "automata-studio/workspace",
+  "schema": 1,
+  "app": "dev",
+  "machine": "ε-NFA",
+  "config": {
+    "sym": {
+      "eps": "ε",
+      "any": "Σ",
+      "blank": "⊔",
+      "leftMarker": "⊢",
+      "rightMarker": "⊣",
+      "stackBottom": "Z",
+      "lambda": "λ"
+    }
+  },
+  "sigma": [
+    "d",
+    ".",
+    "+",
+    "-"
+  ],
+  "stackAlpha": [],
+  "outputAlpha": [],
+  "tapeCount": 1,
+  "states": [
+    {
+      "id": "s1",
+      "x": 140,
+      "y": 330,
+      "name": "q0"
+    },
+    {
+      "id": "s2",
+      "x": 310,
+      "y": 330,
+      "name": "q1"
+    },
+    {
+      "id": "s3",
+      "x": 480,
+      "y": 160,
+      "name": "q2"
+    },
+    {
+      "id": "s4",
+      "x": 480,
+      "y": 500,
+      "name": "q4"
+    },
+    {
+      "id": "s5",
+      "x": 650,
+      "y": 330,
+      "name": "q3"
+    },
+    {
+      "id": "s6",
+      "x": 820,
+      "y": 330,
+      "name": "q5"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "t1",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "ε"
+    },
+    {
+      "id": "t2",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "+"
+    },
+    {
+      "id": "t3",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "-"
+    },
+    {
+      "id": "t4",
+      "from": "s2",
+      "to": "s2",
+      "symbol": "d"
+    },
+    {
+      "id": "t5",
+      "from": "s2",
+      "to": "s3",
+      "symbol": "."
+    },
+    {
+      "id": "t6",
+      "from": "s2",
+      "to": "s4",
+      "symbol": "d"
+    },
+    {
+      "id": "t7",
+      "from": "s4",
+      "to": "s5",
+      "symbol": "."
+    },
+    {
+      "id": "t8",
+      "from": "s3",
+      "to": "s5",
+      "symbol": "d"
+    },
+    {
+      "id": "t9",
+      "from": "s5",
+      "to": "s5",
+      "symbol": "d"
+    },
+    {
+      "id": "t10",
+      "from": "s5",
+      "to": "s6",
+      "symbol": "ε"
+    }
+  ],
+  "startId": "s1",
+  "accepts": [
+    "s6"
+  ],
+  "notes": [],
+  "dividers": [],
+  "blocks": [],
+  "meta": {
+    "title": "A decimal number, with ε-moves",
+    "blurb": "An optional sign, digits, a decimal point and more digits — either run of digits may be empty, but not both. The ε-move at the start makes the sign optional and the one at the end lets two routes share an accepting state. d stands for any digit.",
+    "inputs": [
+      {
+        "w": "d.d",
+        "expect": "accept"
+      },
+      {
+        "w": "-dd.",
+        "expect": "accept"
+      },
+      {
+        "w": "+.d",
+        "expect": "accept"
+      },
+      {
+        "w": ".dd",
+        "expect": "accept"
+      },
+      {
+        "w": "d",
+        "expect": "reject"
+      },
+      {
+        "w": ".",
+        "expect": "reject"
+      },
+      {
+        "w": "+-d.d",
+        "expect": "reject"
+      },
+      {
+        "w": "d.d.",
+        "expect": "reject"
+      }
+    ],
+    "library": {
+      "author": {
+        "login": "thethinkmachine"
+      },
+      "license": "CC-BY-4.0",
+      "tags": [
+        "textbook",
+        "hopcroft",
+        "epsilon-moves",
+        "numbers"
+      ],
+      "difficulty": "intro",
+      "chapter": "Hopcroft, Motwani & Ullman, §2.5"
+    }
+  }
+}

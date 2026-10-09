@@ -1,0 +1,171 @@
+{
+  "format": "automata-studio/workspace",
+  "schema": 1,
+  "app": "dev",
+  "machine": "TM",
+  "config": {
+    "sym": {
+      "eps": "ε",
+      "any": "Σ",
+      "blank": "⊔",
+      "leftMarker": "⊢",
+      "rightMarker": "⊣",
+      "stackBottom": "Z",
+      "lambda": "λ"
+    }
+  },
+  "sigma": [
+    "1",
+    "+"
+  ],
+  "stackAlpha": [
+    "1",
+    "+",
+    "w",
+    " ",
+    "=",
+    ">",
+    "'",
+    ".",
+    "r",
+    "e",
+    "p",
+    "a",
+    "t",
+    "(",
+    "l",
+    "n",
+    "g",
+    "h",
+    "-",
+    ")",
+    "⊔"
+  ],
+  "outputAlpha": [],
+  "tapeCount": 1,
+  "states": [
+    {
+      "id": "s1",
+      "x": 140,
+      "y": 160,
+      "name": "scan"
+    },
+    {
+      "id": "s2",
+      "x": 319,
+      "y": 160,
+      "name": "right"
+    },
+    {
+      "id": "s3",
+      "x": 498,
+      "y": 160,
+      "name": "erase"
+    },
+    {
+      "id": "s4",
+      "x": 677,
+      "y": 160,
+      "name": "done"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "t1",
+      "from": "s1",
+      "to": "s1",
+      "symbol": "1",
+      "write": "1",
+      "dir": "R"
+    },
+    {
+      "id": "t2",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "+",
+      "write": "1",
+      "dir": "R"
+    },
+    {
+      "id": "t3",
+      "from": "s2",
+      "to": "s2",
+      "symbol": "1",
+      "write": "1",
+      "dir": "R"
+    },
+    {
+      "id": "t4",
+      "from": "s2",
+      "to": "s3",
+      "symbol": "⊔",
+      "write": "⊔",
+      "dir": "L"
+    },
+    {
+      "id": "t5",
+      "from": "s3",
+      "to": "s4",
+      "symbol": "1",
+      "write": "⊔",
+      "dir": "S"
+    }
+  ],
+  "startId": "s1",
+  "accepts": [
+    "s4"
+  ],
+  "notes": [],
+  "dividers": [],
+  "blocks": [],
+  "meta": {
+    "title": "Unary addition",
+    "blurb": "m ones, a plus sign, n ones: turn the + into a 1 and erase the last 1. The tape then holds m + n ones — addition in unary is a two-symbol edit, which is why the first machines in every course use it.",
+    "inputs": [
+      {
+        "w": "+",
+        "expect": "accept"
+      },
+      {
+        "w": "1+11",
+        "expect": "accept"
+      },
+      {
+        "w": "+1",
+        "expect": "accept"
+      },
+      {
+        "w": "1111+111111",
+        "expect": "accept"
+      },
+      {
+        "w": "1",
+        "expect": "reject"
+      },
+      {
+        "w": "++11",
+        "expect": "reject"
+      },
+      {
+        "w": "11",
+        "expect": "reject"
+      },
+      {
+        "w": "+111+111111",
+        "expect": "reject"
+      }
+    ],
+    "library": {
+      "author": {
+        "login": "thethinkmachine"
+      },
+      "license": "CC-BY-4.0",
+      "tags": [
+        "arithmetic",
+        "unary",
+        "computing-a-function"
+      ],
+      "difficulty": "intro"
+    }
+  }
+}

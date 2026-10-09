@@ -1,0 +1,213 @@
+{
+  "format": "automata-studio/workspace",
+  "schema": 1,
+  "app": "dev",
+  "machine": "DPDA",
+  "config": {
+    "sym": {
+      "eps": "ε",
+      "any": "Σ",
+      "blank": "⊔",
+      "leftMarker": "⊢",
+      "rightMarker": "⊣",
+      "stackBottom": "Z",
+      "lambda": "λ"
+    },
+    "pdaParadigm": "explicit"
+  },
+  "sigma": [
+    "0",
+    "1"
+  ],
+  "stackAlpha": [
+    "Z",
+    "X"
+  ],
+  "outputAlpha": [],
+  "tapeCount": 1,
+  "states": [
+    {
+      "id": "s1",
+      "x": 140,
+      "y": 160,
+      "name": "s"
+    },
+    {
+      "id": "s2",
+      "x": 319,
+      "y": 160,
+      "name": "p"
+    },
+    {
+      "id": "s3",
+      "x": 498,
+      "y": 160,
+      "name": "q"
+    },
+    {
+      "id": "s4",
+      "x": 677,
+      "y": 160,
+      "name": "mid"
+    },
+    {
+      "id": "s5",
+      "x": 856,
+      "y": 160,
+      "name": "p2"
+    },
+    {
+      "id": "s6",
+      "x": 1035,
+      "y": 160,
+      "name": "q2"
+    },
+    {
+      "id": "s7",
+      "x": 1214,
+      "y": 160,
+      "name": "done"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "t1",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "0",
+      "pop": "Z",
+      "push": "XZ"
+    },
+    {
+      "id": "t2",
+      "from": "s2",
+      "to": "s2",
+      "symbol": "0",
+      "pop": "X",
+      "push": "XX"
+    },
+    {
+      "id": "t3",
+      "from": "s2",
+      "to": "s3",
+      "symbol": "1",
+      "pop": "X",
+      "push": "ε"
+    },
+    {
+      "id": "t4",
+      "from": "s3",
+      "to": "s3",
+      "symbol": "1",
+      "pop": "X",
+      "push": "ε"
+    },
+    {
+      "id": "t5",
+      "from": "s3",
+      "to": "s4",
+      "symbol": "ε",
+      "pop": "Z",
+      "push": "Z"
+    },
+    {
+      "id": "t6",
+      "from": "s4",
+      "to": "s5",
+      "symbol": "0",
+      "pop": "Z",
+      "push": "XZ"
+    },
+    {
+      "id": "t7",
+      "from": "s5",
+      "to": "s5",
+      "symbol": "0",
+      "pop": "X",
+      "push": "XX"
+    },
+    {
+      "id": "t8",
+      "from": "s5",
+      "to": "s6",
+      "symbol": "1",
+      "pop": "X",
+      "push": "ε"
+    },
+    {
+      "id": "t9",
+      "from": "s6",
+      "to": "s6",
+      "symbol": "1",
+      "pop": "X",
+      "push": "ε"
+    },
+    {
+      "id": "t10",
+      "from": "s6",
+      "to": "s7",
+      "symbol": "ε",
+      "pop": "Z",
+      "push": "Z"
+    }
+  ],
+  "startId": "s1",
+  "accepts": [
+    "s1",
+    "s4",
+    "s7"
+  ],
+  "notes": [],
+  "dividers": [],
+  "blocks": [],
+  "meta": {
+    "title": "Two balanced blocks: 0ⁿ1ⁿ0ᵐ1ᵐ",
+    "blurb": "Two counts one after the other, where “nested counts” had one inside the other. The stack empties between the blocks and is reused, so the machine is two copies of the 0ⁿ1ⁿ checker joined at the moment the bottom marker reappears.",
+    "inputs": [
+      {
+        "w": "",
+        "expect": "accept"
+      },
+      {
+        "w": "0011",
+        "expect": "accept"
+      },
+      {
+        "w": "001101",
+        "expect": "accept"
+      },
+      {
+        "w": "00011100001111",
+        "expect": "accept"
+      },
+      {
+        "w": "0",
+        "expect": "reject"
+      },
+      {
+        "w": "1011",
+        "expect": "reject"
+      },
+      {
+        "w": "101101",
+        "expect": "reject"
+      },
+      {
+        "w": "10011100001111",
+        "expect": "reject"
+      }
+    ],
+    "library": {
+      "author": {
+        "login": "thethinkmachine"
+      },
+      "license": "CC-BY-4.0",
+      "tags": [
+        "counting",
+        "concatenation",
+        "stack-matching"
+      ],
+      "difficulty": "intro"
+    }
+  }
+}

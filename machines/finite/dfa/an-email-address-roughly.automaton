@@ -1,0 +1,182 @@
+{
+  "format": "automata-studio/workspace",
+  "schema": 1,
+  "app": "dev",
+  "machine": "DFA",
+  "config": {
+    "sym": {
+      "eps": "ε",
+      "any": "Σ",
+      "blank": "⊔",
+      "leftMarker": "⊢",
+      "rightMarker": "⊣",
+      "stackBottom": "Z",
+      "lambda": "λ"
+    }
+  },
+  "sigma": [
+    "a",
+    "@",
+    "."
+  ],
+  "stackAlpha": [],
+  "outputAlpha": [],
+  "tapeCount": 1,
+  "states": [
+    {
+      "id": "s1",
+      "x": 140,
+      "y": 160,
+      "name": "s"
+    },
+    {
+      "id": "s2",
+      "x": 319,
+      "y": 160,
+      "name": "local"
+    },
+    {
+      "id": "s3",
+      "x": 498,
+      "y": 160,
+      "name": "at"
+    },
+    {
+      "id": "s4",
+      "x": 677,
+      "y": 160,
+      "name": "dom"
+    },
+    {
+      "id": "s5",
+      "x": 856,
+      "y": 160,
+      "name": "ddot"
+    },
+    {
+      "id": "s6",
+      "x": 1035,
+      "y": 160,
+      "name": "tld"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "t1",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "a"
+    },
+    {
+      "id": "t2",
+      "from": "s2",
+      "to": "s2",
+      "symbol": "a"
+    },
+    {
+      "id": "t3",
+      "from": "s2",
+      "to": "s1",
+      "symbol": "."
+    },
+    {
+      "id": "t4",
+      "from": "s2",
+      "to": "s3",
+      "symbol": "@"
+    },
+    {
+      "id": "t5",
+      "from": "s3",
+      "to": "s4",
+      "symbol": "a"
+    },
+    {
+      "id": "t6",
+      "from": "s4",
+      "to": "s4",
+      "symbol": "a"
+    },
+    {
+      "id": "t7",
+      "from": "s4",
+      "to": "s5",
+      "symbol": "."
+    },
+    {
+      "id": "t8",
+      "from": "s5",
+      "to": "s6",
+      "symbol": "a"
+    },
+    {
+      "id": "t9",
+      "from": "s6",
+      "to": "s6",
+      "symbol": "a"
+    },
+    {
+      "id": "t10",
+      "from": "s6",
+      "to": "s5",
+      "symbol": "."
+    }
+  ],
+  "startId": "s1",
+  "accepts": [
+    "s6"
+  ],
+  "notes": [],
+  "dividers": [],
+  "blocks": [],
+  "meta": {
+    "title": "An email address, roughly",
+    "blurb": "A local part, an @, and a domain with at least one dot; each part is runs of characters joined by single dots. a stands for any letter or digit. Real address syntax is far more permissive — and is still regular.",
+    "inputs": [
+      {
+        "w": "a@a.a",
+        "expect": "accept"
+      },
+      {
+        "w": "aa.a@aa.aa",
+        "expect": "accept"
+      },
+      {
+        "w": "a@a.a.a",
+        "expect": "accept"
+      },
+      {
+        "w": "a@a",
+        "expect": "reject"
+      },
+      {
+        "w": "@a.a",
+        "expect": "reject"
+      },
+      {
+        "w": "a..a@a.a",
+        "expect": "reject"
+      },
+      {
+        "w": "a@a.",
+        "expect": "reject"
+      },
+      {
+        "w": "a@@a.a",
+        "expect": "reject"
+      }
+    ],
+    "library": {
+      "author": {
+        "login": "thethinkmachine"
+      },
+      "license": "CC-BY-4.0",
+      "tags": [
+        "validation",
+        "format",
+        "email"
+      ],
+      "difficulty": "intro"
+    }
+  }
+}
