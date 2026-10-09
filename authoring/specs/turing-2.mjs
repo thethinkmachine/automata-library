@@ -58,6 +58,8 @@ export default [
             round y/1,L round; round #/=,L conv
             conv x/=,L conv; conv z/x,L conv; conv 1,_/=,R findb
             rem z/1,R rem; rem x,#,y,1/_,R rem; rem _/=,S done`,
+    pos: { s0: [0, 0], s1: [1.2, 0], sb: [2.4, 0], s2: [3.6, 0], findb: [1, 1.5], inb: [3, 1.5], finda: [3, 2.8], ina: [1, 2.8], round: [4.6, 1.8], conv: [4.6, 3.2], rem: [0, 4], done: [1.6, 4] },
+    pitch: 160,
     lang: w => /^1*#1+$/.test(w),
     tape: w => { const [a, b] = w.split('#').map(x => x.length); return '1'.repeat(a % b); },
     label: w => { const p = w.split('#'); return p.length === 2 ? `${p[0].length} mod ${p[1].length}` : ''; },
@@ -85,6 +87,8 @@ export default [
             adv3 0,1,#/=,L adv3; adv3 x/#,R adv4
             adv4 0,1/=,R adv4; adv4 #/x,R adv5
             adv5 0,1/=,R adv5; adv5 #/y,L c0; adv5 _/=,S acc`,
+    pos: { s: [0, 0], m2: [1, 0], acc: [6, 0], c0: [1, 1.3], c1: [2, 1.3], g0: [3, 0.7], h0: [4, 0.7], g1: [3, 1.9], h1: [4, 1.9], ld: [2, 2.7], lr: [3, 2.7], rs: [5, 1.8], adv: [5.5, 3], adv2: [4.5, 3.6], adv3: [3.4, 3.9], adv4: [2.3, 3.9], adv5: [1.2, 3.5] },
+    pitch: 160,
     lang: w => { if (w === '') return true; if (w[0] !== '#') return false; const p = w.slice(1).split('#'); return new Set(p).size === p.length; },
     tests: ['#0#1', '#01#10#11', '#0#01#1', '#1#1', '#0#1#0', '##', '#', '#10#10#0'],
     maxLen: 7

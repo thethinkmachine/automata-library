@@ -271,6 +271,9 @@ export default [
     blurb: 'Three missionaries and three cannibals must cross a river in a boat that holds two, and the cannibals may never outnumber the missionaries on either bank. A state is how many of each are still on the starting side and where the boat is; the shortest accepted word is the classic eleven-crossing solution.',
     tags: ['puzzles', 'state-space-search', 'ai'], level: 'intermediate',
     ...explore(missionaries),
+    // drawn on the grid of (missionaries, cannibals) still on the starting bank, the boat's side offsetting it
+    pos: Object.fromEntries(explore(missionaries).states.map(n => { const [m, c, b] = [+n[0], +n[1], n[2]]; return [n, [(3 - m) * 1.3 + (b === 'R' ? 0.55 : 0), (3 - c) * 1.1 + (b === 'R' ? 0.45 : 0)]]; })),
+    pitch: 140,
     lang: accepts(missionaries),
     tests: ['CC C CC C MM MC MM C CC C CC', 'MC M CC C MM MC MM C CC M MC', 'CC C CC C MM MC MM C CC C', 'MM M', 'CC CC'],
     maxLen: 3
