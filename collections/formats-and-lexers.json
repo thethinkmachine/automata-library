@@ -21,6 +21,7 @@
     "finite/dfa/an-iso-date-yyyy-mm-dd",
     "finite/dfa/a-full-ipv4-address",
     "finite/dfa/an-email-address-roughly",
-    "finite/dfa/a-hex-colour-rgb-or-rrggbb"
+    "finite/dfa/a-hex-colour-rgb-or-rrggbb",
+    "memory/pda/a-nested-list-x-x-x"
   ]
 }

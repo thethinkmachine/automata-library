@@ -1,0 +1,134 @@
+{
+  "format": "automata-studio/workspace",
+  "schema": 1,
+  "app": "dev",
+  "machine": "FST",
+  "config": {
+    "sym": {
+      "eps": "ε",
+      "any": "Σ",
+      "blank": "⊔",
+      "leftMarker": "⊢",
+      "rightMarker": "⊣",
+      "stackBottom": "Z",
+      "lambda": "λ"
+    },
+    "transducerAccepts": false
+  },
+  "sigma": [
+    "a",
+    "#",
+    "n"
+  ],
+  "stackAlpha": [],
+  "outputAlpha": [
+    "a",
+    "n"
+  ],
+  "tapeCount": 1,
+  "states": [
+    {
+      "id": "s1",
+      "x": 140,
+      "y": 160,
+      "name": "code"
+    },
+    {
+      "id": "s2",
+      "x": 319,
+      "y": 160,
+      "name": "comment"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "t1",
+      "from": "s1",
+      "to": "s1",
+      "symbol": "a",
+      "output": "a"
+    },
+    {
+      "id": "t2",
+      "from": "s1",
+      "to": "s1",
+      "symbol": "n",
+      "output": "n"
+    },
+    {
+      "id": "t3",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "#",
+      "output": ""
+    },
+    {
+      "id": "t4",
+      "from": "s2",
+      "to": "s2",
+      "symbol": "a",
+      "output": ""
+    },
+    {
+      "id": "t5",
+      "from": "s2",
+      "to": "s2",
+      "symbol": "#",
+      "output": ""
+    },
+    {
+      "id": "t6",
+      "from": "s2",
+      "to": "s1",
+      "symbol": "n",
+      "output": "n"
+    }
+  ],
+  "startId": "s1",
+  "accepts": [],
+  "notes": [],
+  "dividers": [],
+  "blocks": [],
+  "meta": {
+    "title": "Strip # comments",
+    "blurb": "Copy text, dropping everything from a # to the end of its line: a is any ordinary character and n a newline, which ends a comment and is kept. A shell, Python or a configuration-file reader does this before anything else. Two states, and the comment state prints nothing.",
+    "inputs": [
+      {
+        "w": "#",
+        "out": ""
+      },
+      {
+        "w": "a",
+        "out": "a"
+      },
+      {
+        "w": "##",
+        "out": ""
+      },
+      {
+        "w": "#a",
+        "out": ""
+      },
+      {
+        "w": "###",
+        "out": ""
+      },
+      {
+        "w": "nnaan#na#aaaa###",
+        "out": "nnaanna"
+      }
+    ],
+    "library": {
+      "author": {
+        "login": "thethinkmachine"
+      },
+      "license": "CC-BY-4.0",
+      "tags": [
+        "text-processing",
+        "lexing",
+        "comments"
+      ],
+      "difficulty": "intro"
+    }
+  }
+}

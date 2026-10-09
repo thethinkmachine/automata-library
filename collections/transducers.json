@@ -23,6 +23,8 @@
     "transducers/pdt/what-is-left-after-cancelling",
     "transducers/moore/a-coin-operated-turnstile",
     "transducers/fst/run-length-decoding",
-    "transducers/twodft/rotate-move-the-first-letter-to-the-end"
+    "transducers/twodft/rotate-move-the-first-letter-to-the-end",
+    "transducers/moore/a-traffic-light-with-a-pedestrian-button",
+    "transducers/fst/strip-comments"
   ]
 }
