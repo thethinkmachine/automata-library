@@ -295,7 +295,7 @@ export default [
   },
   {
     title: 'A knight on a 3 × 3 board',
-    blurb: 'Starting in a corner, the knight moves in any of its eight directions (A–H) without leaving the board. The centre is unreachable, and the other eight squares form a single cycle — so every closed tour has a length divisible by… well, try it.',
+    blurb: 'Starting in a corner, the knight moves in any of its eight directions (A–H) without leaving the board. The centre is unreachable, and the other eight squares form a single ring, each joined to the two squares a knight’s move away. So a closed tour has even length, and going once round the ring takes eight moves.',
     tags: ['chess', 'graphs', 'walks'], level: 'intermediate',
     ...explore(knight),
     layout: 'circle',
