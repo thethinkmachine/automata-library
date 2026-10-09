@@ -1,10 +1,13 @@
 {
-  "title": "Three ways to never halt",
-  "blurb": "One machine per non-halting proof the library can make: an exact cycle, a cycle that drifts along the tape, and a halt that can never be reached.",
+  "title": "Six ways to never halt",
+  "blurb": "One machine for each way the library proves that a Turing machine runs forever, from the cheapest — the run repeats itself — to methods borrowed from the computer-checked proof of BB(5).",
   "curator": "thethinkmachine",
   "entries": [
     "turing/non-halting/two-cell-cycler",
     "turing/non-halting/translated-cycler",
-    "turing/non-halting/unreachable-halt"
+    "turing/non-halting/unreachable-halt",
+    "turing/non-halting/a-checkerboard-pyramid",
+    "turing/non-halting/a-binary-counter-that-never-stops",
+    "turing/non-halting/irregular-growth-closed-under-n-grams"
   ]
 }

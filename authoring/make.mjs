@@ -14,7 +14,7 @@ import { readdir, readFile, writeFile, mkdir, unlink } from 'node:fs/promises';
 import { existsSync } from 'node:fs';
 import { dirname, join, relative } from 'node:path';
 import { pathToFileURL } from 'node:url';
-import { LIBRARY_ROOT, folderFor, slugify, machineIdOf } from './lib/engine.mjs';
+import { LIBRARY_ROOT, folderFor, slugify, machineIdOf, docFromStandardTM } from './lib/engine.mjs';
 import { buildDoc } from './lib/dsl.mjs';
 import { verify, signatureOf, analyzeDocument, runTape } from './lib/verify.mjs';
 
@@ -39,6 +39,9 @@ async function walk(dir, ext) {
 
 const LEVELS = new Set(['intro', 'intermediate', 'advanced']);
 
+/** Where a spec's file goes: its type's folder, or `folder` under machines/. */
+const pathOf = s => `${s.folder ? `machines/${s.folder}` : folderFor(s.type)}/${s.slug || slugify(s.title)}.automaton`;
+
 function lint(spec) {
   const e = [];
   if (!spec.title || spec.title.length > 70) e.push(`title must be 1–70 characters (${spec.title?.length ?? 0})`);
@@ -47,7 +50,8 @@ function lint(spec) {
   else if (spec.tags.some(t => t !== slugify(t))) e.push(`tags are lowercase-hyphenated: ${spec.tags.join(', ')}`);
   if (!LEVELS.has(spec.level)) e.push(`level is intro, intermediate or advanced`);
   if (spec.chapter && spec.chapter.length > 80) e.push(`chapter is cut at 80 characters (${spec.chapter.length})`);
-  if (!spec.lang && !spec.out && !spec.ltl && !spec.omega) e.push('no reference (lang, out, ltl or omega)');
+  if (!spec.lang && !spec.out && !spec.ltl && !spec.omega && !spec.standard) e.push('no reference (lang, out, ltl or omega)');
+  if (spec.standard && !(spec.badges || []).some(b => b === 'halts' || b === 'never-halts')) e.push('a machine run from a blank tape must say which verdict it earns: badges halts or never-halts');
   return e;
 }
 
@@ -61,7 +65,7 @@ async function main() {
   const chosen = specs.filter(s => !ONLY || s.type === ONLY || (s.slug || slugify(s.title)).includes(ONLY) || s.file.includes(ONLY));
 
   // ── the entries that are not made from a spec ──
-  const specPaths = new Set(specs.map(s => `${folderFor(s.type)}/${s.slug || slugify(s.title)}.automaton`));
+  const specPaths = new Set(specs.map(pathOf));
   const others = [];
   for (const file of await walk(join(LIBRARY_ROOT, 'machines'), '.automaton')) {
     const path = posix(relative(LIBRARY_ROOT, file));
@@ -75,8 +79,7 @@ async function main() {
   for (const o of others) { if (o.mid) byMid.set(o.mid, o.path); }
 
   for (const spec of chosen) {
-    const slug = spec.slug || slugify(spec.title);
-    const path = `${folderFor(spec.type)}/${slug}.automaton`;
+    const path = pathOf(spec);
     const res = { spec, path, errors: [...lint(spec)], warnings: [], badges: [] };
     results.push(res);
     if (byPath.has(path)) res.errors.push(`a second spec writes ${path} (${byPath.get(path)})`);
@@ -84,6 +87,23 @@ async function main() {
     if (spec.idea) { if (byIdea.has(spec.idea)) res.errors.push(`the idea "${spec.idea}" is already ${byIdea.get(spec.idea)}`); byIdea.set(spec.idea, path); }
     if (res.errors.length) continue;
     try {
+      if (spec.standard) {
+        // A Turing machine in the standard text format, run from a blank tape:
+        // there is no input to check it on, so the verdict it earns is the check.
+        const doc = docFromStandardTM(spec.standard, { title: spec.title, blurb: spec.blurb, tags: spec.tags, author: 'thethinkmachine', chapter: spec.chapter });
+        doc.meta.library.difficulty = spec.level;
+        const a = analyzeDocument(doc);
+        res.errors.push(...a.errors);
+        res.warnings.push(...a.warnings);
+        res.badges = (a.facts?.badges || []).map(b => (typeof b === 'string' ? b : b.id));
+        for (const b of spec.badges) if (!res.badges.includes(b)) res.errors.push(`expected the ${b} badge`);
+        if (spec.method && a.facts?.behaviour?.method !== spec.method) res.errors.push(`expected the proof by ${spec.method}, got ${a.facts?.behaviour?.method}`);
+        const mid = machineIdOf(doc);
+        if (byMid.has(mid)) res.errors.push(`the same machine as ${byMid.get(mid)}`);
+        byMid.set(mid, path);
+        res.doc = doc;
+        continue;
+      }
       const doc = buildDoc(spec);
       const v = verify(spec, doc);
       res.errors.push(...v.errors);

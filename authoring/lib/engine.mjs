@@ -31,5 +31,5 @@ export const { sugiyamaLayout, circularLayout } = await load('js/canvas.js');
 export const { SCHEMA_VERSION, WORKSPACE_FORMAT } = await load('js/persistence.js');
 export const analyze = await load('js/library/analyze.js');
 export const { machineIdOf } = await load('js/library/hash.js');
-export const { folderFor, slugify } = await load('scripts/library/seed.mjs');
+export const { folderFor, slugify, docFromStandardTM } = await load('scripts/library/seed.mjs');
 export const { withMachine } = await load('js/exercise/grade.js');
