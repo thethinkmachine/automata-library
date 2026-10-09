@@ -21,6 +21,6 @@ It leaves every second square blank. Turing's convention reserved those blank sq
 
 In the standard text format used for small machines, blank is written 0, so Turing's printed 0 and 1 appear as the symbols 1 and 2, and his b, c, e, f are the states A, B, C, D. The library proves it never halts by recognising it as a translated cycler: every four steps it is in the same state, with the same tape behind it, four squares further right.
 
-Turing's paper goes on, in the very next example, to a machine that prints 0 1 0 1 1 0 1 1 1 0 … with ever longer runs of 1s — a sequence that no finite pattern repeats, and the first sign that these machines could do more than loop.
+Turing's paper goes on, in the very next example, to a machine that prints 0 0 1 0 1 1 0 1 1 1 0 1 1 1 1 … with ever longer runs of 1s — a sequence that no finite pattern repeats, and the first sign that these machines could do more than loop.
 
 [^turing]: A. M. Turing, “On computable numbers, with an application to the Entscheidungsproblem”, *Proceedings of the London Mathematical Society* s2-42 (1936).
