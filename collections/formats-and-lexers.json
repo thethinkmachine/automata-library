@@ -13,6 +13,14 @@
     "finite/dfa/roman-numerals-from-i-to-mmmcmxcix",
     "finite/enfa/a-phone-number-area-code-optional",
     "finite/enfa/within-one-typo-of-cat",
-    "memory/pda/the-syntax-of-an-arithmetic-expression"
+    "memory/pda/the-syntax-of-an-arithmetic-expression",
+    "finite/dfa/well-formed-utf-8",
+    "finite/dfa/base64-length-and-padding",
+    "finite/dfa/a-c-integer-literal-decimal-octal-or-hex",
+    "finite/dfa/a-csv-record-with-quoted-fields",
+    "finite/dfa/an-iso-date-yyyy-mm-dd",
+    "finite/dfa/a-full-ipv4-address",
+    "finite/dfa/an-email-address-roughly",
+    "finite/dfa/a-hex-colour-rgb-or-rrggbb"
   ]
 }

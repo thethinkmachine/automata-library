@@ -1,0 +1,229 @@
+{
+  "format": "automata-studio/workspace",
+  "schema": 1,
+  "app": "dev",
+  "machine": "EPDA",
+  "config": {
+    "sym": {
+      "eps": "ε",
+      "any": "Σ",
+      "blank": "⊔",
+      "leftMarker": "⊢",
+      "rightMarker": "⊣",
+      "stackBottom": "Z",
+      "lambda": "λ"
+    },
+    "pdaParadigm": "explicit"
+  },
+  "sigma": [
+    "a",
+    "b",
+    "c",
+    "d"
+  ],
+  "stackAlpha": [
+    "Z",
+    "E",
+    "A",
+    "D"
+  ],
+  "outputAlpha": [],
+  "tapeCount": 1,
+  "states": [
+    {
+      "id": "s1",
+      "x": 140,
+      "y": 208,
+      "name": "q0"
+    },
+    {
+      "id": "s2",
+      "x": 319,
+      "y": 208,
+      "name": "as"
+    },
+    {
+      "id": "s3",
+      "x": 498,
+      "y": 160,
+      "name": "bs"
+    },
+    {
+      "id": "s4",
+      "x": 498,
+      "y": 255,
+      "name": "cs"
+    },
+    {
+      "id": "s5",
+      "x": 677,
+      "y": 208,
+      "name": "ds"
+    },
+    {
+      "id": "s6",
+      "x": 856,
+      "y": 208,
+      "name": "done"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "t1",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "ε",
+      "pop": "ε",
+      "push": "ε",
+      "below": "E",
+      "above": "ε"
+    },
+    {
+      "id": "t2",
+      "from": "s2",
+      "to": "s2",
+      "symbol": "a",
+      "pop": "ε",
+      "push": "A",
+      "below": "ε",
+      "above": "ε"
+    },
+    {
+      "id": "t3",
+      "from": "s2",
+      "to": "s3",
+      "symbol": "b",
+      "pop": "ε",
+      "push": "ε",
+      "below": "D",
+      "above": "ε"
+    },
+    {
+      "id": "t4",
+      "from": "s3",
+      "to": "s3",
+      "symbol": "b",
+      "pop": "ε",
+      "push": "ε",
+      "below": "D",
+      "above": "ε"
+    },
+    {
+      "id": "t5",
+      "from": "s2",
+      "to": "s4",
+      "symbol": "ε",
+      "pop": "ε",
+      "push": "ε",
+      "below": "ε",
+      "above": "ε"
+    },
+    {
+      "id": "t6",
+      "from": "s3",
+      "to": "s4",
+      "symbol": "ε",
+      "pop": "ε",
+      "push": "ε",
+      "below": "ε",
+      "above": "ε"
+    },
+    {
+      "id": "t7",
+      "from": "s4",
+      "to": "s4",
+      "symbol": "c",
+      "pop": "A",
+      "push": "ε",
+      "below": "ε",
+      "above": "ε"
+    },
+    {
+      "id": "t8",
+      "from": "s4",
+      "to": "s5",
+      "symbol": "ε",
+      "pop": "Z",
+      "push": "ε",
+      "below": "ε",
+      "above": "ε"
+    },
+    {
+      "id": "t9",
+      "from": "s5",
+      "to": "s5",
+      "symbol": "d",
+      "pop": "D",
+      "push": "ε",
+      "below": "ε",
+      "above": "ε"
+    },
+    {
+      "id": "t10",
+      "from": "s5",
+      "to": "s6",
+      "symbol": "ε",
+      "pop": "E",
+      "push": "ε",
+      "below": "ε",
+      "above": "ε"
+    }
+  ],
+  "startId": "s1",
+  "accepts": [
+    "s6"
+  ],
+  "notes": [],
+  "dividers": [],
+  "blocks": [],
+  "meta": {
+    "title": "Cross-serial dependencies: aⁿbᵐcⁿdᵐ",
+    "blurb": "Swiss German lets verbs follow their objects in the same order — “we let the children help Hans paint the house” with the verbs crossed — which no context-free grammar captures. A stack of stacks does: count the a’s on the working stack and park one stack per b beneath it, then let the c’s use up the count and the d’s resume the parked stacks, in order.",
+    "inputs": [
+      {
+        "w": "",
+        "expect": "accept"
+      },
+      {
+        "w": "abcd",
+        "expect": "accept"
+      },
+      {
+        "w": "aabbccdd",
+        "expect": "accept"
+      },
+      {
+        "w": "aaabbbbcccdddd",
+        "expect": "accept"
+      },
+      {
+        "w": "a",
+        "expect": "reject"
+      },
+      {
+        "w": "bbcd",
+        "expect": "reject"
+      },
+      {
+        "w": "babbccdd",
+        "expect": "reject"
+      },
+      {
+        "w": "baabbbbcccdddd",
+        "expect": "reject"
+      }
+    ],
+    "library": {
+      "author": {
+        "login": "thethinkmachine"
+      },
+      "license": "CC-BY-4.0",
+      "tags": [
+        "tree-adjoining",
+        "natural-language",
+        "cross-serial"
+      ],
+      "difficulty": "advanced"
+    }
+  }
+}

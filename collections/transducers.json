@@ -18,6 +18,8 @@
     "transducers/pdt/infix-to-postfix-the-shunting-yard-algorithm",
     "transducers/pdt/reverse-the-input",
     "transducers/twodft/a-word-and-its-mirror-w-wwr",
-    "transducers/twodft/copy-twice-w-ww"
+    "transducers/twodft/copy-twice-w-ww",
+    "transducers/pdt/polish-notation-to-reverse-polish",
+    "transducers/pdt/what-is-left-after-cancelling"
   ]
 }

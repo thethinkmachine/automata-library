@@ -9,6 +9,11 @@
     "finite/dfa/shuffling-three-cards",
     "finite/dfa/rolling-a-die-until-6-is-on-top",
     "finite/dfa/a-robot-that-comes-home",
-    "finite/dfa/a-game-of-tennis-won-by-a"
+    "finite/dfa/a-game-of-tennis-won-by-a",
+    "finite/dfa/missionaries-and-cannibals",
+    "finite/dfa/measuring-4-litres-with-3-and-5-litre-jugs",
+    "finite/dfa/nim-with-five-sticks",
+    "finite/dfa/a-knight-on-a-3-3-board",
+    "finite/dfa/penney-s-game-hht-before-htt"
   ]
 }

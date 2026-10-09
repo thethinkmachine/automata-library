@@ -14,6 +14,7 @@
     "transducers/mealy/two-s-complement-least-significant-bit-first",
     "memory/pda/unary-addition-aibjci-j",
     "turing/tm/multiplication-checked-aibjck-with-k-i-j",
-    "turing/ittm/binary-increment"
+    "turing/ittm/binary-increment",
+    "finite/dfa/decimal-multiples-of-5-only-the-last-digit-counts"
   ]
 }

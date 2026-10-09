@@ -16,6 +16,8 @@
     "memory/epda/anbncndn-four-counts-one-stack-of-stacks",
     "turing/lba/anbncn-in-the-space-of-its-input",
     "turing/tm/two-equal-halves-w-w",
-    "turing/mtm/palindromes-in-linear-time"
+    "turing/mtm/palindromes-in-linear-time",
+    "memory/epda/cross-serial-dependencies-anbmcndm",
+    "memory/npda/two-different-words-x-y-with-x-y"
   ]
 }
