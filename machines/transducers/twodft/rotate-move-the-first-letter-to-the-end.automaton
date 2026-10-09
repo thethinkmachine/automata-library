@@ -1,0 +1,197 @@
+{
+  "format": "automata-studio/workspace",
+  "schema": 1,
+  "app": "dev",
+  "machine": "2DFT",
+  "config": {
+    "sym": {
+      "eps": "ε",
+      "any": "Σ",
+      "blank": "⊔",
+      "leftMarker": "⊢",
+      "rightMarker": "⊣",
+      "stackBottom": "Z",
+      "lambda": "λ"
+    },
+    "transducerAccepts": true
+  },
+  "sigma": [
+    "a",
+    "b"
+  ],
+  "stackAlpha": [],
+  "outputAlpha": [
+    "a",
+    "b"
+  ],
+  "tapeCount": 1,
+  "states": [
+    {
+      "id": "s1",
+      "x": 140,
+      "y": 255,
+      "name": "start"
+    },
+    {
+      "id": "s2",
+      "x": 319,
+      "y": 255,
+      "name": "first"
+    },
+    {
+      "id": "s3",
+      "x": 498,
+      "y": 255,
+      "name": "keepA"
+    },
+    {
+      "id": "s4",
+      "x": 498,
+      "y": 160,
+      "name": "keepB"
+    },
+    {
+      "id": "s5",
+      "x": 498,
+      "y": 350,
+      "name": "done"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "t1",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "⊢",
+      "dir": "R",
+      "output": ""
+    },
+    {
+      "id": "t2",
+      "from": "s2",
+      "to": "s3",
+      "symbol": "a",
+      "dir": "R",
+      "output": ""
+    },
+    {
+      "id": "t3",
+      "from": "s2",
+      "to": "s4",
+      "symbol": "b",
+      "dir": "R",
+      "output": ""
+    },
+    {
+      "id": "t4",
+      "from": "s2",
+      "to": "s5",
+      "symbol": "⊣",
+      "dir": "S",
+      "output": ""
+    },
+    {
+      "id": "t5",
+      "from": "s3",
+      "to": "s3",
+      "symbol": "a",
+      "dir": "R",
+      "output": "a"
+    },
+    {
+      "id": "t6",
+      "from": "s3",
+      "to": "s3",
+      "symbol": "b",
+      "dir": "R",
+      "output": "b"
+    },
+    {
+      "id": "t7",
+      "from": "s3",
+      "to": "s5",
+      "symbol": "⊣",
+      "dir": "S",
+      "output": "a"
+    },
+    {
+      "id": "t8",
+      "from": "s4",
+      "to": "s4",
+      "symbol": "a",
+      "dir": "R",
+      "output": "a"
+    },
+    {
+      "id": "t9",
+      "from": "s4",
+      "to": "s4",
+      "symbol": "b",
+      "dir": "R",
+      "output": "b"
+    },
+    {
+      "id": "t10",
+      "from": "s4",
+      "to": "s5",
+      "symbol": "⊣",
+      "dir": "S",
+      "output": "b"
+    }
+  ],
+  "startId": "s1",
+  "accepts": [
+    "s5"
+  ],
+  "notes": [],
+  "dividers": [],
+  "blocks": [],
+  "meta": {
+    "title": "Rotate: move the first letter to the end",
+    "blurb": "abc becomes bca. The head remembers the first letter in its state, prints everything after it, and prints the remembered letter on reaching the end marker. A one-way transducer cannot know where the end is without guessing; a head that sees the end marker simply knows.",
+    "inputs": [
+      {
+        "w": "a",
+        "out": "a",
+        "expect": "accept"
+      },
+      {
+        "w": "b",
+        "out": "b",
+        "expect": "accept"
+      },
+      {
+        "w": "aa",
+        "out": "aa",
+        "expect": "accept"
+      },
+      {
+        "w": "ab",
+        "out": "ba",
+        "expect": "accept"
+      },
+      {
+        "w": "aaa",
+        "out": "aaa",
+        "expect": "accept"
+      },
+      {
+        "w": "bbbbbabbaaabbaaa",
+        "out": "bbbbabbaaabbaaab",
+        "expect": "accept"
+      }
+    ],
+    "library": {
+      "author": {
+        "login": "thethinkmachine"
+      },
+      "license": "CC-BY-4.0",
+      "tags": [
+        "two-way",
+        "rotation",
+        "text-processing"
+      ],
+      "difficulty": "intro"
+    }
+  }
+}

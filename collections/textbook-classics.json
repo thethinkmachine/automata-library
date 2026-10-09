@@ -28,6 +28,7 @@
     "turing/tm/0n1n-by-crossing-off",
     "turing/tm/proper-subtraction-m-n",
     "finite/enfa/thompson-s-construction-of-a-b-abb",
-    "turing/tm/sipser-s-m4-are-the-strings-all-different"
+    "turing/tm/sipser-s-m4-are-the-strings-all-different",
+    "finite/dfa/every-window-of-five-has-two-0s"
   ]
 }

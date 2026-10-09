@@ -15,6 +15,8 @@
     "omega/npa/infinitely-often-a-or-eventually-always-c",
     "omega/dwa/a-happens-eventually",
     "omega/dwa/an-a-and-no-b-ever-after-it",
-    "omega/nwa/never-two-a-s-with-a-needless-guess"
+    "omega/nwa/never-two-a-s-with-a-needless-guess",
+    "omega/dpa/the-parity-condition-itself",
+    "omega/dwa/a-happens-at-least-twice"
   ]
 }

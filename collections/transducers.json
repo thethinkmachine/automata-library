@@ -20,6 +20,9 @@
     "transducers/twodft/a-word-and-its-mirror-w-wwr",
     "transducers/twodft/copy-twice-w-ww",
     "transducers/pdt/polish-notation-to-reverse-polish",
-    "transducers/pdt/what-is-left-after-cancelling"
+    "transducers/pdt/what-is-left-after-cancelling",
+    "transducers/moore/a-coin-operated-turnstile",
+    "transducers/fst/run-length-decoding",
+    "transducers/twodft/rotate-move-the-first-letter-to-the-end"
   ]
 }

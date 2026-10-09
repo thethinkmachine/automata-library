@@ -1,0 +1,149 @@
+{
+  "format": "automata-studio/workspace",
+  "schema": 1,
+  "app": "dev",
+  "machine": "DFA",
+  "config": {
+    "sym": {
+      "eps": "ε",
+      "any": "Σ",
+      "blank": "⊔",
+      "leftMarker": "⊢",
+      "rightMarker": "⊣",
+      "stackBottom": "Z",
+      "lambda": "λ"
+    }
+  },
+  "sigma": [
+    "a",
+    "b"
+  ],
+  "stackAlpha": [],
+  "outputAlpha": [],
+  "tapeCount": 1,
+  "states": [
+    {
+      "id": "s1",
+      "x": 220,
+      "y": 160,
+      "name": "q0"
+    },
+    {
+      "id": "s2",
+      "x": 300,
+      "y": 240,
+      "name": "q1"
+    },
+    {
+      "id": "s3",
+      "x": 220,
+      "y": 320,
+      "name": "q2"
+    },
+    {
+      "id": "s4",
+      "x": 140,
+      "y": 240,
+      "name": "q3"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "t1",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "a"
+    },
+    {
+      "id": "t2",
+      "from": "s1",
+      "to": "s1",
+      "symbol": "b"
+    },
+    {
+      "id": "t3",
+      "from": "s2",
+      "to": "s3",
+      "symbol": "a"
+    },
+    {
+      "id": "t4",
+      "from": "s2",
+      "to": "s2",
+      "symbol": "b"
+    },
+    {
+      "id": "t5",
+      "from": "s3",
+      "to": "s4",
+      "symbol": "a"
+    },
+    {
+      "id": "t6",
+      "from": "s3",
+      "to": "s3",
+      "symbol": "b"
+    },
+    {
+      "id": "t7",
+      "from": "s4",
+      "to": "s1",
+      "symbol": "a"
+    },
+    {
+      "id": "t8",
+      "from": "s4",
+      "to": "s1",
+      "symbol": "b"
+    }
+  ],
+  "startId": "s1",
+  "accepts": [
+    "s1"
+  ],
+  "notes": [],
+  "dividers": [],
+  "blocks": [],
+  "meta": {
+    "title": "Černý’s automaton: one word that resets everything",
+    "blurb": "a turns the ring of four states; b moves only q3, to q0. Some word sends every state to the same place — baaabaaab, nine letters, ending in q0 from wherever it started — and none is shorter. Černý conjectured in 1964 that an n-state automaton that can be reset at all can be reset in (n − 1)² letters; this machine is why that bound would be exact. The conjecture is still open.",
+    "inputs": [
+      {
+        "w": "baaabaaab",
+        "expect": "accept"
+      },
+      {
+        "w": "aaaa",
+        "expect": "accept"
+      },
+      {
+        "w": "aaab",
+        "expect": "accept"
+      },
+      {
+        "w": "b",
+        "expect": "accept"
+      },
+      {
+        "w": "a",
+        "expect": "reject"
+      },
+      {
+        "w": "baaabaaa",
+        "expect": "reject"
+      }
+    ],
+    "library": {
+      "author": {
+        "login": "thethinkmachine"
+      },
+      "license": "CC-BY-4.0",
+      "tags": [
+        "synchronising-words",
+        "cerny-conjecture",
+        "open-problems"
+      ],
+      "difficulty": "advanced"
+    }
+  }
+}

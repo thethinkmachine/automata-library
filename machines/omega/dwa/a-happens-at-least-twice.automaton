@@ -1,0 +1,140 @@
+{
+  "format": "automata-studio/workspace",
+  "schema": 1,
+  "app": "dev",
+  "machine": "DWA",
+  "config": {
+    "sym": {
+      "eps": "ε",
+      "any": "Σ",
+      "blank": "⊔",
+      "leftMarker": "⊢",
+      "rightMarker": "⊣",
+      "stackBottom": "Z",
+      "lambda": "λ"
+    }
+  },
+  "sigma": [
+    "a",
+    "b"
+  ],
+  "stackAlpha": [],
+  "outputAlpha": [],
+  "tapeCount": 1,
+  "states": [
+    {
+      "id": "s1",
+      "x": 140,
+      "y": 160,
+      "name": "zero"
+    },
+    {
+      "id": "s2",
+      "x": 319,
+      "y": 160,
+      "name": "one"
+    },
+    {
+      "id": "s3",
+      "x": 498,
+      "y": 160,
+      "name": "two"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "t1",
+      "from": "s1",
+      "to": "s1",
+      "symbol": "b"
+    },
+    {
+      "id": "t2",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "a"
+    },
+    {
+      "id": "t3",
+      "from": "s2",
+      "to": "s2",
+      "symbol": "b"
+    },
+    {
+      "id": "t4",
+      "from": "s2",
+      "to": "s3",
+      "symbol": "a"
+    },
+    {
+      "id": "t5",
+      "from": "s3",
+      "to": "s3",
+      "symbol": "a"
+    },
+    {
+      "id": "t6",
+      "from": "s3",
+      "to": "s3",
+      "symbol": "b"
+    }
+  ],
+  "startId": "s1",
+  "accepts": [
+    "s3"
+  ],
+  "notes": [],
+  "dividers": [],
+  "blocks": [],
+  "meta": {
+    "title": "a happens at least twice",
+    "blurb": "A guarantee that counts: two a’s, at any distance. The states are how many a’s have been seen, capped at two, and the last one is a sink that accepts. Each state is its own component, so the automaton is weak, as every guarantee property’s can be.",
+    "inputs": [
+      {
+        "w": "(a)",
+        "expect": "accept"
+      },
+      {
+        "w": "(aa)",
+        "expect": "accept"
+      },
+      {
+        "w": "(ab)",
+        "expect": "accept"
+      },
+      {
+        "w": "(ba)",
+        "expect": "accept"
+      },
+      {
+        "w": "(b)",
+        "expect": "reject"
+      },
+      {
+        "w": "(bb)",
+        "expect": "reject"
+      },
+      {
+        "w": "(bbb)",
+        "expect": "reject"
+      },
+      {
+        "w": "abb(b)",
+        "expect": "reject"
+      }
+    ],
+    "library": {
+      "author": {
+        "login": "thethinkmachine"
+      },
+      "license": "CC-BY-4.0",
+      "tags": [
+        "ltl",
+        "guarantee",
+        "counting",
+        "weak"
+      ],
+      "difficulty": "intro"
+    }
+  }
+}

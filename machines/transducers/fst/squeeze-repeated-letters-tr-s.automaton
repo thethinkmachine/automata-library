@@ -1,0 +1,139 @@
+{
+  "format": "automata-studio/workspace",
+  "schema": 1,
+  "app": "dev",
+  "machine": "FST",
+  "config": {
+    "sym": {
+      "eps": "ε",
+      "any": "Σ",
+      "blank": "⊔",
+      "leftMarker": "⊢",
+      "rightMarker": "⊣",
+      "stackBottom": "Z",
+      "lambda": "λ"
+    },
+    "transducerAccepts": false
+  },
+  "sigma": [
+    "a",
+    "b"
+  ],
+  "stackAlpha": [],
+  "outputAlpha": [
+    "a",
+    "b"
+  ],
+  "tapeCount": 1,
+  "states": [
+    {
+      "id": "s1",
+      "x": 140,
+      "y": 208,
+      "name": "start"
+    },
+    {
+      "id": "s2",
+      "x": 319,
+      "y": 160,
+      "name": "lastA"
+    },
+    {
+      "id": "s3",
+      "x": 319,
+      "y": 255,
+      "name": "lastB"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "t1",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "a",
+      "output": "a"
+    },
+    {
+      "id": "t2",
+      "from": "s1",
+      "to": "s3",
+      "symbol": "b",
+      "output": "b"
+    },
+    {
+      "id": "t3",
+      "from": "s2",
+      "to": "s2",
+      "symbol": "a",
+      "output": ""
+    },
+    {
+      "id": "t4",
+      "from": "s2",
+      "to": "s3",
+      "symbol": "b",
+      "output": "b"
+    },
+    {
+      "id": "t5",
+      "from": "s3",
+      "to": "s3",
+      "symbol": "b",
+      "output": ""
+    },
+    {
+      "id": "t6",
+      "from": "s3",
+      "to": "s2",
+      "symbol": "a",
+      "output": "a"
+    }
+  ],
+  "startId": "s1",
+  "accepts": [],
+  "notes": [],
+  "dividers": [],
+  "blocks": [],
+  "meta": {
+    "title": "Squeeze repeated letters: tr -s",
+    "blurb": "Collapse every run of the same letter to one: aaabbba becomes aba, as the Unix command tr -s does. The machine remembers the last letter it printed and prints nothing while the same letter repeats — an edge with an empty output.",
+    "inputs": [
+      {
+        "w": "a",
+        "out": "a"
+      },
+      {
+        "w": "b",
+        "out": "b"
+      },
+      {
+        "w": "aa",
+        "out": "a"
+      },
+      {
+        "w": "ab",
+        "out": "ab"
+      },
+      {
+        "w": "aaa",
+        "out": "a"
+      },
+      {
+        "w": "bbbbbabbaaabbaaa",
+        "out": "bababa"
+      }
+    ],
+    "library": {
+      "author": {
+        "login": "thethinkmachine"
+      },
+      "license": "CC-BY-4.0",
+      "tags": [
+        "unix",
+        "text-processing",
+        "deduplication"
+      ],
+      "difficulty": "intro"
+    }
+  }
+}

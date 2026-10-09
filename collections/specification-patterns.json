@@ -10,6 +10,9 @@
     "omega/dpa/strong-fairness-gf-a-gf-b",
     "omega/dcoba/eventually-every-a-is-followed-by-b",
     "omega/dwa/an-a-and-no-b-ever-after-it",
-    "finite/dfa/two-processes-one-critical-section"
+    "finite/dfa/two-processes-one-critical-section",
+    "omega/dba/at-most-two-requests-ever",
+    "omega/dba/between-q-and-r-p-must-happen",
+    "omega/dcoba/eventually-it-stops-changing"
   ]
 }

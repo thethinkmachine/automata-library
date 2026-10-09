@@ -14,6 +14,7 @@
     "transducers/fst/thousands-separators",
     "omega/buchi/classic-eventually-always-b",
     "turing/ndtm/subset-sum-by-guessing",
-    "turing/ndtm/is-n-composite-guess-a-factor"
+    "turing/ndtm/is-n-composite-guess-a-factor",
+    "omega/buchi/infinitely-many-a-s-and-eventually-no-b"
   ]
 }

@@ -1,0 +1,306 @@
+{
+  "format": "automata-studio/workspace",
+  "schema": 1,
+  "app": "dev",
+  "machine": "2DFA",
+  "config": {
+    "sym": {
+      "eps": "ε",
+      "any": "Σ",
+      "blank": "⊔",
+      "leftMarker": "⊢",
+      "rightMarker": "⊣",
+      "stackBottom": "Z",
+      "lambda": "λ"
+    }
+  },
+  "sigma": [
+    "a",
+    "b"
+  ],
+  "stackAlpha": [],
+  "outputAlpha": [],
+  "tapeCount": 1,
+  "states": [
+    {
+      "id": "s1",
+      "x": 140,
+      "y": 208,
+      "name": "run"
+    },
+    {
+      "id": "s2",
+      "x": 319,
+      "y": 208,
+      "name": "last"
+    },
+    {
+      "id": "s3",
+      "x": 498,
+      "y": 255,
+      "name": "rewA"
+    },
+    {
+      "id": "s4",
+      "x": 498,
+      "y": 160,
+      "name": "rewB"
+    },
+    {
+      "id": "s5",
+      "x": 677,
+      "y": 255,
+      "name": "findA"
+    },
+    {
+      "id": "s6",
+      "x": 677,
+      "y": 160,
+      "name": "findB"
+    },
+    {
+      "id": "s7",
+      "x": 856,
+      "y": 255,
+      "name": "gotA"
+    },
+    {
+      "id": "s8",
+      "x": 856,
+      "y": 160,
+      "name": "gotB"
+    },
+    {
+      "id": "s9",
+      "x": 1035,
+      "y": 208,
+      "name": "past"
+    },
+    {
+      "id": "s10",
+      "x": 1214,
+      "y": 208,
+      "name": "yes"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "t1",
+      "from": "s1",
+      "to": "s1",
+      "symbol": "⊢",
+      "dir": "R"
+    },
+    {
+      "id": "t2",
+      "from": "s1",
+      "to": "s1",
+      "symbol": "a",
+      "dir": "R"
+    },
+    {
+      "id": "t3",
+      "from": "s1",
+      "to": "s1",
+      "symbol": "b",
+      "dir": "R"
+    },
+    {
+      "id": "t4",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "⊣",
+      "dir": "L"
+    },
+    {
+      "id": "t5",
+      "from": "s2",
+      "to": "s3",
+      "symbol": "a",
+      "dir": "L"
+    },
+    {
+      "id": "t6",
+      "from": "s2",
+      "to": "s4",
+      "symbol": "b",
+      "dir": "L"
+    },
+    {
+      "id": "t7",
+      "from": "s3",
+      "to": "s3",
+      "symbol": "a",
+      "dir": "L"
+    },
+    {
+      "id": "t8",
+      "from": "s3",
+      "to": "s3",
+      "symbol": "b",
+      "dir": "L"
+    },
+    {
+      "id": "t9",
+      "from": "s3",
+      "to": "s5",
+      "symbol": "⊢",
+      "dir": "R"
+    },
+    {
+      "id": "t10",
+      "from": "s4",
+      "to": "s4",
+      "symbol": "a",
+      "dir": "L"
+    },
+    {
+      "id": "t11",
+      "from": "s4",
+      "to": "s4",
+      "symbol": "b",
+      "dir": "L"
+    },
+    {
+      "id": "t12",
+      "from": "s4",
+      "to": "s6",
+      "symbol": "⊢",
+      "dir": "R"
+    },
+    {
+      "id": "t13",
+      "from": "s5",
+      "to": "s7",
+      "symbol": "a",
+      "dir": "R"
+    },
+    {
+      "id": "t14",
+      "from": "s5",
+      "to": "s5",
+      "symbol": "b",
+      "dir": "R"
+    },
+    {
+      "id": "t15",
+      "from": "s6",
+      "to": "s8",
+      "symbol": "b",
+      "dir": "R"
+    },
+    {
+      "id": "t16",
+      "from": "s6",
+      "to": "s6",
+      "symbol": "a",
+      "dir": "R"
+    },
+    {
+      "id": "t17",
+      "from": "s7",
+      "to": "s9",
+      "symbol": "a",
+      "dir": "R"
+    },
+    {
+      "id": "t18",
+      "from": "s7",
+      "to": "s9",
+      "symbol": "b",
+      "dir": "R"
+    },
+    {
+      "id": "t19",
+      "from": "s8",
+      "to": "s9",
+      "symbol": "a",
+      "dir": "R"
+    },
+    {
+      "id": "t20",
+      "from": "s8",
+      "to": "s9",
+      "symbol": "b",
+      "dir": "R"
+    },
+    {
+      "id": "t21",
+      "from": "s9",
+      "to": "s9",
+      "symbol": "a",
+      "dir": "R"
+    },
+    {
+      "id": "t22",
+      "from": "s9",
+      "to": "s9",
+      "symbol": "b",
+      "dir": "R"
+    },
+    {
+      "id": "t23",
+      "from": "s9",
+      "to": "s10",
+      "symbol": "⊣",
+      "dir": "S"
+    }
+  ],
+  "startId": "s1",
+  "accepts": [
+    "s10"
+  ],
+  "notes": [],
+  "dividers": [],
+  "blocks": [],
+  "meta": {
+    "title": "Déjà vu, without guessing",
+    "blurb": "The last letter appeared earlier — the language the two-way NFA decides by guessing which earlier letter matches. A deterministic two-way head does it with a second look instead: run to the end, read the last letter, go back to the start and search for it.",
+    "inputs": [
+      {
+        "w": "aa",
+        "expect": "accept"
+      },
+      {
+        "w": "abba",
+        "expect": "accept"
+      },
+      {
+        "w": "aaa",
+        "expect": "accept"
+      },
+      {
+        "w": "aaaaaaabba",
+        "expect": "accept"
+      },
+      {
+        "w": "ba",
+        "expect": "reject"
+      },
+      {
+        "w": "bbba",
+        "expect": "reject"
+      },
+      {
+        "w": "aab",
+        "expect": "reject"
+      },
+      {
+        "w": "",
+        "expect": "reject"
+      }
+    ],
+    "library": {
+      "author": {
+        "login": "thethinkmachine"
+      },
+      "license": "CC-BY-4.0",
+      "tags": [
+        "two-way",
+        "determinism",
+        "second-pass"
+      ],
+      "difficulty": "intermediate"
+    }
+  }
+}

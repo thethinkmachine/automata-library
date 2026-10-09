@@ -1,0 +1,209 @@
+{
+  "format": "automata-studio/workspace",
+  "schema": 1,
+  "app": "dev",
+  "machine": "DPA",
+  "config": {
+    "sym": {
+      "eps": "ε",
+      "any": "Σ",
+      "blank": "⊔",
+      "leftMarker": "⊢",
+      "rightMarker": "⊣",
+      "stackBottom": "Z",
+      "lambda": "λ"
+    }
+  },
+  "sigma": [
+    "0",
+    "1",
+    "2",
+    "3"
+  ],
+  "stackAlpha": [],
+  "outputAlpha": [],
+  "tapeCount": 1,
+  "states": [
+    {
+      "id": "s1",
+      "x": 220,
+      "y": 160,
+      "name": "p3",
+      "priority": 3
+    },
+    {
+      "id": "s2",
+      "x": 300,
+      "y": 240,
+      "name": "p0",
+      "priority": 0
+    },
+    {
+      "id": "s3",
+      "x": 220,
+      "y": 320,
+      "name": "p1",
+      "priority": 1
+    },
+    {
+      "id": "s4",
+      "x": 140,
+      "y": 240,
+      "name": "p2",
+      "priority": 2
+    }
+  ],
+  "transitions": [
+    {
+      "id": "t1",
+      "from": "s2",
+      "to": "s2",
+      "symbol": "0"
+    },
+    {
+      "id": "t2",
+      "from": "s2",
+      "to": "s3",
+      "symbol": "1"
+    },
+    {
+      "id": "t3",
+      "from": "s2",
+      "to": "s4",
+      "symbol": "2"
+    },
+    {
+      "id": "t4",
+      "from": "s2",
+      "to": "s1",
+      "symbol": "3"
+    },
+    {
+      "id": "t5",
+      "from": "s3",
+      "to": "s2",
+      "symbol": "0"
+    },
+    {
+      "id": "t6",
+      "from": "s3",
+      "to": "s3",
+      "symbol": "1"
+    },
+    {
+      "id": "t7",
+      "from": "s3",
+      "to": "s4",
+      "symbol": "2"
+    },
+    {
+      "id": "t8",
+      "from": "s3",
+      "to": "s1",
+      "symbol": "3"
+    },
+    {
+      "id": "t9",
+      "from": "s4",
+      "to": "s2",
+      "symbol": "0"
+    },
+    {
+      "id": "t10",
+      "from": "s4",
+      "to": "s3",
+      "symbol": "1"
+    },
+    {
+      "id": "t11",
+      "from": "s4",
+      "to": "s4",
+      "symbol": "2"
+    },
+    {
+      "id": "t12",
+      "from": "s4",
+      "to": "s1",
+      "symbol": "3"
+    },
+    {
+      "id": "t13",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "0"
+    },
+    {
+      "id": "t14",
+      "from": "s1",
+      "to": "s3",
+      "symbol": "1"
+    },
+    {
+      "id": "t15",
+      "from": "s1",
+      "to": "s4",
+      "symbol": "2"
+    },
+    {
+      "id": "t16",
+      "from": "s1",
+      "to": "s1",
+      "symbol": "3"
+    }
+  ],
+  "startId": "s1",
+  "accepts": [],
+  "notes": [],
+  "dividers": [],
+  "blocks": [],
+  "meta": {
+    "title": "The parity condition itself",
+    "blurb": "Letters 0, 1, 2 and 3 are priorities, and each state remembers the last one read. So the machine accepts exactly when the smallest priority that keeps coming back is even — the parity condition, turned into a language. Every parity game is played over words like these.",
+    "inputs": [
+      {
+        "w": "(0)",
+        "expect": "accept"
+      },
+      {
+        "w": "(2)",
+        "expect": "accept"
+      },
+      {
+        "w": "(00)",
+        "expect": "accept"
+      },
+      {
+        "w": "(01)",
+        "expect": "accept"
+      },
+      {
+        "w": "(1)",
+        "expect": "reject"
+      },
+      {
+        "w": "(3)",
+        "expect": "reject"
+      },
+      {
+        "w": "(11)",
+        "expect": "reject"
+      },
+      {
+        "w": "(12)",
+        "expect": "reject"
+      }
+    ],
+    "library": {
+      "author": {
+        "login": "thethinkmachine"
+      },
+      "license": "CC-BY-4.0",
+      "tags": [
+        "parity",
+        "acceptance-conditions",
+        "games"
+      ],
+      "difficulty": "intermediate"
+    }
+  }
+}

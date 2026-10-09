@@ -1,0 +1,158 @@
+{
+  "format": "automata-studio/workspace",
+  "schema": 1,
+  "app": "dev",
+  "machine": "DcoBA",
+  "config": {
+    "sym": {
+      "eps": "ε",
+      "any": "Σ",
+      "blank": "⊔",
+      "leftMarker": "⊢",
+      "rightMarker": "⊣",
+      "stackBottom": "Z",
+      "lambda": "λ"
+    }
+  },
+  "sigma": [
+    "a",
+    "b"
+  ],
+  "stackAlpha": [],
+  "outputAlpha": [],
+  "tapeCount": 1,
+  "states": [
+    {
+      "id": "s1",
+      "x": 140,
+      "y": 296,
+      "name": "a"
+    },
+    {
+      "id": "s2",
+      "x": 310,
+      "y": 432,
+      "name": "toB"
+    },
+    {
+      "id": "s3",
+      "x": 480,
+      "y": 296,
+      "name": "b"
+    },
+    {
+      "id": "s4",
+      "x": 310,
+      "y": 160,
+      "name": "toA"
+    }
+  ],
+  "transitions": [
+    {
+      "id": "t1",
+      "from": "s1",
+      "to": "s1",
+      "symbol": "a"
+    },
+    {
+      "id": "t2",
+      "from": "s1",
+      "to": "s2",
+      "symbol": "b"
+    },
+    {
+      "id": "t3",
+      "from": "s3",
+      "to": "s3",
+      "symbol": "b"
+    },
+    {
+      "id": "t4",
+      "from": "s3",
+      "to": "s4",
+      "symbol": "a"
+    },
+    {
+      "id": "t5",
+      "from": "s4",
+      "to": "s1",
+      "symbol": "a"
+    },
+    {
+      "id": "t6",
+      "from": "s4",
+      "to": "s2",
+      "symbol": "b"
+    },
+    {
+      "id": "t7",
+      "from": "s2",
+      "to": "s3",
+      "symbol": "b"
+    },
+    {
+      "id": "t8",
+      "from": "s2",
+      "to": "s4",
+      "symbol": "a"
+    }
+  ],
+  "startId": "s1",
+  "accepts": [
+    "s4",
+    "s2"
+  ],
+  "notes": [],
+  "dividers": [],
+  "blocks": [],
+  "meta": {
+    "title": "Eventually it stops changing",
+    "blurb": "The run settles: from some point on it is all a’s or all b’s. Co-Büchi acceptance marks the moments of change and accepts the words with only finitely many. The same language could be recognised by guessing which letter wins; with co-Büchi acceptance there is no need.",
+    "inputs": [
+      {
+        "w": "(a)",
+        "expect": "accept"
+      },
+      {
+        "w": "(b)",
+        "expect": "accept"
+      },
+      {
+        "w": "(aa)",
+        "expect": "accept"
+      },
+      {
+        "w": "(bb)",
+        "expect": "accept"
+      },
+      {
+        "w": "(ab)",
+        "expect": "reject"
+      },
+      {
+        "w": "(ba)",
+        "expect": "reject"
+      },
+      {
+        "w": "(aab)",
+        "expect": "reject"
+      },
+      {
+        "w": "(aba)",
+        "expect": "reject"
+      }
+    ],
+    "library": {
+      "author": {
+        "login": "thethinkmachine"
+      },
+      "license": "CC-BY-4.0",
+      "tags": [
+        "ltl",
+        "persistence",
+        "stabilisation"
+      ],
+      "difficulty": "intermediate"
+    }
+  }
+}
