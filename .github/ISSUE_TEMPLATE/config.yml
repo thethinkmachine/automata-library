@@ -4,5 +4,5 @@ contact_links:
     url: https://thethinkmachine.github.io/automata-library/
     about: Every machine, searchable, with the badges the CI earned for it.
   - name: Open AutomataStudio
-    url: https://thethinkmachine.github.io/AutomataStudio/#library
+    url: https://automatastudio.pages.dev/#library
     about: Build a machine and submit it from the app.

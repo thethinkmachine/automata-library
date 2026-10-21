@@ -1,7 +1,7 @@
 # AutomataStudio Library
 
 A browsable, verified library of automata, Turing machines and transducers for
-[AutomataStudio](https://thethinkmachine.github.io/AutomataStudio/). Busy
+[AutomataStudio](https://automatastudio.pages.dev/). Busy
 beavers, textbook DFAs, ω-automata, pushdown machines, transducers — every one
 opens in the app with a click.
 
