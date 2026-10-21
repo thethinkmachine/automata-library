@@ -21,23 +21,24 @@ jobs:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
+      # The engine is AutomataStudio's library tools as one bundle, which its CI
+      # tests against the source and pushes to this repository's `engine`
+      # branch. AutomataStudio's own repository is private, so it is not
+      # checked out, and the bundle needs no install.
       - name: Check out the engine
         uses: actions/checkout@v4
         with:
-          repository: thethinkmachine/AutomataStudio
-          ref: main
+          repository: thethinkmachine/automata-library
+          ref: engine
           path: .engine
       - uses: actions/setup-node@v4
         with:
           node-version: 24
-      - name: Install the engine
-        working-directory: .engine
-        run: npm ci --omit=dev --ignore-scripts
       - name: Analyse
         id: analyse
         continue-on-error: true
         run: >
-          node --conditions=browser --conditions=development .engine/scripts/library/build.mjs
+          node .engine/build.mjs
           --library . --check --report report.md
           --changed-since "origin/${{ github.base_ref }}"
       - name: Authorship
@@ -45,7 +46,7 @@ jobs:
         continue-on-error: true
         env:
           PR_AUTHOR: ${{ github.event.pull_request.user.login }}
-        run: node .engine/scripts/library/guard.mjs --library . --base "origin/${{ github.base_ref }}" > guard.md
+        run: node .engine/guard.mjs --library . --base "origin/${{ github.base_ref }}" > guard.md
       - name: Post the report
         if: always()
         continue-on-error: true

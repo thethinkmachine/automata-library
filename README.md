@@ -53,12 +53,11 @@ library.config.json                         repo, site, maintainers, featured co
 
 ## Running the build locally
 
-The CI runs the engine from a checkout of AutomataStudio:
+The CI runs the engine from this repository's `engine` branch, where AutomataStudio publishes its library tools as one bundle:
 
 ```sh
-git clone https://github.com/thethinkmachine/AutomataStudio .engine
-(cd .engine && npm ci --omit=dev --ignore-scripts)
-node --conditions=browser --conditions=development .engine/scripts/library/build.mjs --library . --out _site
+git clone --branch engine --depth 1 https://github.com/thethinkmachine/automata-library .engine
+node .engine/build.mjs --library . --out _site
 npx serve _site   # then, in the app: More ▸ Library ▸ How it works ▸ Source → http://localhost:3000/
 ```
 
