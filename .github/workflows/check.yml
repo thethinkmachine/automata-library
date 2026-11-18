@@ -34,13 +34,24 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 24
+      # Halting verdicts from main's last Publish, by each machine file's hash. The
+      # engine keeps them only while its halting code is the code that
+      # computed them (scripts/library/behaviour-key.mjs in AutomataStudio), so
+      # a build runs the classifier — minutes, for a few machines — only for a
+      # machine that is new or changed, or after the provers change.
+      - name: Restore the halting cache
+        uses: actions/cache/restore@v4
+        with:
+          path: .behaviour-cache.json
+          key: behaviour-${{ github.run_id }}
+          restore-keys: behaviour-
       - name: Analyse
         id: analyse
         continue-on-error: true
-        run: >
-          node .engine/build.mjs
-          --library . --check --report report.md
-          --changed-since "origin/${{ github.base_ref }}"
+        run: |
+          cache=""
+          if grep -q -- '--behaviour-cache' .engine/build.mjs; then cache="--behaviour-cache .behaviour-cache.json"; fi
+          node .engine/build.mjs --library . --check --report report.md --changed-since "origin/${{ github.base_ref }}" $cache
       - name: Authorship
         id: guard
         continue-on-error: true
